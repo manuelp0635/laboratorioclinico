@@ -252,7 +252,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link link text-black text-primary dropdown-toggle display-4" href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Iniciar sesion</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-388">
-                                <a class="text-black text-primary dropdown-item display-4" class="btn" href="http://localhost/laboratorio-master/login.php"  target="_blank" id="download-lab">Usuario</a>
+                                <a class="text-black text-primary dropdown-item display-4" class="btn" href="http://localhost/laboratorio-master/login.php"  target="_blank">Usuario</a>
                                 <!--<a class="text-black text-primary dropdown-item display-4" class="btn" href="https://exchange.avalont.com.co/login"  target="_blank" id="download-lab">Laboratorio Clinico</a>
                                 <a class="text-black text-primary show dropdown-item display-4" class="btn" href="https://pacientes.oficinavirtual.com.co/login?idEmpresa=NjRjMmI5Mzg5ZTljY2E1NTMwNmE2NDkw&key=MjA0MTI5"  target="_blank" id="download-occupational">Salud Ocupacional</a>
                             </div>-->
@@ -587,28 +587,6 @@
             successMessage.style.display = 'none';
             form.reset();
         }, 3000);
-    });
-</script>
-
-<script>
-    // Función para descargar resultados
-    function downloadFile(filename) {
-        const link = document.createElement('a');
-        link.href = `./${filename}.pdf`; // Ruta simulada al archivo PDF
-        link.download = filename;
-        link.click();
-    }
-
-    // Botones de descarga
-    const downloadLab = document.getElementById('download-lab');
-    const downloadOccupational = document.getElementById('download-occupational');
-
-    downloadLab.addEventListener('click', () => {
-        downloadFile('resultados_laboratorio');
-    });
-
-    downloadOccupational.addEventListener('click', () => {
-        downloadFile('resultados_salud_ocupacional');
     });
 </script>
 
