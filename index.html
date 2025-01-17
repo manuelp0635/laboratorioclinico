@@ -237,7 +237,7 @@
                             <img src="./assets/images/logo-1642814059.png" alt="" style="height: 3rem;">
                     
                     </span>
-                    <span class="navbar-caption-wrap"><a class="navbar-caption text-primary display-7" href="#"></a>Laboratorio Clinico</span>
+                    <span class="navbar-caption-wrap"><a class="navbar-caption text-primary display-7" href="#"></a><!-- Texto --></span>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <div class="hamburger">
@@ -263,12 +263,13 @@
         </nav>
     </section>
 
-<!-- Nosotros -->
-<br><br>
+<!-- Video responsive -->
+ <br><br><br>
 
             <center>
         <div class="videoScreen">
-            <video src="./assets/images/pruebavideo.mp4" controls="controls"></video>
+            <video id="large-video" class="embed-responsive-item" autoplay controls="controls">
+                <source src="./assets/images/pruebavideo.mp4" type="video/mp4">
         </div>
             </center>
 
@@ -618,6 +619,7 @@
 
 </script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="js/video.js"></script>
 <script>
     function closeIframe() {
         $(".iframe-container, .close-btn").hide();

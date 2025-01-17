@@ -99,13 +99,16 @@ video {
 
   /* Estilos adicionales para dispositivos móviles */
  
-  @media {
+  @media (min-width: 150px) {
     .videoScreen video {
       width:99.8%;
       height: auto;
       margin: 0.5% 0 0 0;
   }
+}
 
+  @media (max-width: 1025px) {
+    
   .videoScreen video {
     width:100%;
     height: auto;
