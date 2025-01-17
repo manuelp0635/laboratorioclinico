@@ -98,9 +98,29 @@ video {
 
 
   /* Estilos adicionales para dispositivos móviles */
+ 
+  @media {
+    .videoScreen video {
+      width:99.8%;
+      height: auto;
+      margin: 0.5% 0 0 0;
+  }
+
+  .videoScreen video {
+    width:100%;
+    height: auto;
+    margin: 3% 0% 0% 0%;
+    }
+  }
+
+
 @media (max-width: 767px) {
     .carousel-inner {
         height: 40vh; /* Ajusta la altura del carousel en dispositivos móviles */
+    }
+
+    .video {
+      
     }
 
     .carousel-item img {
