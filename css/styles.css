@@ -61,8 +61,14 @@ background: linear-gradient(124deg, rgba(246,233,197,1) 21%, rgba(204,185,133,1)
 
 video {
   width: 100%;
-  height: auto;
+  max-width: 800px;
+  display: block;
+  margin: 20px 0;
+  border: 5px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
+
 .whatsapp-btn img {
     width: 100%; /* Ajusta el tamaño de la imagen dentro del botón */
     height: auto;
