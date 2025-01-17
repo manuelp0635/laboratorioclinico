@@ -59,6 +59,10 @@ background: linear-gradient(124deg, rgba(246,233,197,1) 21%, rgba(204,185,133,1)
     animation: glow 2s infinite alternate; /* Animación de brillo intermitente */
 }
 
+video {
+  width: 100%;
+  height: auto;
+}
 .whatsapp-btn img {
     width: 100%; /* Ajusta el tamaño de la imagen dentro del botón */
     height: auto;
@@ -106,7 +110,6 @@ background: linear-gradient(124deg, rgba(246,233,197,1) 21%, rgba(204,185,133,1)
     right: auto;
     transform: translate(0, 0);
 }
-
 
 /* Ajustar la posición de la navegación del carousel */
 .carousel-control-prev, .carousel-control-next {
