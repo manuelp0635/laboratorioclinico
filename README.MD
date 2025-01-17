@@ -1,7 +1,7 @@
 
 - Cambio en texto descriptivo (Mision - Vision - Politica de calidad) (Pendiente)
 
-- Se agrego enlace de instagram a peticion del cliente (Pendiente)
+- Se agrego enlace de instagram a peticion del cliente (Ok)
 
 - Agregar carrusel de videos con autoplay (Pendiente)
 
