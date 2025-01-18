@@ -1,8 +1,6 @@
 
 - Cambio en texto descriptivo (Mision - Vision - Politica de calidad) (Pendiente)
 
-- Agregar carrusel de videos con autoplay (Pendiente)
-
 - Se realizan pruebas basicas para cumplir con la peticion del cliente (Pruebas)
 
 ----------------------------------------------------------------------------------------------
@@ -11,3 +9,5 @@
 - Se agrega cambio para diseño responsive para video de prueba (OK)
 
 - Se agrego enlace de instagram a peticion del cliente (Ok)
+
+- Agregar carrusel de videos con autoplay (OK)
