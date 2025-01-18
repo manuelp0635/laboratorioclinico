@@ -81,67 +81,63 @@
         }
     </style>
 
-    <!-- Estilos carusel de videos -->
-
-    <style>
-        body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          background-color: #f0f0f0;
-        }
-        section {
-          width: 90%;
-          max-width: 900px;
-          overflow: hidden;
-          position: relative;
-          border-radius: 10px;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .carousel {
-          display: flex;
-          transition: transform 0.5s ease-in-out;
-        }
-        .carousel video {
-          width: 100%;
-          height: auto;
-          flex-shrink: 0;
-        }
-        .controls {
-          position: absolute;
-          top: 50%;
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          transform: translateY(-50%);
-        }
-        .controls button {
-          background-color: rgba(0, 0, 0, 0.5);
-          color: white;
-          border: none;
-          padding: 10px;
-          cursor: pointer;
-          border-radius: 50%;
-          transition: background-color 0.3s;
-        }
-        .controls button:hover {
-          background-color: rgba(0, 0, 0, 0.8);
-        }
-        /* Responsividad para pantallas más pequeñas */
-        @media (max-width: 600px) {
-          section {
-            width: 100%;
-            max-width: 100%;
-          }
-          .controls button {
-            padding: 8px;
-          }
-        }
-      </style>
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      flex-direction: row;
+      display: ruby-base-container;
+      height: 100vh;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+    section {
+      width: 90%;
+      max-width: 900px;
+      overflow: hidden;
+      position: relative;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel video {
+      width: 100%;
+      height: auto;
+      flex-shrink: 0;
+    }
+    .controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .controls button {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+    .controls button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    /* Responsividad para pantallas más pequeñas */
+    @media (max-width: 600px) {
+      section {
+        width: 100%;
+        max-width: 100%;
+      }
+      .controls button {
+        padding: 8px;
+      }
+    }
+  </style>
       
       <style>
         /* Reset básico */
@@ -395,64 +391,20 @@
     </div>
 </section>
 
-<section>
+<!-- Carrusel de videos -->
+<section data-bs-version="5.1" class="slider6 mbr-embla cid-u1POXRwmNA" id="slider6-c">
     <div class="carousel">
-      <video src="./assets/videos/VID-20250116-WA0021.mp4" autoplay muted></video>
-      <video src="./assets/videos/VID-20250116-WA0022.mp4" autoplay muted></video>
-      <video src="./assets/videos/VID-20250116-WA0023.mp4" autoplay muted></video>
-      <video src="./assets/videos/VID-20250116-WA0024.mp4" autoplay muted></video>
-      <video src="./assets/videos/VID-20250116-WA0025.mp4" autoplay muted></video>
+      <video src="assets/videos/VID-20250116-WA0021.mp4" autoplay muted></video>
+      <video src="assets/videos/VID-20250116-WA0022.mp4" autoplay muted></video>
+      <video src="assets/videos/VID-20250116-WA0023.mp4" autoplay muted></video>
+      <video src="assets/videos/VID-20250116-WA0024.mp4" autoplay muted></video>
+      <video src="assets/videos/VID-20250116-WA0025.mp4" autoplay muted></video>
     </div>
     <div class="controls">
-      <button id="prev">❮</button>
-      <button id="next">❯</button>
+      <button id="prev"></button>
+      <button id="next"></button>
     </div>
   </section>
-
-<!--<section>
-    <div class="recommendations-section">
-        <h1 class="recommendations-title">Recomendaciones</h1>
-        <div class="carousel-container">
-        <div class="video-grid">
-            <div class="video-card">
-                <iframe src="./assets/videos/VID-20250116-WA0021.mp4" controls allowfullscreen></iframe>
-                <div class="video-content">
-                    <h3 class="video-title">Video 1: Ejemplo Inspirador</h3>
-                    <p class="video-description">Este video te enseñará los conceptos básicos de HTML y CSS de forma divertida y práctica.</p>
-                </div>
-            </div>
-            <div class="video-card">
-                <iframe src="./assets/videos/VID-20250116-WA0022.mp4" allowfullscreen></iframe>
-                <div class="video-content">
-                    <h3 class="video-title">Video 2: Introducción a JavaScript</h3>
-                    <p class="video-description">Aprende los fundamentos de JavaScript y cómo integrarlo con HTML y CSS para crear sitios interactivos.</p>
-                </div>
-            </div>
-            <div class="video-card">
-                <iframe src="./assets/videos/VID-20250116-WA0023.mp4" allowfullscreen></iframe>
-                <div class="video-content">
-                    <h3 class="video-title">Video 3: Diseños Responsivos</h3>
-                    <p class="video-description">Descubre cómo diseñar páginas web que se adapten a todos los tamaños de pantalla.</p>--
-                </div>
-            </div>
-            <div class="video-card">
-                <iframe src="./assets/videos/VID-20250116-WA0024.mp4" allowfullscreen></iframe>
-                <div class="video-content">
-                    <h3 class="video-title">Video 4: Ejemplo Inspirador</h3>
-                    <p class="video-description">Este video te enseñará los conceptos básicos de HTML y CSS de forma divertida y práctica.</p>--
-                </div>
-            </div>
-            <div class="video-card">
-                <iframe src="./assets/videos/VID-20250116-WA0025.mp4" allowfullscreen></iframe>
-                <div class="video-content">
-                    <h3 class="video-title">Video 5: Ejemplo Inspirador</h3>
-                    <p class="video-description">Este video te enseñará los conceptos básicos de HTML y CSS de forma divertida y práctica.</p>--
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</section>-->
 
 <!-- seccion nosotros -->
 <section class="contacts4 cid-sFAyMcKwph mcb" id="contacts4-21"> 
@@ -702,7 +654,6 @@
     </div>
 </section>
 
-<!-- Script carrusel videos -->
 <script>
     const carousel = document.querySelector('.carousel');
     const videos = document.querySelectorAll('.carousel video');
