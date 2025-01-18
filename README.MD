@@ -3,8 +3,6 @@
 
 - Se realizan pruebas basicas para cumplir con la peticion del cliente (Pruebas)
 
-https://www.instagram.com/laboratorio_clinico_plus?utm_source=qr&igsh=MXZyZWV1cXNkNHU4Mw==
-
 ------------------------------------------------------
 - Pendiente revision cliente para cambios en diseño de la pagina de inicio (Ok)
 
