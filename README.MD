@@ -10,5 +10,7 @@
 
 - Agregar carrusel de videos con autoplay (OK)
 
+- Carrusel de videos responsive + autoplay (OK)
+
 - Se realizan pruebas basicas para cumplir con la peticion del cliente (Pruebas)
 
