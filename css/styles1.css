@@ -8,7 +8,7 @@ body {
     min-height: 100vh;
   }
   
-  .video-slider-container {
+  .video-slide-container {
     width: 90%;
     max-width: 800px;
     overflow: hidden;
@@ -18,7 +18,7 @@ body {
     background: #fff;
   }
   
-  .video-slider {
+  .video-slide {
     display: flex;
     transition: transform 0.5s ease-in-out;
   }
@@ -28,6 +28,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .video-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .video-slide {
+    flex: 0 0 100%; /* Asegura que cada video ocupe el ancho completo */
+    scroll-snap-align: start;
+    padding: 10px;
+    box-sizing: border-box;
   }
   
   video {

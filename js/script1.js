@@ -1,5 +1,5 @@
-// script.js
-const slider = document.querySelector('.video-slider');
+/*// script.js
+const slider = document.querySelector('.video-slide');
 const videos = document.querySelectorAll('.video-item video');
 let currentIndex = 0;
 
@@ -26,4 +26,22 @@ videos.forEach((video, index) => {
 videos[currentIndex].play();
 
 // Ajustar el slider al redimensionar la ventana
-window.addEventListener('resize', updateSlider);
+window.addEventListener('resize', updateSlider); */
+
+
+/* Script para reproducir un video a la vez*/
+
+// Selecciona todos los videos en el carrusel
+const videos = document.querySelectorAll('.video-slide video');
+
+// Agrega un event listener a cada video
+videos.forEach((video) => {
+  video.addEventListener('play', () => {
+    // Pausa todos los videos excepto el que se esta reproduciendo
+    videos.forEach((v) => {
+      if (v !== video) {
+        v.pause();
+      }
+    });
+  });
+});
