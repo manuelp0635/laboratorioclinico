@@ -1,47 +1,32 @@
-/*// script.js
-const slider = document.querySelector('.video-slide');
-const videos = document.querySelectorAll('.video-item video');
-let currentIndex = 0;
+  const slider = document.querySelector('.slider');
+  const videos = document.querySelectorAll('.slider video');
+  let index = 0;
 
-// Función para actualizar la posición del slider
-function updateSlider() {
-  const width = slider.offsetWidth;
-  slider.style.transform = `translateX(-${currentIndex * width}px)`;
-}
-
-// Función para avanzar automáticamente al siguiente video
-function playNextVideo() {
-  videos[currentIndex].pause(); // Pausa el video actual
-  currentIndex = (currentIndex + 1) % videos.length; // Avanza al siguiente índice (cíclico)
-  updateSlider();
-  videos[currentIndex].play(); // Reproduce el siguiente video
-}
-
-// Configurar eventos para cada video
-videos.forEach((video, index) => {
-  video.addEventListener('ended', playNextVideo); // Avanzar al siguiente video cuando termine
-});
-
-// Iniciar la reproducción del primer video
-videos[currentIndex].play();
-
-// Ajustar el slider al redimensionar la ventana
-window.addEventListener('resize', updateSlider); */
-
-
-/* Script para reproducir un video a la vez*/
-
-// Selecciona todos los videos en el carrusel
-const videos = document.querySelectorAll('.video-slide video');
-
-// Agrega un event listener a cada video
-videos.forEach((video) => {
-  video.addEventListener('play', () => {
-    // Pausa todos los videos excepto el que se esta reproduciendo
-    videos.forEach((v) => {
-      if (v !== video) {
-        v.pause();
+  function playVideo() {
+    videos.forEach((video, i) => {
+      if (i === index) {
+        video.play();
+      } else {
+        video.pause();
+        video.currentTime = 0;
       }
     });
+  }
+
+  function nextVideo() {
+    index = (index + 1) % videos.length;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    playVideo();
+  }
+
+  videos.forEach((video) => {
+    video.addEventListener('ended', nextVideo);
   });
-});
+
+  // Automatically move to the next video after a fixed interval
+  setInterval(() => {
+    nextVideo();
+  }, 10000); // Adjust the interval (10 seconds here) as needed
+
+  // Initialize
+  playVideo();
