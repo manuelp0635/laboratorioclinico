@@ -96,34 +96,15 @@ video {
     cursor: pointer;
   }
 
+  .carousel-container {  max-width: 800px; /* Establece el ancho máximo del carrusel */  margin: 0 auto; /* Centra horizontalmente el carrusel */}
+
 
   /* Estilos adicionales para dispositivos móviles */
  
-  @media (min-width: 150px) {
-    .videoScreen video {
-      width:99.8%;
-      height: auto;
-      margin: 0.5% 0 0 0;
-  }
-}
-
-  @media (max-width: 1025px) {
-    
-  .videoScreen video {
-    width:100%;
-    height: auto;
-    margin: 3% 0% 0% 0%;
-    }
-  }
-
 
 @media (max-width: 767px) {
     .carousel-inner {
         height: 40vh; /* Ajusta la altura del carousel en dispositivos móviles */
-    }
-
-    .video {
-      
     }
 
     .carousel-item img {

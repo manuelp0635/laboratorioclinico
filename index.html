@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="generator" content="Mobirise v5.8.14, mobirise.com">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="assets/images/logo-1642814059.png" type="image/x-icon">
         <meta name="description" content="">
         
@@ -30,114 +30,7 @@
       <!-- Mobirise Additional Styles -->
       <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
       <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-
-      <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        .recommendations-section {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .recommendations-title {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .video-card {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .video-card iframe {
-            width: 100%;
-            height: 200px;
-            border: none;
-        }
-        .video-content {
-            padding: 15px;
-        }
-        .video-title {
-            font-size: 1.2em;
-            margin: 0;
-            color: #333;
-        }
-        .video-description {
-            font-size: 0.9em;
-            color: #666;
-            margin-top: 10px;
-        }
-    </style>
-
-<style>
-    body {
-      margin: 0;
-      padding: 0;
-      flex-direction: row;
-      display: ruby-base-container;
-      height: 100vh;
-      align-items: center;
-      background-color: #f0f0f0;
-    }
-    section {
-      width: 90%;
-      max-width: 900px;
-      overflow: hidden;
-      position: relative;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-    .carousel {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-    .carousel video {
-      width: 100%;
-      height: auto;
-      flex-shrink: 0;
-    }
-    .controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      justify-content: space-between;
-      transform: translateY(-50%);
-    }
-    .controls button {
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 50%;
-      transition: background-color 0.3s;
-    }
-    .controls button:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-    /* Responsividad para pantallas más pequeñas */
-    @media (max-width: 600px) {
-      section {
-        width: 100%;
-        max-width: 100%;
-      }
-      .controls button {
-        padding: 8px;
-      }
-    }
-  </style>
+      <link rel="stylesheet" href="./css/styles1.css">
       
       <style>
         /* Reset básico */
@@ -389,22 +282,48 @@
             </div>
         </div>
     </div>
-</section>
+</section> <br>
 
 <!-- Carrusel de videos -->
-<section>
-    <div class="carousel">
-      <video src="assets/videos/VID-20250116-WA0021.mp4" autoplay muted loop></video>
-      <video src="assets/videos/VID-20250116-WA0022.mp4" autoplay muted loop></video>
-      <video src="assets/videos/VID-20250116-WA0023.mp4" autoplay muted loop></video>
-      <video src="assets/videos/VID-20250116-WA0024.mp4" autoplay muted loop></video>
-      <video src="assets/videos/VID-20250116-WA0025.mp4" autoplay muted loop></video>
+<div class="position-relative"><br>
+    <div class="mbr-section-head">
+        <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Recomendaciones</strong></h4><br>
+        <!--<h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5">Nos mueve el deseo de servir.</h5>-->
     </div>
-    <div class="controls">
-      <button id="prev"><</button>
-      <button id="next">></button>
+    <div class="video-slider">
+      <div class="video-item">
+        <video controls>
+          <source src="assets/videos/VID-20250116-WA0021.mp4" type="video/mp4">
+          Tu navegador no soporta el video HTML5.
+        </video>
+      </div>
+      <div class="video-item">
+        <video controls>
+          <source src="assets/videos/VID-20250116-WA0022.mp4" type="video/mp4">
+          Tu navegador no soporta el video HTML5.
+        </video>
+      </div>
+      <div class="video-item">
+        <video controls>
+          <source src="assets/videos/VID-20250116-WA0023.mp4" type="video/mp4">
+          Tu navegador no soporta el video HTML5.
+        </video>
+      </div>
+      <div class="video-item">
+        <video controls>
+          <source src="assets/videos/VID-20250116-WA0024.mp4" type="video/mp4">
+          Tu navegador no soporta el video HTML5.
+        </video>
+      </div>
+      <div class="video-item">
+        <video controls>
+          <source src="assets/videos/VID-20250116-WA0025.mp4" type="video/mp4">
+          Tu navegador no soporta el video HTML5.
+        </video>
+      </div>
     </div>
-  </section>
+  </div>
+
 
 <!-- seccion nosotros -->
 <section class="contacts4 cid-sFAyMcKwph mcb" id="contacts4-21"> 
@@ -654,45 +573,7 @@
     </div>
 </section>
 
-<script>
-    const carousel = document.querySelector('.carousel');
-    const videos = document.querySelectorAll('.carousel video');
-    const prevButton = document.getElementById('prev');
-    const nextButton = document.getElementById('next');
-
-    let currentIndex = 0;
-
-    function updateCarousel() {
-      const offset = -currentIndex * 100;
-      carousel.style.transform = `translateX(${offset}%)`;
-    }
-
-    // Función para manejar la reproducción automática
-    function playNextVideo() {
-      const currentVideo = videos[currentIndex];
-      currentVideo.addEventListener('ended', () => {
-        currentIndex = (currentIndex < videos.length - 1) ? currentIndex + 1 : 0;
-        updateCarousel();
-        videos[currentIndex].play();
-      });
-    }
-
-    // Inicializar el primer video
-    videos[currentIndex].play();
-    playNextVideo();
-
-    prevButton.addEventListener('click', () => {
-      currentIndex = (currentIndex > 0) ? currentIndex - 1 : videos.length - 1;
-      updateCarousel();
-      videos[currentIndex].play();
-    });
-
-    nextButton.addEventListener('click', () => {
-      currentIndex = (currentIndex < videos.length - 1) ? currentIndex + 1 : 0;
-      updateCarousel();
-      videos[currentIndex].play();
-    });
-  </script>
+<script src="js/script1.js"></script>
 
 <script>
     // Datos simulados de publicaciones
