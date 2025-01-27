@@ -2066,23 +2066,6 @@ a {
   opacity: 1;
 }
 
-@media (min-width: 150px) {
-  .videoScreen video {
-    width:99.8%;
-    height: auto;
-    margin: 0.5% 0 0 0;
-}
-}
-
-@media (max-width: 1025px) {
-  
-.videoScreen video {
-  width:100%;
-  height: auto;
-  margin: 3% 0% 0% 0%;
-  }
-}
-
 @media (max-width: 767px) {
   .cid-sFCygHrmNf .row .social-list {
     -webkit-justify-content: center;
