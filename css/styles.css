@@ -1,19 +1,29 @@
 .marron{
-    background-color: #a8814e;
+    background-color:  #8278b9;
+    ;
 }
 
 /* Estilo para el color azul 1063d3 00639b*/
 .azul {
-    background-color: #00639b;
+    background-color: #44C0E6;
+    ;
 }
 
 /* Estilo para el marrón claro c8c675 f6e9c5  este si*/
 .marronC {
-    background-color: #ccb985;
+    background-color: #FFFFFF;
 }
 
 .mcb{
-    background-color: #f6e9c5;
+    background-color: #8278b9;
+}
+
+.mcb{
+    color: #44C0E6;
+}
+
+.mcb{
+  color: #FFFFFF;
 }
 /*colores institucionales*/
 
