@@ -1640,8 +1640,8 @@ a {
   display: flex;
   border-radius: 50%;
   text-align: center;
-  color: #e6c63b;
-  border: 2px solid #e6c63b;
+  color: #8278b9;
+  border: 2px solid #8278b9;
   justify-content: center;
   align-content: center;
   transition: all 0.3s;
@@ -1650,7 +1650,7 @@ a {
   padding: 0.6rem;
 }
 .cid-sFAyMcKwph .mbr-iconfont-social:hover {
-  background-color: #e6c63b;
+  background-color: #8278b9;
   color: #000000;
 }
 @media (max-width: 768px) {
