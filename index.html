@@ -31,9 +31,6 @@
       <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
       <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
       <link rel="stylesheet" href="css/styles1.min.css">
-
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       
       <style>
         /* Reset básico */
@@ -118,17 +115,6 @@
                 flex-direction: column;
             }
         }
-
-@media (min-width: 576px) { ... }
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
     </style>
 
     <style>
@@ -363,9 +349,10 @@
 <body>
   
     <section data-bs-version="5.1" class="menu menu2 cid-sFCw1qGFAI" once="menu" id="menu2-23">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="navbar-brand">
+    
+        <nav class="navbar navbar-dropdown navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="navbar-brand">
                     <span class="navbar-logo">
                         
                             <img src="assets/images/PLUS.png" alt="" style="height: 3rem;">
@@ -373,55 +360,85 @@
                     </span>
                     <!--<span class="navbar-caption-wrap"><a class="navbar-caption text-primary display-7" href="https://pluslaboratorioclinicocartagena.com">Plus Laboratorio Clinico</a></span>-->
                 </div>
-  <a class="navbar-brand" href="./index.html">Inicio</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Para ti
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Institucional
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Empresarial
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Pacientes
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-        
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <div class="hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+            </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
+                        <li class="nav-item">
+                            <a class="nav-link link text-black text-primary display-4" href="./index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown"><a class="nav-link link text-black text-primary dropdown-toggle display-4" href="index.html" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Para ti</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-560">
+                                <a class="text-black text-primary dropdown-item show display-4" href="nosotros.html" aria-expanded="false">Nosotros<br></a>
+                                <a class="text-black text-primary show dropdown-item display-4" href="./programasychequeos.html" target="_blank">Programas y chequeos</a>
+                                <a class="text-black text-primary show dropdown-item display-4" href="./sedes.html" target="_blank">Sedes</a>
+                                <a class="text-black text-primary show dropdown-item display-4" href="./convenios.html" target="_blank">Convenios<br></a>
+                                <a class="text-black text-primary show dropdown-item display-4" href="./pagos.html" target="_blank">Pagos<br></a>
+                                <a class="text-black text-primary show dropdown-item display-4" href="./resultadosenlinea.html" target="_blank">Resultados en linea<br></a>
+                                <!-- <a class="text-black text-primary show dropdown-item display-4" href="#"  target="_blank">COPASST<br></a> --> 
+                                <!--<div class="dropdown">
+                                    <a class="text-black text-primary dropdown-item dropdown-toggle display-4" href="index.html#features1-1i" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Pagos</a>
+                                    <div class="dropdown-menu dropdown-submenu" aria-labelledby="dropdown-262">
+                                        <a class="text-black text-primary show dropdown-item display-4" href="#">Programa Seguridad del Paciente</a>
+                                        <a class="text-black text-primary show dropdown-item display-4" href="#">Sistemas de Gestión</a>
+                                        <a class="text-black text-primary dropdown-item show display-4" href="#">Indicadores de Calidad<br></a>
+                                        <a class="text-black text-primary dropdown-item show display-4" href="index.html#features1-1i"></a>
+                                    </div>
+                                </div>
+                                <div class="dropdown">
+                                    <a class="text-black text-primary dropdown-item dropdown-toggle display-4" href="index.html#features1-1i" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Estados financieros</a>
+                                    <div class="dropdown-menu dropdown-submenu" aria-labelledby="dropdown-262">
+                                        <a class="text-black text-primary show dropdown-item display-4" href="estados_financieros/ef2024.pdf">2024</a>
+                                        <a class="text-black text-primary show dropdown-item display-4" href="estados_financieros/ef2025.pdf">2025</a>
+                                    </div>
+                                </div>-->
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link link text-black text-primary dropdown-toggle display-4" href="" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Institucional</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-651" data-bs-popper="none">
+                                <a class="text-black text-primary  dropdown-item display-4" href="#" style="display: none;"></a>
+                                <a class="text-black text-primary  dropdown-item display-4" href="./laboratorioclinicoderefencia.html">Laboratorio clinico de referencia</a>
+                                <a class="text-black text-primary show dropdown-item display-4" href="./mensajeriainstitucional.html">Mensajeria institucional</a>
+                                <a class="text-black text-primary show dropdown-item display-4" href="#">Portafolio</a>
+                                <!--<a class="text-black text-primary show dropdown-item display-4" href="./asocusuario.html">Asociaciones de Usuarios</a>
+                                <a class="text-black text-primary show dropdown-item display-4" href="./pqrsf.html">PQRSF</a>
+                                <a class="text-black text-primary show dropdown-item display-4" href="#">Copagos y Cuotas</a>
+                                <a class="text-black text-primary show dropdown-item display-4" href="#">Horario de Atención y Visita</a>
+                                <a class="text-black text-primary show dropdown-item display-4" href="./politicaintegral.html">Politica Integral</a>
+                                <a class="text-black text-primary show dropdown-item display-4" href="./politicaseguridadpaciente.html">Politica de Seguridad Del Paciente</a>
+                                <a class="text-black text-primary show dropdown-item display-4" href="#">Educación</a>-->
+                            </div>
+                        </li>
+                        <!--<li class="nav-item">
+                            <a class="nav-link link text-black text-primary display-4" href="http://190.109.24.182:8080/CRONOSCONSULTA/">Proveedores</a>
+                        </li>-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link link text-black text-primary dropdown-toggle display-4" href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Empresarial</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-978">
+                                <a class="text-black text-primary dropdown-item display-4" href="#" target="_blank">Bioindustrial</a>
+                                <a class="text-black text-primary show dropdown-item display-4" href="#" target="_blank">Medicina del trabajo</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link link text-black text-primary dropdown-toggle display-4" href="index.html#contacts2-1r" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Pacientes</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-388"><a class="text-black text-primary dropdown-item display-4" href="#" target="_blank">Nuestros pacientes</a>
+                                <!--<a class="text-black text-primary show dropdown-item display-4" href="https://pacientes.oficinavirtual.com.co/login?idEmpresa=NjRjMmI5Mzg5ZTljY2E1NTMwNmE2NDkw&amp;key=MjA0MTI5" target="_blank">Nuestros pacientes</a>-->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+    
+    
+    
                     <!-- Redes sociales -->
                 <div class="icons-menu">
                     <a class="iconfont-wrapper" href="https://www.facebook.com/PlusLaboratorioClinico?mibextid=ZbWKwL" target="_blank">
@@ -486,7 +503,7 @@
 <!-- Inicio carrusel de videos -->
 <section class="slider6 mbr-embla cid-u1POXRwmNA">
 
-
+    <section data-bs-version="5.1" class="header14 mbr-fullscreen" id="header14-1j">
   <div class="container">
     <div class="row justify-content-center text-center">
       
