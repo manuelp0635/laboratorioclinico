@@ -33,7 +33,7 @@
       <link rel="stylesheet" href="css/styles1.min.css">
       
      <style>
-  /* Estilos personalizados */
+  /* Caja de contenido */
   .info-box {
     padding: 20px;
     border-radius: 12px;
@@ -41,6 +41,7 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
+    color: #222; /* Forzar color texto */
   }
 
   .info-box:hover {
@@ -50,11 +51,14 @@
 
   .info-box h2 {
     font-size: 1.4rem;
+    color: #111 !important; /* Forzar color visible */
+    margin-bottom: 15px;
   }
 
   .info-box p {
     font-size: 0.95rem;
     line-height: 1.6;
+    color: #333 !important; /* Forzar color visible */
   }
 
   /* Responsividad */
