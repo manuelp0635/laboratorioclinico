@@ -1,0 +1,40 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  background: #f4f4f4;
+  color: #333;
+}
+
+/* Header */
+#header14-1j {
+  background: transparent;
+  color: #000;
+}
+
+#header14-1j .lead {
+  text-align: justify;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar-nav .nav-link {
+  color: #222 !important;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007BFF !important;
+}
+
+.dropdown-menu {
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
