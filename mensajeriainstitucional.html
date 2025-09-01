@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plus Laboratorio Clínico Cartagena</title>
+  <link rel="shortcut icon" href="assets/images/PLUS.png" type="image/x-icon">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+    <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+      
+      <!-- Mobirise Icons y Otros Estilos -->
+      <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+      <link rel="stylesheet" href="assets/dropdown/css/style.css">
+      <link rel="stylesheet" href="assets/socicon/css/styles.css">
+      <link rel="stylesheet" href="assets/theme/css/style.css">
+      <link rel="stylesheet" href="css/styles.min.css">
+      
+      <!-- Mobirise Additional Styles -->
+      <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+      <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+      <link rel="stylesheet" href="css/styles1.min.css">
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Arial", sans-serif;
+      line-height: 1.6;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    /* Header */
+    #header14-1j {
+      background: transparent;
+      color: #000;
+      padding: 3rem 0;
+    }
+
+    #header14-1j .lead {
+      text-align: justify;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Navbar */
+    .navbar-nav .nav-link {
+      color: #222 !important;
+      font-weight: 500;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #007BFF !important;
+    }
+
+    .dropdown-menu {
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+  /* Caja de contenido */
+  .info-box {
+    padding: 20px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    color: #222; /* Forzar color texto */
+  }
+
+  .info-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  }
+
+  .info-box h2 {
+    font-size: 1.4rem;
+    color: #111 !important; /* Forzar color visible */
+    margin-bottom: 15px;
+  }
+
+  .info-box p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #333 !important; /* Forzar color visible */
+  }
+
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .info-box h2 {
+      font-size: 1.2rem;
+    }
+    .info-box p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .info-box h2 {
+      font-size: 1rem;
+    }
+    .info-box p {
+      font-size: 0.85rem;
+    }
+  }
+  </style>
+
+  <!-- Estilos formulario -->
+    <style>
+    body {
+      background: #f5f6fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .info-box {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .info-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      color: #2980b9;
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .btn-custom {
+      background: #2980b9;
+      color: white;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .btn-custom:hover {
+      background: #1f6391;
+      color: #fff;
+    }
+
+    .mensaje {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    .mensaje.exito { color: green; }
+    .mensaje.error { color: red; }
+
+    /* 📱 Responsive */
+    @media (max-width: 768px) {
+      .info-box {
+        padding: 20px;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      .btn-custom {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      .info-box {
+        padding: 15px;
+        border-radius: 8px;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+      label {
+        font-size: 0.9rem;
+      }
+      input, select {
+        font-size: 0.9rem;
+      }
+      .btn-custom {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+    }
+
+     /* Quitar negrita del menú */
+  .navbar .nav-link,
+  .navbar .navbar-brand,
+  .navbar .dropdown-item {
+    font-weight: normal !important;
+  }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <section class="menu" id="menu2-23">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="assets/images/PLUS.png" alt="Logo Plus" style="height: 3rem;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <!-- Inicio -->
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Inicio</a>
+            </li>
+            <!-- Para ti -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="paraTi" role="button" data-bs-toggle="dropdown">
+                Para ti
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./quienessomos.html">Quienes somos</a></li>
+                <li><a class="dropdown-item" href="./servicios.html">Servicios</a></li>
+                <li><a class="dropdown-item" href="./nosotros.html">Nosotros</a></li>
+                <!--<li><a class="dropdown-item" href="#">Convenios</a></li>
+                <li><a class="dropdown-item" href="#">Pagos</a></li>
+                <li><a class="dropdown-item" href="#">Resultados en línea</a></li>-->
+              </ul>
+            </li>
+            <!-- Institucional -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="institucional" role="button" data-bs-toggle="dropdown">
+                Institucional
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./laboratorioclinicoderefencia.html">Laboratorio de referencia</a></li>
+                <li><a class="dropdown-item" href="./mensajeriainstitucional.html">Mensajería institucional</a></li>
+                <li><a class="dropdown-item" href="./assets/pdf/PORTAFOLIO 23.pdf">Portafolio</a></li>
+              </ul>
+            </li>
+            <!-- Empresarial -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="empresarial" role="button" data-bs-toggle="dropdown">
+                Empresarial
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Bioindustrial</a></li>
+                <li><a class="dropdown-item" href="#">Medicina del trabajo</a></li>
+              </ul>
+            </li>
+            <!-- Pacientes -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="pacientes" role="button" data-bs-toggle="dropdown">
+                Pacientes
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Nuestros pacientes</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Redes Sociales -->
+        <div class="d-flex ms-3">
+          <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank" class="me-2">
+            <span class="socicon-facebook"></span>
+          </a>
+          <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank" class="me-2">
+            <span class="socicon-instagram"></span>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank">
+            <span class="socicon-whatsapp"></span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- seccion nosotros -->
+<section class="contacts4 cid-sFAyMcKwph mcb" id="contacts4-21"> 
+    <div class="mbr-section-head">
+        <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Formulario de pacientes</strong></h4><br><br>
+        <!--<h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5">Nos mueve el deseo de servir.</h5>-->
+    </div>
+
+     <div class="container my-5">
+    <div class="row justify-content-center text-center g-4">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="info-box">
+          <h2><strong>Registro de Paciente</strong></h2><br>
+          <form id="labForm" class="text-start mt-3" novalidate>
+
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre completo:</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="cedula" class="form-label">Cédula:</label>
+              <input type="number" class="form-control" id="cedula" name="cedula" required min="100000" max="9999999999" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+            </div>
+
+            <div class="mb-3">
+              <label for="correo" class="form-label">Correo electrónico:</label>
+              <input type="email" class="form-control" id="correo" name="correo" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="telefono" class="form-label">Teléfono:</label>
+              <input type="tel" class="form-control" id="telefono" name="telefono" required pattern="[0-9]{7,10}" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+            </div>
+
+            <div class="mb-3">
+              <label for="fecha" class="form-label">Fecha de nacimiento:</label>
+              <input type="date" class="form-control" id="fecha" name="fecha" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="genero" class="form-label">Género:</label>
+              <select class="form-select" id="genero" name="genero" required>
+                <option value="">Seleccione...</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="examen" class="form-label">Tipo de examen:</label>
+              <select class="form-select" id="examen" name="examen" required>
+                <option value="">Seleccione...</option>
+                <option value="Perfil de tiroide">Perfil Tiroides</option>
+                <option value="Paquete examenes ITS">Paquete examenes ITS</option>
+                <option value="Marcadores tumorales">Marcadores Tumorales</option>
+                <option value="Paquete examenes">Paquete de exámenes de Salud Laboral y Ocupacional, Cursos de altura primera vez, reentrenamiento, Espacios Confinados, Andamiero</option>
+                <option value="Manipulacion alimentos">Exámenes para manipulación de alimentos</option>
+                <option value="Diabetes">Evaluacion Diabetes</option>
+                <option value="Citologías y frotis Vaginal">Citologías y frotis Vaginal</option>
+                <option value="Exámenes de laboratorio 🧪🧫  ayuda diagnóstica">Exámenes de laboratorio 🧪🧫  ayuda diagnóstica</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="domicilio" class="form-label">¿Servicio a domicilio?</label>
+              <select class="form-select" id="domicilio" name="domicilio" required>
+                <option value="">Seleccione...</option>
+                <option value="Si">Sí</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-custom w-100">Enviar</button>
+            <div id="mensaje" class="mensaje"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!--Footer -->
+<section data-bs-version="5.1" class="footer3 cid-sFCygHrmNf" once="footers" id="footer3-24">
+
+    <div class="container">
+        <div class="row align-center mbr-white">
+           
+         
+            <div class="row row-copirayt">
+                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+                    Copyright © 2025. Todos los Derechos reservados <b> Plus Laboratorio clinico</b>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Bootstrap JS -->
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- jQuery (si lo usas en tu formulario) -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Script personalizado -->
+<script src="js/formulario.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("JS cargado correctamente ✅");
+  });
+</script>
+
+</body>
+</html>
