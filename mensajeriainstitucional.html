@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plus Laboratorio Clínico Cartagena</title>
+  <link rel="shortcut icon" href="assets/images/PLUS.png" type="image/x-icon">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+    <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+      
+      <!-- Mobirise Icons y Otros Estilos -->
+      <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+      <link rel="stylesheet" href="assets/dropdown/css/style.css">
+      <link rel="stylesheet" href="assets/socicon/css/styles.css">
+      <link rel="stylesheet" href="assets/theme/css/style.css">
+      <link rel="stylesheet" href="css/styles.min.css">
+      
+      <!-- Mobirise Additional Styles -->
+      <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+      <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+      <link rel="stylesheet" href="css/styles1.min.css">
+
+ <style>
+  /* =====================
+     RESET
+  ===================== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: #f5f6fa;
+    color: #333;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  /* =====================
+     HEADER
+  ===================== */
+  #header14-1j {
+    background: transparent;
+    color: #000;
+    padding: 3rem 0;
+  }
+
+  #header14-1j .lead {
+    text-align: justify;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* =====================
+     NAVBAR
+  ===================== */
+  .navbar-nav .nav-link {
+    color: #222 !important;
+    font-weight: 500;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #007BFF !important;
+  }
+
+  .dropdown-menu {
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  /* Quitar negrita del menú */
+  .navbar .nav-link,
+  .navbar .navbar-brand,
+  .navbar .dropdown-item {
+    font-weight: normal !important;
+  }
+
+  /* =====================
+     ASESOR VIRTUAL
+  ===================== */
+  .asesor-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .asesor-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    background: #fff;
+    animation: bubble 2s infinite;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  .asesor-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .asesor-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Tooltip (solo escritorio) */
+  .asesor-btn::after {
+    content: "¿Necesitas ayuda? Haz clic aquí";
+    position: absolute;
+    bottom: 100%;
+    right: 50%;
+    transform: translateX(50%);
+    background: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .asesor-btn:hover::after {
+    opacity: 1;
+  }
+
+  .social-links {
+    display: none;
+    flex-direction: column;
+    margin-bottom: 10px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    animation: fadeIn 0.3s ease;
+  }
+
+  .social-links a {
+    display: block;
+    margin: 6px 0;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 14px;
+  }
+
+  .social-links a:hover {
+    color: #007bff;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  @keyframes bubble {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  /* =====================
+     MENSAJE FLOTANTE MÓVIL
+  ===================== */
+  .mensaje-movil {
+    display: none;
+    position: fixed;
+    bottom: -100px; /* empieza oculto fuera de la pantalla */
+    right: 20px;
+    background: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: all 0.6s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 80%;
+  }
+
+  .mensaje-movil.show {
+    bottom: 110px;
+    opacity: 1;
+  }
+
+  .cerrar-msg {
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+  }
+
+  .cerrar-msg:hover {
+    background: rgba(255,255,255,0.4);
+  }
+
+  /* =====================
+     FORMULARIO
+  ===================== */
+  .info-box {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .info-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  }
+
+  h2 {
+    color: #2980b9;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .btn-custom {
+    background: #2980b9;
+    color: white;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .btn-custom:hover {
+    background: #1f6391;
+    color: #fff;
+  }
+
+  .mensaje {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  .mensaje.exito { color: green; }
+  .mensaje.error { color: red; }
+
+  /* =====================
+   CAMPOS DE FORMULARIO
+===================== */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  color: #333;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #2980b9;
+  outline: none;
+  box-shadow: 0 0 6px rgba(41,128,185,0.3);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+
+  /* =====================
+     RESPONSIVE
+  ===================== */
+  @media (max-width: 768px) {
+    .asesor-btn {
+      width: 60px;
+      height: 60px;
+    }
+
+    .asesor-btn::after {
+      display: none; /* tooltip oculto en móvil */
+    }
+
+    .social-links a {
+      font-size: 12px;
+      margin: 4px 0;
+    }
+
+    .mensaje-movil {
+      display: flex;
+    }
+
+    .info-box {
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    .btn-custom {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 10px;
+    }
+
+    .info-box {
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    label {
+      font-size: 0.9rem;
+    }
+
+    input, select {
+      font-size: 0.9rem;
+    }
+
+    .btn-custom {
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .asesor-btn {
+      width: 70px;
+      height: 70px;
+    }
+
+    .social-links a {
+      font-size: 13px;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+  <!-- Navbar -->
+  <section class="menu" id="menu2-23">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="assets/images/PLUS.png" alt="Logo Plus" style="height: 3rem;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <!-- Inicio -->
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Inicio</a>
+            </li>
+            <!-- Para ti -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="paraTi" role="button" data-bs-toggle="dropdown">
+                Para ti
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./quienessomos.html">Quienes somos</a></li>
+                <li><a class="dropdown-item" href="./servicios.html">Servicios</a></li>
+                <li><a class="dropdown-item" href="./nosotros.html">Nosotros</a></li>
+                <!--<li><a class="dropdown-item" href="#">Convenios</a></li>
+                <li><a class="dropdown-item" href="#">Pagos</a></li>
+                <li><a class="dropdown-item" href="#">Resultados en línea</a></li>-->
+              </ul>
+            </li>
+            <!-- Institucional -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="institucional" role="button" data-bs-toggle="dropdown">
+                Institucional
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./laboratorioclinicoderefencia.html">Laboratorio de referencia</a></li>
+                <li><a class="dropdown-item" href="./mensajeriainstitucional.html">Mensajería institucional</a></li>
+                <li><a class="dropdown-item" href="./assets/pdf/PORTAFOLIO 23.pdf">Portafolio</a></li>
+              </ul>
+            </li>
+            <!-- Empresarial -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="empresarial" role="button" data-bs-toggle="dropdown">
+                Empresarial
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Bioindustrial</a></li>
+                <li><a class="dropdown-item" href="#">Medicina del trabajo</a></li>
+              </ul>
+            </li>
+            <!-- Pacientes -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="pacientes" role="button" data-bs-toggle="dropdown">
+                Pacientes
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Nuestros pacientes</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Redes Sociales 
+        <div class="d-flex ms-3">
+          <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank" class="me-2">
+            <span class="socicon-facebook"></span>
+          </a>
+          <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank" class="me-2">
+            <span class="socicon-instagram"></span>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank">
+            <span class="socicon-whatsapp"></span>
+          </a>
+        </div>-->
+      </div>
+    </nav>
+  </section>
+
+    <!-- Asesor virtual -->
+
+  <div class="asesor-container">
+    <div class="social-links" id="socialMenu">
+      <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank">📘 Facebook</a>
+      <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank">📸 Instagram</a>
+      <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank">💬 WhatsApp</a>
+    </div>
+
+    <div class="asesor-btn" id="asesorBtn">
+      <img src="assets/images/Muñeca.png" alt="Asesor Virtual">
+    </div>
+  </div>
+
+  <!-- Mensaje flotante solo para móviles -->
+  <div class="mensaje-movil" id="mensajeMovil">
+    👋 Hola, ¿necesitas ayuda?
+    <button class="cerrar-msg" id="cerrarMsg">✖</button>
+  </div>
+
+  <!-- Asesor virtual final-->
+
+  <!-- seccion nosotros -->
+<section class="contacts4 cid-sFAyMcKwph mcb" id="contacts4-21"> 
+    <div class="mbr-section-head">
+        <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Formulario de pacientes</strong></h4><br><br>
+        <!--<h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5">Nos mueve el deseo de servir.</h5>-->
+    </div>
+
+     <div class="container my-5">
+    <div class="row justify-content-center text-center g-4">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="info-box">
+          <h2><strong>Registro de Paciente</strong></h2><br>
+          <form id="labForm" class="text-start mt-3" novalidate>
+
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre completo:</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="cedula" class="form-label">Cédula:</label>
+              <input type="number" class="form-control" id="cedula" name="cedula" required min="100000" max="9999999999" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+            </div>
+
+            <div class="mb-3">
+              <label for="correo" class="form-label">Correo electrónico:</label>
+              <input type="email" class="form-control" id="correo" name="correo" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="telefono" class="form-label">Teléfono:</label>
+              <input type="tel" class="form-control" id="telefono" name="telefono" required pattern="[0-9]{7,10}" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+            </div>
+
+            <div class="mb-3">
+              <label for="fecha" class="form-label">Fecha de nacimiento:</label>
+              <input type="date" class="form-control" id="fecha" name="fecha" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="genero" class="form-label">Género:</label>
+              <select class="form-select" id="genero" name="genero" required>
+                <option value="">Seleccione...</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="examen" class="form-label">Tipo de examen:</label>
+              <select class="form-select" id="examen" name="examen" required>
+                <option value="">Seleccione...</option>
+                <option value="Perfil de tiroide">Perfil Tiroides</option>
+                <option value="Paquete examenes ITS">Paquete examenes ITS</option>
+                <option value="Marcadores tumorales">Marcadores Tumorales</option>
+                <option value="Paquete examenes">Paquete de exámenes de Salud Laboral y Ocupacional, Cursos de altura primera vez, reentrenamiento, Espacios Confinados, Andamiero</option>
+                <option value="Manipulacion alimentos">Exámenes para manipulación de alimentos</option>
+                <option value="Diabetes">Evaluacion Diabetes</option>
+                <option value="Citologías y frotis Vaginal">Citologías y frotis Vaginal</option>
+                <option value="Exámenes de laboratorio 🧪🧫  ayuda diagnóstica">Exámenes de laboratorio 🧪🧫  ayuda diagnóstica</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+                  <label for="domicilio" class="form-label">¿Servicio a domicilio?</label>
+                  <select class="form-select" id="domicilio" name="domicilio" required>
+                    <option value="">Seleccione...</option>
+                    <option value="Sí">Sí</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+
+                <!-- Estos campos estarán ocultos inicialmente -->
+                <div class="mb-3" id="direccion-field" style="display:none;">
+                  <label for="direccion" class="form-label">Dirección:</label>
+                  <input type="text" class="form-control" id="direccion" name="direccion">
+                </div>
+
+                <div class="mb-3" id="referencia-field" style="display:none;">
+                  <label for="referencia" class="form-label">Punto de referencia:</label>
+                  <input type="text" class="form-control" id="referencia" name="referencia">
+                </div>
+
+
+            <button type="submit" class="btn btn-custom w-100">Enviar</button>
+            <div id="mensaje" class="mensaje"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!--Footer -->
+
+    <footer style="background:#002b5c; color:#fff; padding:40px 20px; margin-top:40px;">
+  <div style="max-width:1200px; margin:auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px;">
+    
+    <!-- Logo y descripción -->
+    <div>
+      <img src="assets/images/PLUS.png" style="margin-bottom:15px;"></img>
+      <p>Comprometidos con tu salud ofreciendo diagnósticos confiables y oportunos con la más alta calidad.</p>
+    </div>
+    
+    <!-- Enlaces -->
+    <div>
+      <h3 style="margin-bottom:10px;">Enlaces rápidos</h3>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li><a href="./index.html" style="color:#fff; text-decoration:none;">Inicio</a></li>
+        <li><a href="./servicios.html" style="color:#fff; text-decoration:none;">Servicios</a></li>
+        <li><a href="resultados.html" style="color:#fff; text-decoration:none;">Resultados</a></li>
+        <li><a href="citas.html" style="color:#fff; text-decoration:none;">Agendar cita</a></li>
+        <li><a href="contacto.html" style="color:#fff; text-decoration:none;">Contacto</a></li>
+      </ul>
+    </div>
+    
+    <!-- Contacto -->
+    <div>
+      <h3 style="margin-bottom:10px;">Contáctanos</h3>
+      <p>📍 Dirección: Cra. 57 #30 C Cartagena</p>
+      <p>📞 Tel: +57 311 321 22 21</p>
+      <p>✉️ pluslaboratorioclinicoctg@gmail.com</p>
+    </div>
+    
+    <!-- Redes sociales -->
+    <div>
+      <h3 style="margin-bottom:10px;">Síguenos</h3>
+      <p>
+        <a href="https://www.facebook.com/PlusLaboratorioClinico" style="color:#fff; margin-right:10px;">Facebook</a>
+        <a href="https://www.instagram.com/laboratorio_clinico_plus" style="color:#fff; margin-right:10px;">Instagram</a>
+        <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" style="color:#fff;">WhatsApp</a>
+      </p>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:30px; font-size:14px; border-top:1px solid rgba(255,255,255,0.2); padding-top:15px;">
+    © 2025 Laboratorio Clínico. Todos los derechos reservados. | <a href="#" style="color:#fff;">Política de privacidad</a>
+  </div>
+</footer>
+  <!-- Fin footer -->
+
+<!-- Bootstrap JS -->
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- jQuery (si lo usas en tu formulario) -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Script personalizado -->
+<script src="js/formulario.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("JS cargado correctamente ✅");
+  });
+</script>
+<!-- Asesor virtual-->
+    <script>
+    const asesorBtn = document.getElementById("asesorBtn");
+    const socialMenu = document.getElementById("socialMenu");
+    const mensajeMovil = document.getElementById("mensajeMovil");
+    const cerrarMsg = document.getElementById("cerrarMsg");
+
+    asesorBtn.addEventListener("click", () => {
+      if (socialMenu.style.display === "flex") {
+        socialMenu.style.display = "none";
+      } else {
+        socialMenu.style.display = "flex";
+      }
+
+      // Ocultar mensaje móvil al primer clic
+      if (mensajeMovil) {
+        mensajeMovil.style.display = "none";
+      }
+    });
+
+    // Mostrar mensaje flotante automáticamente en móvil después de 3s con animación
+    if (window.innerWidth <= 768) {
+      setTimeout(() => {
+        if (mensajeMovil) mensajeMovil.classList.add("show");
+      }, 3000);
+    }
+
+    // Botón de cerrar mensaje
+    cerrarMsg.addEventListener("click", () => {
+      mensajeMovil.style.display = "none";
+    });
+  </script>
+  <!-- Asesor virtual final -->
+</body>
+</html>
