@@ -247,6 +247,111 @@
     .cta-btn:hover {
       background: #FFA000;
     }
+
+    /* Estilos sección ¿Por qué C+? */
+
+    /* ===== Estilos Generales ===== */
+.porque-section {
+  background: #ffffff; /* Fondo blanco */
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.porque-content {
+  max-width: 800px;
+  text-align: center;
+  background: #ffffff; /* También blanco, para mantener coherencia */
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.porque-content:hover {
+  transform: translateY(-5px);
+}
+
+.porque-content h2 {
+  font-size: 2rem;
+  color: #0a3d62; /* Azul profesional */
+  margin-bottom: 20px;
+}
+
+.porque-content p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.porque-content strong {
+  color: #0c6efc; /* Azul llamativo */
+}
+
+/* ===== Botón CTA ===== */
+.porque-btn .cta-btn {
+  display: inline-block;
+  background: #0c6efc;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.porque-btn .cta-btn:hover {
+  background: #084bb5;
+  transform: scale(1.05);
+}
+
+/* ===== Media Queries ===== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .porque-content {
+    padding: 30px 20px;
+  }
+
+  .porque-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .porque-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  .porque-section {
+    padding: 40px 15px;
+  }
+
+  .porque-content {
+    padding: 25px 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* un poco más suave en móvil */
+  }
+
+  .porque-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .porque-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .porque-btn .cta-btn {
+    font-size: 0.9rem;
+    padding: 12px 20px;
+  }
+}
+
+
 </style>
 
 </head>
@@ -265,10 +370,10 @@
         
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <!-- Inicio -->
+            <!-- Inicio -
             <li class="nav-item">
               <a class="nav-link" href="./index.html">Inicio</a>
-            </li>
+            </li>-->
             <!-- Para ti -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="paraTi" role="button" data-bs-toggle="dropdown">
@@ -379,6 +484,30 @@
     </div>
   </section>
 
+  <!-- Seccion porque C+ -->
+
+  <section class="porque-section"><br>
+  <div class="porque-content">
+    <h2>🔬 ¿Por qué C+ Laboratorio Clínico Cartagena?</h2>
+    <p>
+      Elegirnos significa confiar tu salud en manos expertas: <br><br>
+      ✅ <strong>Calidad y precisión</strong> en cada examen. <br>
+      👩‍⚕️ <strong>Profesionales altamente capacitados</strong> y comprometidos contigo. <br>
+      🏥 <strong>Infraestructura moderna</strong> y tecnología de vanguardia. <br>
+      🤝 <strong>Atención humana y cercana</strong>, porque tu bienestar es nuestra prioridad. <br>
+      ⏱️ <strong>Resultados rápidos y confiables</strong>, siempre a tiempo.
+    </p>
+    <!--<div class="porque-btn">
+      <a href="./formulario.html" class="cta-btn">
+        🌟 Elige confianza, elige C+ Laboratorio Clínico Cartagena
+      </a>
+    </div>-->
+  </div>
+</section>
+
+
+  <!-- Fin Seccion porque C+-->
+
   <!-- Inicio carrusel de videos -->
 <section class="slider6 mbr-embla cid-u1POXRwmNA">
     
@@ -420,7 +549,7 @@
       ⏱️ Resultados confiables en el menor tiempo.
     </p>
     <div class="domicilio-btn">
-      <a href="./mensajeriainstitucional.html" class="cta-btn">
+      <a href="./formulario.html" class="cta-btn">
         👉 Cuida tu salud sin salir de casa. ¡Agenda tu cita hoy mismo!
       </a>
     </div>
