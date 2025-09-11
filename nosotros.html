@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plus Laboratorio Clínico Cartagena</title>
+  <link rel="shortcut icon" href="assets/images/PLUS.png" type="image/x-icon">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+    <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+      
+      <!-- Mobirise Icons y Otros Estilos -->
+      <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+      <link rel="stylesheet" href="assets/dropdown/css/style.css">
+      <link rel="stylesheet" href="assets/socicon/css/styles.css">
+      <link rel="stylesheet" href="assets/theme/css/style.css">
+      <link rel="stylesheet" href="css/styles.min.css">
+      
+      <!-- Mobirise Additional Styles -->
+      <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+      <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+      <link rel="stylesheet" href="css/styles1.min.css">
+      <link rel="stylesheet" href="css/styles.css">
+
+   <style>
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Arial", sans-serif;
+    line-height: 1.6;
+    background: #f4f4f4;
+    color: #333;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  /* Header */
+  #header14-1j {
+    background: transparent;
+    color: #000;
+    padding: 3rem 0;
+  }
+
+  #header14-1j .lead {
+    text-align: justify;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Navbar */
+  .navbar-nav .nav-link {
+    color: #222 !important;
+    font-weight: 500;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #007BFF !important;
+  }
+
+  .dropdown-menu {
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  /* Asesor virtual */
+  /* Contenedor principal */
+    .asesor-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+
+    /* Botón asesor */
+    .asesor-btn {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .asesor-btn img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .asesor-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Redes sociales flotantes */
+    .social-links {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: translateY(10px);
+    }
+
+    .social-links a {
+      background: #fff;
+      padding: 10px 15px;
+      border-radius: 25px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 14px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .social-links a:hover {
+      background: #2575fc;
+      color: #fff;
+      transform: translateX(-5px);
+    }
+
+    /* Mostrar menú activo */
+    .asesor-container.active .social-links {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    /* Mensaje flotante móvil */
+    .mensaje-movil {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: #ffffff;
+      color: #333;
+      padding: 12px 18px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      font-size: 14px;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      animation: slideUp 0.6s ease;
+    }
+
+    .mensaje-movil button {
+      background: transparent;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #888;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Ocultar con clase */
+    .oculto {
+      display: none !important;
+    }
+
+    /* Mostrar solo en móvil */
+    @media (max-width: 768px) {
+      .mensaje-movil {
+        display: flex;
+      }
+    }
+</style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <section class="menu" id="menu2-23">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="assets/images/PLUS.png" alt="Logo Plus" style="height: 3rem;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <!-- Inicio -->
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Inicio</a>
+            </li>
+            <!-- Para ti -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="paraTi" role="button" data-bs-toggle="dropdown">
+                Para ti
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./quienessomos.html">Quienes somos</a></li>
+                <li><a class="dropdown-item" href="./servicios.html">Servicios</a></li>
+                <li><a class="dropdown-item" href="./nosotros.html">Nosotros</a></li>
+                <!--<li><a class="dropdown-item" href="#">Convenios</a></li>
+                <li><a class="dropdown-item" href="#">Pagos</a></li>
+                <li><a class="dropdown-item" href="#">Resultados en línea</a></li>-->
+              </ul>
+            </li>
+            <!-- Institucional -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="institucional" role="button" data-bs-toggle="dropdown">
+                Institucional
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./laboratorioclinicoderefencia.html">Laboratorio de referencia</a></li>
+                <!--<li><a class="dropdown-item" href="./mensajeriainstitucional.html">Mensajería institucional</a></li>-->
+                <li>
+                  <a class="dropdown-item" href="./assets/pdf/PORTAFOLIO 23.pdf" download="PORTAFOLIO_23.pdf">
+                    Portafolio </a>
+              </li>
+              </ul>
+            </li>
+            <!-- Empresarial -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="empresarial" role="button" data-bs-toggle="dropdown">
+                Preparación de muestras
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Toma de muestra en sangre</a></li>
+                <li><a class="dropdown-item" href="#">Toma de muestra fecal</a></li>
+                <li><a class="dropdown-item" href="#">Muestra de orina (Primera micción) </a></li>
+                <li><a class="dropdown-item" href="#">Muestra de saliva </a></li>
+                <li><a class="dropdown-item" href="#">Muestra MyBiome</a></li>
+                <li><a class="dropdown-item" href="#">Prueba de aliento </a></li>
+
+              </ul>
+            </li>
+            <!-- Pacientes -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="pacientes" role="button" data-bs-toggle="dropdown">
+                Pacientes
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Nuestros pacientes</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Redes Sociales 
+        <div class="d-flex ms-3">
+          <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank" class="me-2">
+            <span class="socicon-facebook"></span>
+          </a>
+          <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank" class="me-2">
+            <span class="socicon-instagram"></span>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank">
+            <span class="socicon-whatsapp"></span>
+          </a>
+        </div>-->
+      </div>
+    </nav>
+  </section>
+
+   <!-- Asesor virtual -->
+  <div class="asesor-container">
+    <div class="social-links" id="socialMenu">
+      <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank"><img src="assets/images/facebook.png" alt=""></a>
+      <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank"><img src="assets/images/instagram.png" alt=""></a>
+      <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank"><img src="assets/images/whatsapp.png" alt=""></a>
+    </div>
+
+    <div class="asesor-btn" id="asesorBtn">
+      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Asesor Virtual">
+    </div>
+  </div>
+
+  <!-- Mensaje flotante solo para móviles -->
+  <div class="mensaje-movil" id="mensajeMovil">
+    👋 Hola, ¿necesitas ayuda?
+    <button class="cerrar-msg" id="cerrarMsg">✖</button>
+  </div>
+
+  <!-- Asesor virtual final-->
+
+  <!-- Header -->
+  <section id="header14-1j" class="header14">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5 text-center mb-3">
+          <img src="./assets/images/banner.png" alt="Cambio imagen" class="img-fluid">
+        </div>
+        <div class="col-12 col-md text-center ">
+          <h1 class="display-4 fw-bold">Nosotros</h1>
+          <p class="lead text-justify ">
+            Hemos integrado la experiencia de los pioneros de la medicina de laboratorio en Colombia con la mejor tecnología y un amplio portafolio de servicios, para ofrecer diagnósticos confiables y ser aliados estratégicos de médicos y aseguradores en el cuidado de los pacientes. Nuestro compromiso es garantizar resultados precisos, oportunos y con altos estándares de calidad, contribuyendo a la prevención, diagnóstico y tratamiento efectivo de las enfermedades, siempre enfocados en la salud y bienestar de cada paciente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Logo + misión -->
+    <div class="footer-section">
+      <img src="assets/images/PLUS.png" alt="Logo" class="footer-logo">
+      <p class="footer-mission">
+        Nuestra mision es brindar servicios de análisis clínico accesibles, confiables con calidad profesional y humana.
+      </p>
+      <!--<p class="footer-social-title">Nuestras redes:</p>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>-->
+    </div>
+
+    <!-- Participación social -->
+    <div class="footer-section">
+      <h3>Participación social en salud - Alianza de Usuarios</h3>
+      <p>Informe de actividades realizadas:</p>
+      <ul>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Periodo 2021</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Periodo 2022</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Periodo 2023</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Periodo 2024</a></li>
+      </ul>
+    </div>
+
+    <!-- Nosotros -->
+    <div class="footer-section">
+      <h3>Nosotros</h3>
+      <ul>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Sobre nosotros</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Grupo empresarial</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Estados financieros</a></li>
+      </ul>
+    </div>
+
+    <!-- Políticas -->
+    <div class="footer-section">
+      <h3>Políticas</h3>
+      <ul>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Política de proveedores</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Política de humanización</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Reclamaciones</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Protección de datos</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> SARLAFT - LA/FT/FPADM</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Política SICOF y PTEE</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Derechos del paciente</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Reclamo de proveedores</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Gestión integral</a></li>
+      </ul>
+    </div>
+
+    <!-- PQRSF -->
+    <div class="footer-section">
+      <h3>PQRSF</h3>
+      <p>
+        Peticiones, quejas, reclamos, sugerencias y felicitaciones.  
+        Para nosotros es importante conocer las opiniones e inquietudes de nuestros usuarios.  
+        Escríbenos en los siguientes canales:
+      </p>
+      <ul>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Proceso de Gestión de PQRS</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Otros canales de atención</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Línea inferior -->
+  <div class="footer-bottom">
+    © 2025 Plus Laboratorio Clinico Cartagena | <a href="#">Preferencias de cookies</a>
+  </div>
+</footer>
+<!-- Fin footer -->
+
+  <!-- Bootstrap JS -->
+  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script1.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    // Aquí puedes manejar extras JS
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("JS cargado correctamente ✅");
+    });
+  </script>
+  <!-- Asesor virtual-->
+    <script>
+     const asesorBtn = document.getElementById("asesorBtn");
+    const container = document.querySelector(".asesor-container");
+    const cerrarMsg = document.getElementById("cerrarMsg");
+    const mensajeMovil = document.getElementById("mensajeMovil");
+
+    // abrir menú
+    asesorBtn.addEventListener("click", () => {
+      container.classList.toggle("active");
+    });
+
+    // cerrar mensaje móvil
+    cerrarMsg.addEventListener("click", () => {
+      mensajeMovil.classList.add("oculto");
+    });
+  </script>
+  <!-- Asesor virtual final -->
+</body>
+</html>
