@@ -182,73 +182,192 @@
       }
     }
 
-    /* Estilos servicio domicilio */
+    /* Fin Asesor virtual */
 
-    .domicilio-section {
-      background: #ffffff; /* Fondo blanco en vez de verde */
-      color: #333;
-      padding: 60px 20px;
-      text-align: center;
-      border-top: 4px solid #ffffff; /* Línea decorativa opcional */
-    }
+/* ============================
+   Sección Domicilio
+============================ */
+section.domicilio-section {
+  padding: 40px 20px;
+  width: 100%;
+  background: #ffffff; /* Fondo expandido */
+  display: flex;
+  justify-content: center;
+}
 
-    .domicilio-section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: #000; /* Verde solo para el título */
-    }
+.domicilio-content {
+  background: #ffffff; 
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
 
-    .domicilio-section p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 10px auto 30px;
-      line-height: 1.6;
-    }
+.domicilio-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #16a085;
+}
 
-    .domicilio-features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin: 40px 0;
-    }
+.domicilio-content p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
 
-    .feature-box {
-      background: #f5f5f5;
-      color: #333;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
+.cta-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #16a085, #1abc9c); /* degradado llamativo */
+  color: #fff;
+  padding: 14px 26px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 14px rgba(22, 160, 133, 0.4);
+}
 
-    .feature-box:hover {
-      transform: translateY(-5px);
-    }
+.cta-btn:hover {
+  background: linear-gradient(135deg, #138d75, #17a589); /* tono más oscuro al hover */
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
 
-    .feature-box h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      color: #fbfffb;
-    }
+.cta-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
 
-    .cta-btn {
-      display: inline-block;
-      padding: 14px 28px;
-      background: #FFB300;
-      color: #333;
-      font-size: 1rem;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: background 0.3s ease;
-    }
 
-    .cta-btn:hover {
-      background: #FFA000;
-    }
+/* ============================
+   Botón CTA (Agenda tu cita)
+============================ */
+.domicilio-btn {
+  margin-top: 20px;
+  text-align: center;
+}
 
-    /* Estilos sección ¿Por qué C+? */
+.cta-btn {
+  display: inline-block;
+  background: #2c3e50;       /* color principal del botón */
+  color: #fff;               /* texto en blanco */
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.cta-btn:hover {
+  background: #1a252f;       /* tono más oscuro al hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.cta-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+/* ============================
+   Promociones del Mes (limpio)
+============================ */
+.promociones-mes {
+  text-align: center;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
+  max-width: 400px;
+}
+
+.promociones-mes h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.promo-carrusel {
+  overflow: hidden;
+}
+
+.promo-slides {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.promo-img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: none; /* ocultar todas */
+}
+
+.promo-img.activa {
+  display: block; /* mostrar solo la activa */
+}
+
+/* Botones */
+.promo-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #2c3e50;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.promo-btn:hover {
+  background: #1a252f;
+}
+
+.promo-btn.prev {
+  left: -40px;
+}
+
+.promo-btn.next {
+  right: -40px;
+}
+
+/* ============================
+   Media Queries
+============================ */
+@media (max-width: 576px) {
+  .promociones-mes h3 {
+    font-size: 1.3rem;
+  }
+  .promociones-mes .promo-img {
+    max-width: 180px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 991px) {
+  .promociones-mes h3 {
+    font-size: 1.5rem;
+  }
+  .promociones-mes .promo-img {
+    max-width: 200px;
+  }
+}
+
+    /* Fin Servicio domicilio + promociones del mes */
+
+
+
+    /* Estilos sección ¿Por qué Plus? */
 
     /* ===== Estilos Generales ===== */
 .porque-section {
@@ -350,7 +469,6 @@
     padding: 12px 20px;
   }
 }
-
 
 </style>
 
@@ -489,9 +607,9 @@
 
   <section class="porque-section"><br>
   <div class="porque-content">
-    <h2>🔬 ¿Por qué C+ Laboratorio Clínico Cartagena?</h2>
+    <h2>🔬 ¿Por qué Plus Laboratorio Clínico Cartagena?</h2>
     <p>
-      Elegirnos significa confiar tu salud en manos expertas: <br><br>
+      Elegirnos, significa confiar tu salud en manos expertas: <br><br>
       ✅ <strong>Calidad y precisión</strong> en cada examen. <br>
       👩‍⚕️ <strong>Profesionales altamente capacitados</strong> y comprometidos contigo. <br>
       🏥 <strong>Infraestructura moderna</strong> y tecnología de vanguardia. <br>
@@ -538,27 +656,53 @@
 
 <!-- Fin carusel de videos -->
 
-<!-- Seccion servicio domicilio -->
 
-<section class="domicilio-section">
-  <div class="domicilio-content">
-    <h2>🧪 ¡Tu salud en casa!</h2>
-    <p>
-      Con nuestro <strong>Servicio a Domicilio</strong> llevamos los exámenes de laboratorio hasta tu puerta. <br><br>
-      📍 Rápido, seguro y sin filas. <br>
-      💉 Profesionales a tu servicio. <br>
-      ⏱️ Resultados confiables en el menor tiempo.
-    </p>
-    <div class="domicilio-btn">
-      <a href="./formulario.html" class="cta-btn">
-        👉 Cuida tu salud sin salir de casa. ¡Agenda tu cita hoy mismo!
-      </a>
+ <!-- Seccion servicio domicilio -->
+  <section class="domicilio-section">
+    <div class="domicilio-content">
+
+<!-- Promociones del mes -->
+<div class="promociones-mes">
+  <h3>🎉 Promociones de la semana</h3>
+
+  <div class="promo-carrusel">
+    <div class="promo-slides">
+      <img src="./assets/images/Promocion lunes.jpg" alt="Promoción lunes" class="promo-img" data-dia="1">
+      <img src="./assets/images/Promocion martes.jpg" alt="Promoción martes" class="promo-img" data-dia="2">
+      <img src="./assets/images/Promocion miercoles.jpg" alt="Promoción miércoles" class="promo-img" data-dia="3">
+      <img src="./assets/images/Promocion jueves.jpg" alt="Promoción jueves" class="promo-img" data-dia="4">
+      <img src="./assets/images/Promocion viernes.jpg" alt="Promoción viernes" class="promo-img" data-dia="5">
+      <img src="./assets/images/Promocion sabado.jpg" alt="Promoción sábado" class="promo-img" data-dia="6">
+      <img src="./assets/images/Promocion sabado.jpg" alt="Promoción sábado" class="promo-img" data-dia="6">
+      <img src="./assets/images/Examenes.jpg" alt="Promocion Examenes" class="promo-img" data-dia="7">
+      <img src="./assets/images/Examenes 1.jpg" alt="Promocion Examenes" class="promo-img" data-dia="8">
+      <img src="./assets/images/Examenes 2.jpg" alt="Promoción Examenes" class="promo-img" data-dia="9">
+      <img src="./assets/images/Promocion-domingo.jpg" alt="Promoción domingo" class="promo-img" data-dia="0">
     </div>
   </div>
-</section>
 
+  <!-- Botones de navegación -->
+  <button class="promo-btn prev">⟨</button>
+  <button class="promo-btn next">⟩</button>
+</div>
 
-<!-- Fin Seccion servicio domicilio -->
+      <!-- Fin Promociones del mes -->
+
+      <h2>🧪 ¡Tu salud en casa!</h2>
+      <p>
+        Con nuestro <strong>Servicio a Domicilio</strong> llevamos los exámenes de laboratorio hasta tu puerta. <br><br>
+        📍 Rápido, seguro y sin filas. <br>
+        💉 Profesionales a tu servicio. <br>
+        ⏱️ Resultados confiables en el menor tiempo.
+      </p>
+      <div class="domicilio-btn">
+        <a href="./formulario.html" class="cta-btn">
+          👉 Cuida tu salud sin salir de casa. ¡Agenda tu cita hoy mismo!
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Fin Seccion servicio domicilio -->
 
 
   <!-- ubicacion -->
@@ -680,5 +824,33 @@
     });
   </script>
   <!-- Asesor virtual final -->
+
+  <!-- Promociones de la semana -->
+
+  <script>
+  const imagenes = document.querySelectorAll(".promo-img");
+  let indiceActual = new Date().getDay(); // día actual (0=domingo, 1=lunes...)
+
+  function mostrarImagen(index) {
+    imagenes.forEach(img => img.classList.remove("activa"));
+    imagenes[index].classList.add("activa");
+  }
+
+  // Mostrar la promo del día actual al cargar
+  mostrarImagen(indiceActual);
+
+  // Botones de navegación
+  document.querySelector(".promo-btn.prev").addEventListener("click", () => {
+    indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+    mostrarImagen(indiceActual);
+  });
+
+  document.querySelector(".promo-btn.next").addEventListener("click", () => {
+    indiceActual = (indiceActual + 1) % imagenes.length;
+    mostrarImagen(indiceActual);
+  });
+</script>
+
+  <!-- Promociones de la semana final -->
 </body>
 </html>
