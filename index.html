@@ -832,18 +832,29 @@ section.domicilio-section {
   <!-- Promociones de la semana -->
 
   <script>
+  document.addEventListener("DOMContentLoaded", () => {
   const imagenes = document.querySelectorAll(".promo-img");
-  let indiceActual = 0; // siempre arrancamos en la primera imagen
+
+  // Obtenemos el día actual (0 = domingo, 1 = lunes, ..., 6 = sábado)
+  let diaHoy = new Date().getDay();
+
+  // Buscamos la imagen con el data-dia que coincide
+  let indiceActual = Array.from(imagenes).findIndex(
+    img => parseInt(img.dataset.dia) === diaHoy
+  );
+
+  // Si no hay coincidencia, por defecto mostramos la primera
+  if (indiceActual === -1) indiceActual = 0;
 
   function mostrarImagen(index) {
     imagenes.forEach(img => img.classList.remove("activa"));
     imagenes[index].classList.add("activa");
   }
 
-  // Mostrar la primera imagen al cargar
+  // Mostrar automáticamente la promo del día al cargar
   mostrarImagen(indiceActual);
 
-  // Botones de navegacion
+  // Navegación manual opcional
   document.querySelector(".promo-btn.prev").addEventListener("click", () => {
     indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
     mostrarImagen(indiceActual);
@@ -853,6 +864,8 @@ section.domicilio-section {
     indiceActual = (indiceActual + 1) % imagenes.length;
     mostrarImagen(indiceActual);
   });
+});
+
 </script>
 
   <!-- Promociones de la semana final -->
