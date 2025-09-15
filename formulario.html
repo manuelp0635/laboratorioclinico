@@ -677,11 +677,20 @@ textarea.form-control {
               <input type="email" class="form-control" id="correo" name="correo" required>
             </div>
 
-            <!-- Teléfono -->
+            <!-- WhatsApp -->
             <div class="mb-3">
-              <label for="telefono" class="form-label">Teléfono:</label>
-              <input type="tel" class="form-control" id="telefono" name="telefono" required pattern="[0-9]{7,10}" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+              <label for="whatsapp" class="form-label">WhatsApp:</label>
+              <input 
+                type="tel" 
+              class="form-control" 
+              id="whatsapp" 
+              name="whatsapp" 
+              placeholder="Ej: 3001234567" 
+              required 
+              pattern="[0-9]{10}" 
+              oninput="this.value=this.value.replace(/[^0-9]/g,'')">
             </div>
+
 
             <!-- Fecha nacimiento -->
             <div class="mb-3">
