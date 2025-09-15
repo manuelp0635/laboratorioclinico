@@ -76,118 +76,122 @@
   }
 
   /* Asesor virtual */
-   /* Contenedor principal */
-    .asesor-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 9999;
-    }
+   
+  /* =========================
+   BOTÓN ASESOR + MENÚ SOCIAL
+========================= */
+.asesor-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999; /* siempre visible sobre todo */
+}
 
-    /* Botón asesor */
-    .asesor-btn {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+/* Botón asesor */
+.asesor-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .asesor-btn img {
-      width: 50px;
-      height: 50px;
-    }
+.asesor-btn img {
+  width: 50px;
+  height: 50px;
+}
 
-    .asesor-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
+.asesor-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
 
-    /* Redes sociales flotantes */
-    .social-links {
-      position: absolute;
-      bottom: 80px;
-      right: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      transform: translateY(10px);
-    }
+/* Redes sociales flotantes */
+.social-links {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(10px);
+  z-index: 10000; /* más alto que el botón */
+}
 
-    .social-links a {
-      background: #fff;
-      padding: 10px 15px;
-      border-radius: 25px;
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-      font-size: 14px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      transition: background 0.3s ease, transform 0.2s;
-    }
+.social-links a {
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, transform 0.2s;
+}
 
-    .social-links a:hover {
-      background: #2575fc;
-      color: #fff;
-      transform: translateX(-5px);
-    }
+.social-links a:hover {
+  background: #2575fc;
+  color: #fff;
+  transform: translateX(-5px);
+}
 
-    /* Mostrar menú activo */
-    .asesor-container.active .social-links {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
+/* Mostrar menú activo */
+.asesor-container.active .social-links {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
 
-    /* Mensaje flotante móvil */
-    .mensaje-movil {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      background: #ffffff;
-      color: #333;
-      padding: 12px 18px;
-      border-radius: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-      font-size: 14px;
-      display: none;
-      align-items: center;
-      gap: 8px;
-      animation: slideUp 0.6s ease;
-    }
+/* =========================
+   MENSAJE FLOTANTE MÓVIL
+========================= */
+.mensaje-movil {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: #ffffff;
+  color: #333;
+  padding: 12px 18px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  font-size: 14px;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  animation: slideUp 0.6s ease;
+  z-index: 10001; /* siempre sobre todo */
+}
 
-    .mensaje-movil button {
-      background: transparent;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-      color: #888;
-    }
+.mensaje-movil button {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #888;
+}
 
-    @keyframes slideUp {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 
-    /* Ocultar con clase */
-    .oculto {
-      display: none !important;
-    }
+/* Mostrar solo en móvil */
+@media (max-width: 768px) {
+  .mensaje-movil {
+    display: flex;
+  }
+}
 
-    /* Mostrar solo en móvil */
-    @media (max-width: 768px) {
-      .mensaje-movil {
-        display: flex;
-      }
-    }
+/* Fin asesor virtual */
 
     /* Estilos seccion historia */
 
