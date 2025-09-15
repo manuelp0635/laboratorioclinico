@@ -833,17 +833,17 @@ section.domicilio-section {
 
   <script>
   const imagenes = document.querySelectorAll(".promo-img");
-  let indiceActual = new Date().getDay(); // día actual (0=domingo, 1=lunes...)
+  let indiceActual = 0; // siempre arrancamos en la primera imagen
 
   function mostrarImagen(index) {
     imagenes.forEach(img => img.classList.remove("activa"));
     imagenes[index].classList.add("activa");
   }
 
-  // Mostrar la promo del día actual al cargar
+  // Mostrar la primera imagen al cargar
   mostrarImagen(indiceActual);
 
-  // Botones de navegación
+  // Botones de navegacion
   document.querySelector(".promo-btn.prev").addEventListener("click", () => {
     indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
     mostrarImagen(indiceActual);
