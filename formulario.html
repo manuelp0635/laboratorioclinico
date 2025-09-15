@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario</title>
+  <link rel="shortcut icon" href="assets/images/PLUS.png" type="image/x-icon">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+    <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+      
+      <!-- Mobirise Icons y Otros Estilos -->
+      <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+      <link rel="stylesheet" href="assets/dropdown/css/style.css">
+      <link rel="stylesheet" href="assets/socicon/css/styles.css">
+      <link rel="stylesheet" href="assets/theme/css/style.css">
+      <link rel="stylesheet" href="css/styles.min.css">
+      
+      <!-- Mobirise Additional Styles -->
+      <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+      <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+      <link rel="stylesheet" href="css/styles1.min.css">
+
+ <style>
+  /* =====================
+     RESET
+  ===================== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: #f5f6fa;
+    color: #333;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  /* =====================
+     HEADER
+  ===================== */
+  #header14-1j {
+    background: transparent;
+    color: #000;
+    padding: 3rem 0;
+  }
+
+  #header14-1j .lead {
+    text-align: justify;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* =====================
+     NAVBAR
+  ===================== */
+  .navbar-nav .nav-link {
+    color: #222 !important;
+    font-weight: 500;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #007BFF !important;
+  }
+
+  .dropdown-menu {
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  /* Quitar negrita del menú */
+  .navbar .nav-link,
+  .navbar .navbar-brand,
+  .navbar .dropdown-item {
+    font-weight: normal !important;
+  }
+
+  /* =====================
+     ASESOR VIRTUAL
+  ===================== */
+   /* =========================
+   BOTÓN ASESOR + MENÚ SOCIAL
+========================= */
+.asesor-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999; /* siempre visible sobre todo */
+}
+
+/* Botón asesor */
+.asesor-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.asesor-btn img {
+  width: 50px;
+  height: 50px;
+}
+
+.asesor-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Redes sociales flotantes */
+.social-links {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(10px);
+  z-index: 10000; /* más alto que el botón */
+}
+
+.social-links a {
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.social-links a:hover {
+  background: #2575fc;
+  color: #fff;
+  transform: translateX(-5px);
+}
+
+/* Mostrar menú activo */
+.asesor-container.active .social-links {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* =========================
+   MENSAJE FLOTANTE MÓVIL
+========================= */
+.mensaje-movil {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: #ffffff;
+  color: #333;
+  padding: 12px 18px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  font-size: 14px;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  animation: slideUp 0.6s ease;
+  z-index: 10001; /* siempre sobre todo */
+}
+
+.mensaje-movil button {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #888;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Mostrar solo en móvil */
+@media (max-width: 768px) {
+  .mensaje-movil {
+    display: flex;
+  }
+}
+
+    /* =====================
+   CAMPOS DE FORMULARIO
+===================== */
+label.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+input.form-control,
+select.form-select,
+textarea.form-control {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 14px;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: #f9fbfd;
+  color: #333;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+input.form-control:focus,
+select.form-select:focus,
+textarea.form-control:focus {
+  border-color: #00a8ff;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0, 168, 255, 0.3);
+  transform: scale(1.02);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Animación de aparición de campos */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================
+   BOTONES
+===================== */
+.btn-custom {
+  background: linear-gradient(135deg, #00a8ff, #0097e6);
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 10px rgba(0, 168, 255, 0.3);
+}
+
+.btn-custom:hover {
+  background: linear-gradient(135deg, #0097e6, #00a8ff);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 6px 14px rgba(0, 168, 255, 0.4);
+}
+
+/* =====================
+   SECCIÓN FORMULARIO
+===================== */
+#contacts4-21 {
+  background: #f5f9ff;
+  padding: 60px 15px;
+}
+
+#contacts4-21 .mbr-section-title {
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: #273c75;
+  text-align: center;
+  margin-bottom: 35px;
+  animation: fadeIn 1s ease;
+}
+
+#contacts4-21 .info-box {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 15px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08);
+  animation: scaleIn 0.8s ease;
+}
+
+#contacts4-21 h2 {
+  font-size: 1.5rem;
+  color: #192a56;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+#contacts4-21 .form-label {
+  font-weight: 600;
+  color: #34495e;
+}
+
+/* =====================
+   MENSAJES
+===================== */
+#contacts4-21 .mensaje {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+  color: #44bd32;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+/* =====================
+   MODAL
+===================== */
+.modal-content {
+  max-width: 330px;
+  margin: auto;
+  border-radius: 14px;
+  padding: 22px;
+  font-size: 0.9rem;
+  text-align: center;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+  animation: zoomIn 0.4s ease;
+}
+
+.modal-content h4 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.modal-content p {
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+  color: #2c3e50;
+}
+
+.modal-icon {
+  font-size: 2.3rem;
+  color: #2ecc71;
+  margin-bottom: 10px;
+  animation: bounceIn 0.6s ease;
+}
+
+/* =====================
+   EFECTOS Y ANIMACIONES
+===================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  70% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* =====================
+   MEDIA QUERIES
+===================== */
+@media (max-width: 991px) {
+  #contacts4-21 {
+    padding: 45px 10px;
+  }
+  #contacts4-21 .info-box {
+    padding: 22px;
+  }
+  .modal-content {
+    max-width: 300px;
+    padding: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  #contacts4-21 .mbr-section-title {
+    font-size: 1.7rem;
+  }
+  input.form-control,
+  select.form-select,
+  textarea.form-control {
+    font-size: 0.85rem;
+    padding: 7px 9px;
+  }
+  .btn-custom {
+    font-size: 0.9rem;
+    padding: 9px;
+  }
+  .modal-content {
+    max-width: 270px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  #contacts4-21 .mbr-section-title {
+    font-size: 1.5rem;
+  }
+  input.form-control,
+  select.form-select,
+  textarea.form-control {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+  .btn-custom {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+  .modal-content {
+    max-width: 240px;
+    padding: 12px;
+  }
+}
+/* =====================
+   CAMPOS DE FORMULARIO
+===================== */
+
+    /* Footer */
+.footer {
+  background: #003366;
+  color: #fff;
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+.footer-container {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.footer-section h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-section p {
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 6px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-logo {
+  max-width: 180px;
+  margin-bottom: 15px;
+}
+
+.footer-social-title {
+  margin-top: 15px;
+}
+
+.footer-socials a {
+  color: #fff;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.footer-socials a:hover {
+  color: #ccc;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin-top: 30px;
+  padding-top: 15px;
+  font-size: 13px;
+}
+
+.footer-bottom a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+/* Footer */
+</style>
+
+</head>
+<body>
+
+   <!-- Navbar -->
+  <section class="menu" id="menu2-23">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="assets/images/PLUS.png" alt="Logo Plus" style="height: 3rem;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <!-- Inicio -->
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Inicio</a>
+            </li>
+            <!-- Para ti -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="paraTi" role="button" data-bs-toggle="dropdown">
+                Nosotros
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./quienessomos.html">Quienes somos</a></li>
+                <!--<li><a class="dropdown-item" href="./servicios.html">Servicios</a></li>-->
+                <li><a class="dropdown-item" href="./nosotros.html">Nosotros</a></li>
+                <li><a class="dropdown-item" href="./historia.html">Historia</a></li>
+                <!--<li><a class="dropdown-item" href="#">Pagos</a></li>
+                <li><a class="dropdown-item" href="#">Resultados en línea</a></li>-->
+              </ul>
+            </li>
+            <!-- Institucional -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="institucional" role="button" data-bs-toggle="dropdown">
+                Servicios y Transparencia
+              </a>
+              <ul class="dropdown-menu">
+                <!--<li><a class="dropdown-item" href="./laboratorioclinicoderefencia.html">Historia</a></li>-->
+                <li><a class="dropdown-item" href="./servicios.html">Servicios</a></li>
+                <li>
+                  <a class="dropdown-item" href="./assets/pdf/PORTAFOLIO 23.pdf" download="PORTAFOLIO_23.pdf">
+                    Portafolio </a>
+              </li>
+              </ul>
+            </li>
+            <!-- Empresarial -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="empresarial" role="button" data-bs-toggle="dropdown">
+                Preparación de muestras
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Toma de muestra en sangre</a></li>
+                <li><a class="dropdown-item" href="#">Toma de muestra fecal</a></li>
+                <li><a class="dropdown-item" href="#">Muestra de orina (Primera micción) </a></li>
+                <li><a class="dropdown-item" href="#">Muestra de saliva </a></li>
+                <li><a class="dropdown-item" href="#">Muestra MyBiome</a></li>
+                <li><a class="dropdown-item" href="#">Prueba de aliento </a></li>
+
+              </ul>
+            </li>
+            <!-- Pacientes -->
+             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="pacientes" role="button" data-bs-toggle="dropdown">
+                Portal Pacientes
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Resultados</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Redes Sociales --
+        <div class="d-flex ms-3">
+          <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank" class="me-2">
+            <span class="socicon-facebook"></span>
+          </a>
+          <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank" class="me-2">
+            <span class="socicon-instagram"></span>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank">
+            <span class="socicon-whatsapp"></span>
+          </a>
+        </div>-->
+      </div>
+    </nav>
+  </section>
+  <!-- Fin Navbar -->
+
+    <!-- Asesor virtual -->
+
+   <!-- Asesor virtual -->
+  <div class="asesor-container">
+    <div class="social-links" id="socialMenu">
+      <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank"><img src="assets/images/facebook.png" alt=""></a>
+      <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank"><img src="assets/images/instagram.png" alt=""></a>
+      <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank"><img src="assets/images/whatsapp.png" alt=""></a>
+    </div>
+
+    <div class="asesor-btn" id="asesorBtn">
+      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Asesor Virtual">
+    </div>
+  </div>
+
+  <!-- Mensaje flotante solo para móviles -->
+  <div class="mensaje-movil" id="mensajeMovil">
+    👋 Hola, ¿necesitas ayuda?
+    <button class="cerrar-msg" id="cerrarMsg">✖</button>
+  </div>
+
+  <!-- Asesor virtual final-->
+
+<!-- ============================
+     FORMULARIO DOMICILIO
+============================= -->
+
+<!-- FORMULARIO DOMICILIO -->
+<section class="contacts4 cid-sFAyMcKwph mcb" id="contacts4-21">
+  <div class="mbr-section-head">
+    <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+      <strong>Formulario de domicilio</strong>
+    </h4>
+    <br><br>
+  </div>
+
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="info-box">
+          <h2>📝 Completa tu solicitud</h2>
+          <form id="formDomicilio">
+            
+            <!-- Nombre -->
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre completo:</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+
+            <!-- Cédula -->
+            <div class="mb-3">
+              <label for="cedula" class="form-label">Cédula:</label>
+              <input type="number" class="form-control" id="cedula" name="cedula" required min="100000" max="9999999999" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+            </div>
+
+            <!-- Correo -->
+            <div class="mb-3">
+              <label for="correo" class="form-label">Correo electrónico:</label>
+              <input type="email" class="form-control" id="correo" name="correo" required>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="mb-3">
+              <label for="whatsapp" class="form-label">WhatsApp:</label>
+              <input 
+                type="tel" 
+              class="form-control" 
+              id="whatsapp" 
+              name="whatsapp" 
+              placeholder="Ej: 3001234567" 
+              required 
+              pattern="[0-9]{10}" 
+              oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+            </div>
+
+
+            <!-- Fecha nacimiento -->
+            <div class="mb-3">
+              <label for="fecha" class="form-label">Fecha de nacimiento:</label>
+              <input type="date" class="form-control" id="fecha" name="fecha" required>
+            </div>
+
+            <!-- Género -->
+            <div class="mb-3">
+              <label for="genero" class="form-label">Género:</label>
+              <select class="form-select" id="genero" name="genero" required>
+                <option value="">Seleccione...</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Masculino">Masculino</option>
+              </select>
+            </div>
+
+            <!-- Tipo examen -->
+            <div class="mb-3">
+              <label for="examen" class="form-label">Tipo de examen:</label>
+              <select class="form-select" id="examen" name="examen" required>
+                <option value="">Seleccione...</option>
+                <option value="Perfil de tiroide">Perfil Tiroides</option>
+                <option value="Paquete examenes ITS">Paquete exámenes ITS</option>
+                <option value="Marcadores tumorales">Marcadores Tumorales</option>
+                <option value="Paquete examenes">Paquete Salud Laboral y Ocupacional</option>
+                <option value="Manipulacion alimentos">Manipulación de alimentos</option>
+                <option value="Diabetes">Evaluación Diabetes</option>
+                <option value="Citologías y frotis Vaginal">Citologías y frotis Vaginal</option>
+                <option value="Exámenes de laboratorio 🧪🧫 ayuda diagnóstica">Exámenes de laboratorio 🧪🧫</option>
+                <option value="Hemograma">Hemograma</option>
+                <option value="Glicemia">Glicemia</option>
+                <option value="Colesterol">Colesterol</option>
+                <option value="Trigliceridos">Triglicéridos</option>
+                <option value="Bun">Bun</option>
+                <option value="Urea">Urea</option>
+                <option value="Creatina">Creatina</option>
+                <option value="Parcial de orina">Parcial de orina</option>
+                <option value="GOT">GOT</option>
+                <option value="GPT">GPT</option>
+                <option value="Fosfatasa alcalina">Fosfatasa alcalina</option>
+                <option value="Bilirrubinas diferenciadas">Bilirrubinas diferenciadas</option>
+                <option value="Antigeno prostatico total">Antígeno prostático total</option>
+                <option value="Antigeno prostatico libre">Antígeno prostático libre</option>
+                <option value="TSH">TSH</option>
+                <option value="T3 Total">T3 Total</option>
+                <option value="T4 Libre">T4 Libre</option>
+                <option value="VIH">VIH</option>
+                <option value="Serologia (Sifilis)">Serología (Sífilis)</option>
+                <option value="Hepatitis B">Hepatitis B</option>
+                <option value="Aspartato aminotransferasa">Aspartato aminotransferasa</option>
+                <option value="Alanina aminotransferasa">Alanina aminotransferasa</option>
+                <option value="Gamma glutaminal transferasa">Gamma GT</option>
+                <option value="Dolor abdominal">Dolor abdominal</option>
+                <option value="Nauseas y vomitos">Náuseas y vómitos</option>
+                <option value="Perdida de apetito">Pérdida de apetito</option>
+                <option value="Perdida de peso">Pérdida de peso</option>
+                <option value="Ferritina">Ferritina</option>
+                <option value="Hierro">Hierro</option>
+                <option value="Capacidad de absorcion de hierro">Capacidad absorción hierro</option>
+                <option value="Microalbuminaria">Microalbuminaria</option>
+                <option value="Nitrogeno ureico">Nitrógeno ureico</option>
+                <option value="Tasa de filtracion glomerular">Tasa filtración glomerular</option>
+              </select>
+            </div>
+
+            <!-- Servicio a domicilio -->
+            <div class="mb-3">
+              <label for="domicilio" class="form-label">¿Servicio a domicilio?</label>
+              <select class="form-select" id="domicilio" name="domicilio" required>
+                <option value="">Seleccione...</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+
+            <!-- Campos condicionales -->
+            <div class="mb-3" id="fecha-domicilio-field" style="display:none;">
+              <label for="fecha_domicilio" class="form-label">Fecha de domicilio:</label>
+              <input type="date" class="form-control" id="fecha_domicilio" name="fecha_domicilio">
+            </div>
+
+            <div class="mb-3" id="direccion-field" style="display:none;">
+              <label for="direccion" class="form-label">Dirección:</label>
+              <input type="text" class="form-control" id="direccion" name="direccion">
+            </div>
+
+            <div class="mb-3" id="referencia-field" style="display:none;">
+              <label for="referencia" class="form-label">Punto de referencia:</label>
+              <input type="text" class="form-control" id="referencia" name="referencia">
+            </div>
+
+            <!-- Observaciones (NO obligatorio) -->
+            <div class="mb-3">
+              <label for="observaciones" class="form-label">Observaciones:</label>
+              <textarea class="form-control" id="observaciones" name="observaciones" rows="3"></textarea>
+            </div>
+
+            <!-- Botón -->
+            <button type="submit" class="btn btn-custom w-100">Enviar</button>
+            <div id="mensaje" class="mensaje"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Preregistro -->
+<div class="modal fade" id="preregistroModal" tabindex="-1" aria-labelledby="preregistroLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4 text-center">
+      
+      <!-- Ícono animado -->
+      <div class="checkmark-container mb-3">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark-check" fill="none" d="M14 27l7 7 16-16"/>
+        </svg>
+      </div>
+      
+      <h4 id="preregistroLabel">✅ Domicilio registrado con éxito</h4>
+      <p>En breve recibirás confirmación en tu WhatsApp 📲.</p>
+      <button type="button" class="btn btn-success mt-3" data-bs-dismiss="modal">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================
+     FIN FORMULARIO
+============================= -->
+
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Logo + misión -->
+    <div class="footer-section">
+      <img src="assets/images/PLUS.png" alt="Logo" class="footer-logo">
+      <p class="footer-mission">
+        Nuestra mision es brindar servicios de análisis clínico accesibles, confiables con calidad profesional y humana.
+      </p>
+      <!--<p class="footer-social-title">Nuestras redes:</p>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>-->
+    </div>
+
+    <!-- Participación social -->
+    <div class="footer-section">
+      <h3>Gestión de la Alianza de Usuarios</h3>
+      <!--<p>Informe de actividades</p>-->
+      <ul>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Informe 2021</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Informe 2022</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Informe 2023</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Informe 2024</a></li>
+      </ul>
+    </div>
+
+    <!-- Nosotros -->
+    <div class="footer-section">
+      <h3>Nosotros</h3>
+      <ul>
+        <!--<li><a href="#"><i class='bx bx-chevrons-right'></i> Historia</a></li>-->
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Nuestra organizacion</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Informacion financiera</a></li>
+      </ul>
+    </div>
+
+    <!-- Políticas -->
+    <div class="footer-section">
+      <h3>Políticas</h3>
+      <ul>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Proveedores</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Humanización</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> PQRS</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Habeas Data</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Ética y Transparencia</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Derechos del Paciente</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Reclamos Proveedores</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Gestión Integral</a></li>
+      </ul>
+    </div>
+
+    <!-- PQRSF -->
+    <div class="footer-section">
+      <h3>PQRSF</h3>
+      <p>
+        Tu opinión es importante. Escríbenos a través de nuestros canales de atención.
+      </p>
+      <ul>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Gestión de PQRSF</a></li>
+        <li><a href="mailto:pluslaboratorioclinicoctg@gmail.com"><i class='bx bx-chevrons-right'></i> Canales de Atención</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Línea inferior -->
+  <div class="footer-bottom">
+    © 2025 Plus Laboratorio Clinico Cartagena | <a href="#">Preferencias de cookies</a>
+  </div>
+</footer>
+<!-- Fin footer -->
+
+<!-- Bootstrap JS -->
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- jQuery (si lo usas en tu formulario) -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Script personalizado -->
+<script src="js/formulario.js"></script>
+
+<!-- Ventana modal -->
+
+ <script>
+  // Mostrar / ocultar campos condicionales
+  document.getElementById("domicilio").addEventListener("change", function() {
+    let show = this.value === "Sí";
+    document.getElementById("fecha-domicilio-field").style.display = show ? "block" : "none";
+    document.getElementById("direccion-field").style.display = show ? "block" : "none";
+    document.getElementById("referencia-field").style.display = show ? "block" : "none";
+
+    // Requeridos dinámicos
+    document.getElementById("fecha_domicilio").required = show;
+    document.getElementById("direccion").required = show;
+    document.getElementById("referencia").required = show;
+  });
+
+  // Enviar formulario
+  document.getElementById("formDomicilio").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Mostrar modal éxito
+    let modal = new bootstrap.Modal(document.getElementById("preregistroModal"));
+    modal.show();
+
+    // Reset
+    this.reset();
+
+    // Ocultar extras
+    document.getElementById("fecha-domicilio-field").style.display = "none";
+    document.getElementById("direccion-field").style.display = "none";
+    document.getElementById("referencia-field").style.display = "none";
+  });
+</script>
+<!-- Fin ventana modal -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("JS cargado correctamente ✅");
+  });
+</script>
+<!-- Asesor virtual-->
+    <script>
+     const asesorBtn = document.getElementById("asesorBtn");
+    const container = document.querySelector(".asesor-container");
+    const cerrarMsg = document.getElementById("cerrarMsg");
+    const mensajeMovil = document.getElementById("mensajeMovil");
+
+    // abrir menú
+    asesorBtn.addEventListener("click", () => {
+      container.classList.toggle("active");
+    });
+
+    // cerrar mensaje móvil
+    cerrarMsg.addEventListener("click", () => {
+      mensajeMovil.classList.add("oculto");
+    });
+  </script>
+  <!-- Asesor virtual final -->
+</body>
+</html>
