@@ -84,9 +84,6 @@
     font-weight: normal !important;
   }
 
-  /* =====================
-     ASESOR VIRTUAL
-  ===================== */
    /* =========================
    BOTÓN ASESOR + MENÚ SOCIAL
 ========================= */
@@ -324,119 +321,106 @@ textarea.form-control {
 }
 
 /* =====================
-   MODAL
+   MODAL REDUCIDO, LIMPIO Y CENTRADO
 ===================== */
-.modal-content {
-  max-width: 330px;
-  margin: auto;
-  border-radius: 14px;
-  padding: 22px;
-  font-size: 0.9rem;
-  text-align: center;
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
-  background: #ffffff;
-  animation: zoomIn 0.4s ease;
-}
-
-.modal-content h4 {
-  font-size: 1.25rem;
-  margin-bottom: 8px;
-  color: #2ecc71;
-  font-weight: bold;
-}
-
-.modal-content p {
-  font-size: 0.9rem;
-  margin-bottom: 14px;
-  color: #2c3e50;
-}
-
-.modal-icon {
-  font-size: 2.3rem;
-  color: #2ecc71;
-  margin-bottom: 10px;
-  animation: bounceIn 0.6s ease;
-}
 
 /* =====================
-   EFECTOS Y ANIMACIONES
+   MODAL REDUCIDO Y ELEGANTE
 ===================== */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.modal-custom {
+  max-width: 320px;
 }
 
-@keyframes scaleIn {
-  from { transform: scale(0.95); opacity: 0; }
+.modal-content {
+  border-radius: 12px;
+  padding: 14px;
+  border: none;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  animation: fadeInScale 0.3s ease;
+  background: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fondo más opaco */
+.modal-backdrop.show {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+/* Animación */
+@keyframes fadeInScale {
+  from { transform: scale(0.9); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
 
-@keyframes zoomIn {
-  from { transform: scale(0.7); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+/* Icono */
+.check-icon {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+  color: #2ecc71;
 }
 
-@keyframes bounceIn {
-  0% { transform: scale(0.5); opacity: 0; }
-  70% { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(1); }
+/* Título */
+.modal-content h6 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2ecc71;
+  margin-bottom: 4px;
+}
+
+/* Texto */
+.modal-content p {
+  font-size: 0.85rem;
+  color: #34495e;
+  margin-bottom: 12px;
+}
+
+/* Botones */
+.modal-content .btn {
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.modal-content .btn:hover {
+  transform: translateY(-2px);
 }
 
 /* =====================
    MEDIA QUERIES
 ===================== */
 @media (max-width: 991px) {
-  #contacts4-21 {
-    padding: 45px 10px;
-  }
-  #contacts4-21 .info-box {
-    padding: 22px;
-  }
-  .modal-content {
-    max-width: 300px;
-    padding: 18px;
-  }
+  .modal-custom { max-width: 300px; }
+  .modal-content { padding: 12px; }
+  .check-icon { font-size: 1.6rem; }
 }
 
 @media (max-width: 767px) {
-  #contacts4-21 .mbr-section-title {
-    font-size: 1.7rem;
-  }
-  input.form-control,
-  select.form-select,
-  textarea.form-control {
-    font-size: 0.85rem;
-    padding: 7px 9px;
-  }
-  .btn-custom {
-    font-size: 0.9rem;
-    padding: 9px;
-  }
-  .modal-content {
-    max-width: 270px;
-    padding: 15px;
-  }
+  .modal-custom { max-width: 260px; }
+  .modal-content { padding: 10px; }
+  .check-icon { font-size: 1.5rem; }
+  .modal-content h6 { font-size: 0.9rem; }
+  .modal-content p { font-size: 0.8rem; }
+  .modal-content .btn { font-size: 0.85rem; padding: 7px; }
 }
 
 @media (max-width: 480px) {
-  #contacts4-21 .mbr-section-title {
-    font-size: 1.5rem;
-  }
-  input.form-control,
-  select.form-select,
-  textarea.form-control {
-    font-size: 0.8rem;
-    padding: 6px 8px;
-  }
-  .btn-custom {
-    font-size: 0.85rem;
-    padding: 8px;
-  }
-  .modal-content {
-    max-width: 240px;
-    padding: 12px;
-  }
+  .modal-custom { max-width: 230px; }
+  .modal-content { padding: 8px; }
+  .check-icon { font-size: 1.3rem; }
+  .modal-content h6 { font-size: 0.85rem; }
+  .modal-content p { font-size: 0.75rem; }
+  .modal-content .btn { font-size: 0.8rem; padding: 6px; }
 }
+
+/* =====================
+    VENTANA MODAL
+===================== */
+
 /* =====================
    CAMPOS DE FORMULARIO
 ===================== */
@@ -683,15 +667,14 @@ textarea.form-control {
               <label for="whatsapp" class="form-label">WhatsApp:</label>
               <input 
                 type="tel" 
-              class="form-control" 
-              id="whatsapp" 
-              name="whatsapp" 
-              placeholder="Ej: 3001234567" 
-              required 
-              pattern="[0-9]{10}" 
-              oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                class="form-control" 
+                id="whatsapp" 
+                name="whatsapp" 
+                placeholder="Ej: 3001234567" 
+                required 
+                pattern="[0-9]{10}" 
+                oninput="this.value=this.value.replace(/[^0-9]/g,'')">
             </div>
-
 
             <!-- Fecha nacimiento -->
             <div class="mb-3">
@@ -800,25 +783,30 @@ textarea.form-control {
   </div>
 </section>
 
-<!-- Modal Preregistro -->
+<!-- Modal de confirmación -->
 <div class="modal fade" id="preregistroModal" tabindex="-1" aria-labelledby="preregistroLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content p-4 text-center">
+  <div class="modal-dialog modal-dialog-centered modal-custom">
+    <div class="modal-content">
       
-      <!-- Ícono animado -->
-      <div class="checkmark-container mb-3">
-        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
-          <path class="checkmark-check" fill="none" d="M14 27l7 7 16-16"/>
-        </svg>
+      <!-- Ícono -->
+      <div class="check-icon">✅</div>
+      
+      <!-- Título -->
+      <h6 id="preregistroLabel">¡Registro exitoso!</h6>
+      
+      <!-- Texto -->
+      <p>En breve recibirás la confirmación en tu WhatsApp 📲</p>
+      
+      <!-- Botones -->
+      <div class="d-flex flex-column gap-2 w-100">
+        <button type="button" class="btn btn-success w-100" data-bs-dismiss="modal">Aceptar</button>
+        <a href="./servicios.html" class="btn btn-outline-primary w-100">Ver más servicios</a>
       </div>
-      
-      <h4 id="preregistroLabel">✅ Domicilio registrado con éxito</h4>
-      <p>En breve recibirás confirmación en tu WhatsApp 📲.</p>
-      <button type="button" class="btn btn-success mt-3" data-bs-dismiss="modal">Aceptar</button>
     </div>
   </div>
 </div>
+
+<!-- Modal de confirmacion -->
 
 <!-- ============================
      FIN FORMULARIO
