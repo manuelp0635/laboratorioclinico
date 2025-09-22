@@ -1,33 +1,87 @@
-/* Reset */
+/* ============================
+   RESET
+=============================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ============================
+   BODY Y TIPOGRAFÍA
+=============================== */
 body {
-  font-family: "Arial", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
   background: #f4f4f4;
   color: #333;
+  font-size: 18px;
 }
 
-/* Header */
+/* ============================
+   TEXTOS GENERALES
+=============================== */
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #2a2a2a;
+  margin: 40px 0 20px;
+  text-align: center;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #2a2a2a;
+  margin: 30px 0 15px;
+}
+
+p {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 20px;
+  text-align: justify;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================
+   HEADER
+=============================== */
 #header14-1j {
   background: transparent;
   color: #000;
+  text-align: center;
 }
 
 #header14-1j .lead {
   text-align: justify;
   max-width: 700px;
   margin: 0 auto;
+  font-size: 18px;
+  color: #444;
 }
 
-/* Navbar */
+/* ============================
+   NAVBAR
+=============================== */
 .navbar-nav .nav-link {
   color: #222 !important;
   font-weight: 500;
+  font-size: 18px;
+  transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
@@ -37,4 +91,5 @@ body {
 .dropdown-menu {
   border-radius: 6px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-size: 16px;
 }
