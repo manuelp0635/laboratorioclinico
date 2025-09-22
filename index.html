@@ -26,462 +26,12 @@
       <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
       <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
       <link rel="stylesheet" href="css/styles1.min.css">
-
-
-  <style>
-  /* Reset */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: "Arial", sans-serif;
-    line-height: 1.6;
-    background: #f4f4f4;
-    color: #333;
-    min-height: 100vh;
-    margin: 0;
-  }
-
-  /* Header */
-  #header14-1j {
-    background: transparent;
-    color: #000;
-    padding: 3rem 0;
-  }
-
-  #header14-1j .lead {
-    text-align: justify;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  /* Navbar */
-  .navbar-nav .nav-link {
-    color: #222 !important;
-    font-weight: 500;
-  }
-
-  .navbar-nav .nav-link:hover {
-    color: #007BFF !important;
-  }
-
-  .dropdown-menu {
-    border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-  
-  /* =========================
-   BOTÓN ASESOR + MENÚ SOCIAL
-========================= */
-.asesor-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999; /* siempre visible sobre todo */
-}
-
-/* Botón asesor */
-.asesor-btn {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.asesor-btn img {
-  width: 50px;
-  height: 50px;
-}
-
-.asesor-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-/* Redes sociales flotantes */
-.social-links {
-  position: absolute;
-  bottom: 80px;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  transform: translateY(10px);
-  z-index: 10000; /* más alto que el botón */
-}
-
-.social-links a {
-  background: #fff;
-  padding: 10px 15px;
-  border-radius: 25px;
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  font-size: 14px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  transition: background 0.3s ease, transform 0.2s;
-}
-
-.social-links a:hover {
-  background: #2575fc;
-  color: #fff;
-  transform: translateX(-5px);
-}
-
-/* Mostrar menú activo */
-.asesor-container.active .social-links {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-/* =========================
-   MENSAJE FLOTANTE MÓVIL
-========================= */
-.mensaje-movil {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  background: #ffffff;
-  color: #333;
-  padding: 12px 18px;
-  border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-  font-size: 14px;
-  display: none;
-  align-items: center;
-  gap: 8px;
-  animation: slideUp 0.6s ease;
-  z-index: 10001; /* siempre sobre todo */
-}
-
-.mensaje-movil button {
-  background: transparent;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  color: #888;
-}
-
-@keyframes slideUp {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-/* Mostrar solo en móvil */
-@media (max-width: 768px) {
-  .mensaje-movil {
-    display: flex;
-  }
-}
-
-    /* Fin Asesor virtual */
-
-/* ============================
-   Sección Domicilio
-============================ */
-section.domicilio-section {
-  padding: 40px 20px;
-  width: 100%;
-  background: #ffffff; /* Fondo expandido */
-  display: flex;
-  justify-content: center;
-}
-
-.domicilio-content {
-  background: #ffffff; 
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  max-width: 900px;
-  width: 100%;
-  text-align: center;
-}
-
-.domicilio-content h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #16a085;
-}
-
-.domicilio-content p {
-  font-size: 1rem;
-  margin-bottom: 20px;
-}
-
-.cta-btn {
-  display: inline-block;
-  background: linear-gradient(135deg, #16a085, #1abc9c); /* degradado llamativo */
-  color: #fff;
-  padding: 14px 26px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 14px rgba(22, 160, 133, 0.4);
-}
-
-.cta-btn:hover {
-  background: linear-gradient(135deg, #138d75, #17a589); /* tono más oscuro al hover */
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
-}
-
-.cta-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-}
-
-
-/* ============================
-   Botón CTA (Agenda tu cita)
-============================ */
-.domicilio-btn {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.cta-btn {
-  display: inline-block;
-  background: #2c3e50;       /* color principal del botón */
-  color: #fff;               /* texto en blanco */
-  padding: 12px 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.cta-btn:hover {
-  background: #1a252f;       /* tono más oscuro al hover */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-}
-
-.cta-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-}
-
-/* ============================
-   Promociones del Mes (limpio)
-============================ */
-.promociones-mes {
-  text-align: center;
-  margin: 20px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  position: relative;
-  max-width: 400px;
-}
-
-.promociones-mes h3 {
-  font-size: 1.6rem;
-  margin-bottom: 15px;
-  color: #2c3e50;
-  font-weight: bold;
-}
-
-.promo-carrusel {
-  overflow: hidden;
-}
-
-.promo-slides {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.promo-img {
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  display: none; /* ocultar todas */
-}
-
-.promo-img.activa {
-  display: block; /* mostrar solo la activa */
-}
-
-/* Botones */
-.promo-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #2c3e50;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  font-size: 1.5rem;
-  border-radius: 50%;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
-}
-
-.promo-btn:hover {
-  background: #1a252f;
-}
-
-.promo-btn.prev {
-  left: -40px;
-}
-
-.promo-btn.next {
-  right: -40px;
-}
-
-/* ============================
-   Media Queries
-============================ */
-@media (max-width: 576px) {
-  .promociones-mes h3 {
-    font-size: 1.3rem;
-  }
-  .promociones-mes .promo-img {
-    max-width: 180px;
-  }
-}
-
-@media (min-width: 577px) and (max-width: 991px) {
-  .promociones-mes h3 {
-    font-size: 1.5rem;
-  }
-  .promociones-mes .promo-img {
-    max-width: 200px;
-  }
-}
-
-    /* Fin Servicio domicilio + promociones del mes */
-
-
-
-    /* Estilos sección ¿Por qué Plus? */
-
-    /* ===== Estilos Generales ===== */
-.porque-section {
-  background: #ffffff; /* Fondo blanco */
-  padding: 60px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.porque-content {
-  max-width: 800px;
-  text-align: center;
-  background: #ffffff; /* También blanco, para mantener coherencia */
-  padding: 40px 30px;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-}
-
-.porque-content:hover {
-  transform: translateY(-5px);
-}
-
-.porque-content h2 {
-  font-size: 2rem;
-  color: #0a3d62; /* Azul profesional */
-  margin-bottom: 20px;
-}
-
-.porque-content p {
-  font-size: 1.1rem;
-  color: #333;
-  line-height: 1.7;
-  margin-bottom: 30px;
-}
-
-.porque-content strong {
-  color: #0c6efc; /* Azul llamativo */
-}
-
-/* ===== Botón CTA ===== */
-.porque-btn .cta-btn {
-  display: inline-block;
-  background: #0c6efc;
-  color: #fff;
-  padding: 14px 28px;
-  border-radius: 30px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.porque-btn .cta-btn:hover {
-  background: #084bb5;
-  transform: scale(1.05);
-}
-
-/* ===== Media Queries ===== */
-
-/* Tablets */
-@media (max-width: 992px) {
-  .porque-content {
-    padding: 30px 20px;
-  }
-
-  .porque-content h2 {
-    font-size: 1.8rem;
-  }
-
-  .porque-content p {
-    font-size: 1rem;
-  }
-}
-
-/* Móviles */
-@media (max-width: 600px) {
-  .porque-section {
-    padding: 40px 15px;
-  }
-
-  .porque-content {
-    padding: 25px 18px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* un poco más suave en móvil */
-  }
-
-  .porque-content h2 {
-    font-size: 1.5rem;
-  }
-
-  .porque-content p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
-  .porque-btn .cta-btn {
-    font-size: 0.9rem;
-    padding: 12px 20px;
-  }
-}
-
-</style>
-
+      <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
   <!-- Navbar -->
-  <section class="menu" id="menu2-23">
+  <section class="menu" id="menu2-23"><br>
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -632,6 +182,72 @@ section.domicilio-section {
 
   <!-- Fin Seccion porque C+-->
 
+  <!-- SECCIÓN FAQ Y TESTIMONIOS -->
+<section id="faq-testimonials">
+  <div class="container">
+    
+    <!-- TÍTULOS ACTUALIZADOS -->
+    <h2 class="section-title">Preguntas Frecuentes</h2>
+    
+    <div class="faq-testimonials-wrapper">
+
+      <!-- PREGUNTAS FRECUENTES -->
+      <div class="faq">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            ¿Cuánto tiempo tardan los resultados?
+          </button>
+          <div class="faq-answer">
+            Los resultados se entregan entre 24 y 48 horas, dependiendo del tipo de examen realizado.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            ¿Cómo puedo agendar una cita?
+          </button>
+          <div class="faq-answer">
+            Puedes agendar tu cita en línea o llamando a nuestro número de contacto. También ofrecemos atención presencial.
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN FAQ -->
+
+<section id="faq-testimonials" style="padding: 60px 20px; font-family: Arial, sans-serif;">
+  <div class="container" style="max-width: 1200px; margin: auto;">
+    
+    <!-- TÍTULOS ACTUALIZADOS -->
+    <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
+
+      <!-- TESTIMONIOS -->
+      <div class="testimonials" style="flex: 1 1 45%;">
+        <!--<h3 style="font-size: 1.8rem; color: #555; margin-bottom: 20px;">Testimonios</h3>-->
+        <div class="testimonial-item" style="margin-bottom: 20px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <p style="font-style: italic; color: #333;">"Excelente atención y resultados rápidos. Recomiendo este laboratorio a todos mis amigos."</p>
+          <strong style="display: block; margin-top: 10px; color: #555;">- Juan P.</strong>
+        </div>
+
+        <div class="testimonial-item" style="margin-bottom: 20px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <p style="font-style: italic; color: #333;">"El personal es muy amable y profesional. La experiencia fue muy satisfactoria."</p>
+          <strong style="display: block; margin-top: 10px; color: #555;">- María L.</strong>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCION TESTIMONIOS -->
+
+
   <!-- Inicio carrusel de videos -->
 <section class="slider6 mbr-embla cid-u1POXRwmNA">
     
@@ -639,7 +255,7 @@ section.domicilio-section {
     <div class="position-relative">
         <div class="mbr-section-head">
             <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Recomendaciones</strong></h4>
-            <!--<h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5">Nos mueve el deseo de servir.</h5>-->
+            <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5">previas a la realizacion de los exámanes.</h5>
         </div>
         <div class="embla mt-4">
             <div class="embla__viewport container-fluid is-draggable">
@@ -689,7 +305,7 @@ section.domicilio-section {
       <img src="./assets/images/Promocion sabado1.jpg" alt="Promocion sabado" class="promo-img" data-dia="7">
       <!--<img src="./assets/images/Examenes 1.jpg" alt="Promocion Examenes" class="promo-img" data-dia="8">
       <img src="./assets/images/Examenes 2.jpg" alt="Promoción Examenes" class="promo-img" data-dia="9">-->
-      <img src="./assets/images/Promocion domingo" alt="Promoción domingo" class="promo-img" data-dia="0">
+      <img src="./assets/images/Promocion domingo.jpg" alt="Promoción domingo" class="promo-img" data-dia="0">
     </div>
   </div>
 
@@ -871,5 +487,27 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
   <!-- Promociones de la semana final -->
+
+<!-- SCRIPT PARA HACER DESPLEGABLES LAS PREGUNTAS -->
+<script>
+  const questions = document.querySelectorAll('.faq-question');
+  questions.forEach(q => {
+    q.addEventListener('click', () => {
+      const answer = q.nextElementSibling;
+      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+</script>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const answer = button.nextElementSibling;
+    answer.classList.toggle('open');
+  });
+});
+</script>
+
+<!-- FIN SCRIPT CIERRE-->
 </body>
 </html>
