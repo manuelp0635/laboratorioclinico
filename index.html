@@ -595,7 +595,7 @@ section.domicilio-section {
     <div class="container">
       <div class="row justify-content-center align-items-center">
         <div class="col-12 col-md-5 text-center mb-3">
-          <img src="./assets/images/about1.png" alt="Cambio imagen" class="img-fluid">
+          <img src="./assets/images/about1.webp" alt="Cambio imagen" class="img-fluid">
         </div>
         <div class="col-12 col-md text-center">
           <h1 class="display-4 fw-bold"></h1>
@@ -661,6 +661,14 @@ section.domicilio-section {
 
 <!-- Fin carusel de videos -->
 
+      <!-- Barra de contacto rápida -->
+<div class="top-contact">
+  <span>📞 <a href="tel:+573001112233">+57 311 3212221</a></span>
+  <span>📍 Cartagena, Bolívar</span>
+  <span>🕒 Lun - Vie: 7:00 AM - 4:00 PM | 🕒 Sab: 7:00 AM - 12:00 PM | 🕒 Domingos y festivo, se atiende con agenda previa un dia antes</span>
+</div>
+<!-- Fin Barra de contacto rápida -->
+
 
  <!-- Seccion servicio domicilio -->
   <section class="domicilio-section">
@@ -681,7 +689,7 @@ section.domicilio-section {
       <img src="./assets/images/Promocion sabado1.jpg" alt="Promocion sabado" class="promo-img" data-dia="7">
       <!--<img src="./assets/images/Examenes 1.jpg" alt="Promocion Examenes" class="promo-img" data-dia="8">
       <img src="./assets/images/Examenes 2.jpg" alt="Promoción Examenes" class="promo-img" data-dia="9">-->
-      <img src="./assets/images/" alt="Promoción domingo" class="promo-img" data-dia="0">
+      <img src="./assets/images/Promocion domingo" alt="Promoción domingo" class="promo-img" data-dia="0">
     </div>
   </div>
 
@@ -832,18 +840,16 @@ section.domicilio-section {
   <!-- Promociones de la semana -->
 
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const imagenes = document.querySelectorAll(".promo-img");
+  const prevBtn = document.querySelector(".promo-btn.prev");
+  const nextBtn = document.querySelector(".promo-btn.next");
 
-  // Obtenemos el día actual (0 = domingo, 1 = lunes, ..., 6 = sábado)
-  let diaHoy = new Date().getDay();
-
-  // Buscamos la imagen con el data-dia que coincide
+  let diaHoy = new Date().getDay(); // 0 = domingo, 1 = lunes...
   let indiceActual = Array.from(imagenes).findIndex(
     img => parseInt(img.dataset.dia) === diaHoy
   );
 
-  // Si no hay coincidencia, por defecto mostramos la primera
   if (indiceActual === -1) indiceActual = 0;
 
   function mostrarImagen(index) {
@@ -851,23 +857,19 @@ section.domicilio-section {
     imagenes[index].classList.add("activa");
   }
 
-  // Mostrar automáticamente la promo del día al cargar
   mostrarImagen(indiceActual);
 
-  // Navegación manual opcional
-  document.querySelector(".promo-btn.prev").addEventListener("click", () => {
+  prevBtn.addEventListener("click", () => {
     indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
     mostrarImagen(indiceActual);
   });
 
-  document.querySelector(".promo-btn.next").addEventListener("click", () => {
+  nextBtn.addEventListener("click", () => {
     indiceActual = (indiceActual + 1) % imagenes.length;
     mostrarImagen(indiceActual);
   });
 });
-
 </script>
-
   <!-- Promociones de la semana final -->
 </body>
 </html>
