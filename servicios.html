@@ -26,170 +26,6 @@
       <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
       <link rel="stylesheet" href="css/styles1.min.css">
       <link rel="stylesheet" href="css/styles.css">
-
-  <style>
-  /* Reset */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: "Arial", sans-serif;
-    line-height: 1.6;
-    background: #f4f4f4;
-    color: #333;
-    min-height: 100vh;
-    margin: 0;
-  }
-
-  /* Header */
-  #header14-1j {
-    background: transparent;
-    color: #000;
-    padding: 3rem 0;
-  }
-
-  #header14-1j .lead {
-    text-align: justify;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  /* Navbar */
-  .navbar-nav .nav-link {
-    color: #222 !important;
-    font-weight: 500;
-  }
-
-  .navbar-nav .nav-link:hover {
-    color: #007BFF !important;
-  }
-
-  .dropdown-menu {
-    border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-
-  /* Asesor virtual */
-  /* =========================
-   BOTÓN ASESOR + MENÚ SOCIAL
-========================= */
-.asesor-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999; /* siempre visible sobre todo */
-}
-
-/* Botón asesor */
-.asesor-btn {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.asesor-btn img {
-  width: 50px;
-  height: 50px;
-}
-
-.asesor-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-/* Redes sociales flotantes */
-.social-links {
-  position: absolute;
-  bottom: 80px;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  transform: translateY(10px);
-  z-index: 10000; /* más alto que el botón */
-}
-
-.social-links a {
-  background: #fff;
-  padding: 10px 15px;
-  border-radius: 25px;
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  font-size: 14px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  transition: background 0.3s ease, transform 0.2s;
-}
-
-.social-links a:hover {
-  background: #2575fc;
-  color: #fff;
-  transform: translateX(-5px);
-}
-
-/* Mostrar menú activo */
-.asesor-container.active .social-links {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-/* =========================
-   MENSAJE FLOTANTE MÓVIL
-========================= */
-.mensaje-movil {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  background: #ffffff;
-  color: #333;
-  padding: 12px 18px;
-  border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-  font-size: 14px;
-  display: none;
-  align-items: center;
-  gap: 8px;
-  animation: slideUp 0.6s ease;
-  z-index: 10001; /* siempre sobre todo */
-}
-
-.mensaje-movil button {
-  background: transparent;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  color: #888;
-}
-
-@keyframes slideUp {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-/* Mostrar solo en móvil */
-@media (max-width: 768px) {
-  .mensaje-movil {
-    display: flex;
-  }
-}
-
-/* final asesor virtual */
-
-</style>
 </head>
 <body>
 
@@ -303,6 +139,14 @@
 
   <!-- Asesor virtual final-->
 
+      <!-- Barra de contacto rápida -->
+<div class="top-contact">
+  <span>📞 <a href="tel:+573001112233">+57 311 3212221</a></span>
+  <span>📍 Cartagena, Bolívar</span>
+  <span>🕒 Lun - Vie: 7:00 AM - 4:00 PM | 🕒 Sab: 7:00 AM - 12:00 PM | 🕒 Domingos y festivo, se atiende con agenda previa un dia antes</span>
+</div>
+<!-- Fin Barra de contacto rápida -->
+
   <!-- El bendito slider-->
 <section data-bs-version="5.1" class="slider6 mbr-embla cid-u1POXRwmNA" id="slider6-c">
     
@@ -320,7 +164,7 @@
                         <div class="slide-content">
                             <div class="item-wrapper">
                                 <div class="item-img">
-                                    <img src="assets/images/Examen Tiroides.png" data-src="image.webp" alt="Prueba de paternidad" loading="lazy">
+                                    <img src="assets/images/Examen Tiroides.webp" data-src="image.webp" alt="Prueba de paternidad" loading="lazy">
                                 </div>
                             </div>
                             <div class="item-content">
@@ -349,7 +193,7 @@
                         <div class="slide-content">
                             <div class="item-wrapper">
                                 <div class="item-img">
-                                    <img src="assets/images/Examen Tumorales.png" class="card-img-top" data-src="image.webp" alt="Trabajo en altura" loading="lazy">
+                                    <img src="assets/images/Examen Tumorales.webp" class="card-img-top" data-src="image.webp" alt="Trabajo en altura" loading="lazy">
                                 </div>
                             </div>
                             <div class="item-content">
@@ -377,7 +221,7 @@
                         <div class="slide-content">
                             <div class="item-wrapper">
                                 <div class="item-img">
-                                    <img src="assets/images/Examen manipulacion alimentos.jpg" class="card-img-top" data-src="image.webp" alt="Manipulacion de alimentos" loading="lazy">
+                                    <img src="assets/images/Examen manipulacion alimentos.webp" class="card-img-top" data-src="image.webp" alt="Manipulacion de alimentos" loading="lazy">
                                 </div>
                             </div>
                             <div class="item-content">
@@ -391,7 +235,7 @@
                         <div class="slide-content">
                             <div class="item-wrapper">
                                 <div class="item-img">
-                                    <img src="assets/images/Examen Diabetes.png" class="card-img-top" data-src="image.webp" alt="Examenes rutinarios" loading="lazy">
+                                    <img src="assets/images/Examen Diabetes.webp" class="card-img-top" data-src="image.webp" alt="Examenes rutinarios" loading="lazy">
                                 </div>
                             </div>
                             <div class="item-content">
@@ -405,7 +249,7 @@
                         <div class="slide-content">
                             <div class="item-wrapper">
                                 <div class="item-img">
-                                    <img src="assets/images/Citologia vaginal.png" data-src="image.webp" alt="Examenes especializados" loading="lazy">
+                                    <img src="assets/images/Citologia vaginal.webp" data-src="image.webp" alt="Examenes especializados" loading="lazy">
                                 </div>
                             </div>
                             <div class="item-content">
