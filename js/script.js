@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("JS cargado correctamente ✅");
 });
 
+ // Aquí puedes manejar extras JS
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("JS cargado correctamente ✅");
+    });
+
 // JS Asesor
     const asesorBtn = document.getElementById("asesorBtn");
     const container = document.querySelector(".asesor-container");
