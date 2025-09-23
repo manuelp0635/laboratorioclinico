@@ -192,7 +192,7 @@ video {
    CONTACTO
 =============================== */
 
-/* Barra de contacto fija más visible */
+/* === Barra de contacto fija === */
 .top-contact {
   position: fixed;
   top: 0;
@@ -200,15 +200,16 @@ video {
   width: 100%;
   background: rgba(0, 0, 0, 0.9);
   color: #fff;
-  font-size: 14px;   /* un poco más grande */
+  font-size: 14px;
   text-align: center;
-  padding: 8px 12px; /* más alto que antes */
+  padding: 8px 12px;
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
   z-index: 9999;
   line-height: 1.5;
+  box-sizing: border-box;
 }
 
 /* Enlaces */
@@ -227,7 +228,7 @@ video {
   .top-contact {
     font-size: 13px;
     gap: 12px;
-    padding: 8px 10px;
+    padding: 10px;
   }
 }
 
@@ -236,14 +237,34 @@ video {
     font-size: 12px;
     flex-direction: column;
     gap: 6px;
-    padding: 10px;
+    padding: 12px;
   }
 }
 
-/* Ajuste del espacio para que no tape el contenido */
+/* === Ajuste dinámico del contenido === */
 body {
-  padding-top: 45px; /* Igual al alto total de la barra */
+  margin: 0; /* eliminamos márgenes por defecto */
 }
+
+/* Truco: agregamos un margen superior solo al primer contenedor principal */
+body::before {
+  content: "";
+  display: block;
+  height: 60px; /* altura base de la barra */
+}
+
+@media (max-width: 768px) {
+  body::before {
+    height: 70px; /* barra un poco más alta en tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  body::before {
+    height: 90px; /* barra más alta en móviles */
+  }
+}
+
 
 /* ===========================
    Sección Domicilio
