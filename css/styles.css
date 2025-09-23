@@ -1,3 +1,6 @@
+/* Importación de fuentes (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap');
+
 /* ============================
    TIPOGRAFÍA Y TEXTO
 =============================== */
@@ -15,41 +18,15 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #333;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
-  margin: 0;
-  padding: 0;
 }
 
-/* Títulos principales */
-h1 {
+h1, h2, h3, h4 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 56px;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 40px;
-  font-weight: 600;
-  color: #2a2a2a;
-  margin-top: 60px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-h3 {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 28px;
-  font-weight: 600;
-  color: #2a2a2a;
-  margin-top: 40px;
-  margin-bottom: 15px;
+  color: #0066cc; /* tono institucional */
 }
 
 p {
@@ -226,9 +203,9 @@ video {
 /* Ajustes responsive */
 @media (max-width: 768px) {
   .top-contact {
-    font-size: 13px;
-    gap: 12px;
-    padding: 10px;
+    font-size: 12px;
+    padding: 5px;
+    flex-direction: column;
   }
 }
 
@@ -580,6 +557,98 @@ section.domicilio-section {
   border: 1px solid #ddd;
   border-top: none;
   background: #fff;
+}
+
+/* ---- ESTILOS BASE ---- */
+.testimonials-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.testimonials {
+  flex: 1 1 45%;
+}
+
+.testimonial-item {
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.testimonial-item p {
+  font-style: italic;
+  color: #333;
+}
+
+.testimonial-item strong {
+  display: block;
+  margin-top: 10px;
+  color: #555;
+}
+
+.testimonial-item h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.rating {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-opinion {
+  background: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ---- RESPONSIVE ---- */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .testimonials-wrapper {
+    gap: 30px;
+  }
+  .testimonials {
+    flex: 1 1 100%;
+  }
+}
+
+/* Móviles */
+@media (max-width: 576px) {
+  #faq-testimonials {
+    padding: 40px 15px;
+  }
+  .testimonial-item {
+    padding: 15px;
+  }
+  .testimonials-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .btn-opinion {
+    width: 100%;
+  }
 }
 
 /* Testimonios */
@@ -1094,17 +1163,16 @@ section.domicilio-section {
    NUEVOS ESTILOS INTEGRADOS
 =============================== */
 
- /* =========================
+/* =========================
    BOTÓN ASESOR + MENÚ SOCIAL
 ========================= */
 .asesor-container {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 9999; /* siempre visible sobre todo */
+  z-index: 9999;
 }
 
-/* Botón asesor */
 .asesor-btn {
   width: 70px;
   height: 70px;
@@ -1117,15 +1185,15 @@ section.domicilio-section {
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .asesor-btn img {
   width: 50px;
   height: 50px;
 }
-
-.asesor-btn:hover {
+.asesor-btn:hover,
+.asesor-btn:focus {
   transform: scale(1.1);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  outline: none;
 }
 
 /* Redes sociales flotantes */
@@ -1140,28 +1208,23 @@ section.domicilio-section {
   pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
   transform: translateY(10px);
-  z-index: 10000; /* más alto que el botón */
 }
-
 .social-links a {
   background: #fff;
   padding: 10px 15px;
   border-radius: 25px;
   text-decoration: none;
   color: #333;
-  font-weight: bold;
   font-size: 14px;
+  font-weight: bold;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   transition: background 0.3s ease, transform 0.2s;
 }
-
 .social-links a:hover {
   background: #2575fc;
   color: #fff;
   transform: translateX(-5px);
 }
-
-/* Mostrar menú activo */
 .asesor-container.active .social-links {
   opacity: 1;
   pointer-events: auto;
@@ -1175,19 +1238,18 @@ section.domicilio-section {
   position: fixed;
   bottom: 90px;
   right: 20px;
-  background: #ffffff;
+  background: #fff;
   color: #333;
   padding: 12px 18px;
   border-radius: 20px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.15);
   font-size: 14px;
-  display: none;
+  display: none; /* oculto en escritorio */
   align-items: center;
   gap: 8px;
   animation: slideUp 0.6s ease;
-  z-index: 10001; /* siempre sobre todo */
+  z-index: 10001;
 }
-
 .mensaje-movil button {
   background: transparent;
   border: none;
@@ -1195,130 +1257,24 @@ section.domicilio-section {
   cursor: pointer;
   color: #888;
 }
-
 @keyframes slideUp {
   from { transform: translateY(50px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+.oculto { display: none !important; }
 
 /* Mostrar solo en móvil */
 @media (max-width: 768px) {
-  .mensaje-movil {
-    display: flex;
-  }
-}
-
-/* Asegurar un contenedor principal centrado con buenos márgenes laterales */
-.container {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-/* Para títulos principales */
-.hero-title {
-  margin-top: 60px;
-  margin-bottom: 30px;
-  text-align: center;
-  padding-left: 10px;
-  padding-right: 10px;
+  .mensaje-movil { display: flex; }
 }
 
 /* =========================
-   MENSAJE FLOTANTE MÓVIL
+   ACCESIBILIDAD
 ========================= */
-.mensaje-movil {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  background: #ffffff;
-  color: #333;
-  padding: 12px 18px;
-  border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-  font-size: 14px;
-  display: none;
-  align-items: center;
-  gap: 8px;
-  animation: slideUp 0.6s ease;
-  z-index: 10001; /* siempre sobre todo */
+.asesor-btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
 }
-
-.mensaje-movil button {
-  background: transparent;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  color: #888;
-}
-
-@keyframes slideUp {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-/* Mostrar solo en móvil */
-@media (max-width: 768px) {
-  .mensaje-movil {
-    display: flex;
-  }
-}
-
-main h2 { color: #0066cc; margin-top: 20px; font-size: 20px; }
-    main p, main ul { margin-bottom: 15px; text-align: justify; }
-
-    /* Header */
-    #header14-1j { background: transparent; color: #000; padding: 3rem 0; }
-    #header14-1j .lead { text-align: justify; max-width: 700px; margin: 0 auto; }
-
-    /* Asesor virtual */
-    .asesor-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 9999;
-    }
-    .asesor-btn {
-      width: 70px; height: 70px; border-radius: 50%;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .asesor-btn img { width: 50px; height: 50px; }
-    .asesor-btn:hover { transform: scale(1.1); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
-
-    .social-links {
-      position: absolute; bottom: 80px; right: 0;
-      display: flex; flex-direction: column; gap: 10px;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      transform: translateY(10px);
-    }
-    .social-links a {
-      background: #fff; padding: 10px 15px; border-radius: 25px;
-      text-decoration: none; color: #333; font-weight: bold; font-size: 14px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      transition: background 0.3s ease, transform 0.2s;
-    }
-    .social-links a:hover { background: #2575fc; color: #fff; transform: translateX(-5px); }
-    .asesor-container.active .social-links { opacity: 1; pointer-events: auto; transform: translateY(0); }
-
-    /* Mensaje móvil */
-    .mensaje-movil {
-      position: fixed; bottom: 90px; right: 20px;
-      background: #ffffff; color: #333; padding: 12px 18px;
-      border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-      font-size: 14px; display: none; align-items: center; gap: 8px;
-      animation: slideUp 0.6s ease;
-    }
-    .mensaje-movil button { background: transparent; border: none; font-size: 16px; cursor: pointer; color: #888; }
-    @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    .oculto { display: none !important; }
-    @media (max-width: 768px) { .mensaje-movil { display: flex; } }
 
     /* =====================
    CAMPOS DE FORMULARIO
@@ -1629,114 +1585,210 @@ footer p {
   margin-bottom: 10px;
 }
 
-/* ============================
-   OPTIMIZACIÓN MÓVIL
-=============================== */
-
-/* Tablets (pantallas medianas) */
-@media (max-width: 991px) {
-  body {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-
-  h1 { font-size: 40px; }
-  h2 { font-size: 30px; }
-  h3 { font-size: 22px; }
-
-  .navbar-nav .nav-link {
-    font-size: 16px;
-    padding: 10px 12px;
-  }
-
-  .promotion-item {
-    flex: 1 1 calc(50% - 15px);
-    max-width: calc(50% - 15px);
-  }
-
-  .carousel-caption {
-    max-width: 70%;
-    font-size: 14px;
-  }
+/* 🔹 Estilos generales adaptativos */
+img, video {
+  max-width: 100%;
+  height: auto;
 }
 
-/* Móviles grandes (≤ 768px) */
-@media (max-width: 768px) {
-  h1 { font-size: 32px; }
-  h2 { font-size: 26px; }
-  h3 { font-size: 20px; }
-
-  p, .navbar-nav .nav-link {
-    font-size: 15px;
+/* 🔹 Dispositivos pequeños (móviles en vertical, <576px) */
+@media (max-width: 575.98px) {
+  /* Navbar */
+  .navbar-brand img {
+    height: 2.2rem;
+  }
+  .navbar-nav {
+    text-align: center;
   }
 
-  .promotions {
-    flex-direction: column;
-    gap: 15px;
+  /* Header */
+  #header14-1j h1 {
+    font-size: 1.6rem;
+  }
+  #header14-1j p {
+    font-size: 0.9rem;
+    text-align: justify;
   }
 
-  .promotion-item {
+  /* FAQ */
+  .faq-question {
+    font-size: 0.95rem;
+  }
+
+  /* ===========================
+   FORMULARIO DE OPINIONES
+=========================== */
+.testimonials {
+  flex: 1 1 45%;
+  padding: 10px;
+}
+
+.testimonial-item {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease;
+}
+.testimonial-item:hover {
+  transform: translateY(-3px);
+}
+
+.testimonial-item h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+.label-title {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: bold;
+}
+
+.rating {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-submit {
+  background: #007bff;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  width: 100%;
+}
+.btn-submit:hover {
+  background: #0056b3;
+  transform: scale(1.02);
+}
+
+/* ===========================
+   MEDIA QUERIES
+=========================== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .testimonials {
     flex: 1 1 100%;
-    max-width: 100%;
+    padding: 5px;
   }
-
-  .whatsapp-btn {
-    width: 70px;
-    height: 70px;
-    bottom: 80px;
-  }
-
-  video {
-    border-width: 3px;
-    border-radius: 8px;
-  }
-
-  .footer {
-    padding: 30px 15px;
-    font-size: 14px;
-  }
-
-  .footer-logo {
-    max-width: 140px;
+  .testimonial-item {
+    padding: 20px;
   }
 }
 
-/* Móviles pequeños (≤ 480px) */
-@media (max-width: 480px) {
-  h1 { font-size: 26px; }
-  h2 { font-size: 22px; }
-  h3 { font-size: 18px; }
-
-  body {
+/* Móviles */
+@media (max-width: 600px) {
+  .testimonial-item h3 {
+    font-size: 1.2rem;
+  }
+  .btn-submit {
+    padding: 10px 20px;
     font-size: 14px;
   }
-
-  .navbar-nav .nav-link {
-    padding: 8px 10px;
-    font-size: 14px;
-  }
-
-  .whatsapp-btn {
-    width: 60px;
-    height: 60px;
-    bottom: 70px;
-    right: 12px;
-  }
-
-  .carousel-caption {
-    max-width: 90%;
+  .rating {
+    gap: 6px;
     font-size: 13px;
-    text-align: center;
-  }
-
-  .footer {
-    text-align: center;
-    font-size: 13px;
-  }
-
-  .footer-socials a {
-    font-size: 18px;
-    margin-right: 8px;
   }
 }
 
+
+  /* Certificaciones */
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-section {
+    margin-bottom: 20px;
+  }
+
+  /* Barra de contacto */
+  .top-contact {
+    font-size: 0.75rem;
+    padding: 6px;
+  }
+}
+
+/* 🔹 Dispositivos medianos (tablets, >=576px y <768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  #header14-1j h1 {
+    font-size: 2rem;
+  }
+  #header14-1j p {
+    font-size: 1rem;
+  }
+  .faq-question {
+    font-size: 1rem;
+  }
+  .testimonials {
+    flex: 1 1 100% !important;
+  }
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 🔹 Dispositivos grandes (>=768px y <992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #header14-1j h1 {
+    font-size: 2.2rem;
+  }
+  #header14-1j p {
+    font-size: 1.05rem;
+  }
+  .faq-question {
+    font-size: 1.05rem;
+  }
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 🔹 Dispositivos muy grandes (>=1200px) */
+@media (min-width: 1200px) {
+  #header14-1j h1 {
+    font-size: 2.8rem;
+  }
+  #header14-1j p {
+    font-size: 1.2rem;
+  }
+  .faq-question {
+    font-size: 1.15rem;
+  }
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
