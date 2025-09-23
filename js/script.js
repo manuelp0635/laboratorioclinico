@@ -3,6 +3,25 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("JS cargado correctamente ✅");
 });
 
+// JS Asesor
+    const asesorBtn = document.getElementById("asesorBtn");
+    const container = document.querySelector(".asesor-container");
+    const cerrarMsg = document.getElementById("cerrarMsg");
+    const mensajeMovil = document.getElementById("mensajeMovil");
+
+    if (asesorBtn) {
+      asesorBtn.addEventListener("click", () => {
+        container.classList.toggle("active");
+      });
+    }
+
+    if (cerrarMsg) {
+      cerrarMsg.addEventListener("click", () => {
+        mensajeMovil.classList.add("oculto");
+      });
+    }
+// JS Asesor
+
 // navbar toggling
 const navbarShowBtn = document.querySelector('.navbar-show-btn');
 const navbarCollapseDiv = document.querySelector('.navbar-collapse');
