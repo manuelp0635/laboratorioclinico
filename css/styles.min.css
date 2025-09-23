@@ -292,3 +292,74 @@ video {
         max-height: 110vh; /* Establece la altura máxima del alto de la ventana */
         overflow-y: auto; /* Agrega un desbordamiento vertical si es necesario */
   }
+
+  /* ============================
+   SLIDER ESTILOS AISLADOS
+=============================== */
+.slider-wrapper {
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  font-size: 18px;
+  background-color: #f7f9fc; /* fondo suave solo en el wrapper */
+  padding: 20px 0;
+}
+
+.slider-container {
+  position: relative;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ============================
+   MEDIA QUERIES
+=============================== */
+@media (max-width: 768px) {
+  .slider-container {
+    max-width: 95%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .slider video {
+    border-radius: 8px;
+  }
+
+  .slider-wrapper {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-container {
+    max-width: 100%;
+    border-radius: 6px;
+    box-shadow: none;
+  }
+
+  .slider video {
+    border-radius: 6px;
+  }
+
+  .slider-wrapper {
+    padding: 10px 0;
+    font-size: 15px;
+  }
+}
