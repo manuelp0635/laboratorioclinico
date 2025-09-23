@@ -667,6 +667,294 @@ section.domicilio-section {
   max-height: 500px; /* Ajusta según contenido máximo esperado */
 }
 
+/* ============================
+   CERTIFICACIONES
+=============================== */
+/* ===== Sección Certificaciones ===== */
+#certificaciones {
+  padding: 60px 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+#certificaciones .container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+#certificaciones h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#certificaciones p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* ===== Cards ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.card img {
+  max-width: 120px;
+  margin: auto;
+  display: block;
+}
+
+.card h3 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* ===== Media Queries ===== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  #certificaciones h2 {
+    font-size: 1.8rem;
+  }
+
+  #certificaciones p {
+    font-size: 0.95rem;
+  }
+
+  .card {
+    padding: 18px;
+  }
+}
+
+/* Móviles grandes */
+@media (max-width: 768px) {
+  #certificaciones {
+    padding: 40px 15px;
+  }
+
+  #certificaciones h2 {
+    font-size: 1.6rem;
+  }
+
+  .cards {
+    gap: 20px;
+  }
+
+  .card img {
+    max-width: 100px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  #certificaciones h2 {
+    font-size: 1.4rem;
+  }
+
+  #certificaciones p {
+    font-size: 0.9rem;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+  }
+}
+
+/* ============================
+   POLITICAS DE PRIVACIDAD
+=============================== */
+
+/* === Estilos base para política de privacidad === */
+#politica-privacidad {
+  background: #f9f9f9;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.pp-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pp-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.pp-header h2 {
+  font-size: 2rem;
+  color: #1a1a1d;
+  margin-bottom: 10px;
+}
+
+.pp-updated {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.pp-intro {
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
+/* === Índice (Tabla de contenidos) === */
+.pp-toc {
+  background: #fff;
+  padding: 15px 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.pp-toc ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.pp-toc li {
+  margin: 8px 0;
+}
+
+.pp-toc a {
+  text-decoration: none;
+  color: #0077cc;
+  transition: color 0.3s;
+}
+
+.pp-toc a:hover {
+  color: #005599;
+}
+
+/* === Secciones === */
+.pp-section {
+  margin-bottom: 30px;
+}
+
+.pp-section h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.pp-section ul {
+  list-style: disc;
+  margin: 10px 0 10px 20px;
+}
+
+.pp-section p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* === Footer === */
+.pp-footer {
+  background: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+
+/* === Enlaces === */
+#politica-privacidad a {
+  color: #0077cc;
+  text-decoration: underline;
+}
+
+#politica-privacidad a:hover {
+  color: #005599;
+}
+
+/* ===================
+   MEDIAS QUERIES
+   =================== */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 576px) {
+  .pp-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .pp-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .pp-intro,
+  .pp-section p {
+    font-size: 0.95rem;
+  }
+
+  .pp-toc {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablets (horizontal y vertical) */
+@media (min-width: 577px) and (max-width: 992px) {
+  .pp-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .pp-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .pp-container {
+    padding: 0 15px;
+  }
+}
+
+/* Escritorios grandes */
+@media (min-width: 993px) {
+  #politica-privacidad {
+    padding: 60px 40px;
+  }
+
+  .pp-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .pp-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .pp-intro {
+    font-size: 1.05rem;
+  }
+}
 
 /* ============================
    CAROUSEL
@@ -956,6 +1244,60 @@ section.domicilio-section {
     display: flex;
   }
 }
+
+main h2 { color: #0066cc; margin-top: 20px; font-size: 20px; }
+    main p, main ul { margin-bottom: 15px; text-align: justify; }
+
+    /* Header */
+    #header14-1j { background: transparent; color: #000; padding: 3rem 0; }
+    #header14-1j .lead { text-align: justify; max-width: 700px; margin: 0 auto; }
+
+    /* Asesor virtual */
+    .asesor-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+    .asesor-btn {
+      width: 70px; height: 70px; border-radius: 50%;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .asesor-btn img { width: 50px; height: 50px; }
+    .asesor-btn:hover { transform: scale(1.1); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+
+    .social-links {
+      position: absolute; bottom: 80px; right: 0;
+      display: flex; flex-direction: column; gap: 10px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: translateY(10px);
+    }
+    .social-links a {
+      background: #fff; padding: 10px 15px; border-radius: 25px;
+      text-decoration: none; color: #333; font-weight: bold; font-size: 14px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s ease, transform 0.2s;
+    }
+    .social-links a:hover { background: #2575fc; color: #fff; transform: translateX(-5px); }
+    .asesor-container.active .social-links { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+    /* Mensaje móvil */
+    .mensaje-movil {
+      position: fixed; bottom: 90px; right: 20px;
+      background: #ffffff; color: #333; padding: 12px 18px;
+      border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      font-size: 14px; display: none; align-items: center; gap: 8px;
+      animation: slideUp 0.6s ease;
+    }
+    .mensaje-movil button { background: transparent; border: none; font-size: 16px; cursor: pointer; color: #888; }
+    @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .oculto { display: none !important; }
+    @media (max-width: 768px) { .mensaje-movil { display: flex; } }
 
     /* =====================
    CAMPOS DE FORMULARIO
