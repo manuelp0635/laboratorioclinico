@@ -302,6 +302,28 @@
     </div>
   </div>
 </section>
+
+  <script>
+document.getElementById("formOpinion").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let nombre = document.getElementById("nombreOpinion").value;
+  let calificacion = document.querySelector("input[name='calificacion']:checked").value;
+  let opinion = document.getElementById("opinion").value;
+  let mejorar = document.getElementById("mejorar").value;
+
+  let mensaje = `📝 *Nueva Opinión de Cliente*%0A
+  *Nombre:* ${nombre}%0A
+  *Calificación:* ${calificacion} estrellas%0A
+  *Opinión:* ${opinion}%0A
+  *Puntos a mejorar:* ${mejorar}`;
+
+  let url = `https://wa.me/573113212221?text=${mensaje}`;
+  window.open(url, "_blank");
+
+  this.reset();
+});
+</script>
 <!-- FIN SECCION TESTIMONIOS -->
 
 
