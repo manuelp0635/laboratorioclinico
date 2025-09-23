@@ -38,6 +38,7 @@
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 </head>
+
 <body>
 
   <!-- Navbar -->
@@ -106,7 +107,7 @@
                 Portal Pacientes
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Resultados</a></li>
+                <li><a class="dropdown-item" href="http://localhost/laboratorio-master/login.php">Resultados</a></li>
               </ul>
             </li>
           </ul>
@@ -132,9 +133,9 @@
   <!-- Asesor virtual -->
   <div class="asesor-container">
     <div class="social-links" id="socialMenu">
-      <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank"><img src="assets/images/facebook.png" alt=""></a>
-      <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank"><img src="assets/images/instagram.png" alt=""></a>
-      <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank"><img src="assets/images/whatsapp.png" alt=""></a>
+      <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank"><img src="assets/images/facebook.png" alt="Facebook Laboratorio Clínico Plus"></a>
+      <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank"><img src="assets/images/instagram.png" alt="Instagram Laboratorio Clínico Plus"></a>
+      <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank"><img src="assets/images/whatsapp.png" alt="Whatsapp Laboratorio Clínico Plus"></a>
     </div>
 
     <div class="asesor-btn" id="asesorBtn">
@@ -205,7 +206,7 @@
       <div class="faq">
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false">
             ¿Cuánto tiempo tardan los resultados?
           </button>
           <div class="faq-answer">
@@ -214,7 +215,7 @@
         </div>
 
          <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false">
             ¿Como prepararme?
           </button>
           <div class="faq-answer">
@@ -223,7 +224,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false">
             ¿Que muestran se requieren?
           </button>
           <div class="faq-answer">
@@ -232,7 +233,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false">
             ¿Cómo puedo agendar una cita?
           </button>
           <div class="faq-answer">
@@ -268,54 +269,56 @@
         </div>
       </div>
 
-      <!-- FORMULARIO DE OPINIONES -->
-      <div class="testimonials" style="flex: 1 1 45%;">
-        <div class="testimonial-item" style="background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-          <h3 style="font-size: 1.4rem; color: #333; margin-bottom: 15px;">Déjanos tu opinión</h3>
-          <form id="formOpinion">
-            <!-- Nombre -->
-            <div style="margin-bottom: 15px;">
-              <input type="text" id="nombreOpinion" name="nombreOpinion" placeholder="Tu nombre" required 
-                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
-            </div>
+      <!-- FORMULARIO DE OPINIONES (versión reducida) -->
+<div class="testimonials" style="flex: 1 1 40%; max-width: 400px; margin: auto;">
+  <div class="testimonial-item" style="background: #fff; padding: 15px; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.1);">
+    <h3 style="font-size: 1.1rem; color: #333; margin-bottom: 12px; text-align:center;">Déjanos tu opinión</h3>
+    <form id="formOpinion">
+      
+      <!-- Nombre -->
+      <div style="margin-bottom: 10px;">
+        <input type="text" id="nombreOpinion" name="nombreOpinion" placeholder="Tu nombre" required 
+          style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px; font-size: 0.9rem;">
+      </div>
 
-            <!-- Calificación -->
-            <div style="margin-bottom: 15px;">
-              <label style="display:block; margin-bottom: 8px; color:#555;">Calificación:</label>
-              <div style="display: flex; gap: 8px;">
-                <label><input type="radio" name="calificacion" value="1" required> ⭐</label>
-                <label><input type="radio" name="calificacion" value="2"> ⭐⭐</label>
-                <label><input type="radio" name="calificacion" value="3"> ⭐⭐⭐</label>
-                <label><input type="radio" name="calificacion" value="4"> ⭐⭐⭐⭐</label>
-                <label><input type="radio" name="calificacion" value="5"> ⭐⭐⭐⭐⭐</label>
-              </div>
-            </div>
-
-            <!-- Opinión -->
-            <div style="margin-bottom: 15px;">
-              <textarea id="opinion" name="opinion" rows="3" placeholder="Cuéntanos tu experiencia..." required
-                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;"></textarea>
-            </div>
-
-            <!-- Puntos a mejorar -->
-            <div style="margin-bottom: 15px;">
-              <textarea id="mejorar" name="mejorar" rows="2" placeholder="¿Qué podemos mejorar?"
-                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;"></textarea>
-            </div>
-
-            <!-- Botón -->
-            <button type="submit" style="background: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;">
-              Enviar Opinión
-            </button>
-          </form>
+      <!-- Calificación -->
+      <div style="margin-bottom: 10px;">
+        <label style="display:block; margin-bottom: 5px; color:#555; font-size: 0.9rem;">Calificación:</label>
+        <div style="display: flex; gap: 6px; font-size: 0.85rem;">
+          <label><input type="radio" name="calificacion" value="1" required> ⭐</label>
+          <label><input type="radio" name="calificacion" value="2"> ⭐⭐</label>
+          <label><input type="radio" name="calificacion" value="3"> ⭐⭐⭐</label>
+          <label><input type="radio" name="calificacion" value="4"> ⭐⭐⭐⭐</label>
+          <label><input type="radio" name="calificacion" value="5"> ⭐⭐⭐⭐⭐</label>
         </div>
       </div>
+
+      <!-- Opinión -->
+      <div style="margin-bottom: 10px;">
+        <textarea id="opinion" name="opinion" rows="3" placeholder="Cuéntanos tu experiencia..." required
+          style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px; font-size: 0.9rem;"></textarea>
+      </div>
+
+      <!-- Puntos a mejorar -->
+      <div style="margin-bottom: 10px;">
+        <textarea id="mejorar" name="mejorar" rows="2" placeholder="¿Qué podemos mejorar?"
+          style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px; font-size: 0.9rem;"></textarea>
+      </div>
+
+      <!-- Botón -->
+      <button type="submit" style="background: #007bff; color: #fff; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem; width: 100%;">
+        Enviar Opinión
+      </button>
+    </form>
+  </div>
+</div>
+
 
     </div>
   </div>
 </section>
 
-  <script>
+<script>
 document.getElementById("formOpinion").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -336,6 +339,7 @@ document.getElementById("formOpinion").addEventListener("submit", function(e) {
   this.reset();
 });
 </script>
+
 <!-- FIN SECCION TESTIMONIOS -->
 
 
@@ -384,7 +388,7 @@ document.getElementById("formOpinion").addEventListener("submit", function(e) {
       
       <!-- Card 1 -->
       <div class="card" style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.3s;">
-        <img src="assets/images/iso9001.jpg" alt="Certificación 1" style="max-width: 120px; margin: auto; display: block;">
+        <img src="assets/images/iso9001.webp" alt="Certificación 1" style="max-width: 120px; margin: auto; display: block;">
         <h3 style="margin-top: 15px; font-size: 1.2rem; color: #222;">ISO 9001</h3>
         <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">
           Sistema de gestión de calidad certificado bajo estándares internacionales.
@@ -436,13 +440,13 @@ document.getElementById("formOpinion").addEventListener("submit", function(e) {
       <img src="./assets/images/Promocion lunes.jpg" alt="Promoción lunes" class="promo-img" data-dia="1">
       <img src="./assets/images/Promocion martes.jpg" alt="Promoción martes" class="promo-img" data-dia="2">
       <img src="./assets/images/Promocion miercoles.jpg" alt="Promoción miércoles" class="promo-img" data-dia="3">
-      <img src="./assets/images/Promocion jueves.jpg" alt="Promoción jueves" class="promo-img" data-dia="4">
+      <img src="./assets/images/Promocion jueves.webp" alt="Promoción jueves" class="promo-img" data-dia="4">
       <img src="./assets/images/Promocion viernes.jpg" alt="Promoción viernes" class="promo-img" data-dia="5">
       <img src="./assets/images/Promocion sabado.jpg" alt="Promoción sábado" class="promo-img" data-dia="6">
       <img src="./assets/images/Promocion sabado1.jpg" alt="Promocion sabado" class="promo-img" data-dia="7">
       <!--<img src="./assets/images/Examenes 1.jpg" alt="Promocion Examenes" class="promo-img" data-dia="8">
       <img src="./assets/images/Examenes 2.jpg" alt="Promoción Examenes" class="promo-img" data-dia="9">-->
-      <img src="./assets/images/Promocion domingo.jpg" alt="Promoción domingo" class="promo-img" data-dia="0">
+      <img src="./assets/images/Promocion domingo.webp" alt="Promoción domingo" class="promo-img" data-dia="0">
     </div>
   </div>
 
@@ -482,7 +486,7 @@ document.getElementById("formOpinion").addEventListener("submit", function(e) {
                 <p class="mbr-text mbr-fonts-style" style="font-size: 16px;">.</p>
             </div>
             <div class="icons d-flex align-items-center col-12 col-md-6 justify-content-end mt-md-0 mt-2 flex-wrap">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.2921330636327!2d-75.49837412586521!3d10.398356389728328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef625b88706e2b3%3A0xcdaaa4bbf49b9b47!2sCra.%2057%20%2330%20C%2C%20Escall%C3%B3n%20Villa%2C%20Cartagena%20de%20Indias%2C%20Provincia%20de%20Cartagena%2C%20Bol%C3%ADvar!5e0!3m2!1ses!2sco!4v1736953342822!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.2921330636327!2d-75.49837412586521!3d10.398356389728328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef625b88706e2b3%3A0xcdaaa4bbf49b9b47!2sCra.%2057%20%2330%20C%2C%20Escall%C3%B3n%20Villa%2C%20Cartagena%20de%20Indias%2C%20Provincia%20de%20Cartagena%2C%20Bol%C3%ADvar!5e0!3m2!1ses!2sco!4v1736953342822!5m2!1ses!2sco" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>
