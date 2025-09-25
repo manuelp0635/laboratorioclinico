@@ -99,6 +99,499 @@ p {
   background: linear-gradient(124deg, #f6e9c5 21%, #ccb985 53%, #a8814e 100%);
 }
 
+/* ====== ESTILOS DERECHOS DE LOS PACIENTES ====== */
+#dp-1 {
+  background: #f9f9f9;
+  padding: 40px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin: 40px auto;
+  max-width: 900px;
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+#dp-1 h3 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #006699;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+#dp-1 p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+#dp-1 ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+#dp-1 ul li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+#dp-1 ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #009688;
+  font-weight: bold;
+}
+
+#dp-1 a {
+  color: #006699;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#dp-1 a:hover {
+  text-decoration: underline;
+}
+
+/* ====== MEDIA QUERIES ====== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  #dp-1 {
+    padding: 30px 15px;
+  }
+
+  #dp-1 h3 {
+    font-size: 1.6rem;
+  }
+
+  #dp-1 ul li {
+    font-size: 0.95rem;
+  }
+}
+
+/* Celulares grandes */
+@media (max-width: 768px) {
+  #dp-1 {
+    margin: 30px 10px;
+  }
+
+  #dp-1 h3 {
+    font-size: 1.4rem;
+  }
+
+  #dp-1 p,
+  #dp-1 ul li {
+    font-size: 0.9rem;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  #dp-1 {
+    padding: 20px 12px;
+    border-radius: 8px;
+  }
+
+  #dp-1 h3 {
+    font-size: 1.2rem;
+  }
+
+  #dp-1 p,
+  #dp-1 ul li {
+    font-size: 0.85rem;
+  }
+}
+
+/* ====== ESTILOS ÉTICA Y TRANSPARENCIA ====== */
+#etica-transparencia {
+  background: #ffffff;
+  padding: 40px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin: 40px auto;
+  max-width: 900px;
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+#etica-transparencia h3 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #004d40;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+#etica-transparencia p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+#etica-transparencia ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+#etica-transparencia ul li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+#etica-transparencia ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #26a69a;
+  font-weight: bold;
+}
+
+#etica-transparencia a {
+  color: #004d40;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#etica-transparencia a:hover {
+  text-decoration: underline;
+}
+
+/* ====== MEDIA QUERIES ====== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  #etica-transparencia {
+    padding: 30px 15px;
+  }
+
+  #etica-transparencia h3 {
+    font-size: 1.6rem;
+  }
+
+  #etica-transparencia ul li {
+    font-size: 0.95rem;
+  }
+}
+
+/* Celulares grandes */
+@media (max-width: 768px) {
+  #etica-transparencia {
+    margin: 30px 10px;
+  }
+
+  #etica-transparencia h3 {
+    font-size: 1.4rem;
+  }
+
+  #etica-transparencia p,
+  #etica-transparencia ul li {
+    font-size: 0.9rem;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  #etica-transparencia {
+    padding: 20px 12px;
+    border-radius: 8px;
+  }
+
+  #etica-transparencia h3 {
+    font-size: 1.2rem;
+  }
+
+  #etica-transparencia p,
+  #etica-transparencia ul li {
+    font-size: 0.85rem;
+  }
+}
+
+/* ====== ESTILOS PROVEEDORES ====== */
+#proveedores {
+  background: #fdfdfd;
+  padding: 40px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin: 40px auto;
+  max-width: 900px;
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+#proveedores h3 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #283593; /* Azul institucional */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+#proveedores p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+#proveedores ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+#proveedores ul li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+#proveedores ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #3949ab; /* Azul más intenso para resaltar */
+  font-weight: bold;
+}
+
+#proveedores a {
+  color: #283593;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#proveedores a:hover {
+  text-decoration: underline;
+}
+
+/* ====== MEDIA QUERIES ====== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  #proveedores {
+    padding: 30px 15px;
+  }
+
+  #proveedores h3 {
+    font-size: 1.6rem;
+  }
+
+  #proveedores ul li {
+    font-size: 0.95rem;
+  }
+}
+
+/* Celulares grandes */
+@media (max-width: 768px) {
+  #proveedores {
+    margin: 30px 10px;
+  }
+
+  #proveedores h3 {
+    font-size: 1.4rem;
+  }
+
+  #proveedores p,
+  #proveedores ul li {
+    font-size: 0.9rem;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  #proveedores {
+    padding: 20px 12px;
+    border-radius: 8px;
+  }
+
+  #proveedores h3 {
+    font-size: 1.2rem;
+  }
+
+  #proveedores p,
+  #proveedores ul li {
+    font-size: 0.85rem;
+  }
+}
+
+/* ====== ESTILOS GESTIÓN INTEGRAL ====== */
+#gestion-integral {
+  background: #fafafa;
+  padding: 40px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin: 40px auto;
+  max-width: 900px;
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+#gestion-integral h3 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #1b5e20; /* Verde institucional */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+#gestion-integral p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+#gestion-integral ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+#gestion-integral ul li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+#gestion-integral ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #2e7d32; /* Verde más intenso para íconos */
+  font-weight: bold;
+}
+
+/* ====== ENLACES ====== */
+#gestion-integral a {
+  color: #1b5e20;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#gestion-integral a:hover {
+  text-decoration: underline;
+}
+
+/* ====== MEDIA QUERIES ====== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  #gestion-integral {
+    padding: 30px 15px;
+  }
+
+  #gestion-integral h3 {
+    font-size: 1.6rem;
+  }
+
+  #gestion-integral ul li {
+    font-size: 0.95rem;
+  }
+}
+
+/* Celulares grandes */
+@media (max-width: 768px) {
+  #gestion-integral {
+    margin: 30px 10px;
+  }
+
+  #gestion-integral h3 {
+    font-size: 1.4rem;
+  }
+
+  #gestion-integral p,
+  #gestion-integral ul li {
+    font-size: 0.9rem;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  #gestion-integral {
+    padding: 20px 12px;
+    border-radius: 8px;
+  }
+
+  #gestion-integral h3 {
+    font-size: 1.2rem;
+  }
+
+  #gestion-integral p,
+  #gestion-integral ul li {
+    font-size: 0.85rem;
+  }
+}
+
+/* 🎨 Estilos sección nosotros */
+#contacts4-21 {
+  padding: 60px 20px;
+  background: #f8fafc;
+}
+
+#contacts4-21 h4 {
+  color: #002b5c;
+  text-align: center;
+}
+
+.info-box {
+  background: #fff;
+  border: 2px solid #0056b3;
+  border-radius: 15px;
+  padding: 25px;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  text-align: justify;
+}
+
+.info-box:hover {
+  transform: translateY(-6px);
+  background: #eef6ff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.info-box h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0056b3;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #0056b3;
+  display: inline-block;
+  padding-bottom: 5px;
+  text-align: center;
+  width: 100%;
+}
+
+.info-box p {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.5;          /* 📌 Menos separado, lectura cómoda */
+  text-align: justify;       /* 📌 Justificación completa */
+  text-justify: inter-word;  /* 📌 Mejor distribución del texto */
+  margin-top: 0;
+  margin-bottom: 10px;       /* 📌 Separa párrafos sin exceso */
+}
+
+
 /* ============================
    BOTONES Y ELEMENTOS DESTACADOS
 =============================== */
@@ -1792,3 +2285,7 @@ img, video {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+
+
+
