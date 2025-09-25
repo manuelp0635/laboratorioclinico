@@ -1935,11 +1935,14 @@ textarea.form-control {
   transform: translateY(0);
 }
 
-/* =====================
-   MODAL REDUCIDO Y ELEGANTE
-===================== */
+/* ===========================
+   VENTANA MODAL
+=========================== */
+/* MODAL PERSONALIZADO */
 .modal-custom {
   max-width: 320px;
+  width: 100%;
+  margin: auto; /* asegura centrado horizontal */
 }
 
 .modal-content {
@@ -1967,7 +1970,7 @@ textarea.form-control {
   to { transform: scale(1); opacity: 1; }
 }
 
-/* Icono */
+/* Ícono */
 .check-icon {
   font-size: 1.8rem;
   margin-bottom: 6px;
@@ -2004,14 +2007,17 @@ textarea.form-control {
 /* =====================
    MEDIA QUERIES
 ===================== */
+
+/* Tablets medianas */
 @media (max-width: 991px) {
   .modal-custom { max-width: 300px; }
   .modal-content { padding: 12px; }
   .check-icon { font-size: 1.6rem; }
 }
 
+/* Tablets pequeñas y móviles horizontales */
 @media (max-width: 767px) {
-  .modal-custom { max-width: 260px; }
+  .modal-custom { max-width: 90%; } /* más ancho en móviles */
   .modal-content { padding: 10px; }
   .check-icon { font-size: 1.5rem; }
   .modal-content h6 { font-size: 0.9rem; }
@@ -2019,8 +2025,9 @@ textarea.form-control {
   .modal-content .btn { font-size: 0.85rem; padding: 7px; }
 }
 
+/* Smartphones pequeños */
 @media (max-width: 480px) {
-  .modal-custom { max-width: 230px; }
+  .modal-custom { max-width: 90%; } /* ocupar casi todo el ancho */
   .modal-content { padding: 8px; }
   .check-icon { font-size: 1.3rem; }
   .modal-content h6 { font-size: 0.85rem; }
@@ -2028,10 +2035,9 @@ textarea.form-control {
   .modal-content .btn { font-size: 0.8rem; padding: 6px; }
 }
 
-/* =====================
-    VENTANA MODAL
-===================== */
-
+/* ===========================
+   SECCION PROMOCIONES
+=========================== */
 /* Sección de promociones */
 .promotions {
   display: flex;
