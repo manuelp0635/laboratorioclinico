@@ -828,6 +828,32 @@ section.domicilio-section {
 /* ============================
    Promociones del Mes (limpio)
 ============================ */
+
+.promociones-mes {
+  margin: 20px auto;
+  text-align: center;
+  max-width: 800px;
+}
+
+.promo-carrusel {
+  overflow: hidden;
+  position: relative;
+}
+
+.promo-slides {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.promo-img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  display: none; /* por defecto oculto */
+}
+
+
 .promociones-mes {
   text-align: center;
   margin: 20px auto;
@@ -2061,6 +2087,15 @@ textarea.form-control {
   display: inline-block;
 }
 
+/* ===========================
+   PROMOCIONES MES
+=========================== */
+
+
+/* ==========================
+   FIN PROMOCIONES MES
+=========================== */
+
 /* Footer (ajustes adicionales) */
 .footer {
   padding-top: 40px;
@@ -2291,6 +2326,89 @@ img, video {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* ============================
+    NUEVOS ESTILOS INTEGRADOS
+=============================== */
+
+/* ========== Ajuste para la barra de contacto fija ========== */
+body {
+  margin: 0;
+  /* Asegúrate de dejar espacio arriba igual a la altura de la barra */
+  /* Ejemplo: si la barra mide ~50px en escritorio y más en móvil */
+  padding-top: 50px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;  /* aumenta espacio en tablet/móvil */
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 90px;  /* más espacio para la barra en móviles pequeños */
+  }
+}
+
+/* ========== Ajustes para contenedores principales ========== */
+section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;  /* centrado horizontal */
+  padding: 20px 15px;  /* menor padding lateral en responsive */
+}
+
+/* ========== Ajustes para carrusel de promociones ========== */
+.promo-slides {
+  display: flex;
+  flex-wrap: nowrap; /* impide que bajen en filas inesperadas */
+  overflow-x: auto;  /* permite scroll horizontal si es necesario */
+  gap: 10px;
+  justify-content: center;
+}
+
+.promo-img {
+  flex: 0 0 auto;   /* cada imagen no se encoge más de lo necesario */
+  width: auto;
+  max-width: 100%;
+}
+
+/* ========== Evitar scroll horizontal no deseado ========== */
+html, body {
+  overflow-x: hidden; /* guarda contra contenido que desborde horizontalmente */
+}
+
+/* ========== Ajustes específicos responsive adicionales ========== */
+@media (max-width: 576px) {
+  .promo-slides {
+    gap: 6px;
+  }
+  .promociones-mes {
+    margin: 10px;
+    padding: 15px;
+  }
+  .promociones-mes h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .promociones-mes h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ========== Otros contenedores con margen lateral excesivo ========== */
+.promociones-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+}
+
+/* Asegurarte de que los elementos no tengan márgenes laterales excesivos que empujen contenido fuera */
 
 
 
