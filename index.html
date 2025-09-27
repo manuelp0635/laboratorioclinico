@@ -431,31 +431,52 @@ document.getElementById("formOpinion").addEventListener("submit", function(e) {
   <section class="domicilio-section">
     <div class="domicilio-content">
 
-<!-- Promociones del mes -->
-<div class="promociones-mes">
-  <h3>🎉 Promociones de la semana</h3>
-
-  <div class="promo-carrusel">
-    <div class="promo-slides">
-      <img src="./assets/images/Promocion lunes.webp" alt="Promoción lunes" class="promo-img" data-dia="1">
-      <img src="./assets/images/Promocion martes.webp" alt="Promoción martes" class="promo-img" data-dia="2">
-      <img src="./assets/images/Promocion miercoles.webp" alt="Promoción miércoles" class="promo-img" data-dia="3">
-      <img src="./assets/images/Promocion jueves.webp" alt="Promoción jueves" class="promo-img" data-dia="4">
-      <img src="./assets/images/Promocion viernes.webp" alt="Promoción viernes" class="promo-img" data-dia="5">
-      <img src="./assets/images/Promocion sabado.webp" alt="Promoción sábado" class="promo-img" data-dia="6">
-      <!--<img src="./assets/images/Promocion sabado1.jpg" alt="Promocion sabado" class="promo-img" data-dia="7">
-      <!--<img src="./assets/images/Examenes 1.jpg" alt="Promocion Examenes" class="promo-img" data-dia="8">
-      <img src="./assets/images/Examenes 2.jpg" alt="Promoción Examenes" class="promo-img" data-dia="9">-->
-      <img src="./assets/images/Promocion domingo.webp" alt="Promoción domingo" class="promo-img" data-dia="0">
+<!-- Contenedor para mostrar los dos bloques al lado -->
+<div class="promociones-container">
+  
+  <!-- Promociones de la semana -->
+  <div class="promociones-mes">
+    <h3>🎉 Promociones de la semana</h3>
+    <div class="promo-carrusel">
+      <div class="promo-slides">
+        <img src="./assets/images/promociones-semana/Promocion lunes.webp" alt="Promoción lunes" class="promo-img" data-dia="1">
+        <img src="./assets/images/promociones-semana/Promocion martes.webp" alt="Promoción martes" class="promo-img" data-dia="2">
+        <img src="./assets/images/promociones-semana/Promocion miercoles.webp" alt="Promoción miércoles" class="promo-img" data-dia="3">
+        <img src="./assets/images/promociones-semana/Promocion jueves.webp" alt="Promoción jueves" class="promo-img" data-dia="4">
+        <img src="./assets/images/promociones-semana/Promocion viernes.webp" alt="Promoción viernes" class="promo-img" data-dia="5">
+        <img src="./assets/images/promociones-semana/Promocion sabado.webp" alt="Promoción sábado" class="promo-img" data-dia="6">
+        <img src="./assets/images/promociones-semana/Promocion domingo.webp" alt="Promoción domingo" class="promo-img" data-dia="0">
+      </div>
     </div>
   </div>
+  <!-- Fin Promociones de la semana -->
 
-  <!-- Botones de navegación 
-  <button class="promo-btn prev">⟨</button>
-  <button class="promo-btn next">⟩</button>-->
+   <!-- Promoción del mes -->
+<div class="promociones-mes">
+  <h3>🎉 Promociones del mes</h3>
+  <div class="promo-carrusel">
+    <div class="promo-slides">
+      <img src="./assets/images/promociones-mes/Promocion-septiembre.jpg" alt="Promoción Enero" class="promo-img" data-mes="0">
+      <img src="./assets/images/promociones-mes/Promocion-febrero.webp" alt="Promoción Febrero" class="promo-img" data-mes="1">
+      <img src="./assets/images/promociones-mes/Promocion-marzo.webp" alt="Promoción Marzo" class="promo-img" data-mes="2">
+      <img src="./assets/images/promociones-mes/Promocion-abril.webp" alt="Promoción Abril" class="promo-img" data-mes="3">
+      <img src="./assets/images/promociones-mes/Promocion-mayo.webp" alt="Promoción Mayo" class="promo-img" data-mes="4">
+      <img src="./assets/images/promociones-mes/Promocion-junio.webp" alt="Promoción Junio" class="promo-img" data-mes="5">
+      <img src="./assets/images/promociones-mes/Promocion-julio.webp" alt="Promoción Julio" class="promo-img" data-mes="6">
+      <img src="./assets/images/promociones-mes/Promocion-agosto.webp" alt="Promoción Agosto" class="promo-img" data-mes="7">
+      <img src="./assets/images/promociones-mes/Promocion-septiembre.webp" alt="Promoción Septiembre" class="promo-img" data-mes="8">
+      <img src="./assets/images/promociones-mes/Promocion-octubre.webp" alt="Promoción Octubre" class="promo-img" data-mes="9">
+      <img src="./assets/images/promociones-mes/Promocion-noviembre.webp" alt="Promoción Noviembre" class="promo-img" data-mes="10">
+      <img src="./assets/images/promociones-mes/Promocion-diciembre.webp" alt="Promoción Diciembre" class="promo-img" data-mes="11">
+    </div>
+  </div>
 </div>
 
-      <!-- Fin Promociones del mes -->
+
+  <!-- Fin promociones del mes -->
+
+</div>
+
 
       <h2>🧪 ¡Tu salud en casa!</h2>
       <p>
@@ -650,5 +671,30 @@ document.querySelectorAll('.faq-question').forEach(button => {
 </script>
 
 <!-- FIN SCRIPT CIERRE-->
+
+<!-- Script Promociones mes -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const meses = [
+      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+
+    const mesActual = new Date().getMonth(); // 0 = enero, 11 = diciembre
+
+    // Cambiar el título
+    const tituloMes = document.getElementById("titulo-mes");
+    tituloMes.textContent = `🎉 Promoción de ${meses[mesActual]}`;
+
+    // Mostrar solo la imagen del mes actual
+    const imagenesMes = document.querySelectorAll(".promociones-mes .promo-img");
+    imagenesMes.forEach(img => {
+      img.style.display = parseInt(img.dataset.mes) === mesActual ? "block" : "none";
+    });
+  });
+</script>
+
+<!-- Fin promociones mes -->
 </body>
 </html>
