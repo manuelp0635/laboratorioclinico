@@ -825,6 +825,77 @@ section.domicilio-section {
   box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
+/* ==== Estilos sección Política de Datos ==== */
+.proteccion-datos {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  color: #333;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.proteccion-datos h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #004080; /* azul profesional */
+  text-align: center;
+}
+
+.proteccion-datos p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.proteccion-datos a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.proteccion-datos a:hover {
+  text-decoration: underline;
+}
+
+/* ==== Responsive ==== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .proteccion-datos {
+    padding: 25px;
+    margin: 30px 20px;
+  }
+
+  .proteccion-datos h1 {
+    font-size: 1.8rem;
+  }
+
+  .proteccion-datos p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 576px) {
+  .proteccion-datos {
+    padding: 20px;
+    margin: 20px 15px;
+  }
+
+  .proteccion-datos h1 {
+    font-size: 1.5rem;
+  }
+
+  .proteccion-datos p {
+    font-size: 0.9rem;
+  }
+}
+
+
 /* ============================
    Promociones del Mes (limpio)
 ============================ */
