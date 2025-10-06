@@ -136,24 +136,23 @@
     <button id="cerrarMensaje">✕</button>
   </div>
 
-  <!-- SECCIÓN ASESOR VIRTUAL -->
-  <div class="asesor-container" id="asesorContainer">
-    <input type="checkbox" id="toggleAsesor">
-    <label for="toggleAsesor" class="asesor-btn">
-      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Asesor Virtual">
-    </label>
-
-    <div class="social-links">
-      <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook">
-      </a>
-      <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
-      </a>
-      <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-      </a>
+ <!-- Asesor virtual -->
+  <div class="asesor-container">
+    <div class="social-links" id="socialMenu">
+      <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank"><img src="assets/images/facebook.png" alt=""></a>
+      <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank"><img src="assets/images/instagram.png" alt=""></a>
+      <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank"><img src="assets/images/whatsapp.png" alt=""></a>
     </div>
+
+    <div class="asesor-btn" id="asesorBtn">
+      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Asesor Virtual">
+    </div>
+  </div>
+
+  <!-- Mensaje flotante solo para móviles -->
+  <div class="mensaje-movil" id="mensajeMovil">
+    👋 Hola, ¿necesitas ayuda?
+    <button class="cerrar-msg" id="cerrarMsg">✖</button>
   </div>
 
   <!-- Asesor virtual final-->
@@ -454,7 +453,7 @@ document.getElementById("formOpinion").addEventListener("submit", function(e) {
       
       <!-- Card 1 -->
       <div class="card" style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.3s;">
-        <img src="assets/images/dadys.jpeg" alt="Certificación 1" style="max-width: 120px; margin: auto; display: block;">
+        <img src="assets/images/Dadis.png" alt="Certificación 1" style="max-width: 120px; margin: auto; display: block;">
         <!--<h3 style="margin-top: 15px; font-size: 1.2rem; color: #222;"></h3>-->
         <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">
           Sistema de gestión de calidad certificado bajo estándares internacionales.
@@ -583,7 +582,7 @@ document.getElementById("formOpinion").addEventListener("submit", function(e) {
       <h3>Políticas</h3>
       <ul>
         <li><a href="./proveedores.html"><i class='bx bx-chevrons-right'></i> Proveedores</a></li>
-        <li><a href="#"><i class='bx bx-chevrons-right'></i> PQRS</a></li>
+        <!--<li><a href="#"><i class='bx bx-chevrons-right'></i> PQRS</a></li>-->
         <li><a href="./politicaprivacidad.html"><i class='bx bx-chevrons-right'></i> Política de protección de datos</a></li>
         <li><a href="./etica.html"><i class='bx bx-chevrons-right'></i> Ética y transparencia</a></li>
         <li><a href="./derechospaciente.html"><i class='bx bx-chevrons-right'></i> Derechos del paciente</a></li>
@@ -607,7 +606,6 @@ document.getElementById("formOpinion").addEventListener("submit", function(e) {
   <!-- Línea inferior -->
   <div class="footer-bottom">
     <p>© 2025 Plus Laboratorio Clínico Cartagena. Todos los derechos reservados.</p>
-    <p class="footer-cert">Certificado de calidad en procesos de laboratorio clínico – Resolución 1234 de 2025.</p>
   </div>
 </footer>
 
@@ -623,33 +621,6 @@ document.getElementById("formOpinion").addEventListener("submit", function(e) {
       console.log("JS cargado correctamente ✅");
     });
   </script>
-  <!-- Asesor Virtual -->
-
-   <script>
-    // Ocultar el mensaje móvil después de 10 segundos o al dar clic en la X
-    const mensaje = document.getElementById('mensajeMovil');
-    const cerrar = document.getElementById('cerrarMensaje');
-
-    setTimeout(() => {
-      mensaje.style.display = 'none';
-    }, 10000);
-
-    cerrar.addEventListener('click', () => {
-      mensaje.style.display = 'none';
-    });
-
-    // Ocultar o mostrar la sección completa del asesor cada 30 segundos (animación cíclica)
-    const asesor = document.getElementById('asesorContainer');
-    let visible = true;
-
-    setInterval(() => {
-      visible = !visible;
-      asesor.style.display = visible ? 'block' : 'none';
-    }, 30000);
-  </script>
-
-
-  <!-- Fin Asesor Virtual -->
 
   <!-- Promociones de la semana -->
 
@@ -736,5 +707,22 @@ document.querySelectorAll('.faq-question').forEach(button => {
   </script>
 
 <!-- Fin promociones mes -->
+
+ <!-- Asesor virtual-->
+    <script>
+    const asesorBtn = document.getElementById("asesorBtn");
+    const container = document.querySelector(".asesor-container");
+    const cerrarMsg = document.getElementById("cerrarMsg");
+    const mensajeMovil = document.getElementById("mensajeMovil");
+
+    asesorBtn.addEventListener("click", () => {
+      container.classList.toggle("active");
+    });
+
+    cerrarMsg.addEventListener("click", () => {
+      mensajeMovil.style.display = "none";
+    });
+  </script>
+  <!-- Asesor virtual final -->
 </body>
 </html>
