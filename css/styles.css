@@ -1990,131 +1990,118 @@ html { scroll-behavior: smooth; }
    NUEVOS ESTILOS INTEGRADOS
 =============================== */
 
-/* =========================
-       CONTENEDOR PRINCIPAL
-    ========================= */
+/* ============================
+   BOTON ASESOR Y REDES SOCIALES
+=============================== */
+
+  /* Contenedor principal */
     .asesor-container {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
+      bottom: 20px;
+      right: 20px;
       z-index: 9999;
-      animation: fadeIn 1s ease forwards;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Botón del asesor */
+    /* Botón asesor */
     .asesor-btn {
       width: 70px;
       height: 70px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #007bff, #00c3ff);
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .asesor-btn img {
+      width: 50px;
+      height: 50px;
+    }
+
     .asesor-btn:hover {
       transform: scale(1.1);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
-    .asesor-btn img {
-      width: 45px;
-      height: 45px;
-    }
-
-    /* Redes sociales */
+    /* Redes sociales flotantes */
     .social-links {
       position: absolute;
-      bottom: 85px;
+      bottom: 80px;
       right: 0;
       display: flex;
       flex-direction: column;
       gap: 10px;
       opacity: 0;
-      transform: translateY(15px);
       pointer-events: none;
       transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: translateY(10px);
     }
 
     .social-links a {
       background: #fff;
-      padding: 8px;
-      border-radius: 50%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 45px;
-      height: 45px;
-      transition: transform 0.3s ease, background 0.3s ease;
+      padding: 10px 15px;
+      border-radius: 25px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 14px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s ease, transform 0.2s;
     }
 
     .social-links a:hover {
-      background: #007bff;
-      transform: scale(1.1);
+      background: #2575fc;
+      color: #fff;
+      transform: translateX(-5px);
     }
 
-    .social-links img {
-      width: 25px;
-      height: 25px;
-    }
-
-    /* Checkbox para activar redes */
-    #toggleAsesor {
-      display: none;
-    }
-
-    #toggleAsesor:checked + label + .social-links {
+    /* Mostrar menú activo */
+    .asesor-container.active .social-links {
       opacity: 1;
-      transform: translateY(0);
       pointer-events: auto;
+      transform: translateY(0);
     }
 
-    /* =========================
-       MENSAJE MÓVIL
-    ========================= */
+    /* Mensaje flotante móvil */
     .mensaje-movil {
       position: fixed;
-      bottom: 100px;
+      bottom: 90px;
       right: 20px;
       background: #ffffff;
-      color: #007bff;
+      color: #333;
       padding: 12px 18px;
       border-radius: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-      display: flex;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      font-size: 14px;
+      display: none;
       align-items: center;
       gap: 8px;
-      font-size: 14px;
       animation: slideUp 0.6s ease;
-      z-index: 10000;
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .mensaje-movil button {
       background: transparent;
       border: none;
       font-size: 16px;
-      color: #007bff;
       cursor: pointer;
+      color: #888;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     /* Mostrar solo en móvil */
-    @media (min-width: 769px) {
-      .mensaje-movil { display: none; }
+    @media (max-width: 768px) {
+      .mensaje-movil {
+        display: flex;
+      }
     }
+
 
     /* =====================
    CAMPOS DE FORMULARIO
