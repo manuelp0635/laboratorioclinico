@@ -40,7 +40,7 @@
 </head>
 <body>
    <!-- Navbar -->
-  <section class="menu" id="menu2-23">
+  <section class="menu" id="menu2-23"><br><br>
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -165,25 +165,26 @@
     <button id="cerrarMensaje">✕</button>
   </div>
 
-  <!-- SECCIÓN ASESOR VIRTUAL -->
-  <div class="asesor-container" id="asesorContainer">
-    <input type="checkbox" id="toggleAsesor">
-    <label for="toggleAsesor" class="asesor-btn">
-      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Asesor Virtual">
-    </label>
+  <!-- Asesor virtual -->
+  <div class="asesor-container">
+    <div class="social-links" id="socialMenu">
+      <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank"><img src="assets/images/facebook.png" alt=""></a>
+      <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank"><img src="assets/images/instagram.png" alt=""></a>
+      <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank"><img src="assets/images/whatsapp.png" alt=""></a>
+    </div>
 
-    <div class="social-links">
-      <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook">
-      </a>
-      <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
-      </a>
-      <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-      </a>
+    <div class="asesor-btn" id="asesorBtn">
+      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Asesor Virtual">
     </div>
   </div>
+
+  <!-- Mensaje flotante solo para móviles -->
+  <div class="mensaje-movil" id="mensajeMovil">
+    👋 Hola, ¿necesitas ayuda?
+    <button class="cerrar-msg" id="cerrarMsg">✖</button>
+  </div>
+
+  <!-- Asesor virtual final-->
 
 
 <!-- Footer -->
@@ -236,7 +237,6 @@
   <!-- Línea inferior -->
   <div class="footer-bottom">
     <p>© 2025 Plus Laboratorio Clínico Cartagena. Todos los derechos reservados.</p>
-    <p class="footer-cert">Certificado de calidad en procesos de laboratorio clínico – Resolución 1234 de 2025.</p>
   </div>
 </footer>
 
@@ -250,29 +250,22 @@
   <script src="assets/embla/embla.min.js"></script>
   <script src="assets/embla/script.js"></script>
 
-  <!-- Asesor virtual -->
-  <script>
-    // Ocultar el mensaje móvil después de 10 segundos o al dar clic en la X
-    const mensaje = document.getElementById('mensajeMovil');
-    const cerrar = document.getElementById('cerrarMensaje');
+  <!-- Asesor virtual-->
+    <script>
+    const asesorBtn = document.getElementById("asesorBtn");
+    const container = document.querySelector(".asesor-container");
+    const cerrarMsg = document.getElementById("cerrarMsg");
+    const mensajeMovil = document.getElementById("mensajeMovil");
 
-    setTimeout(() => {
-      mensaje.style.display = 'none';
-    }, 10000);
-
-    cerrar.addEventListener('click', () => {
-      mensaje.style.display = 'none';
+    asesorBtn.addEventListener("click", () => {
+      container.classList.toggle("active");
     });
 
-    // Ocultar o mostrar la sección completa del asesor cada 30 segundos (animación cíclica)
-    const asesor = document.getElementById('asesorContainer');
-    let visible = true;
-
-    setInterval(() => {
-      visible = !visible;
-      asesor.style.display = visible ? 'block' : 'none';
-    }, 30000);
+    cerrarMsg.addEventListener("click", () => {
+      mensajeMovil.style.display = "none";
+    });
   </script>
+  <!-- Asesor virtual final -->
 
 </body>
 </html>
