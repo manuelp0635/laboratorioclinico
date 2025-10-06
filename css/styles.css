@@ -1670,84 +1670,208 @@ FIN PROMO MES + MEDIA QUERIES
   text-align: justify;
 }
 
-/* === Footer === */
-.pp-footer {
-  background: #f0f0f0;
-  padding: 20px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  color: #555;
-  text-align: center;
-}
+/* ============================
+    FOOTER DERECHOS PRIVACIDAD
+=============================== */
+html { scroll-behavior: smooth; }
 
-/* === Enlaces === */
-#politica-privacidad a {
-  color: #0077cc;
-  text-decoration: underline;
-}
+  .pp-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    background: #fdfdfd;
+    color: #1a1a1a;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+  }
 
-#politica-privacidad a:hover {
-  color: #005599;
-}
+  .pp-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
 
-/* ===================
-   MEDIAS QUERIES
-   =================== */
-
-/* Pantallas pequeñas (móviles) */
-@media (max-width: 576px) {
   .pp-header h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    color: #0a2b57;
+    margin-bottom: 0.5rem;
   }
 
-  .pp-section h3 {
-    font-size: 1.2rem;
-  }
-
-  .pp-intro,
-  .pp-section p {
-    font-size: 0.95rem;
+  .pp-updated {
+    font-size: 0.9rem;
+    color: #555;
   }
 
   .pp-toc {
-    padding: 10px;
+    background: #eef4fb;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+  }
+
+  .pp-toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pp-toc a {
+    text-decoration: none;
+    color: #0a4a82;
+    transition: color 0.3s;
+  }
+
+  .pp-toc a:hover {
+    color: #0561b3;
+  }
+
+  .pp-section {
+    margin-top: 2rem;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  .pp-section h3 {
+    color: #0a2b57;
+    margin-bottom: 0.8rem;
+  }
+
+  .pp-section ul {
+    margin-left: 1.5rem;
+  }
+
+  .pp-footer {
+    margin-top: 2.5rem;
+    background: #ff0707;
+    color: #1a1a1a;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
     font-size: 0.9rem;
   }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .pp-container { padding: 1.5rem; }
+    .pp-header h2 { font-size: 1.4rem; }
+    .pp-section h3 { font-size: 1.1rem; }
+  }
+
+/* ==== ESTILOS DEL FOOTER ==== */
+
+.footer {
+  background-color: #032642;
+  color: #ffffff;
+  padding: 40px 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Tablets (horizontal y vertical) */
-@media (min-width: 577px) and (max-width: 992px) {
-  .pp-header h2 {
-    font-size: 1.8rem;
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.footer-section h3 {
+  font-size: 1.1rem;
+  color: #3dc2ec;
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.footer-section h3::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  background-color: #3dc2ec;
+  left: 0;
+  bottom: -6px;
+  border-radius: 2px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+  color: #d4d4d4;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #3dc2ec;
+  transform: translateX(4px);
+}
+
+.footer-section i {
+  margin-right: 6px;
+  color: #3dc2ec;
+  font-size: 1rem;
+}
+
+.footer-logo {
+  width: 160px;
+  margin-bottom: 1rem;
+}
+
+.footer-mission {
+  font-size: 0.95rem;
+  color: #e5e5e5;
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #cfd8dc;
+}
+
+.footer-cert {
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  color: #80deea;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
-  .pp-section h3 {
-    font-size: 1.3rem;
+  .footer-logo {
+    margin: 0 auto 1rem;
   }
 
-  .pp-container {
-    padding: 0 15px;
+  .footer-section h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-section a {
+    justify-content: center;
   }
 }
 
-/* Escritorios grandes */
-@media (min-width: 993px) {
-  #politica-privacidad {
-    padding: 60px 40px;
-  }
-
-  .pp-header h2 {
-    font-size: 2.2rem;
-  }
-
-  .pp-section h3 {
-    font-size: 1.5rem;
-  }
-
-  .pp-intro {
-    font-size: 1.05rem;
-  }
-}
 
 /* ============================
    CAROUSEL
@@ -1867,117 +1991,130 @@ FIN PROMO MES + MEDIA QUERIES
 =============================== */
 
 /* =========================
-   BOTÓN ASESOR + MENÚ SOCIAL
-========================= */
-.asesor-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-}
+       CONTENEDOR PRINCIPAL
+    ========================= */
+    .asesor-container {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 9999;
+      animation: fadeIn 1s ease forwards;
+    }
 
-.asesor-btn {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.asesor-btn img {
-  width: 50px;
-  height: 50px;
-}
-.asesor-btn:hover,
-.asesor-btn:focus {
-  transform: scale(1.1);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  outline: none;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-/* Redes sociales flotantes */
-.social-links {
-  position: absolute;
-  bottom: 80px;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  transform: translateY(10px);
-}
-.social-links a {
-  background: #fff;
-  padding: 10px 15px;
-  border-radius: 25px;
-  text-decoration: none;
-  color: #333;
-  font-size: 14px;
-  font-weight: bold;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  transition: background 0.3s ease, transform 0.2s;
-}
-.social-links a:hover {
-  background: #2575fc;
-  color: #fff;
-  transform: translateX(-5px);
-}
-.asesor-container.active .social-links {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
+    /* Botón del asesor */
+    .asesor-btn {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #007bff, #00c3ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-/* =========================
-   MENSAJE FLOTANTE MÓVIL
-========================= */
-.mensaje-movil {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  background: #fff;
-  color: #333;
-  padding: 12px 18px;
-  border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-  font-size: 14px;
-  display: none; /* oculto en escritorio */
-  align-items: center;
-  gap: 8px;
-  animation: slideUp 0.6s ease;
-  z-index: 10001;
-}
-.mensaje-movil button {
-  background: transparent;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  color: #888;
-}
-@keyframes slideUp {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-.oculto { display: none !important; }
+    .asesor-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
 
-/* Mostrar solo en móvil */
-@media (max-width: 768px) {
-  .mensaje-movil { display: flex; }
-}
+    .asesor-btn img {
+      width: 45px;
+      height: 45px;
+    }
 
-/* =========================
-   ACCESIBILIDAD
-========================= */
-.asesor-btn:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 3px;
-}
+    /* Redes sociales */
+    .social-links {
+      position: absolute;
+      bottom: 85px;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(15px);
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .social-links a {
+      background: #fff;
+      padding: 8px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #007bff;
+      transform: scale(1.1);
+    }
+
+    .social-links img {
+      width: 25px;
+      height: 25px;
+    }
+
+    /* Checkbox para activar redes */
+    #toggleAsesor {
+      display: none;
+    }
+
+    #toggleAsesor:checked + label + .social-links {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* =========================
+       MENSAJE MÓVIL
+    ========================= */
+    .mensaje-movil {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      background: #ffffff;
+      color: #007bff;
+      padding: 12px 18px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      animation: slideUp 0.6s ease;
+      z-index: 10000;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .mensaje-movil button {
+      background: transparent;
+      border: none;
+      font-size: 16px;
+      color: #007bff;
+      cursor: pointer;
+    }
+
+    /* Mostrar solo en móvil */
+    @media (min-width: 769px) {
+      .mensaje-movil { display: none; }
+    }
 
     /* =====================
    CAMPOS DE FORMULARIO
