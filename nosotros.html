@@ -283,21 +283,52 @@
   </script>
  
   <!-- Asesor virtual-->
-    <script>
-    const asesorBtn = document.getElementById("asesorBtn");
-    const container = document.querySelector(".asesor-container");
-    const cerrarMsg = document.getElementById("cerrarMsg");
-    const mensajeMovil = document.getElementById("mensajeMovil");
+    <!-- ================================
+     ASESOR VIRTUAL TABOPLUS
+     Con sonido, memoria y reinicio
+================================ -->
+<div class="asesor-container">
 
-    asesorBtn.addEventListener("click", () => {
-      container.classList.toggle("active");
-    });
+  <!-- Botón flotante -->
+  <button id="chat-toggle" aria-label="Abrir chat de Taboplus">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" 
+         alt="Icono Taboplus" class="chat-icon">
+  </button>
 
-    cerrarMsg.addEventListener("click", () => {
-      mensajeMovil.style.display = "none";
-    });
-  </script>
+  <!-- Ventana de chat -->
+  <div id="chatbox">
+    <div id="chat-header">
+      <span>💬 Taboplus - Asesor Virtual</span>
+      <div class="chat-actions">
+        <button id="restart-chat" title="Nueva conversación" aria-label="Reiniciar chat">🔄</button>
+        <button id="close-chat" aria-label="Cerrar chat">✕</button>
+      </div>
+    </div>
+
+    <div id="chat-messages"></div>
+
+    <div id="chat-input">
+      <input id="input" type="text" placeholder="Escribe aquí..." aria-label="Escribir mensaje">
+      <button id="send-btn" aria-label="Enviar mensaje">➤</button>
+    </div>
+
+    <div id="chat-footer">
+      <div class="social-links" id="socialMenu">
+        <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank" aria-label="Instagram">
+          <img src="assets/images/instagram.png" alt="Instagram Plus Laboratorio Clínico">
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank" aria-label="WhatsApp">
+          <img src="assets/images/whatsapp.png" alt="WhatsApp Plus Laboratorio Clínico">
+        </a>
+        <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank" aria-label="Facebook">
+          <img src="assets/images/facebook.png" alt="Facebook Plus Laboratorio Clínico">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
   <!-- Asesor virtual final -->
 </body>
 </html>
+
 
