@@ -131,24 +131,50 @@
   <!-- Fin Navbar -->
    
  <!-- Asesor virtual -->
-  <div class="asesor-container">
-    <div class="social-links" id="socialMenu">
-      <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank"><img src="assets/images/facebook.png" alt=""></a>
-      <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank"><img src="assets/images/instagram.png" alt=""></a>
-      <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank"><img src="assets/images/whatsapp.png" alt=""></a>
+<!-- ================================
+     ASESOR VIRTUAL TABOPLUS
+     Con sonido, memoria y reinicio
+================================ -->
+<div class="asesor-container">
+
+  <!-- Botón flotante -->
+  <button id="chat-toggle" aria-label="Abrir chat de Taboplus">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" 
+         alt="Icono Taboplus" class="chat-icon">
+  </button>
+
+  <!-- Ventana de chat -->
+  <div id="chatbox">
+    <div id="chat-header">
+      <span>💬 Taboplus - Asesor Virtual</span>
+      <div class="chat-actions">
+        <button id="restart-chat" title="Nueva conversación" aria-label="Reiniciar chat">🔄</button>
+        <button id="close-chat" aria-label="Cerrar chat">✕</button>
+      </div>
     </div>
 
-    <div class="asesor-btn" id="asesorBtn">
-      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Asesor Virtual">
+    <div id="chat-messages"></div>
+
+    <div id="chat-input">
+      <input id="input" type="text" placeholder="Escribe aquí..." aria-label="Escribir mensaje">
+      <button id="send-btn" aria-label="Enviar mensaje">➤</button>
+    </div>
+
+    <div id="chat-footer">
+      <div class="social-links" id="socialMenu">
+        <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank" aria-label="Instagram">
+          <img src="assets/images/instagram.png" alt="Instagram Plus Laboratorio Clínico">
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank" aria-label="WhatsApp">
+          <img src="assets/images/whatsapp.png" alt="WhatsApp Plus Laboratorio Clínico">
+        </a>
+        <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank" aria-label="Facebook">
+          <img src="assets/images/facebook.png" alt="Facebook Plus Laboratorio Clínico">
+        </a>
+      </div>
     </div>
   </div>
-
-  <!-- Mensaje flotante solo para móviles -->
-  <div class="mensaje-movil" id="mensajeMovil">
-    👋 Hola, ¿necesitas ayuda?
-    <button class="cerrar-msg" id="cerrarMsg">✖</button>
-  </div>
-
+</div>
   <!-- Asesor virtual final-->
 
   <!-- Header -->
@@ -703,20 +729,99 @@ document.querySelectorAll('.faq-question').forEach(button => {
 <!-- Fin promociones mes -->
 
 <!-- Asesor virtual-->
-    <script>
-    const asesorBtn = document.getElementById("asesorBtn");
-    const container = document.querySelector(".asesor-container");
-    const cerrarMsg = document.getElementById("cerrarMsg");
-    const mensajeMovil = document.getElementById("mensajeMovil");
+    <!-- ================================
+     SCRIPT CON LÓGICA, SONIDO Y REINICIO
+================================ -->
+<script>
+  const chatToggle = document.getElementById('chat-toggle');
+  const chatBox = document.getElementById('chatbox');
+  const closeChat = document.getElementById('close-chat');
+  const restartChat = document.getElementById('restart-chat');
+  const input = document.getElementById('input');
+  const sendBtn = document.getElementById('send-btn');
+  const messages = document.getElementById('chat-messages');
 
-    asesorBtn.addEventListener("click", () => {
-      container.classList.toggle("active");
-    });
+  const sonido = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_f54f6c3b7b.mp3?filename=notification-3-125447.mp3");
 
-    cerrarMsg.addEventListener("click", () => {
-      mensajeMovil.style.display = "none";
-    });
-  </script>
+  chatToggle.addEventListener('click', () => {
+    chatBox.classList.toggle('active');
+    if (chatBox.classList.contains('active')) iniciarChat();
+  });
+
+  closeChat.addEventListener('click', () => chatBox.classList.remove('active'));
+  restartChat.addEventListener('click', reiniciarConversacion);
+
+  sendBtn.addEventListener('click', enviar);
+  input.addEventListener('keypress', (e) => { if (e.key === 'Enter') enviar(); });
+
+  window.addEventListener('load', () => {
+    const historial = JSON.parse(localStorage.getItem('chatHistorial')) || [];
+    historial.forEach(msg => agregarMensaje(msg.texto, msg.tipo, false));
+  });
+
+  function enviar() {
+    const texto = input.value.trim();
+    if (!texto) return;
+    agregarMensaje(texto, 'user');
+    input.value = '';
+    respuestaAutomatica(texto.toLowerCase());
+  }
+
+  function agregarMensaje(texto, tipo, guardar = true) {
+    const msg = document.createElement('div');
+    msg.classList.add('msg', tipo);
+    msg.textContent = texto;
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
+    if (tipo === 'bot') sonido.play();
+    if (guardar) guardarMensaje(texto, tipo);
+  }
+
+  function guardarMensaje(texto, tipo) {
+    const historial = JSON.parse(localStorage.getItem('chatHistorial')) || [];
+    historial.push({ texto, tipo });
+    localStorage.setItem('chatHistorial', JSON.stringify(historial));
+  }
+
+  function iniciarChat() {
+    if (!localStorage.getItem('chatIniciado')) {
+      agregarMensaje("👋 ¡Hola! Soy Taboplus, tu asesor virtual. ¿Qué deseas hacer?\n\n1️⃣ Consultar horarios\n2️⃣ Agendar cita\n3️⃣ Requisitos de exámenes\n4️⃣ Resultados\n5️⃣ Hablar con un agente", "bot");
+      localStorage.setItem('chatIniciado', true);
+    }
+  }
+
+  function reiniciarConversacion() {
+    localStorage.removeItem('chatHistorial');
+    localStorage.removeItem('chatIniciado');
+    messages.innerHTML = "";
+    agregarMensaje("🔄 Conversación reiniciada. 👋 Hola, soy Taboplus, tu asesor virtual. ¿Qué deseas hacer?\n\n1️⃣ Consultar horarios\n2️⃣ Agendar cita\n3️⃣ Requisitos de exámenes\n4️⃣ Resultados\n5️⃣ Hablar con un agente", "bot");
+  }
+
+  function respuestaAutomatica(texto) {
+    let respuesta = "";
+
+    if (texto.includes("1") || texto.includes("horario") || texto.includes("hora")) {
+      respuesta = "🕒 Nuestro horario de atención es de lunes a sábado de 7:00 a.m. a 5:00 p.m.";
+    } 
+    else if (texto.includes("2") || texto.includes("agendar") || texto.includes("cita")) {
+      respuesta = "📅 Puedes agendar tu cita escribiéndonos por WhatsApp al +57 311 321 2221 o en nuestra página web.";
+    }
+    else if (texto.includes("3") || texto.includes("requisito") || texto.includes("preparación")) {
+      respuesta = "📋 Cada examen tiene requisitos específicos. Por ejemplo, para pruebas de sangre se recomienda ayuno de 8 horas. ¿Deseas conocer los requisitos de un examen en particular?";
+    }
+    else if (texto.includes("4") || texto.includes("resultado")) {
+      respuesta = "📑 Puedes consultar tus resultados en línea o solicitarlos por WhatsApp. Usualmente están disponibles entre 24 y 48 horas.";
+    }
+    else if (texto.includes("5") || texto.includes("agente") || texto.includes("humano")) {
+      respuesta = "👩‍💼 Un agente humano te atenderá enseguida. Por favor espera un momento o comunícate directamente por WhatsApp.";
+    } 
+    else {
+      respuesta = "🤖 No entendí completamente. Escribe el número de la opción que desees:\n\n1️⃣ Horarios\n2️⃣ Cita\n3️⃣ Requisitos\n4️⃣ Resultados\n5️⃣ Agente";
+    }
+
+    setTimeout(() => agregarMensaje(respuesta, 'bot'), 700);
+  }
+</script>
   <!-- Asesor virtual final -->
 </body>
 </html>
