@@ -2102,6 +2102,167 @@ html { scroll-behavior: smooth; }
       }
     }
 
+   /* ================================
+     ESTILOS DE VIDEO RESPONSIVO
+  =================================*/
+  .video-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #f5f9ff;
+    color: #1a1a1d;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .video-title {
+    font-size: 1.8rem;
+    color: #004aad;
+    margin-bottom: 0.5rem;
+  }
+
+  .video-description {
+    max-width: 650px;
+    margin: 0 auto 2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .video-container {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .video-container:hover {
+    transform: scale(1.02);
+  }
+
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-thumbnail img {
+    width: 100%;
+    display: block;
+  }
+
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 74, 173, 0.85);
+    color: #fff;
+    font-size: 3rem;
+    border-radius: 50%;
+    padding: 1rem 1.3rem;
+    transition: background 0.3s;
+  }
+
+  .play-button:hover {
+    background: rgba(0, 74, 173, 1);
+  }
+
+  /* Efectos de transición (fade) */
+  .fade {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  .fade.show {
+    opacity: 1;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .video-title { font-size: 1.5rem; }
+    .video-description { font-size: 0.95rem; }
+  }
+
+  /* ================================
+     ESTILOS DE VIDEO LOCAL UX/UI
+  =================================*/
+  .video-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #f5f9ff;
+    color: #1a1a1d;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .video-title {
+    font-size: 1.8rem;
+    color: #004aad;
+    margin-bottom: 0.5rem;
+  }
+
+  .video-description {
+    max-width: 650px;
+    margin: 0 auto 2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .video-container {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .video-container:hover {
+    transform: scale(1.02);
+  }
+
+  .video-thumbnail img {
+    width: 100%;
+    display: block;
+  }
+
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 74, 173, 0.85);
+    color: #fff;
+    font-size: 3rem;
+    border-radius: 50%;
+    padding: 1rem 1.3rem;
+    transition: background 0.3s;
+  }
+
+  .play-button:hover {
+    background: rgba(0, 74, 173, 1);
+  }
+
+  /* Efectos de transición (fade) */
+  .fade {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  .fade.show {
+    opacity: 1;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .video-title { font-size: 1.5rem; }
+    .video-description { font-size: 0.95rem; }
+  }
 
     /* =====================
    CAMPOS DE FORMULARIO
