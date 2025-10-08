@@ -163,23 +163,50 @@
   <!-- Fin etica y transparencia -->
 
     <!-- Asesor virtual -->
-  <div class="asesor-container">
-    <div class="social-links" id="socialMenu">
-      <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank"><img src="assets/images/facebook.png" alt=""></a>
-      <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank"><img src="assets/images/instagram.png" alt=""></a>
-      <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank"><img src="assets/images/whatsapp.png" alt=""></a>
+  <!-- ================================
+     ASESOR VIRTUAL TABOPLUS
+     Con sonido, memoria y reinicio
+================================ -->
+<div class="asesor-container">
+
+  <!-- Botón flotante -->
+  <button id="chat-toggle" aria-label="Abrir chat de Taboplus">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" 
+         alt="Icono Taboplus" class="chat-icon">
+  </button>
+
+  <!-- Ventana de chat -->
+  <div id="chatbox">
+    <div id="chat-header">
+      <span>💬 Taboplus - Asesor Virtual</span>
+      <div class="chat-actions">
+        <button id="restart-chat" title="Nueva conversación" aria-label="Reiniciar chat">🔄</button>
+        <button id="close-chat" aria-label="Cerrar chat">✕</button>
+      </div>
     </div>
 
-    <div class="asesor-btn" id="asesorBtn">
-      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Asesor Virtual">
+    <div id="chat-messages"></div>
+
+    <div id="chat-input">
+      <input id="input" type="text" placeholder="Escribe aquí..." aria-label="Escribir mensaje">
+      <button id="send-btn" aria-label="Enviar mensaje">➤</button>
+    </div>
+
+    <div id="chat-footer">
+      <div class="social-links" id="socialMenu">
+        <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank" aria-label="Instagram">
+          <img src="assets/images/instagram.png" alt="Instagram Plus Laboratorio Clínico">
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank" aria-label="WhatsApp">
+          <img src="assets/images/whatsapp.png" alt="WhatsApp Plus Laboratorio Clínico">
+        </a>
+        <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank" aria-label="Facebook">
+          <img src="assets/images/facebook.png" alt="Facebook Plus Laboratorio Clínico">
+        </a>
+      </div>
     </div>
   </div>
-
-  <!-- Mensaje flotante solo para móviles -->
-  <div class="mensaje-movil" id="mensajeMovil">
-    👋 Hola, ¿necesitas ayuda?
-    <button class="cerrar-msg" id="cerrarMsg">✖</button>
-  </div>
+</div>
 
   <!-- Asesor virtual final-->
 
@@ -264,3 +291,4 @@
   <!-- Asesor virtual final -->
 </body>
 </html>
+
