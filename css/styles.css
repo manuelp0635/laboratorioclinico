@@ -2879,6 +2879,183 @@ html, body {
 
 /* Asegurarte de que los elementos no tengan márgenes laterales excesivos que empujen contenido fuera */
 
+/* ===========================
+   ASESOR VIRTUAL TABOPLUS
+   Versión con UX/UI mejorado
+=========================== */
 
+.asesor-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+  }
 
+  /* Botón flotante */
+  #chat-toggle {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
+  #chat-toggle:hover {
+    transform: scale(1.05);
+    background: #43A047;
+  }
+
+  #chat-toggle img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
+
+  /* Ventana del chat */
+  #chatbox {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 340px;
+    height: 440px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    overflow: hidden;
+    animation: slideIn 0.4s ease;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  #chat-header {
+    background: #4CAF50;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  #chat-messages {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    background: #f9f9f9;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .msg {
+    margin: 8px 0;
+    padding: 10px 14px;
+    border-radius: 15px;
+    max-width: 80%;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .user {
+    background: #d1e7ff;
+    align-self: flex-end;
+    text-align: right;
+  }
+
+  .bot {
+    background: #e8f5e9;
+    align-self: flex-start;
+  }
+
+  #chat-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+  }
+
+  #chat-input input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    outline: none;
+  }
+
+  #chat-input button {
+    background: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  #chat-input button:hover {
+    background: #43A047;
+  }
+
+  #chat-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    background: #f1f1f1;
+    border-top: 1px solid #ccc;
+  }
+
+  #chat-footer img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s;
+  }
+
+  #chat-footer img:hover {
+    transform: scale(1.2);
+  }
+
+  /* =====================
+     MEDIA QUERIES
+  ===================== */
+  @media (max-width: 768px) {
+    #chatbox {
+      width: 300px;
+      height: 420px;
+      right: 15px;
+    }
+
+    #chat-toggle {
+      width: 55px;
+      height: 55px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #chatbox {
+      width: 90%;
+      right: 5%;
+      bottom: 90px;
+      height: 400px;
+    }
+
+    #chat-header {
+      font-size: 14px;
+    }
+
+    #chat-input input {
+      font-size: 13px;
+    }
+
+    #chat-toggle {
+      width: 50px;
+      height: 50px;
+    }
+  }
