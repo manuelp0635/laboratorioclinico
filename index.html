@@ -131,45 +131,39 @@
   <!-- Asesor virtual -->
 <!-- ================================
      ASESOR VIRTUAL TABOPLUS
-     Con sonido, memoria y reinicio
 ================================ -->
 <div class="asesor-container">
-
-  <!-- Botón flotante -->
-  <button id="chat-toggle" aria-label="Abrir chat de Taboplus">
-    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" 
-         alt="Icono Taboplus" class="chat-icon">
+  <!-- Botón del asesor virtual -->
+  <button id="chat-toggle">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Asesor Virtual Taboplus">
   </button>
 
   <!-- Ventana de chat -->
   <div id="chatbox">
-    <div id="chat-header">
-      <span>💬 Taboplus - Asesor Virtual</span>
-      <div class="chat-actions">
-        <button id="restart-chat" title="Nueva conversación" aria-label="Reiniciar chat">🔄</button>
-        <button id="close-chat" aria-label="Cerrar chat">✕</button>
-      </div>
-    </div>
+    <div id="chat-header">🤖 Taboplus - Asesor Virtual</div>
 
     <div id="chat-messages"></div>
 
     <div id="chat-input">
-      <input id="input" type="text" placeholder="Escribe aquí..." aria-label="Escribir mensaje">
-      <button id="send-btn" aria-label="Enviar mensaje">➤</button>
+      <input id="input" type="text" placeholder="Escribe aquí...">
+      <button onclick="enviar()">➤</button>
     </div>
 
-    <div id="chat-footer">
-      <div class="social-links" id="socialMenu">
-        <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank" aria-label="Instagram">
-          <img src="assets/images/instagram.png" alt="Instagram Plus Laboratorio Clínico">
-        </a>
-        <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank" aria-label="WhatsApp">
-          <img src="assets/images/whatsapp.png" alt="WhatsApp Plus Laboratorio Clínico">
-        </a>
-        <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank" aria-label="Facebook">
-          <img src="assets/images/facebook.png" alt="Facebook Plus Laboratorio Clínico">
-        </a>
-      </div>
+
+    <!-- Redes sociales -->
+    <div id="chat-social">
+      <a href="https://l.instagram.com/?u=https%3A%2F%2Fwa.me%2F573113212221%3Ftext%3DHola%252C%2BRequiero%2Bmayor%2Binformaci%25C3%25B3n%2Bde%2Blos%2Bservicios%2B%25E2%259C%2589%25EF%25B8%258F%26fbclid%3DPAZXh0bgNhZW0CMTEAAad4V30o3IVJ-hbDz605ZFO7ckyGTsteM3aW0DExiFWtweeflNdr2752cDnylQ_aem_uYcJ6RITu9N8zxuZmafkvg&e=AT2oAvB-W-kbhd-F-CtiC0sF26i3a6IdFttiUHXZQ3-14HfHHNLttbqDUZ-Q7KlPQN6oIU6A2M1uchNqm2LpI8vkXnJaP2RJ6Lv0-A4Y6A"
+         target="_blank" aria-label="WhatsApp">
+        <img src="assets/images/whatsapp.png" alt="WhatsApp">
+      </a>
+      <a href="https://www.facebook.com/PlusLaboratorioClinico"
+         target="_blank" aria-label="Facebook">
+        <img src="assets/images/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/laboratorio_clinico_plus"
+         target="_blank" aria-label="Instagram">
+        <img src="assets/images/instagram.png" alt="Instagram">
+      </a>
     </div>
   </div>
 </div>
@@ -726,98 +720,135 @@ document.querySelectorAll('.faq-question').forEach(button => {
 
    
 <!-- ================================
-    ASESOR VIRTUAL SCRIPT CON LÓGICA, SONIDO Y REINICIO
+    ASESOR VIRTUAL TABOPLUS SCRIPT OPTIMIZADO
 ================================ -->
 <script>
   const chatToggle = document.getElementById('chat-toggle');
   const chatBox = document.getElementById('chatbox');
-  const closeChat = document.getElementById('close-chat');
-  const restartChat = document.getElementById('restart-chat');
   const input = document.getElementById('input');
-  const sendBtn = document.getElementById('send-btn');
   const messages = document.getElementById('chat-messages');
 
+  // 🔔 Sonido de notificación
   const sonido = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_f54f6c3b7b.mp3?filename=notification-3-125447.mp3");
 
-  chatToggle.addEventListener('click', () => {
-    chatBox.classList.toggle('active');
-    if (chatBox.classList.contains('active')) iniciarChat();
-  });
-
-  closeChat.addEventListener('click', () => chatBox.classList.remove('active'));
-  restartChat.addEventListener('click', reiniciarConversacion);
-
-  sendBtn.addEventListener('click', enviar);
-  input.addEventListener('keypress', (e) => { if (e.key === 'Enter') enviar(); });
-
+  // ✅ Mostrar automáticamente al cargar la página
   window.addEventListener('load', () => {
-    const historial = JSON.parse(localStorage.getItem('chatHistorial')) || [];
-    historial.forEach(msg => agregarMensaje(msg.texto, msg.tipo, false));
+    setTimeout(() => {
+      chatBox.style.display = 'flex';
+      iniciarChat();
+
+      // Restaurar historial si existe
+      const historial = JSON.parse(localStorage.getItem('chatHistorial')) || [];
+      if (historial.length > 0) {
+        historial.forEach(msg => agregarMensaje(msg.texto, msg.tipo, false));
+      }
+    }, 600);
   });
+
+  // 🟢 Alternar visibilidad manual del chat
+  chatToggle.addEventListener('click', () => {
+    if (chatBox.style.display === 'flex') {
+      chatBox.style.display = 'none';
+    } else {
+      chatBox.style.display = 'flex';
+      iniciarChat();
+    }
+  });
+
+  // 📨 Enviar mensaje con botón o Enter
+  input.addEventListener('keypress', (e) => { if (e.key === 'Enter') enviar(); });
 
   function enviar() {
     const texto = input.value.trim();
     if (!texto) return;
     agregarMensaje(texto, 'user');
     input.value = '';
-    respuestaAutomatica(texto.toLowerCase());
+    setTimeout(() => respuestaAutomatica(texto.toLowerCase()), 600);
   }
 
+  // 💬 Agregar mensaje al chat
   function agregarMensaje(texto, tipo, guardar = true) {
     const msg = document.createElement('div');
     msg.classList.add('msg', tipo);
-    msg.textContent = texto;
+    msg.innerHTML = texto;
     messages.appendChild(msg);
     messages.scrollTop = messages.scrollHeight;
-    if (tipo === 'bot') sonido.play();
+
+    if (tipo === 'bot') sonido.play(); // 🔔 reproducir sonido
     if (guardar) guardarMensaje(texto, tipo);
   }
 
+  // 💾 Guardar mensaje en localStorage
   function guardarMensaje(texto, tipo) {
     const historial = JSON.parse(localStorage.getItem('chatHistorial')) || [];
     historial.push({ texto, tipo });
     localStorage.setItem('chatHistorial', JSON.stringify(historial));
   }
 
+  // 🧠 Iniciar conversación (solo una vez)
   function iniciarChat() {
     if (!localStorage.getItem('chatIniciado')) {
-      agregarMensaje("👋 ¡Hola! Soy Taboplus, tu asesor virtual. ¿Qué deseas hacer?\n\n1️⃣ Consultar horarios\n2️⃣ Agendar cita\n3️⃣ Requisitos de exámenes\n4️⃣ Resultados\n5️⃣ Hablar con un agente", "bot");
+      agregarMensaje(
+        "👋 ¡Hola! Soy <b>Taboplus</b>, tu asesor virtual. ¿Qué deseas hacer?<br><br>" +
+        "1️⃣ Consultar horarios<br>" +
+        "2️⃣ Agendar cita<br>" +
+        "3️⃣ Requisitos de exámenes<br>" +
+        "4️⃣ Resultados<br>" +
+        "5️⃣ Hablar con un agente",
+        "bot"
+      );
       localStorage.setItem('chatIniciado', true);
     }
   }
 
+  // 🔄 Reiniciar conversación completamente
   function reiniciarConversacion() {
     localStorage.removeItem('chatHistorial');
     localStorage.removeItem('chatIniciado');
     messages.innerHTML = "";
-    agregarMensaje("🔄 Conversación reiniciada. 👋 Hola, soy Taboplus, tu asesor virtual. ¿Qué deseas hacer?\n\n1️⃣ Consultar horarios\n2️⃣ Agendar cita\n3️⃣ Requisitos de exámenes\n4️⃣ Resultados\n5️⃣ Hablar con un agente", "bot");
+    agregarMensaje(
+      "🔄 Conversación reiniciada.<br><br>👋 Hola, soy <b>Taboplus</b>, tu asesor virtual. ¿Qué deseas hacer?<br><br>" +
+      "1️⃣ Consultar horarios<br>" +
+      "2️⃣ Agendar cita<br>" +
+      "3️⃣ Requisitos de exámenes<br>" +
+      "4️⃣ Resultados<br>" +
+      "5️⃣ Hablar con un agente",
+      "bot"
+    );
   }
 
+  // 🤖 Lógica de respuestas automáticas
   function respuestaAutomatica(texto) {
     let respuesta = "";
 
     if (texto.includes("1") || texto.includes("horario") || texto.includes("hora")) {
-      respuesta = "🕒 Nuestro horario de atención es de lunes a sábado de 7:00 a.m. a 5:00 p.m.";
+      respuesta = "🕒 Nuestro horario de atención es:<br>Lun-Vie: 7:00 a.m. - 4:00 p.m.<br>Sábados: 7:00 a.m. - 12:00 p.m.<br>Domingos y festivos con cita previa.";
     } 
     else if (texto.includes("2") || texto.includes("agendar") || texto.includes("cita")) {
-      respuesta = "📅 Puedes agendar tu cita escribiéndonos por WhatsApp al +57 311 321 2221 o en nuestra página web.";
+      respuesta = "📅 Puedes agendar tu cita escribiéndonos por WhatsApp al <a href='https://api.whatsapp.com/send?phone=573113212221' target='_blank'>+57 311 321 2221</a> o a través de nuestra página web.";
     }
     else if (texto.includes("3") || texto.includes("requisito") || texto.includes("preparación")) {
-      respuesta = "📋 Cada examen tiene requisitos específicos. Por ejemplo, para pruebas de sangre se recomienda ayuno de 8 horas. ¿Deseas conocer los requisitos de un examen en particular?";
+      respuesta = "📋 Cada examen tiene requisitos específicos. Por ejemplo, para exámenes de sangre se recomienda ayuno de 8 horas. ¿Deseas conocer los requisitos de un examen específico?";
     }
     else if (texto.includes("4") || texto.includes("resultado")) {
-      respuesta = "📑 Puedes consultar tus resultados en línea o solicitarlos por WhatsApp. Usualmente están disponibles entre 24 y 48 horas.";
+      respuesta = "📑 Puedes consultar tus resultados en línea o solicitarlos por WhatsApp. Generalmente están disponibles entre 24 y 48 horas después del examen.";
     }
     else if (texto.includes("5") || texto.includes("agente") || texto.includes("humano")) {
-      respuesta = "👩‍💼 Un agente humano te atenderá enseguida. Por favor espera un momento o comunícate directamente por WhatsApp.";
+      respuesta = "👩‍💼 Un agente humano te atenderá en breve. También puedes contactarnos directamente por WhatsApp 👉 <a href='https://api.whatsapp.com/send?phone=573113212221' target='_blank'>aquí</a>.";
     } 
+    else if (texto.includes("reiniciar") || texto.includes("nuevo chat")) {
+      reiniciarConversacion();
+      return;
+    }
     else {
-      respuesta = "🤖 No entendí completamente. Escribe el número de la opción que desees:\n\n1️⃣ Horarios\n2️⃣ Cita\n3️⃣ Requisitos\n4️⃣ Resultados\n5️⃣ Agente";
+      respuesta = "🤖 No entendí completamente. Por favor elige una opción del 1 al 5.<br><br>" +
+                  "1️⃣ Horarios<br>2️⃣ Cita<br>3️⃣ Requisitos<br>4️⃣ Resultados<br>5️⃣ Agente";
     }
 
     setTimeout(() => agregarMensaje(respuesta, 'bot'), 700);
   }
 </script>
+
 
 </body>
 </html>
