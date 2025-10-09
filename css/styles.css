@@ -47,10 +47,29 @@ p {
   max-width: 700px;
 }
 
+/* =========================================
+
 /* ============================
    MENÚ FIJO (STICKY NAVBAR)
 =============================== */
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Elimina cualquier espacio arriba del contenido */
+body {
+  overflow-x: hidden;
+}
+
+/* Quita márgenes del primer section (por seguridad) */
+section:first-of-type {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* NAVBAR FIJO */
 .navbar {
   position: sticky;
   top: 0;
@@ -58,8 +77,11 @@ p {
   z-index: 1000;
   background: #ffffff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
+/* ENLACES DE NAVEGACIÓN */
 .navbar-nav .nav-link {
   color: #222 !important;
   font-weight: 500;
@@ -80,6 +102,8 @@ p {
   font-weight: 700;
   border-bottom: 2px solid #007BFF;
 }
+
+
 
 /* ============================
    COLORES INSTITUCIONALES
@@ -662,11 +686,12 @@ video {
    CONTACTO
 =============================== */
 
-/* Contenedor de la barra */
+/* =============================
+ Contenedor de la barra 
 .top-contact {
   position: fixed;
   top: 20px;
-  right: -100%; /* fuera de pantalla al inicio */
+  right: -100%; /* fuera de pantalla al inicio 
   background-color: #f5f5f5;
   padding: 15px 25px;
   font-family: Arial, sans-serif;
@@ -682,7 +707,7 @@ video {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Espaciado entre elementos */
+/* Espaciado entre elementos 
 .top-contact span {
   margin-bottom: 6px;
   display: block;
@@ -691,12 +716,12 @@ video {
   animation: fadeSlide 0.6s forwards;
 }
 
-/* Animación secuencial de cada span */
+/* Animación secuencial de cada span 
 .top-contact span:nth-child(1) { animation-delay: 0.4s; }
 .top-contact span:nth-child(2) { animation-delay: 0.6s; }
 .top-contact span:nth-child(3) { animation-delay: 0.8s; }
 
-/* Estilo de enlaces */
+/* Estilo de enlaces 
 .top-contact a {
   text-decoration: none;
   color: #007BFF;
@@ -707,7 +732,7 @@ video {
   color: #0056b3;
 }
 
-/* Animación de deslizamiento principal */
+/* Animación de deslizamiento principal 
 @keyframes slideIn {
   0% {
     right: -100%;
@@ -721,11 +746,11 @@ video {
     right: 0px;
   }
   100% {
-    right: 10px; /* posición final estable */
+    right: 10px; /* posición final estable 
   }
 }
 
-/* Animación de fade-in con movimiento lateral */
+/* Animación de fade-in con movimiento lateral 
 @keyframes fadeSlide {
   to {
     opacity: 1;
@@ -733,13 +758,13 @@ video {
   }
 }
 
-/* Hover interactivo de la barra */
+/* Hover interactivo de la barra 
 .top-contact:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
 
-/* Responsive */
+/* Responsive 
 @media (max-width: 768px) {
   .top-contact {
     width: 90%;
