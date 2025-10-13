@@ -40,94 +40,85 @@
 </head>
 <body>
 
-  <!-- Navbar -->
-  <section class="menu" id="menu2-23">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="assets/images/PLUS.png" alt="Logo Plus" style="height: 3rem;">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <!-- Inicio -->
+  <!-- =========================
+     NAVBAR FIJO Y CENTRADO
+========================= -->
+<section class="menu" id="menu2-23">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container-fluid justify-content-between align-items-center">
+      <!-- LOGO -->
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="assets/images/PLUS.png" alt="Logo Plus" class="navbar-logo">
+      </a>
+
+      <!-- BOTÓN RESPONSIVE -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- ENLACES -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <!-- Inicio -->
             <li class="nav-item">
               <a class="nav-link" href="./index.html">Inicio</a>
             </li>
-            <!-- Para ti -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="paraTi" role="button" data-bs-toggle="dropdown">
-                Nosotros
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="./quienessomos.html">Quienes somos</a></li>
-                <!--<li><a class="dropdown-item" href="./servicios.html">Servicios</a></li>-->
-                <li><a class="dropdown-item" href="./nosotros.html">Nosotros</a></li>
-                <li><a class="dropdown-item" href="./historia.html">Historia</a></li>
-                <!--<li><a class="dropdown-item" href="#">Pagos</a></li>
-                <li><a class="dropdown-item" href="#">Resultados en línea</a></li>-->
-              </ul>
-            </li>
-            <!-- Institucional -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="institucional" role="button" data-bs-toggle="dropdown">
-                Servicios y Transparencia
-              </a>
-              <ul class="dropdown-menu">
-                <!--<li><a class="dropdown-item" href="./laboratorioclinicoderefencia.html">Historia</a></li>-->
-                <li><a class="dropdown-item" href="./servicios.html">Servicios</a></li>
-                <li>
-                  <a class="dropdown-item" href="./assets/pdf/PORTAFOLIO 23.pdf" download="PORTAFOLIO_23.pdf">
-                    Portafolio </a>
+          <!-- Nosotros -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="paraTi" role="button" data-bs-toggle="dropdown">
+              Nosotros
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./quienessomos.html">Quiénes somos</a></li>
+              <li><a class="dropdown-item" href="./nosotros.html">Nosotros</a></li>
+              <li><a class="dropdown-item" href="./historia.html">Historia</a></li>
+            </ul>
+          </li>
+
+          <!-- Servicios -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="institucional" role="button" data-bs-toggle="dropdown">
+              Servicios y Transparencia
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./servicios.html">Servicios</a></li>
+              <li>
+                <a class="dropdown-item" href="./assets/pdf/PORTAFOLIO 23.pdf" download="PORTAFOLIO_23.pdf">
+                  Portafolio
+                </a>
               </li>
-              </ul>
-            </li>
-            <!-- Empresarial -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="empresarial" role="button" data-bs-toggle="dropdown">
-                Preparación de muestras
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="sangre.html">Toma de muestra en sangre</a></li>
-                <li><a class="dropdown-item" href="fecal.html">Toma de muestra fecal</a></li>
-                <li><a class="dropdown-item" href="orina.html">Muestra de orina (Primera micción) </a></li>
-                <li><a class="dropdown-item" href="saliva.html">Muestra de saliva </a></li>
-                <!--<li><a class="dropdown-item" href="#">Muestra MyBiome</a></li>-->
-                <li><a class="dropdown-item" href="aliento.html">Prueba de aliento </a></li>
+            </ul>
+          </li>
 
-              </ul>
-            </li>
-            <!-- Pacientes -->
-             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="pacientes" role="button" data-bs-toggle="dropdown">
-                Portal Pacientes
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Resultados</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+          <!-- Muestras -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="empresarial" role="button" data-bs-toggle="dropdown">
+              Preparación de Muestras
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="sangre.html">Toma de muestra en sangre</a></li>
+              <li><a class="dropdown-item" href="fecal.html">Toma de muestra fecal</a></li>
+              <li><a class="dropdown-item" href="orina.html">Muestra de orina</a></li>
+              <li><a class="dropdown-item" href="saliva.html">Muestra de saliva</a></li>
+              <li><a class="dropdown-item" href="aliento.html">Prueba de aliento</a></li>
+            </ul>
+          </li>
 
-        <!-- Redes Sociales --
-        <div class="d-flex ms-3">
-          <a href="https://www.facebook.com/PlusLaboratorioClinico" target="_blank" class="me-2">
-            <span class="socicon-facebook"></span>
-          </a>
-          <a href="https://www.instagram.com/laboratorio_clinico_plus" target="_blank" class="me-2">
-            <span class="socicon-instagram"></span>
-          </a>
-          <a href="https://api.whatsapp.com/send?phone=573113212221&text=Hola%20Bienvenido%20a%20Plus%20Laboratorio%20Clinico" target="_blank">
-            <span class="socicon-whatsapp"></span>
-          </a>
-        </div>-->
+          <!-- Portal Pacientes -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pacientes" role="button" data-bs-toggle="dropdown">
+              Portal Pacientes
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Resultados</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
-    </nav>
-  </section>
-  <!-- Fin Navbar -->
+    </div>
+  </nav>
+</section>
+<!-- FIN NAVBAR -->
 
    <!-- Asesor virtual -->
  <!-- ================================
@@ -180,7 +171,7 @@
 <!-- Fin Barra de contacto rápida -->
 
   <!-- El bendito slider-->
-<section data-bs-version="5.1" class="slider6 mbr-embla cid-u1POXRwmNA" id="slider6-c">
+<section data-bs-version="5.1" class="slider6 mbr-embla cid-u1POXRwmNA" id="slider6-c"><br><br>
     
     
     <div class="position-relative">
