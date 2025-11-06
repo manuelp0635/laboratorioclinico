@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Básico -->
+  <title>Laboratorio Clínico Plus Cartagena | Resultados Confiables y Atención Humana</title>
+  <meta name="description" content="Laboratorio Clínico Plus en Cartagena: exámenes confiables, tecnología avanzada, atención personalizada y resultados rápidos. Tu salud en buenas manos.">
+  <meta name="keywords" content="laboratorio clínico Cartagena, análisis clínicos, exámenes médicos, resultados rápidos, salud, diagnóstico confiable, laboratorio Plus">
+  <meta name="author" content="Laboratorio Clínico Plus Cartagena">
+  <link rel="canonical" href="https://tusitio.com/">
+  
+  <!-- Open Graph (para redes sociales) -->
+  <meta property="og:title" content="Laboratorio Clínico Plus Cartagena | Exámenes Confiables y Atención Humana">
+  <meta property="og:description" content="Resultados rápidos y precisos en Cartagena. Profesionales de confianza y atención cercana.">
+  <meta property="og:image" content="https://tusitio.com/assets/images/PLUS.png">
+  <meta property="og:url" content="https://tusitio.com/">
+  <meta property="og:type" content="website">
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/PLUS.png" type="image/x-icon">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+  <!-- Estilos adicionales -->
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="css/styles.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Preload -->
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+
+  <style>
+    :root{--bg:#f6f8fb;--card:#ffffff;--muted:#475569;--accent:#0466c8;--green:#16a34a}
+    *{box-sizing:border-box}
+    body{font-family:Inter,Segoe UI,Arial,Helvetica,sans-serif;margin:0;padding:28px;background:linear-gradient(180deg,#f8fbff 0%,var(--bg) 100%);color:#0f172a}
+    .container{max-width:1200px;margin:0 auto}
+    header{display:flex;flex-direction:column;gap:14px;margin-bottom:18px}
+    header h1{margin:0;font-size:26px;color:var(--accent)}
+    header p{margin:0;color:var(--muted)}
+
+    .controls{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-top:8px}
+    .left-controls{display:flex;gap:12px;align-items:center}
+    .search{position:relative}
+    .search input{padding:10px 40px 10px 12px;border-radius:10px;border:1px solid #e6eef8;background:#fff;min-width:260px}
+    .search button{position:absolute;right:6px;top:6px;border:0;background:transparent;padding:6px;cursor:pointer}
+
+    .filters{display:flex;gap:8px;flex-wrap:wrap}
+    .filter-btn{padding:8px 12px;border-radius:999px;border:1px solid transparent;background:#fff;cursor:pointer;font-weight:600;color:var(--accent);box-shadow:0 1px 2px rgba(2,6,23,0.04)}
+    .filter-btn.active{background:linear-gradient(90deg,var(--accent),#0359b8);color:#fff;border-color:rgba(0,0,0,0.04)}
+
+    .view-toggle{display:flex;gap:8px}
+    .view-toggle button{padding:8px 10px;border-radius:8px;border:1px solid transparent;background:#fff;cursor:pointer}
+    .view-toggle button.active{background:var(--accent);color:#fff}
+
+    .meta{display:flex;justify-content:space-between;align-items:center;margin:14px 0;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .list{display:flex;flex-direction:column;gap:12px}
+
+    .card{background:var(--card);border-radius:12px;overflow:hidden;border:1px solid rgba(15,23,42,0.04);box-shadow:0 6px 18px rgba(2,6,23,0.04);display:flex;flex-direction:column;transition:transform .28s,box-shadow .28s,opacity .3s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(2,6,23,0.08)}
+    .card img{width:100%;height:160px;object-fit:cover}
+    .card-body{padding:14px;display:flex;flex-direction:column;gap:8px}
+    .card h3{margin:0;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .exam-list{margin:8px 0 0;padding-left:18px;color:#334155;font-size:13px}
+    .exam-list li{margin-bottom:6px}
+    .card-footer{display:flex;gap:8px;align-items:center;margin-top:8px}
+    .btn{padding:8px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:700}
+    .btn.buy{background:var(--green);color:#fff}
+    .btn.read{background:var(--accent);color:#fff}
+
+    /* transition helpers */
+    .hidden{opacity:0;transform:translateY(8px);pointer-events:none}
+    .fade-in{animation:fadeIn .36s ease both}
+    .slide-up{animation:slideUp .36s cubic-bezier(.2,.9,.2,1) both}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes slideUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+    /* modal */
+    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.45);padding:20px;opacity:0;pointer-events:none;transition:opacity .18s}
+    .modal.open{opacity:1;pointer-events:auto}
+    .modal .panel{background:#fff;border-radius:12px;padding:18px;max-width:760px;width:100%;box-shadow:0 12px 36px rgba(2,6,23,0.15)}
+
+    /* responsive */
+    @media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}.search input{min-width:140px}}
+
+    /* list view tweaks */
+    .list-view .grid{display:none}
+    .list-view .list{display:flex}
+    .list-view .card{flex-direction:row}
+    .list-view .card img{width:240px;height:150px;object-fit:cover}
+    .list-view .card-body{flex:1}
+
+  </style>
+</head>
+</head>
+<body>
+
+    <!-- =========================
+     NAVBAR FIJO Y CENTRADO
+========================= -->
+<section class="menu" id="menu2-23">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container-fluid justify-content-between align-items-center">
+      <!-- LOGO -->
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="assets/images/PLUS.png" alt="Logo Plus" class="navbar-logo">
+      </a>
+
+      <!-- BOTÓN RESPONSIVE -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- ENLACES -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <!-- Nosotros -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="paraTi" role="button" data-bs-toggle="dropdown">
+              Nuestra Historia
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./quienessomos.html">Quiénes somos</a></li>
+              <li><a class="dropdown-item" href="./nosotros.html">Nosotros</a></li>
+              <li><a class="dropdown-item" href="./historia.html">Historia</a></li>
+            </ul>
+          </li>
+
+          <!-- Catalogo -->
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="paraTi" role="button" data-bs-toggle="dropdown">
+              Catálogo
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/servicios_laboratorio.html">Exámenes de Laboratorio</a></li>
+              <li><a class="dropdown-item" href="#">Genética</a></li>
+              <li>
+                <a class="dropdown-item" href="./assets/pdf/PORTAFOLIO 23.pdf" download="PORTAFOLIO_23.pdf">
+                  Portafolio
+                </a>
+              </li>
+              <li><a class="dropdown-item" href="#">Pruebas Especiales</a></li>
+            </ul>
+          </li>
+
+          <!-- Servicios -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="institucional" role="button" data-bs-toggle="dropdown">
+              Como lo hacemos
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./servicios.html">Servicios</a></li>
+            </ul>
+          </li>
+
+          <!-- Muestras -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="empresarial" role="button" data-bs-toggle="dropdown">
+              Preparación de Muestras
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="sangre.html">Toma de muestra en sangre</a></li>
+              <li><a class="dropdown-item" href="fecal.html">Toma de muestra fecal</a></li>
+              <li><a class="dropdown-item" href="orina.html">Muestra de orina</a></li>
+              <li><a class="dropdown-item" href="saliva.html">Muestra de saliva</a></li>
+              <li><a class="dropdown-item" href="aliento.html">Prueba de aliento</a></li>
+            </ul>
+          </li>
+
+          <!-- Portal Pacientes -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pacientes" role="button" data-bs-toggle="dropdown">
+              Portal Pacientes
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Resultados</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section>
+<!-- FIN NAVBAR -->
+
+
+<div class="container">
+    <header>
+      <div>
+        <h1>Catálogo de Exámenes</h1>
+        <p>Explora nuestros tipos de exámenes. Filtra por categoría, busca pruebas específicas y cambia la vista entre cuadrícula y lista.</p>
+      </div>
+
+      <div class="controls">
+        <div class="left-controls">
+          <div class="search" role="search">
+            <input id="searchInput" placeholder="Buscar pruebas aquí" aria-label="Buscar pruebas" />
+            <button id="clearSearch" title="Limpiar">✕</button>
+          </div>
+
+          <div class="filters" id="filters" aria-label="Filtrar por categoría">
+            <!-- botones de filtro generados por JS -->
+          </div>
+        </div>
+
+        <div class="view-toggle" role="tablist" aria-label="Vista">
+          <button id="gridBtn" class="active" title="Cuadrícula">Cuadrícula</button>
+          <button id="listBtn" title="Lista">Lista</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="meta"><div><strong id="resultsCount">67</strong> resultados</div><div class="muted" id="activeFilter">Mostrando: Todos</div></div>
+
+    <main>
+      <section id="grid" class="grid" aria-live="polite"></section>
+      <section id="list" class="list" style="display:none" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <!-- modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="panel">
+      <header style="display:flex;justify-content:space-between;align-items:center">
+        <strong id="modalTitle">Título</strong>
+        <button id="closeModal" aria-label="Cerrar">✕</button>
+      </header>
+      <div id="modalBody" style="margin-top:12px;color:var(--muted)"></div>
+      <footer style="margin-top:12px;text-align:right"><button id="modalBuy" class="btn buy">Comprar</button></footer>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Asesor virtual -->
+<!-- ================================
+     ASESOR VIRTUAL TABOPLUS
+================================ -->
+<div class="asesor-container">
+  <!-- Botón del asesor virtual -->
+  <button id="chat-toggle">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Asesor Virtual Taboplus">
+  </button>
+
+  <!-- Ventana de chat -->
+  <div id="chatbox">
+    <div id="chat-header">🤖 Taboplus - Asesor Virtual</div>
+
+    <div id="chat-messages"></div>
+
+    <div id="chat-input">
+      <input id="input" type="text" placeholder="Escribe aquí...">
+      <button onclick="enviar()">➤</button>
+    </div>
+
+
+    <!-- Redes sociales -->
+    <div id="chat-social">
+      <a href="https://wa.me/573113212221?text=Hola%2C%20quisiera%20más%20información"
+         target="_blank" aria-label="WhatsApp">
+        <img src="assets/images/whatsapp.png" alt="WhatsApp">
+      </a>
+      <a href="https://www.facebook.com/PlusLaboratorioClinico"
+         target="_blank" aria-label="Facebook">
+        <img src="assets/images/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/laboratorio_clinico_plus"
+         target="_blank" aria-label="Instagram">
+        <img src="assets/images/instagram.png" alt="Instagram">
+      </a>
+    </div>
+  </div>
+</div>
+
+  <!-- Asesor virtual final-->
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Logo + misión -->
+    <div class="footer-section">
+      <img src="assets/images/PLUS.png" alt="Logo de Plus Laboratorio Clínico Cartagena" class="footer-logo" loading="lazy">
+      <p class="footer-mission">
+        Nuestra misión es brindar servicios de análisis clínico accesibles y confiables, con calidad profesional y humana.
+      </p>
+    </div>
+
+    <!-- Nosotros
+    <div class="footer-section">
+      <h3>Nosotros</h3>
+      <ul>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Nuestra organización</a></li>
+        <li><a href="#"><i class='bx bx-chevrons-right'></i> Información financiera</a></li>
+      </ul>
+    </div> -->
+
+    <!-- Políticas -->
+    <div class="footer-section">
+      <h3>Políticas</h3>
+      <ul>
+        <li><a href="./proveedores.html"><i class='bx bx-chevrons-right'></i> Proveedores</a></li>
+        <!--<li><a href="#"><i class='bx bx-chevrons-right'></i> PQRS</a></li>-->
+        <li><a href="./politicaprivacidad.html"><i class='bx bx-chevrons-right'></i> Política de protección de datos</a></li>
+        <li><a href="./etica.html"><i class='bx bx-chevrons-right'></i> Ética y transparencia</a></li>
+        <li><a href="./derechospaciente.html"><i class='bx bx-chevrons-right'></i> Derechos del paciente</a></li>
+        <li><a href="./integral.html"><i class='bx bx-chevrons-right'></i> Gestión integral</a></li>
+      </ul>
+    </div>
+
+    <!-- PQRSF -->
+    <div class="footer-section">
+      <h3>PQRSF</h3>
+      <p>
+        Tu opinión es importante. Escríbenos a través de nuestros canales de atención.
+      </p>
+      <ul>
+        <li><a href="mailto:pluslaboratorioclinicoctg@gmail.com"><i class='bx bx-chevrons-right'></i> Canales de atención</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Línea inferior -->
+  <div class="footer-bottom">
+    <p>© 2025 Plus Laboratorio Clínico Cartagena. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- Fin footer -->
+
+  <!-- Bootstrap JS -->
+  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script1.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    // Aquí puedes manejar extras JS
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("JS cargado correctamente ✅");
+    });
+  </script>
+
+  <!-- Promociones de la semana -->
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const imagenes = document.querySelectorAll(".promo-img");
+  const prevBtn = document.querySelector(".promo-btn.prev");
+  const nextBtn = document.querySelector(".promo-btn.next");
+
+  let diaHoy = new Date().getDay(); // 0 = domingo, 1 = lunes...
+  let indiceActual = Array.from(imagenes).findIndex(
+    img => parseInt(img.dataset.dia) === diaHoy
+  );
+
+  if (indiceActual === -1) indiceActual = 0;
+
+  function mostrarImagen(index) {
+    imagenes.forEach(img => img.classList.remove("activa"));
+    imagenes[index].classList.add("activa");
+  }
+
+  mostrarImagen(indiceActual);
+
+  prevBtn.addEventListener("click", () => {
+    indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+    mostrarImagen(indiceActual);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    indiceActual = (indiceActual + 1) % imagenes.length;
+    mostrarImagen(indiceActual);
+  });
+});
+</script>
+  <!-- Promociones de la semana final -->
+
+<!-- SCRIPT PARA HACER DESPLEGABLES LAS PREGUNTAS -->
+<script>
+  const questions = document.querySelectorAll('.faq-question');
+  questions.forEach(q => {
+    q.addEventListener('click', () => {
+      const answer = q.nextElementSibling;
+      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+</script>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const answer = button.nextElementSibling;
+    answer.classList.toggle('open');
+  });
+});
+</script>
+
+<!-- FIN SCRIPT CIERRE-->
+
+<!-- Script Promociones mes -->
+
+<script>
+    const promoSlides = document.querySelectorAll('.slide-promo');
+    let currentMonth = new Date().getMonth(); // 0 = enero, 11 = diciembre
+
+    function mostrarPromocionDelMes() {
+      promoSlides.forEach(item => item.classList.remove('slide-activo'));
+      promoSlides.forEach((item) => {
+        const mes = parseInt(item.dataset.mes, 10);
+        if (mes === currentMonth) {
+          item.classList.add('slide-activo');
+        }
+      });
+    }
+
+    mostrarPromocionDelMes();
+
+    setInterval(() => {
+      const newMonth = new Date().getMonth();
+      if (newMonth !== currentMonth) {
+        currentMonth = newMonth;
+        mostrarPromocionDelMes();
+      }
+    }, 60 * 60 * 1000);
+  </script>
+
+<!-- Fin promociones mes -->
+
+   
+<!-- ================================
+    ASESOR VIRTUAL TABOPLUS SCRIPT OPTIMIZADO
+================================ -->
+<script>
+  const chatToggle = document.getElementById('chat-toggle');
+  const chatBox = document.getElementById('chatbox');
+  const input = document.getElementById('input');
+  const messages = document.getElementById('chat-messages');
+
+  // 🔔 Sonido de notificación
+  const sonido = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_f54f6c3b7b.mp3?filename=notification-3-125447.mp3");
+
+  // ✅ Mostrar automáticamente al cargar la página
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      chatBox.style.display = 'flex';
+      iniciarChat();
+
+      // Restaurar historial si existe
+      const historial = JSON.parse(localStorage.getItem('chatHistorial')) || [];
+      if (historial.length > 0) {
+        historial.forEach(msg => agregarMensaje(msg.texto, msg.tipo, false));
+      }
+    }, 600);
+  });
+
+  // 🟢 Alternar visibilidad manual del chat
+  chatToggle.addEventListener('click', () => {
+    if (chatBox.style.display === 'flex') {
+      chatBox.style.display = 'none';
+    } else {
+      chatBox.style.display = 'flex';
+      iniciarChat();
+    }
+  });
+
+  // 📨 Enviar mensaje con botón o Enter
+  input.addEventListener('keypress', (e) => { if (e.key === 'Enter') enviar(); });
+
+  function enviar() {
+    const texto = input.value.trim();
+    if (!texto) return;
+    agregarMensaje(texto, 'user');
+    input.value = '';
+    setTimeout(() => respuestaAutomatica(texto.toLowerCase()), 600);
+  }
+
+  // 💬 Agregar mensaje al chat
+  function agregarMensaje(texto, tipo, guardar = true) {
+    const msg = document.createElement('div');
+    msg.classList.add('msg', tipo);
+    msg.innerHTML = texto;
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
+
+    if (tipo === 'bot') sonido.play(); // 🔔 reproducir sonido
+    if (guardar) guardarMensaje(texto, tipo);
+  }
+
+  // 💾 Guardar mensaje en localStorage
+  function guardarMensaje(texto, tipo) {
+    const historial = JSON.parse(localStorage.getItem('chatHistorial')) || [];
+    historial.push({ texto, tipo });
+    localStorage.setItem('chatHistorial', JSON.stringify(historial));
+  }
+
+  // 🧠 Iniciar conversación (solo una vez)
+  function iniciarChat() {
+    if (!localStorage.getItem('chatIniciado')) {
+      agregarMensaje(
+        "👋 ¡Hola! Soy <b>Taboplus</b>, tu asesor virtual. ¿Qué deseas hacer?<br><br>" +
+        "1️⃣ Consultar horarios<br>" +
+        "2️⃣ Agendar cita<br>" +
+        "3️⃣ Requisitos de exámenes<br>" +
+        "4️⃣ Resultados<br>" +
+        "5️⃣ Hablar con un agente",
+        "bot"
+      );
+      localStorage.setItem('chatIniciado', true);
+    }
+  }
+
+  // 🔄 Reiniciar conversación completamente
+  function reiniciarConversacion() {
+    localStorage.removeItem('chatHistorial');
+    localStorage.removeItem('chatIniciado');
+    messages.innerHTML = "";
+    agregarMensaje(
+      "🔄 Conversación reiniciada.<br><br>👋 Hola, soy <b>Taboplus</b>, tu asesor virtual. ¿Qué deseas hacer?<br><br>" +
+      "1️⃣ Consultar horarios<br>" +
+      "2️⃣ Agendar cita<br>" +
+      "3️⃣ Requisitos de exámenes<br>" +
+      "4️⃣ Resultados<br>" +
+      "5️⃣ Hablar con un agente",
+      "bot"
+    );
+  }
+
+  // 🤖 Lógica de respuestas automáticas
+  function respuestaAutomatica(texto) {
+    let respuesta = "";
+
+    if (texto.includes("1") || texto.includes("horario") || texto.includes("hora")) {
+      respuesta = "🕒 Nuestro horario de atención es:<br>Lun-Vie: 7:00 a.m. - 4:00 p.m.<br>Sábados: 7:00 a.m. - 12:00 p.m.<br>Domingos y festivos con cita previa.";
+    } 
+    else if (texto.includes("2") || texto.includes("agendar") || texto.includes("cita")) {
+      respuesta = "📅 Puedes agendar tu cita escribiéndonos por WhatsApp al <a href='https://api.whatsapp.com/send?phone=573113212221' target='_blank'>+57 311 321 2221</a> o a través de nuestra página web.";
+    }
+    else if (texto.includes("3") || texto.includes("requisito") || texto.includes("preparación")) {
+      respuesta = "📋 Cada examen tiene requisitos específicos. Por ejemplo, para exámenes de sangre se recomienda ayuno de 8 horas. ¿Deseas conocer los requisitos de un examen específico?";
+    }
+    else if (texto.includes("4") || texto.includes("resultado")) {
+      respuesta = "📑 Puedes consultar tus resultados en línea o solicitarlos por WhatsApp. Generalmente están disponibles entre 24 y 48 horas después del examen.";
+    }
+    else if (texto.includes("5") || texto.includes("agente") || texto.includes("humano")) {
+      respuesta = "👩‍💼 Un agente humano te atenderá en breve. También puedes contactarnos directamente por WhatsApp 👉 <a href='https://api.whatsapp.com/send?phone=573113212221' target='_blank'>aquí</a>.";
+    } 
+    else if (texto.includes("reiniciar") || texto.includes("nuevo chat")) {
+      reiniciarConversacion();
+      return;
+    }
+    else {
+      respuesta = "🤖 No entendí completamente. Por favor elige una opción del 1 al 5.<br><br>" +
+                  "1️⃣ Horarios<br>2️⃣ Cita<br>3️⃣ Requisitos<br>4️⃣ Resultados<br>5️⃣ Agente";
+    }
+
+    setTimeout(() => agregarMensaje(respuesta, 'bot'), 700);
+  }
+</script>
+<!-- Fin Script Taboplus asesor virtual -->
+
+<!-- Script Filtro de categoria -->
+
+ <script>
+    /* Datos del catálogo: categorías + exámenes (simplificado) */
+    const CATEGORIES = [
+      'Alergias e Intolerancias','Bienestar General','Chequeos','Exámenes de Laboratorio','Genética',
+      'Nutrición y Salud Gastrointestinal','Pruebas Especiales','Salud de la Mujer','Salud del Hombre','Salud Sexual'
+    ];
+
+    // Muestra de exámenes por categoría (puedes ampliar a 67 reales)
+    const CATALOG = [
+      {id:1,cat:'Alergias e Intolerancias',title:'Prueba de alergias alimentarias',desc:'Panel de alimentos comunes para identificar sensibilidades.' ,img:'https://images.unsplash.com/photo-1581091870622-1e7abfbd7d5b?auto=format&fit=crop&w=900&q=80'},
+      {id:2,cat:'Alergias e Intolerancias',title:'Test de alergias respiratorias',desc:'Panel para polen, ácaros y otras causas respiratorias.',img:'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=900&q=80'},
+      {id:3,cat:'Bienestar General',title:'Perfil lipídico',desc:'Colesterol total, HDL, LDL y triglicéridos.',img:'https://images.unsplash.com/photo-1616596875446-5c3b3e9d1b3d?auto=format&fit=crop&w=900&q=80'},
+      {id:4,cat:'Bienestar General',title:'Hemograma completo',desc:'Recuento de células sanguíneas para valoración general.',img:'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80'},
+      {id:5,cat:'Chequeos',title:'Chequeo anual completo',desc:'Conjunto de pruebas periódicas recomendadas para control.',img:'https://images.unsplash.com/photo-1625684217873-2c18658bb354?auto=format&fit=crop&w=900&q=80'},
+      {id:6,cat:'Exámenes de Laboratorio',title:'Perfil tiroideo',desc:'TSH, T4 libre y T3 para valorar función tiroidea.',img:'https://images.unsplash.com/photo-1580281657521-6a8f2f0fcbad?auto=format&fit=crop&w=900&q=80'},
+      {id:7,cat:'Genética',title:'Test genético de cáncer hereditario',desc:'Panel de genes asociados al riesgo hereditario.',img:'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80'},
+      {id:8,cat:'Nutrición y Salud Gastrointestinal',title:'Prueba de microbiota intestinal',desc:'Análisis de composición bacteriana intestinal.',img:'https://images.unsplash.com/photo-1625684217873-2a9b8d7bb358?auto=format&fit=crop&w=900&q=80'},
+      {id:9,cat:'Pruebas Especiales',title:'Pruebas hormonales avanzadas',desc:'Paneles hormonales para diagnóstico detallado.',img:'https://images.unsplash.com/photo-1581092335611-67998d8bdee5?auto=format&fit=crop&w=900&q=80'},
+      {id:10,cat:'Salud de la Mujer',title:'Perfil hormonal femenino',desc:'Evaluación de hormonas reproductivas y ciclos.',img:'https://images.unsplash.com/photo-1597764699514-5e7e8a88903f?auto=format&fit=crop&w=900&q=80'},
+      {id:11,cat:'Salud del Hombre',title:'Evaluación prostática (PSA)',desc:'Detección temprana de alteraciones prostáticas.',img:'https://images.unsplash.com/photo-1606813902913-6063d3f0b8f1?auto=format&fit=crop&w=900&q=80'},
+      {id:12,cat:'Salud Sexual',title:'Prueba de VIH',desc:'Prueba rápida y confirmatoria para VIH.',img:'https://images.unsplash.com/photo-1603398938378-c6a24bd94a57?auto=format&fit=crop&w=900&q=80'},
+      // duplicamos y creamos más ítems para simular un catálogo amplio
+    ];
+
+    // clonar para simular 67 resultados (no idénticos pero suficientes)
+    while(CATALOG.length < 67){
+      const base = CATALOG[(CATALOG.length) % 12];
+      const id = CATALOG.length + 1;
+      CATALOG.push({...base,id, title: base.title + ' — ' + id});
+    }
+
+    // refs
+    const filtersEl = document.getElementById('filters');
+    const gridEl = document.getElementById('grid');
+    const listEl = document.getElementById('list');
+    const resultsCount = document.getElementById('resultsCount');
+    const activeFilter = document.getElementById('activeFilter');
+    const searchInput = document.getElementById('searchInput');
+    const clearSearchBtn = document.getElementById('clearSearch');
+    const gridBtn = document.getElementById('gridBtn');
+    const listBtn = document.getElementById('listBtn');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const closeModal = document.getElementById('closeModal');
+    const modalBuy = document.getElementById('modalBuy');
+
+    // estado
+    let state = {category:'Todos',view:'grid',query:''};
+
+    // crear botones de filtro
+    function renderFilters(){
+      const allBtn = createFilterBtn('Todos'); filtersEl.appendChild(allBtn);
+      CATEGORIES.forEach(cat=>{filtersEl.appendChild(createFilterBtn(cat))});
+      // activar 'Todos'
+      setActiveFilter('Todos');
+    }
+
+    function createFilterBtn(cat){
+      const btn = document.createElement('button'); btn.className='filter-btn'; btn.textContent=cat; btn.dataset.cat=cat;
+      btn.addEventListener('click',()=>{ setActiveFilter(cat); applyFilters(); });
+      return btn;
+    }
+
+    function setActiveFilter(cat){
+      state.category = cat; activeFilter.textContent = 'Mostrando: ' + cat; 
+      Array.from(filtersEl.children).forEach(b=>b.classList.toggle('active', b.dataset.cat===cat));
+    }
+
+    // render catálogo (grid + list)
+    function renderCatalog(list){
+      // limpiamos
+      gridEl.innerHTML=''; listEl.innerHTML='';
+      resultsCount.textContent = list.length;
+
+      list.forEach(item=>{
+        const card = document.createElement('article'); card.className='card fade-in slide-up';
+        card.innerHTML = `
+          <img src="${item.img}" alt="${escapeHtml(item.title)}">
+          <div class="card-body">
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.desc)}</p>
+            <ul class="exam-list">
+              <li><strong>Categoría:</strong> ${escapeHtml(item.cat)}</li>
+              <li><strong>ID:</strong> ${item.id}</li>
+            </ul>
+            <div class="card-footer">
+              <button class="btn buy">Comprar</button>
+              <button class="btn read">Leer más</button>
+            </div>
+          </div>
+        `;
+
+        // eventos botones
+        card.querySelector('.buy').addEventListener('click',()=>handleBuy(item));
+        card.querySelector('.read').addEventListener('click',()=>openModalWith(item));
+
+        // clon a list view (similar structure pero será mostrado en list container)
+        const cardClone = card.cloneNode(true);
+        gridEl.appendChild(card);
+        listEl.appendChild(cardClone);
+      });
+
+      // aplicar animación suave: scroll to top
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    // filtros: categoria + búsqueda
+    function applyFilters(){
+      const cat = state.category;
+      const q = state.query.trim().toLowerCase();
+      let filtered = CATALOG.slice();
+      if(cat && cat!=='Todos') filtered = filtered.filter(i=>i.cat===cat);
+      if(q) filtered = filtered.filter(i=> (i.title + ' ' + i.desc + ' ' + i.cat).toLowerCase().includes(q));
+      renderCatalog(filtered);
+    }
+
+    // busqueda en tiempo real
+    searchInput.addEventListener('input',e=>{ state.query = e.target.value; applyFilters(); });
+    clearSearchBtn.addEventListener('click',()=>{ searchInput.value=''; state.query=''; applyFilters(); });
+
+    // vista grid / list
+    gridBtn.addEventListener('click',()=>{ state.view='grid'; document.body.classList.remove('list-view'); gridBtn.classList.add('active'); listBtn.classList.remove('active');});
+    listBtn.addEventListener('click',()=>{ state.view='list'; document.body.classList.add('list-view'); listBtn.classList.add('active'); gridBtn.classList.remove('active');});
+
+    // modal
+    function openModalWith(item){
+      modalTitle.textContent = item.title;
+      modalBody.innerHTML = `<p>${item.desc}</p><p style="margin-top:8px;color:var(--muted)"><strong>Categoría:</strong> ${item.cat} — <strong>ID:</strong> ${item.id}</p>`;
+      modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+      modalBuy.onclick = ()=>{ alert('Comprar: ' + item.title); modal.classList.remove('open'); };
+    }
+    closeModal.addEventListener('click',()=>{ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); });
+    modal.addEventListener('click',e=>{ if(e.target===modal) { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); } });
+
+    // comprar directo (ejemplo)
+    function handleBuy(item){ alert('Añadido al carrito: ' + item.title) }
+
+    // helper
+    function escapeHtml(text){ return text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
+
+    // init
+    renderFilters(); applyFilters();
+
+  </script>
+    
+</body>
+</html>
