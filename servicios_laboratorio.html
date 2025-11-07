@@ -3,107 +3,135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Básico -->
+
+  <!-- SEO -->
   <title>Laboratorio Clínico Plus Cartagena | Resultados Confiables y Atención Humana</title>
-  <meta name="description" content="Laboratorio Clínico Plus en Cartagena: exámenes confiables, tecnología avanzada, atención personalizada y resultados rápidos. Tu salud en buenas manos.">
+  <meta name="description" content="Laboratorio Clínico Plus en Cartagena: exámenes confiables, tecnología avanzada y atención humana. Resultados rápidos y precisos.">
   <meta name="keywords" content="laboratorio clínico Cartagena, análisis clínicos, exámenes médicos, resultados rápidos, salud, diagnóstico confiable, laboratorio Plus">
   <meta name="author" content="Laboratorio Clínico Plus Cartagena">
   <link rel="canonical" href="https://tusitio.com/">
-  
-  <!-- Open Graph (para redes sociales) -->
-  <meta property="og:title" content="Laboratorio Clínico Plus Cartagena | Exámenes Confiables y Atención Humana">
-  <meta property="og:description" content="Resultados rápidos y precisos en Cartagena. Profesionales de confianza y atención cercana.">
+
+  <!-- Redes sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Laboratorio Clínico Plus Cartagena">
+  <meta property="og:description" content="Resultados rápidos y confiables con atención humana.">
   <meta property="og:image" content="https://tusitio.com/assets/images/PLUS.png">
   <meta property="og:url" content="https://tusitio.com/">
-  <meta property="og:type" content="website">
-  
+
   <!-- Favicon -->
-  <link rel="shortcut icon" href="assets/images/PLUS.png" type="image/x-icon">
+  <link rel="icon" href="assets/images/PLUS.png" type="image/png">
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 
-  <!-- Estilos adicionales -->
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <!-- Estilos principales -->
   <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="css/styles.min.css" as="style">
   <link rel="stylesheet" href="css/styles.min.css">
   <link rel="stylesheet" href="css/styles.css">
-
-  <!-- Preload -->
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-
+  
   <style>
-    :root{--bg:#f6f8fb;--card:#ffffff;--muted:#475569;--accent:#0466c8;--green:#16a34a}
-    *{box-sizing:border-box}
-    body{font-family:Inter,Segoe UI,Arial,Helvetica,sans-serif;margin:0;padding:28px;background:linear-gradient(180deg,#f8fbff 0%,var(--bg) 100%);color:#0f172a}
-    .container{max-width:1200px;margin:0 auto}
-    header{display:flex;flex-direction:column;gap:14px;margin-bottom:18px}
-    header h1{margin:0;font-size:26px;color:var(--accent)}
-    header p{margin:0;color:var(--muted)}
+    :root {
+      --bg: #f6f8fb;
+      --card: #fff;
+      --muted: #475569;
+      --accent: #0466c8;
+      --green: #16a34a;
+      --shadow: 0 6px 20px rgba(2,6,23,0.08);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg,#f8fbff 0%,var(--bg) 100%);
+      color:#0f172a;
+      padding:28px;
+    }
+    .container{max-width:1200px;margin:auto}
+    header h1{color:var(--accent);font-size:1.8rem;margin-bottom:8px}
+    header p{color:var(--muted)}
 
-    .controls{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-top:8px}
-    .left-controls{display:flex;gap:12px;align-items:center}
+    /* Barra superior */
+    .controls{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;margin-top:12px}
     .search{position:relative}
-    .search input{padding:10px 40px 10px 12px;border-radius:10px;border:1px solid #e6eef8;background:#fff;min-width:260px}
-    .search button{position:absolute;right:6px;top:6px;border:0;background:transparent;padding:6px;cursor:pointer}
+    .search input{
+      padding:10px 40px 10px 12px;
+      border-radius:10px;
+      border:1px solid #e6eef8;
+      width:260px;
+    }
+    .search button{
+      position:absolute;right:8px;top:7px;
+      background:transparent;border:none;cursor:pointer;
+    }
 
-    .filters{display:flex;gap:8px;flex-wrap:wrap}
-    .filter-btn{padding:8px 12px;border-radius:999px;border:1px solid transparent;background:#fff;cursor:pointer;font-weight:600;color:var(--accent);box-shadow:0 1px 2px rgba(2,6,23,0.04)}
-    .filter-btn.active{background:linear-gradient(90deg,var(--accent),#0359b8);color:#fff;border-color:rgba(0,0,0,0.04)}
+    /* Botones de filtro */
+    .filters{display:flex;flex-wrap:wrap;gap:8px}
+    .filter-btn{
+      border:1px solid #e2e8f0;
+      background:#fff;
+      border-radius:999px;
+      padding:8px 14px;
+      font-weight:600;
+      color:var(--accent);
+      cursor:pointer;
+      transition:.3s ease;
+    }
+    .filter-btn:hover,.filter-btn:focus-visible{background:#e6f0ff}
+    .filter-btn.active{
+      background:linear-gradient(90deg,var(--accent),#0359b8);
+      color:#fff;
+    }
 
-    .view-toggle{display:flex;gap:8px}
-    .view-toggle button{padding:8px 10px;border-radius:8px;border:1px solid transparent;background:#fff;cursor:pointer}
-    .view-toggle button.active{background:var(--accent);color:#fff}
-
-    .meta{display:flex;justify-content:space-between;align-items:center;margin:14px 0;color:var(--muted)}
-
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .list{display:flex;flex-direction:column;gap:12px}
-
-    .card{background:var(--card);border-radius:12px;overflow:hidden;border:1px solid rgba(15,23,42,0.04);box-shadow:0 6px 18px rgba(2,6,23,0.04);display:flex;flex-direction:column;transition:transform .28s,box-shadow .28s,opacity .3s}
-    .card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(2,6,23,0.08)}
+    /* Vista grid/lista */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+    .list{display:none;flex-direction:column;gap:12px}
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      transition:transform .3s cubic-bezier(.2,.9,.3,1);
+    }
+    .card:hover{transform:translateY(-5px)}
     .card img{width:100%;height:160px;object-fit:cover}
-    .card-body{padding:14px;display:flex;flex-direction:column;gap:8px}
-    .card h3{margin:0;font-size:16px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-    .exam-list{margin:8px 0 0;padding-left:18px;color:#334155;font-size:13px}
-    .exam-list li{margin-bottom:6px}
-    .card-footer{display:flex;gap:8px;align-items:center;margin-top:8px}
-    .btn{padding:8px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:700}
+    .card-body{padding:14px}
+    .card h3{margin:0 0 6px;font-size:1rem;color:#0f172a}
+    .card p{margin:0;color:var(--muted);font-size:.9rem}
+    .card-footer{padding:14px;display:flex;gap:8px}
+    .btn{
+      border:none;
+      border-radius:8px;
+      padding:8px 12px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.25s;
+    }
     .btn.buy{background:var(--green);color:#fff}
     .btn.read{background:var(--accent);color:#fff}
+    .btn:hover{opacity:.9}
 
-    /* transition helpers */
-    .hidden{opacity:0;transform:translateY(8px);pointer-events:none}
-    .fade-in{animation:fadeIn .36s ease both}
-    .slide-up{animation:slideUp .36s cubic-bezier(.2,.9,.2,1) both}
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-    @keyframes slideUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-
-    /* modal */
-    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.45);padding:20px;opacity:0;pointer-events:none;transition:opacity .18s}
+    /* Modal */
+    .modal{
+      position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+      background:rgba(0,0,0,0.45);
+      opacity:0;pointer-events:none;transition:.2s;
+    }
     .modal.open{opacity:1;pointer-events:auto}
-    .modal .panel{background:#fff;border-radius:12px;padding:18px;max-width:760px;width:100%;box-shadow:0 12px 36px rgba(2,6,23,0.15)}
+    .modal .panel{
+      background:#fff;padding:20px;border-radius:12px;
+      max-width:700px;width:100%;
+      animation:fadeIn .3s ease;
+    }
+    @keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
 
-    /* responsive */
-    @media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:640px){.grid{grid-template-columns:1fr}.search input{min-width:140px}}
-
-    /* list view tweaks */
-    .list-view .grid{display:none}
-    .list-view .list{display:flex}
-    .list-view .card{flex-direction:row}
-    .list-view .card img{width:240px;height:150px;object-fit:cover}
-    .list-view .card-body{flex:1}
-
+    /* Responsive */
+    @media (max-width:640px){
+      .search input{width:150px}
+      body{padding:16px}
+    }
   </style>
-</head>
 </head>
 <body>
 
@@ -126,6 +154,10 @@
       <!-- ENLACES -->
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav align-items-center">
+            <!-- Inicio -->
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Inicio</a>
+            </li>
           <!-- Nosotros -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="paraTi" role="button" data-bs-toggle="dropdown">
@@ -192,75 +224,55 @@
       </div>
     </div>
   </nav>
-</section>
+</section><br><br><br>
 <!-- FIN NAVBAR -->
 
 
-<div class="container">
+<div class="container mt-5 pt-4">
     <header>
-      <div>
-        <h1>Catálogo de Exámenes</h1>
-        <p>Explora nuestros tipos de exámenes. Filtra por categoría, busca pruebas específicas y cambia la vista entre cuadrícula y lista.</p>
-      </div>
+      <h1>Catálogo de Exámenes</h1>
+      <p>Explora nuestros exámenes, filtra por categoría o busca pruebas específicas.</p>
 
       <div class="controls">
         <div class="left-controls">
           <div class="search" role="search">
-            <input id="searchInput" placeholder="Buscar pruebas aquí" aria-label="Buscar pruebas" />
-            <button id="clearSearch" title="Limpiar">✕</button>
+            <input id="searchInput" placeholder="Buscar pruebas..." aria-label="Buscar pruebas">
+            <button id="clearSearch" title="Limpiar búsqueda">✕</button>
           </div>
-
-          <div class="filters" id="filters" aria-label="Filtrar por categoría">
-            <!-- botones de filtro generados por JS -->
-          </div>
+          <div class="filters" id="filters" aria-label="Filtros de categorías"></div>
         </div>
 
-        <div class="view-toggle" role="tablist" aria-label="Vista">
-          <button id="gridBtn" class="active" title="Cuadrícula">Cuadrícula</button>
-          <button id="listBtn" title="Lista">Lista</button>
+        <div class="view-toggle">
+          <button id="gridBtn" class="filter-btn active">Cuadrícula</button>
+          <button id="listBtn" class="filter-btn">Lista</button>
         </div>
       </div>
     </header>
 
-    <div class="meta"><div><strong id="resultsCount">67</strong> resultados</div><div class="muted" id="activeFilter">Mostrando: Todos</div></div>
+    <div class="meta mt-3 text-muted">
+      <span><strong id="resultsCount">0</strong> resultados</span>
+      <span id="activeFilter">Mostrando: Todos</span>
+    </div>
 
     <main>
       <section id="grid" class="grid" aria-live="polite"></section>
-      <section id="list" class="list" style="display:none" aria-live="polite"></section>
+      <section id="list" class="list" aria-live="polite"></section>
     </main>
   </div>
 
-  <!-- modal -->
-  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <!-- Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
     <div class="panel">
-      <header style="display:flex;justify-content:space-between;align-items:center">
-        <strong id="modalTitle">Título</strong>
+      <header style="display:flex;justify-content:space-between;align-items:center;">
+        <strong id="modalTitle"></strong>
         <button id="closeModal" aria-label="Cerrar">✕</button>
       </header>
       <div id="modalBody" style="margin-top:12px;color:var(--muted)"></div>
-      <footer style="margin-top:12px;text-align:right"><button id="modalBuy" class="btn buy">Comprar</button></footer>
+      <footer style="margin-top:12px;text-align:right;">
+        <button id="modalBuy" class="btn buy">Solicitar</button>
+      </footer>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- Asesor virtual -->
 <!-- ================================
