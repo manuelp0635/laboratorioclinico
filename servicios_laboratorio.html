@@ -30,107 +30,311 @@
   <link rel="stylesheet" href="css/styles.min.css">
   <link rel="stylesheet" href="css/styles.css">
   
-  <style>
-    :root {
-      --bg: #f6f8fb;
-      --card: #fff;
-      --muted: #475569;
-      --accent: #0466c8;
-      --green: #16a34a;
-      --shadow: 0 6px 20px rgba(2,6,23,0.08);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      background: linear-gradient(180deg,#f8fbff 0%,var(--bg) 100%);
-      color:#0f172a;
-      padding:28px;
-    }
-    .container{max-width:1200px;margin:auto}
-    header h1{color:var(--accent);font-size:1.8rem;margin-bottom:8px}
-    header p{color:var(--muted)}
+ <style>
+  /* Variables y tipografía */
+:root {
+  --primary:#007bff;
+  --accent:#00bcd4;
+  --bg:#f6f9fc;
+  --card:#fff;
+  --shadow:0 4px 10px rgba(0,0,0,0.08);
+  --radius:12px;
+}
 
-    /* Barra superior */
-    .controls{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;margin-top:12px}
-    .search{position:relative}
-    .search input{
-      padding:10px 40px 10px 12px;
-      border-radius:10px;
-      border:1px solid #e6eef8;
-      width:260px;
-    }
-    .search button{
-      position:absolute;right:8px;top:7px;
-      background:transparent;border:none;cursor:pointer;
-    }
+body {
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color:#333;
+}
 
-    /* Botones de filtro */
-    .filters{display:flex;flex-wrap:wrap;gap:8px}
-    .filter-btn{
-      border:1px solid #e2e8f0;
-      background:#fff;
-      border-radius:999px;
-      padding:8px 14px;
-      font-weight:600;
-      color:var(--accent);
-      cursor:pointer;
-      transition:.3s ease;
-    }
-    .filter-btn:hover,.filter-btn:focus-visible{background:#e6f0ff}
-    .filter-btn.active{
-      background:linear-gradient(90deg,var(--accent),#0359b8);
-      color:#fff;
-    }
+/* Header principal */
+.header {
+  text-align:center;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:white;
+  padding:2rem 1rem;
+  box-shadow:0 4px 8px rgba(0,0,0,0.1);
+}
 
-    /* Vista grid/lista */
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
-    .list{display:none;flex-direction:column;gap:12px}
-    .card{
-      background:var(--card);
-      border-radius:12px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      transition:transform .3s cubic-bezier(.2,.9,.3,1);
-    }
-    .card:hover{transform:translateY(-5px)}
-    .card img{width:100%;height:160px;object-fit:cover}
-    .card-body{padding:14px}
-    .card h3{margin:0 0 6px;font-size:1rem;color:#0f172a}
-    .card p{margin:0;color:var(--muted);font-size:.9rem}
-    .card-footer{padding:14px;display:flex;gap:8px}
-    .btn{
-      border:none;
-      border-radius:8px;
-      padding:8px 12px;
-      font-weight:700;
-      cursor:pointer;
-      transition:.25s;
-    }
-    .btn.buy{background:var(--green);color:#fff}
-    .btn.read{background:var(--accent);color:#fff}
-    .btn:hover{opacity:.9}
+/* Encabezado dinámico con iconos y animaciones */
+.section-header {
+  max-width:900px;
+  margin:2rem auto 1rem;
+  text-align:center;
+  padding:0 1rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1rem;
+}
 
-    /* Modal */
-    .modal{
-      position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
-      background:rgba(0,0,0,0.45);
-      opacity:0;pointer-events:none;transition:.2s;
-    }
-    .modal.open{opacity:1;pointer-events:auto}
-    .modal .panel{
-      background:#fff;padding:20px;border-radius:12px;
-      max-width:700px;width:100%;
-      animation:fadeIn .3s ease;
-    }
-    @keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.section-header .icon {
+  font-size:3rem;
+  display:inline-block;
+  animation-duration:1s;
+  animation-fill-mode:both;
+}
 
-    /* Responsive */
-    @media (max-width:640px){
-      .search input{width:150px}
-      body{padding:16px}
-    }
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(-20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+@keyframes slideInLeft {
+  from {opacity:0; transform:translateX(-50px);}
+  to {opacity:1; transform:translateX(0);}
+}
+
+@keyframes slideInRight {
+  from {opacity:0; transform:translateX(50px);}
+  to {opacity:1; transform:translateX(0);}
+}
+
+.section-header h2 {
+  font-size:1.8rem;
+  margin-bottom:0.5rem;
+  animation: fadeIn 0.8s ease;
+}
+
+.section-header p {
+  font-size:1rem;
+  color:#555;
+  line-height:1.6;
+  animation: slideInLeft 0.8s ease;
+}
+
+/* Categorías y vistas */
+.category-nav {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  background:white;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+  padding:1rem;
+  border-radius: var(--radius);
+  max-width:1000px;
+  margin:1rem auto 2rem;
+}
+
+.category-nav ul {
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.6rem;
+  padding:0;
+  margin:0;
+}
+
+.category-nav li {
+  background:#f0f4f8;
+  color:var(--primary);
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:500;
+  transition:all 0.3s ease;
+}
+
+.category-nav li.active {
+  background: var(--primary);
+  color:white;
+}
+
+.view-toggle {
+  display:flex;
+  gap:0.5rem;
+}
+
+.view-toggle button {
+  border:none;
+  background:#f0f4f8;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.view-toggle button.active {
+  background: var(--primary);
+  color:white;
+}
+
+/* Grid y Lista */
+.exam-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1.5rem;
+  padding:0 2rem;
+}
+
+.exam-list {
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
+  padding:0 2rem;
+}
+
+.exam-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+  transition: transform 0.3s ease;
+  display:flex;
+  flex-direction:column;
+}
+
+.exam-list .exam-card {
+  flex-direction:row;
+  align-items:center;
+}
+
+.exam-card:hover {
+  transform: translateY(-5px);
+}
+
+.exam-card img {
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.exam-list .exam-card img {
+  width:180px;
+  height:180px;
+}
+
+.exam-card h3 {
+  margin:10px;
+  color:var(--primary);
+}
+
+.exam-card p {
+  margin:0 10px 10px;
+}
+
+.exam-card button {
+  width:calc(100% - 20px);
+  margin:10px;
+  background: var(--primary);
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.compare-btn {
+  display:block;
+  margin:2rem auto;
+  background: var(--accent);
+  color:white;
+  font-weight:bold;
+  padding:1rem 2rem;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.compare-btn:hover {
+  background:#008c9e;
+}
+
+/* Modal */
+.modal {
+  display:none;
+  position:fixed;
+  z-index:1000;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-content {
+  background:white;
+  border-radius: var(--radius);
+  max-width:900px;
+  width:90%;
+  padding:20px;
+  position:relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.close {
+  position:absolute;
+  right:15px;
+  top:10px;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+
+.compare-item {
+  background:#f7f9fb;
+  border-radius:8px;
+  padding:15px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.compare-item img {
+  width:100%;
+  border-radius:8px;
+  margin-bottom:10px;
+}
+
+.whatsapp-btn {
+  display:block;
+  background:#25D366;
+  color:white;
+  border:none;
+  border-radius:8px;
+  padding:12px;
+  font-size:16px;
+  margin:1.5rem auto 0;
+  cursor:pointer;
+}
+
+.whatsapp-btn:hover {
+  background:#1ebe57;
+}
+
+/* Responsive */
+@media(max-width:720px){
+  .exam-list .exam-card {
+    flex-direction:column;
+  }
+  .exam-list .exam-card img {
+    width:100%;
+    height:180px;
+  }
+  .category-nav {
+    flex-direction:column;
+    gap:0.8rem;
+  }
+}
+@media(max-width:480px){
+  .exam-grid {
+    grid-template-columns:1fr;
+    padding:0 1rem;
+  }
+}
   </style>
+  
 </head>
 <body>
 
@@ -226,52 +430,50 @@
 </section><br><br><br>
 <!-- FIN NAVBAR -->
 
+<header class="header">
+  <h1>Catálogo de Exámenes</h1>
+  <p>Selecciona una categoría o compara hasta dos exámenes</p>
+</header>
 
-<div class="container mt-5 pt-4">
-    <header>
-      <h1>Catálogo de Exámenes</h1>
-      <p>Explora nuestros exámenes, filtra por categoría o busca pruebas específicas.</p>
+<!-- Encabezado dinámico de sección con icono -->
+<section class="section-header" id="section-header">
+  <!-- Se llenará dinámicamente -->
+</section>
 
-      <div class="controls">
-        <div class="left-controls">
-          <div class="search" role="search">
-            <input id="searchInput" placeholder="Buscar pruebas..." aria-label="Buscar pruebas">
-            <button id="clearSearch" title="Limpiar búsqueda">✕</button>
-          </div>
-          <div class="filters" id="filters" aria-label="Filtros de categorías"></div>
-        </div>
+<!-- Barra de categorías y vistas -->
+<nav class="category-nav">
+  <ul id="category-list">
+    <li data-category="Alergias e intolerancias" class="active">Alergias e Intolerancias</li>
+    <li data-category="Bienestar general">Bienestar General</li>
+    <li data-category="Chequeos">Chequeos</li>
+    <li data-category="Exámenes de laboratorio">Exámenes de Laboratorio</li>
+    <li data-category="Genética">Genética</li>
+    <li data-category="Nutrición y salud gastrointestinal">Nutrición y Salud Gastrointestinal</li>
+    <li data-category="Pruebas especiales">Pruebas Especiales</li>
+    <li data-category="Salud de la mujer">Salud de la Mujer</li>
+    <li data-category="Salud del hombre">Salud del Hombre</li>
+    <li data-category="Salud sexual">Salud Sexual</li>
+  </ul>
 
-        <div class="view-toggle">
-          <button id="gridBtn" class="filter-btn active">Cuadrícula</button>
-          <button id="listBtn" class="filter-btn">Lista</button>
-        </div>
-      </div>
-    </header>
-
-    <div class="meta mt-3 text-muted">
-      <span><strong id="resultsCount">0</strong> resultados</span>
-      <span id="activeFilter">Mostrando: Todos</span>
-    </div>
-
-    <main>
-      <section id="grid" class="grid" aria-live="polite"></section>
-      <section id="list" class="list" aria-live="polite"></section>
-    </main>
+  <div class="view-toggle">
+    <button id="list-view">📋 Lista</button>
+    <button id="grid-view" class="active">🔲 Cuadrícula</button>
   </div>
+</nav>
 
-  <!-- Modal -->
-  <div id="modal" class="modal" role="dialog" aria-modal="true">
-    <div class="panel">
-      <header style="display:flex;justify-content:space-between;align-items:center;">
-        <strong id="modalTitle"></strong>
-        <button id="closeModal" aria-label="Cerrar">✕</button>
-      </header>
-      <div id="modalBody" style="margin-top:12px;color:var(--muted)"></div>
-      <footer style="margin-top:12px;text-align:right;">
-        <button id="modalBuy" class="btn buy">Solicitar</button>
-      </footer>
-    </div>
+<main class="exam-container">
+  <div id="exam-list" class="exam-grid"></div>
+  <button id="compare-btn" class="compare-btn" style="display:none;">Comparar exámenes seleccionados</button>
+</main>
+
+<!-- Modal Comparativa -->
+<div id="compare-modal" class="modal">
+  <div class="modal-content">
+    <span id="close-modal" class="close">&times;</span>
+    <h2>Comparativa de Exámenes</h2>
+    <div id="modal-body"></div>
   </div>
+</div>
 
 <!-- Asesor virtual -->
 <!-- ================================
@@ -602,151 +804,149 @@ document.querySelectorAll('.faq-question').forEach(button => {
 
 <!-- Script Filtro de categoria -->
 
- <script>
-    /* Datos del catálogo: categorías + exámenes (simplificado) */
-    const CATEGORIES = [
-      'Alergias e Intolerancias','Bienestar General','Chequeos','Exámenes de Laboratorio','Genética',
-      'Nutrición y Salud Gastrointestinal','Pruebas Especiales','Salud de la Mujer','Salud del Hombre','Salud Sexual'
-    ];
+<script>
+  const exams = [
+  { id:1, name:"Alergias e intolerancias", desc:"Detecta reacciones adversas a alimentos o alérgenos ambientales.", category:"Alergias e intolerancias", img:"https://img.freepik.com/foto-gratis/doctor-realizando-prueba-alergias_23-2149351061.jpg", price:"$240.000", sample:"Sangre/Prick test", time:"3 - 7 días", details:"Evitar antihistamínicos 3 días antes." },
+  { id:2, name:"Bienestar general", desc:"Evalúa tu estado general de salud y equilibrio corporal.", category:"Bienestar general", img:"https://img.freepik.com/foto-gratis/medico-sonriente-consultorio_23-2148230399.jpg", price:"$60.000", sample:"Sangre", time:"24 - 48 horas", details:"Ayuno de 8 horas recomendado." },
+  { id:3, name:"Chequeos", desc:"Exámenes preventivos para detectar enfermedades a tiempo.", category:"Chequeos", img:"https://img.freepik.com/foto-gratis/doctor-laboratorio_23-2149829694.jpg", price:"$180.000", sample:"Sangre/Orina", time:"3 - 5 días", details:"Incluye perfil básico y consulta médica." },
+  { id:4, name:"Exámenes de laboratorio", desc:"Pruebas clínicas que analizan sangre, orina y otros fluidos.", category:"Exámenes de laboratorio", img:"https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg", price:"$45.000", sample:"Sangre/Orina", time:"24 - 72 horas", details:"Depende del panel seleccionado." },
+  { id:5, name:"Genética", desc:"Análisis genéticos para conocer predisposiciones hereditarias.", category:"Genética", img:"https://img.freepik.com/foto-gratis/adn-genetica_23-2148514857.jpg", price:"$650.000", sample:"Hisopado/DNA", time:"2 - 3 semanas", details:"Incluye asesoría genética personalizada." },
+  { id:6, name:"Nutrición y salud gastrointestinal", desc:"Evalúa digestión, microbiota y deficiencias nutricionales.", category:"Nutrición y salud gastrointestinal", img:"https://img.freepik.com/foto-gratis/doctor-concepto-nutricion_23-2148522273.jpg", price:"$210.000", sample:"Heces/Sangre", time:"5 - 10 días", details:"Mostrar medicamentos activos al técnico." },
+  { id:7, name:"Pruebas especiales", desc:"Análisis específicos para diagnósticos clínicos avanzados.", category:"Pruebas especiales", img:"https://img.freepik.com/foto-gratis/cientifico-realizando-prueba-especial_23-2149523621.jpg", price:"Variable", sample:"Variable", time:"Variable", details:"Consultar protocolo según el examen solicitado." },
+  { id:8, name:"Salud de la mujer", desc:"Pruebas hormonales, ginecológicas y de bienestar femenino.", category:"Salud de la mujer", img:"https://img.freepik.com/foto-gratis/doctor-consultando-mujer_23-2148183908.jpg", price:"$140.000", sample:"Sangre/Orina", time:"48 - 72 horas", details:"Consultar día del ciclo para exámenes hormonales." },
+  { id:9, name:"Salud del hombre", desc:"Análisis de hormonas, próstata y rendimiento físico.", category:"Salud del hombre", img:"https://img.freepik.com/foto-gratis/doctor-consultorio-paciente_23-2148230385.jpg", price:"$110.000", sample:"Sangre/Espermograma", time:"3 - 5 días", details:"Espermograma requiere abstinencia de 2-5 días." },
+  { id:10, name:"Salud sexual", desc:"Pruebas para ETS, fertilidad y equilibrio hormonal.", category:"Salud sexual", img:"https://img.freepik.com/foto-gratis/pareja-consultorio-medico_23-2148523069.jpg", price:"$75.000", sample:"Sangre/Orina", time:"24 - 72 horas", details:"Prueba confidencial con entrega segura." },
+  { id:11, name:"Prueba de fertilidad [Espermograma, Hormona antimugueriana, LH, FSH]", desc:"Incluye espermograma, hormona antimülleriana, LH y FSH.", category:"Prueba de fertilidad", img:"https://img.freepik.com/foto-gratis/concepto-fertilidad-pruebas_23-2149476651.jpg", price:"Desde $95.000", sample:"Sangre/Espermograma", time:"2 - 7 días", details:"Ver requisitos específicos para cada subprueba." }
+];
 
-    // Muestra de exámenes por categoría (puedes ampliar a 67 reales)
-    const CATALOG = [
-      {id:1,cat:'Alergias e Intolerancias',title:'Prueba de alergias alimentarias',desc:'Panel de alimentos comunes para identificar sensibilidades.' ,img:'https://images.unsplash.com/photo-1581091870622-1e7abfbd7d5b?auto=format&fit=crop&w=900&q=80'},
-      {id:2,cat:'Alergias e Intolerancias',title:'Test de alergias respiratorias',desc:'Panel para polen, ácaros y otras causas respiratorias.',img:'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=900&q=80'},
-      {id:3,cat:'Bienestar General',title:'Perfil lipídico',desc:'Colesterol total, HDL, LDL y triglicéridos.',img:'https://images.unsplash.com/photo-1616596875446-5c3b3e9d1b3d?auto=format&fit=crop&w=900&q=80'},
-      {id:4,cat:'Bienestar General',title:'Hemograma completo',desc:'Recuento de células sanguíneas para valoración general.',img:'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80'},
-      {id:5,cat:'Chequeos',title:'Chequeo anual completo',desc:'Conjunto de pruebas periódicas recomendadas para control.',img:'https://images.unsplash.com/photo-1625684217873-2c18658bb354?auto=format&fit=crop&w=900&q=80'},
-      {id:6,cat:'Exámenes de Laboratorio',title:'Perfil tiroideo',desc:'TSH, T4 libre y T3 para valorar función tiroidea.',img:'https://images.unsplash.com/photo-1580281657521-6a8f2f0fcbad?auto=format&fit=crop&w=900&q=80'},
-      {id:7,cat:'Genética',title:'Test genético de cáncer hereditario',desc:'Panel de genes asociados al riesgo hereditario.',img:'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80'},
-      {id:8,cat:'Nutrición y Salud Gastrointestinal',title:'Prueba de microbiota intestinal',desc:'Análisis de composición bacteriana intestinal.',img:'https://images.unsplash.com/photo-1625684217873-2a9b8d7bb358?auto=format&fit=crop&w=900&q=80'},
-      {id:9,cat:'Pruebas Especiales',title:'Pruebas hormonales avanzadas',desc:'Paneles hormonales para diagnóstico detallado.',img:'https://images.unsplash.com/photo-1581092335611-67998d8bdee5?auto=format&fit=crop&w=900&q=80'},
-      {id:10,cat:'Salud de la Mujer',title:'Perfil hormonal femenino',desc:'Evaluación de hormonas reproductivas y ciclos.',img:'https://images.unsplash.com/photo-1597764699514-5e7e8a88903f?auto=format&fit=crop&w=900&q=80'},
-      {id:11,cat:'Salud del Hombre',title:'Evaluación prostática (PSA)',desc:'Detección temprana de alteraciones prostáticas.',img:'https://images.unsplash.com/photo-1606813902913-6063d3f0b8f1?auto=format&fit=crop&w=900&q=80'},
-      {id:12,cat:'Salud Sexual',title:'Prueba de VIH',desc:'Prueba rápida y confirmatoria para VIH.',img:'https://images.unsplash.com/photo-1603398938378-c6a24bd94a57?auto=format&fit=crop&w=900&q=80'},
-      // duplicamos y creamos más ítems para simular un catálogo amplio
-    ];
+const sectionHeader = document.getElementById("section-header");
+const examContainer = document.getElementById("exam-list");
+const categoryItems = document.querySelectorAll("#category-list li");
+const compareBtn = document.getElementById("compare-btn");
+const modal = document.getElementById("compare-modal");
+const modalBody = document.getElementById("modal-body");
+const closeModal = document.getElementById("close-modal");
+const listViewBtn = document.getElementById("list-view");
+const gridViewBtn = document.getElementById("grid-view");
 
-    // clonar para simular 67 resultados (no idénticos pero suficientes)
-    while(CATALOG.length < 67){
-      const base = CATALOG[(CATALOG.length) % 12];
-      const id = CATALOG.length + 1;
-      CATALOG.push({...base,id, title: base.title + ' — ' + id});
-    }
+let currentCategory = "Alergias e intolerancias";
+let selectedExams = [];
+let currentView = "grid";
 
-    // refs
-    const filtersEl = document.getElementById('filters');
-    const gridEl = document.getElementById('grid');
-    const listEl = document.getElementById('list');
-    const resultsCount = document.getElementById('resultsCount');
-    const activeFilter = document.getElementById('activeFilter');
-    const searchInput = document.getElementById('searchInput');
-    const clearSearchBtn = document.getElementById('clearSearch');
-    const gridBtn = document.getElementById('gridBtn');
-    const listBtn = document.getElementById('listBtn');
-    const modal = document.getElementById('modal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalBody = document.getElementById('modalBody');
-    const closeModal = document.getElementById('closeModal');
-    const modalBuy = document.getElementById('modalBuy');
+const headers = {
+  "Alergias e intolerancias": {icon:"🧪", title:"Alergias e Intolerancias", text:"Detecta reacciones adversas a alimentos o alérgenos ambientales."},
+  "Bienestar general": {icon:"💖", title:"Bienestar General", text:"Evalúa tu estado general de salud y equilibrio corporal."},
+  "Chequeos": {icon:"🩺", title:"Chequeos", text:"Exámenes preventivos para detectar enfermedades a tiempo."},
+  "Exámenes de laboratorio": {icon:"🔬", title:"Exámenes de Laboratorio", text:"Pruebas clínicas que analizan sangre, orina y otros fluidos."},
+  "Genética": {icon:"🧬", title:"Genética", text:"Análisis genéticos para conocer predisposiciones hereditarias."},
+  "Nutrición y salud gastrointestinal": {icon:"🥗", title:"Nutrición y Salud Gastrointestinal", text:"Evalúa digestión, microbiota y deficiencias nutricionales."},
+  "Pruebas especiales": {icon:"⚗️", title:"Pruebas Especiales", text:"Análisis específicos para diagnósticos clínicos avanzados."},
+  "Salud de la mujer": {icon:"👩‍⚕️", title:"Salud de la Mujer", text:"Pruebas hormonales, ginecológicas y de bienestar femenino."},
+  "Salud del hombre": {icon:"👨‍⚕️", title:"Salud del Hombre", text:"Chequeos y diagnósticos integrales, con énfasis en próstata y prevención de enfermedades crónicas."},
+  "Salud sexual": {icon:"❤️", title:"Salud Sexual", text:"Pruebas de ITS y fertilidad, promoviendo la detección temprana y confidencialidad."},
+};
 
-    // estado
-    let state = {category:'Todos',view:'grid',query:''};
+function renderHeader(){
+  const h = headers[currentCategory];
+  if(!h) return sectionHeader.innerHTML="";
+  const anim = "fadeIn";
+  sectionHeader.innerHTML = `
+    <div class="icon" style="animation-name:${anim}">${h.icon}</div>
+    <h2 style="animation-name:${anim}">${h.title}</h2>
+    <p style="animation-name:${anim}">${h.text}</p>
+  `;
+}
 
-    // crear botones de filtro
-    function renderFilters(){
-      const allBtn = createFilterBtn('Todos'); filtersEl.appendChild(allBtn);
-      CATEGORIES.forEach(cat=>{filtersEl.appendChild(createFilterBtn(cat))});
-      // activar 'Todos'
-      setActiveFilter('Todos');
-    }
+function renderExams(list) {
+  renderHeader();
+  examContainer.className = currentView === "grid" ? "exam-grid" : "exam-list";
+  examContainer.innerHTML = "";
 
-    function createFilterBtn(cat){
-      const btn = document.createElement('button'); btn.className='filter-btn'; btn.textContent=cat; btn.dataset.cat=cat;
-      btn.addEventListener('click',()=>{ setActiveFilter(cat); applyFilters(); });
-      return btn;
-    }
+  list.forEach(exam => {
+    const card = document.createElement("div");
+    card.className = "exam-card";
+    card.innerHTML = `
+      <img src="${exam.img}" alt="${exam.name}">
+      <div>
+        <h3>${exam.name}</h3>
+        <p>${exam.desc}</p>
+        <p><strong>Precio:</strong> ${exam.price}</p>
+        <button class="compare" data-id="${exam.id}">Comparar</button>
+      </div>
+    `;
+    examContainer.appendChild(card);
+  });
 
-    function setActiveFilter(cat){
-      state.category = cat; activeFilter.textContent = 'Mostrando: ' + cat; 
-      Array.from(filtersEl.children).forEach(b=>b.classList.toggle('active', b.dataset.cat===cat));
-    }
+  document.querySelectorAll(".compare").forEach(btn=>{
+    btn.addEventListener("click", e=>{
+      const id = parseInt(e.target.dataset.id);
+      if(selectedExams.includes(id)) selectedExams = selectedExams.filter(x=>x!==id);
+      else if(selectedExams.length<2) selectedExams.push(id);
+      compareBtn.style.display = selectedExams.length===2 ? "block" : "none";
+    });
+  });
+}
 
-    // render catálogo (grid + list)
-    function renderCatalog(list){
-      // limpiamos
-      gridEl.innerHTML=''; listEl.innerHTML='';
-      resultsCount.textContent = list.length;
+// Inicial render
+renderExams(exams.filter(e=>e.category===currentCategory));
 
-      list.forEach(item=>{
-        const card = document.createElement('article'); card.className='card fade-in slide-up';
-        card.innerHTML = `
-          <img src="${item.img}" alt="${escapeHtml(item.title)}">
-          <div class="card-body">
-            <h3>${escapeHtml(item.title)}</h3>
-            <p>${escapeHtml(item.desc)}</p>
-            <ul class="exam-list">
-              <li><strong>Categoría:</strong> ${escapeHtml(item.cat)}</li>
-              <li><strong>ID:</strong> ${item.id}</li>
-            </ul>
-            <div class="card-footer">
-              <button class="btn buy">Comprar</button>
-              <button class="btn read">Leer más</button>
-            </div>
-          </div>
-        `;
+// Categorías
+categoryItems.forEach(item=>{
+  item.addEventListener("click", ()=>{
+    categoryItems.forEach(li=>li.classList.remove("active"));
+    item.classList.add("active");
+    currentCategory = item.dataset.category;
+    renderExams(exams.filter(e=>e.category===currentCategory));
+    selectedExams=[];
+    compareBtn.style.display="none";
+  });
+});
 
-        // eventos botones
-        card.querySelector('.buy').addEventListener('click',()=>handleBuy(item));
-        card.querySelector('.read').addEventListener('click',()=>openModalWith(item));
+// Vistas
+listViewBtn.addEventListener("click", ()=>{
+  listViewBtn.classList.add("active");
+  gridViewBtn.classList.remove("active");
+  currentView="list";
+  renderExams(exams.filter(e=>e.category===currentCategory));
+});
 
-        // clon a list view (similar structure pero será mostrado en list container)
-        const cardClone = card.cloneNode(true);
-        gridEl.appendChild(card);
-        listEl.appendChild(cardClone);
-      });
+gridViewBtn.addEventListener("click", ()=>{
+  gridViewBtn.classList.add("active");
+  listViewBtn.classList.remove("active");
+  currentView="grid";
+  renderExams(exams.filter(e=>e.category===currentCategory));
+});
 
-      // aplicar animación suave: scroll to top
-      window.scrollTo({top:0,behavior:'smooth'});
-    }
+// Comparativa
+compareBtn.addEventListener("click", ()=>{
+  const [e1,e2] = selectedExams.map(id=>exams.find(x=>x.id===id));
+  modalBody.innerHTML=`
+    <div class="compare-grid">
+      <div class="compare-item">
+        <img src="${e1.img}" alt="${e1.name}">
+        <h3>${e1.name}</h3>
+        <p>${e1.desc}</p>
+        <p><strong>Precio:</strong> ${e1.price}</p>
+      </div>
+      <div class="compare-item">
+        <img src="${e2.img}" alt="${e2.name}">
+        <h3>${e2.name}</h3>
+        <p>${e2.desc}</p>
+        <p><strong>Precio:</strong> ${e2.price}</p>
+      </div>
+    </div>
+  `;
+  modal.style.display="flex";
+});
 
-    // filtros: categoria + búsqueda
-    function applyFilters(){
-      const cat = state.category;
-      const q = state.query.trim().toLowerCase();
-      let filtered = CATALOG.slice();
-      if(cat && cat!=='Todos') filtered = filtered.filter(i=>i.cat===cat);
-      if(q) filtered = filtered.filter(i=> (i.title + ' ' + i.desc + ' ' + i.cat).toLowerCase().includes(q));
-      renderCatalog(filtered);
-    }
+closeModal.addEventListener("click", ()=>{
+  modal.style.display="none";
+});
 
-    // busqueda en tiempo real
-    searchInput.addEventListener('input',e=>{ state.query = e.target.value; applyFilters(); });
-    clearSearchBtn.addEventListener('click',()=>{ searchInput.value=''; state.query=''; applyFilters(); });
+window.addEventListener("click", e=>{
+  if(e.target===modal) modal.style.display="none";
+});
+</script>
 
-    // vista grid / list
-    gridBtn.addEventListener('click',()=>{ state.view='grid'; document.body.classList.remove('list-view'); gridBtn.classList.add('active'); listBtn.classList.remove('active');});
-    listBtn.addEventListener('click',()=>{ state.view='list'; document.body.classList.add('list-view'); listBtn.classList.add('active'); gridBtn.classList.remove('active');});
-
-    // modal
-    function openModalWith(item){
-      modalTitle.textContent = item.title;
-      modalBody.innerHTML = `<p>${item.desc}</p><p style="margin-top:8px;color:var(--muted)"><strong>Categoría:</strong> ${item.cat} — <strong>ID:</strong> ${item.id}</p>`;
-      modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
-      modalBuy.onclick = ()=>{ alert('Comprar: ' + item.title); modal.classList.remove('open'); };
-    }
-    closeModal.addEventListener('click',()=>{ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); });
-    modal.addEventListener('click',e=>{ if(e.target===modal) { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); } });
-
-    // comprar directo (ejemplo)
-    function handleBuy(item){ alert('Añadido al carrito: ' + item.title) }
-
-    // helper
-    function escapeHtml(text){ return text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
-
-    // init
-    renderFilters(); applyFilters();
-
-  </script>
-    
 </body>
 </html>
