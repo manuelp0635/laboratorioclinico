@@ -1,536 +1,674 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO -->
-  <title>Laboratorio Clínico Plus Cartagena | Resultados Confiables y Atención Humana</title>
-  <meta name="description" content="Laboratorio Clínico Plus en Cartagena: exámenes confiables, tecnología avanzada y atención humana. Resultados rápidos y precisos.">
-  <meta name="keywords" content="laboratorio clínico Cartagena, análisis clínicos, exámenes médicos, resultados rápidos, salud, diagnóstico confiable, laboratorio Plus">
-  <meta name="author" content="Laboratorio Clínico Plus Cartagena">
-  <link rel="canonical" href="https://tusitio.com/">
+    <!-- SEO -->
+    <title>
+      Laboratorio Clínico Plus Cartagena | Resultados Confiables y Atención
+      Humana
+    </title>
+    <meta
+      name="description"
+      content="Laboratorio Clínico Plus en Cartagena: exámenes confiables, tecnología avanzada y atención humana. Resultados rápidos y precisos."
+    />
+    <meta
+      name="keywords"
+      content="laboratorio clínico Cartagena, análisis clínicos, exámenes médicos, resultados rápidos, salud, diagnóstico confiable, laboratorio Plus"
+    />
+    <meta name="author" content="Laboratorio Clínico Plus Cartagena" />
+    <link rel="canonical" href="https://tusitio.com/" />
 
-  <!-- Redes sociales -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Laboratorio Clínico Plus Cartagena">
-  <meta property="og:description" content="Resultados rápidos y confiables con atención humana.">
-  <meta property="og:image" content="https://tusitio.com/assets/images/PLUS.png">
-  <meta property="og:url" content="https://tusitio.com/">
+    <!-- Redes sociales -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Laboratorio Clínico Plus Cartagena" />
+    <meta
+      property="og:description"
+      content="Resultados rápidos y confiables con atención humana."
+    />
+    <meta
+      property="og:image"
+      content="https://tusitio.com/assets/images/PLUS.png"
+    />
+    <meta property="og:url" content="https://tusitio.com/" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="assets/images/PLUS.png" type="image/png">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/PLUS.png" type="image/png" />
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
 
-  <!-- Estilos principales -->
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="preload" href="css/styles.min.css" as="style">
-  <link rel="stylesheet" href="css/styles.min.css">
-  <link rel="stylesheet" href="css/styles.css">
-  
- <style>
-  /* Variables y tipografía */
-:root {
-  --primary:#007bff;
-  --accent:#00bcd4;
-  --bg:#f6f9fc;
-  --card:#fff;
-  --shadow:0 4px 10px rgba(0,0,0,0.08);
-  --radius:12px;
-}
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="assets/theme/css/style.css" />
+    <link rel="preload" href="css/styles.min.css" as="style" />
+    <link rel="stylesheet" href="css/styles.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
 
-body {
-  margin:0;
-  font-family:'Segoe UI', sans-serif;
-  background-color: var(--bg);
-  color:#333;
-}
+    <style>
+      /* Variables y tipografía */
+      :root {
+        --primary: #007bff;
+        --accent: #00bcd4;
+        --bg: #f6f9fc;
+        --card: #fff;
+        --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        --radius: 12px;
+      }
 
-/* Header principal */
-.header {
-  text-align:center;
-  background:linear-gradient(135deg,var(--primary),var(--accent));
-  color:white;
-  padding:2rem 1rem;
-  box-shadow:0 4px 8px rgba(0,0,0,0.1);
-}
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background-color: var(--bg);
+        color: #333;
+      }
 
-/* Encabezado dinámico con iconos y animaciones */
-.section-header {
-  max-width:900px;
-  margin:2rem auto 1rem;
-  text-align:center;
-  padding:0 1rem;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:1rem;
-}
+      /* Header principal */
+      .header {
+        text-align: center;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: white;
+        padding: 2rem 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
 
-.section-header .icon {
-  font-size:3rem;
-  display:inline-block;
-  animation-duration:1s;
-  animation-fill-mode:both;
-}
+      /* Encabezado dinámico con iconos y animaciones */
+      .section-header {
+        max-width: 900px;
+        margin: 2rem auto 1rem;
+        text-align: center;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
 
-@keyframes fadeIn {
-  from {opacity:0; transform:translateY(-20px);}
-  to {opacity:1; transform:translateY(0);}
-}
+      .section-header .icon {
+        font-size: 3rem;
+        display: inline-block;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+      }
 
-@keyframes slideInLeft {
-  from {opacity:0; transform:translateX(-50px);}
-  to {opacity:1; transform:translateX(0);}
-}
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-@keyframes slideInRight {
-  from {opacity:0; transform:translateX(50px);}
-  to {opacity:1; transform:translateX(0);}
-}
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
 
-.section-header h2 {
-  font-size:1.8rem;
-  margin-bottom:0.5rem;
-  animation: fadeIn 0.8s ease;
-}
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
 
-.section-header p {
-  font-size:1rem;
-  color:#555;
-  line-height:1.6;
-  animation: slideInLeft 0.8s ease;
-}
+      .section-header h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        animation: fadeIn 0.8s ease;
+      }
 
-/* Categorías y vistas */
-.category-nav {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
-  align-items:center;
-  gap:1rem;
-  background:white;
-  box-shadow:0 2px 8px rgba(0,0,0,0.05);
-  padding:1rem;
-  border-radius: var(--radius);
-  max-width:1000px;
-  margin:1rem auto 2rem;
-}
+      .section-header p {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.6;
+        animation: slideInLeft 0.8s ease;
+      }
 
-.category-nav ul {
-  list-style:none;
-  display:flex;
-  flex-wrap:wrap;
-  gap:0.6rem;
-  padding:0;
-  margin:0;
-}
+      /* Categorías y vistas */
+      .category-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        padding: 1rem;
+        border-radius: var(--radius);
+        max-width: 1000px;
+        margin: 1rem auto 2rem;
+      }
 
-.category-nav li {
-  background:#f0f4f8;
-  color:var(--primary);
-  padding:8px 14px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:500;
-  transition:all 0.3s ease;
-}
+      .category-nav ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        padding: 0;
+        margin: 0;
+      }
 
-.category-nav li.active {
-  background: var(--primary);
-  color:white;
-}
+      .category-nav li {
+        background: #f0f4f8;
+        color: var(--primary);
+        padding: 8px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
 
-.view-toggle {
-  display:flex;
-  gap:0.5rem;
-}
+      .category-nav li.active {
+        background: var(--primary);
+        color: white;
+      }
 
-.view-toggle button {
-  border:none;
-  background:#f0f4f8;
-  padding:8px 14px;
-  border-radius:8px;
-  cursor:pointer;
-  transition:0.3s;
-}
+      .view-toggle {
+        display: flex;
+        gap: 0.5rem;
+      }
 
-.view-toggle button.active {
-  background: var(--primary);
-  color:white;
-}
+      .view-toggle button {
+        border: none;
+        background: #f0f4f8;
+        padding: 8px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
 
-/* Grid y Lista */
-.exam-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:1.5rem;
-  padding:0 2rem;
-}
+      .view-toggle button.active {
+        background: var(--primary);
+        color: white;
+      }
 
-.exam-list {
-  display:flex;
-  flex-direction:column;
-  gap:1.5rem;
-  padding:0 2rem;
-}
+      /* Grid y Lista */
+      .exam-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+        padding: 0 2rem;
+      }
 
-.exam-card {
-  background: var(--card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow:hidden;
-  transition: transform 0.3s ease;
-  display:flex;
-  flex-direction:column;
-}
+      .exam-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0 2rem;
+      }
 
-.exam-list .exam-card {
-  flex-direction:row;
-  align-items:center;
-}
+      .exam-card {
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
 
-.exam-card:hover {
-  transform: translateY(-5px);
-}
+      .exam-list .exam-card {
+        flex-direction: row;
+        align-items: center;
+      }
 
-.exam-card img {
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
+      .exam-card:hover {
+        transform: translateY(-5px);
+      }
 
-.exam-list .exam-card img {
-  width:180px;
-  height:180px;
-}
+      .exam-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
 
-.exam-card h3 {
-  margin:10px;
-  color:var(--primary);
-}
+      .exam-list .exam-card img {
+        width: 180px;
+        height: 180px;
+      }
 
-.exam-card p {
-  margin:0 10px 10px;
-}
+      .exam-card h3 {
+        margin: 10px;
+        color: var(--primary);
+      }
 
-.exam-card button {
-  width:calc(100% - 20px);
-  margin:10px;
-  background: var(--primary);
-  color:white;
-  border:none;
-  padding:10px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:600;
-  transition:0.3s;
-}
+      .exam-card p {
+        margin: 0 10px 10px;
+      }
 
-.compare-btn {
-  display:block;
-  margin:2rem auto;
-  background: var(--accent);
-  color:white;
-  font-weight:bold;
-  padding:1rem 2rem;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-}
+      .exam-card button {
+        width: calc(100% - 20px);
+        margin: 10px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.3s;
+      }
 
-.compare-btn:hover {
-  background:#008c9e;
-}
+      .compare-btn {
+        display: block;
+        margin: 2rem auto;
+        background: var(--accent);
+        color: white;
+        font-weight: bold;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
 
-/* Modal */
-.modal {
-  display:none;
-  position:fixed;
-  z-index:1000;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.6);
-  justify-content:center;
-  align-items:center;
-}
+      .compare-btn:hover {
+        background: #008c9e;
+      }
 
-.modal-content {
-  background:white;
-  border-radius: var(--radius);
-  max-width:900px;
-  width:90%;
-  padding:20px;
-  position:relative;
-  animation: fadeIn 0.3s ease;
-}
+      /* Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        justify-content: center;
+        align-items: center;
+      }
 
-.close {
-  position:absolute;
-  right:15px;
-  top:10px;
-  font-size:28px;
-  cursor:pointer;
-}
+      .modal-content {
+        background: white;
+        border-radius: var(--radius);
+        max-width: 900px;
+        width: 90%;
+        padding: 20px;
+        position: relative;
+        animation: fadeIn 0.3s ease;
+      }
 
-.compare-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:1rem;
-  margin-top:1rem;
-}
+      .close {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        font-size: 28px;
+        cursor: pointer;
+      }
 
-.compare-item {
-  background:#f7f9fb;
-  border-radius:8px;
-  padding:15px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.1);
-}
+      .compare-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
 
-.compare-item img {
-  width:100%;
-  border-radius:8px;
-  margin-bottom:10px;
-}
+      .compare-item {
+        background: #f7f9fb;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
 
-.whatsapp-btn {
-  display:block;
-  background:#25D366;
-  color:white;
-  border:none;
-  border-radius:8px;
-  padding:12px;
-  font-size:16px;
-  margin:1.5rem auto 0;
-  cursor:pointer;
-}
+      .compare-item img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
 
-.whatsapp-btn:hover {
-  background:#1ebe57;
-}
+      .whatsapp-btn {
+        display: block;
+        background: #25d366;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 16px;
+        margin: 1.5rem auto 0;
+        cursor: pointer;
+      }
 
-/* Responsive */
-@media(max-width:720px){
-  .exam-list .exam-card {
-    flex-direction:column;
-  }
-  .exam-list .exam-card img {
-    width:100%;
-    height:180px;
-  }
-  .category-nav {
-    flex-direction:column;
-    gap:0.8rem;
-  }
-}
-@media(max-width:480px){
-  .exam-grid {
-    grid-template-columns:1fr;
-    padding:0 1rem;
-  }
-}
-  </style>
-  
-</head>
-<body>
+      .whatsapp-btn:hover {
+        background: #1ebe57;
+      }
 
+      /* Responsive */
+      @media (max-width: 720px) {
+        .exam-list .exam-card {
+          flex-direction: column;
+        }
+        .exam-list .exam-card img {
+          width: 100%;
+          height: 180px;
+        }
+        .category-nav {
+          flex-direction: column;
+          gap: 0.8rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .exam-grid {
+          grid-template-columns: 1fr;
+          padding: 0 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <!-- =========================
      NAVBAR FIJO Y CENTRADO
 ========================= -->
-<section class="menu" id="menu2-23">
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <div class="container-fluid justify-content-between align-items-center">
-      <!-- LOGO -->
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="assets/images/PLUS.png" alt="Logo Plus" class="navbar-logo">
-      </a>
+    <section class="menu" id="menu2-23">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid justify-content-between align-items-center">
+          <!-- LOGO -->
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img
+              src="assets/images/PLUS.png"
+              alt="Logo Plus"
+              class="navbar-logo"
+            />
+          </a>
 
-      <!-- BOTÓN RESPONSIVE -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+          <!-- BOTÓN RESPONSIVE -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-      <!-- ENLACES -->
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav align-items-center">
-            <!-- Inicio -->
-            <li class="nav-item">
-              <a class="nav-link" href="./index.html">Inicio</a>
-            </li>
-          <!-- Nosotros -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="paraTi" role="button" data-bs-toggle="dropdown">
-              Nuestra Historia
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="./quienessomos.html">Quiénes somos</a></li>
-              <li><a class="dropdown-item" href="./nosotros.html">Nosotros</a></li>
-              <li><a class="dropdown-item" href="./historia.html">Historia</a></li>
-            </ul>
-          </li>
-
-          <!-- Catalogo -->
-           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="paraTi" role="button" data-bs-toggle="dropdown">
-              Catálogo
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/servicios_laboratorio.html">Exámenes de Laboratorio</a></li>
-              <li><a class="dropdown-item" href="#">Genética</a></li>
-              <li>
-                <a class="dropdown-item" href="./assets/pdf/PORTAFOLIO 23.pdf" download="PORTAFOLIO_23.pdf">
-                  Portafolio
-                </a>
+          <!-- ENLACES -->
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav align-items-center">
+              <!-- Inicio -->
+              <li class="nav-item">
+                <a class="nav-link" href="./index.html">Inicio</a>
               </li>
-              <li><a class="dropdown-item" href="#">Pruebas Especiales</a></li>
-            </ul>
-          </li>
+              <!-- Nosotros -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="paraTi"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  Nuestra Historia
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="./quienessomos.html"
+                      >Quiénes somos</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./nosotros.html">Nosotros</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./historia.html">Historia</a>
+                  </li>
+                </ul>
+              </li>
 
-          <!-- Servicios -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="institucional" role="button" data-bs-toggle="dropdown">
-              Como lo hacemos
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="./servicios.html">Servicios</a></li>
-            </ul>
-          </li>
+              <!-- Catalogo -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="paraTi"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  Catálogo
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="/servicios_laboratorio.html"
+                      >Exámenes de Laboratorio</a
+                    >
+                  </li>
+                  <li><a class="dropdown-item" href="#">Genética</a></li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="./assets/pdf/PORTAFOLIO 23.pdf"
+                      download="PORTAFOLIO_23.pdf"
+                    >
+                      Portafolio
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Pruebas Especiales</a>
+                  </li>
+                </ul>
+              </li>
 
-          <!-- Muestras -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="empresarial" role="button" data-bs-toggle="dropdown">
-              Preparación de Muestras
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="sangre.html">Toma de muestra en sangre</a></li>
-              <li><a class="dropdown-item" href="fecal.html">Toma de muestra fecal</a></li>
-              <li><a class="dropdown-item" href="orina.html">Muestra de orina</a></li>
-              <li><a class="dropdown-item" href="saliva.html">Muestra de saliva</a></li>
-              <li><a class="dropdown-item" href="aliento.html">Prueba de aliento</a></li>
-            </ul>
-          </li>
+              <!-- Servicios -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="institucional"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  Como lo hacemos
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="./servicios.html"
+                      >Servicios</a
+                    >
+                  </li>
+                </ul>
+              </li>
 
-          <!-- Portal Pacientes -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="pacientes" role="button" data-bs-toggle="dropdown">
-              Portal Pacientes
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Resultados</a></li>
+              <!-- Muestras -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="empresarial"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  Preparación de Muestras
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="sangre.html"
+                      >Toma de muestra en sangre</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="fecal.html"
+                      >Toma de muestra fecal</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="orina.html"
+                      >Muestra de orina</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="saliva.html"
+                      >Muestra de saliva</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="aliento.html"
+                      >Prueba de aliento</a
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Portal Pacientes -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="pacientes"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  Portal Pacientes
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Resultados</a></li>
+                </ul>
+              </li>
             </ul>
-          </li>
-        </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <br /><br /><br />
+    <!-- FIN NAVBAR -->
+
+    <header class="header">
+      <h1>Catálogo de Exámenes</h1>
+      <p>Selecciona una categoría o compara hasta dos exámenes</p>
+    </header>
+
+    <!-- Encabezado dinámico de sección con icono -->
+    <section class="section-header" id="section-header">
+      <!-- Se llenará dinámicamente -->
+    </section>
+
+    <!-- Barra de categorías y vistas -->
+    <nav class="category-nav">
+      <ul id="category-list">
+        <li data-category="Alergias e intolerancias" class="active">
+          Alergias e Intolerancias
+        </li>
+        <li data-category="Bienestar general">Bienestar General</li>
+        <li data-category="Chequeos">Chequeos</li>
+        <li data-category="Exámenes de laboratorio">Exámenes de Laboratorio</li>
+        <li data-category="Genética">Genética</li>
+        <li data-category="Nutrición y salud gastrointestinal">
+          Nutrición y Salud Gastrointestinal
+        </li>
+        <li data-category="Pruebas especiales">Pruebas Especiales</li>
+        <li data-category="Salud de la mujer">Salud de la Mujer</li>
+        <li data-category="Salud del hombre">Salud del Hombre</li>
+        <li data-category="Salud sexual">Salud Sexual</li>
+        <li data-category="Prueba de Fertilidad">Prueba fertilidad</li>
+      </ul>
+
+      <div class="view-toggle">
+        <button id="list-view">📋 Lista</button>
+        <button id="grid-view" class="active">🔲 Cuadrícula</button>
+      </div>
+    </nav>
+
+    <main class="exam-container">
+      <div id="exam-list" class="exam-grid"></div>
+      <button id="compare-btn" class="compare-btn" style="display: none">
+        Comparar exámenes seleccionados
+      </button>
+    </main>
+
+    <!-- Modal Comparativa -->
+    <div id="compare-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-modal" class="close">&times;</span>
+        <h2>Comparativa de Exámenes</h2>
+        <div id="modal-body"></div>
       </div>
     </div>
-  </nav>
-</section><br><br><br>
-<!-- FIN NAVBAR -->
 
-<header class="header">
-  <h1>Catálogo de Exámenes</h1>
-  <p>Selecciona una categoría o compara hasta dos exámenes</p>
-</header>
-
-<!-- Encabezado dinámico de sección con icono -->
-<section class="section-header" id="section-header">
-  <!-- Se llenará dinámicamente -->
-</section>
-
-<!-- Barra de categorías y vistas -->
-<nav class="category-nav">
-  <ul id="category-list">
-    <li data-category="Alergias e intolerancias" class="active">Alergias e Intolerancias</li>
-    <li data-category="Bienestar general">Bienestar General</li>
-    <li data-category="Chequeos">Chequeos</li>
-    <li data-category="Exámenes de laboratorio">Exámenes de Laboratorio</li>
-    <li data-category="Genética">Genética</li>
-    <li data-category="Nutrición y salud gastrointestinal">Nutrición y Salud Gastrointestinal</li>
-    <li data-category="Pruebas especiales">Pruebas Especiales</li>
-    <li data-category="Salud de la mujer">Salud de la Mujer</li>
-    <li data-category="Salud del hombre">Salud del Hombre</li>
-    <li data-category="Salud sexual">Salud Sexual</li>
-  </ul>
-
-  <div class="view-toggle">
-    <button id="list-view">📋 Lista</button>
-    <button id="grid-view" class="active">🔲 Cuadrícula</button>
-  </div>
-</nav>
-
-<main class="exam-container">
-  <div id="exam-list" class="exam-grid"></div>
-  <button id="compare-btn" class="compare-btn" style="display:none;">Comparar exámenes seleccionados</button>
-</main>
-
-<!-- Modal Comparativa -->
-<div id="compare-modal" class="modal">
-  <div class="modal-content">
-    <span id="close-modal" class="close">&times;</span>
-    <h2>Comparativa de Exámenes</h2>
-    <div id="modal-body"></div>
-  </div>
-</div>
-
-<!-- Asesor virtual -->
-<!-- ================================
+    <!-- Asesor virtual -->
+    <!-- ================================
      ASESOR VIRTUAL TABOPLUS
 ================================ -->
-<div class="asesor-container">
-  <!-- Botón del asesor virtual -->
-  <button id="chat-toggle">
-    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Asesor Virtual Taboplus">
-  </button>
+    <div class="asesor-container">
+      <!-- Botón del asesor virtual -->
+      <button id="chat-toggle">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"
+          alt="Asesor Virtual Taboplus"
+        />
+      </button>
 
-  <!-- Ventana de chat -->
-  <div id="chatbox">
-    <div id="chat-header">🤖 Taboplus - Asesor Virtual</div>
+      <!-- Ventana de chat -->
+      <div id="chatbox">
+        <div id="chat-header">🤖 Taboplus - Asesor Virtual</div>
 
-    <div id="chat-messages"></div>
+        <div id="chat-messages"></div>
 
-    <div id="chat-input">
-      <input id="input" type="text" placeholder="Escribe aquí...">
-      <button onclick="enviar()">➤</button>
+        <div id="chat-input">
+          <input id="input" type="text" placeholder="Escribe aquí..." />
+          <button onclick="enviar()">➤</button>
+        </div>
+
+        <!-- Redes sociales -->
+        <div id="chat-social">
+          <a
+            href="https://wa.me/573113212221?text=Hola%2C%20quisiera%20más%20información"
+            target="_blank"
+            aria-label="WhatsApp"
+          >
+            <img src="assets/images/whatsapp.png" alt="WhatsApp" />
+          </a>
+          <a
+            href="https://www.facebook.com/PlusLaboratorioClinico"
+            target="_blank"
+            aria-label="Facebook"
+          >
+            <img src="assets/images/facebook.png" alt="Facebook" />
+          </a>
+          <a
+            href="https://www.instagram.com/laboratorio_clinico_plus"
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <img src="assets/images/instagram.png" alt="Instagram" />
+          </a>
+        </div>
+      </div>
     </div>
 
+    <!-- Asesor virtual final-->
 
-    <!-- Redes sociales -->
-    <div id="chat-social">
-      <a href="https://wa.me/573113212221?text=Hola%2C%20quisiera%20más%20información"
-         target="_blank" aria-label="WhatsApp">
-        <img src="assets/images/whatsapp.png" alt="WhatsApp">
-      </a>
-      <a href="https://www.facebook.com/PlusLaboratorioClinico"
-         target="_blank" aria-label="Facebook">
-        <img src="assets/images/facebook.png" alt="Facebook">
-      </a>
-      <a href="https://www.instagram.com/laboratorio_clinico_plus"
-         target="_blank" aria-label="Instagram">
-        <img src="assets/images/instagram.png" alt="Instagram">
-      </a>
-    </div>
-  </div>
-</div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Logo + misión -->
+        <div class="footer-section">
+          <img
+            src="assets/images/PLUS.png"
+            alt="Logo de Plus Laboratorio Clínico Cartagena"
+            class="footer-logo"
+            loading="lazy"
+          />
+          <p class="footer-mission">
+            Nuestra misión es brindar servicios de análisis clínico accesibles y
+            confiables, con calidad profesional y humana.
+          </p>
+        </div>
 
-  <!-- Asesor virtual final-->
-
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="footer-container">
-
-    <!-- Logo + misión -->
-    <div class="footer-section">
-      <img src="assets/images/PLUS.png" alt="Logo de Plus Laboratorio Clínico Cartagena" class="footer-logo" loading="lazy">
-      <p class="footer-mission">
-        Nuestra misión es brindar servicios de análisis clínico accesibles y confiables, con calidad profesional y humana.
-      </p>
-    </div>
-
-    <!-- Nosotros
+        <!-- Nosotros
     <div class="footer-section">
       <h3>Nosotros</h3>
       <ul>
@@ -539,333 +677,544 @@ body {
       </ul>
     </div> -->
 
-    <!-- Políticas -->
-    <div class="footer-section">
-      <h3>Políticas</h3>
-      <ul>
-        <li><a href="./proveedores.html"><i class='bx bx-chevrons-right'></i> Proveedores</a></li>
-        <!--<li><a href="#"><i class='bx bx-chevrons-right'></i> PQRS</a></li>-->
-        <li><a href="./politicaprivacidad.html"><i class='bx bx-chevrons-right'></i> Política de protección de datos</a></li>
-        <li><a href="./etica.html"><i class='bx bx-chevrons-right'></i> Ética y transparencia</a></li>
-        <li><a href="./derechospaciente.html"><i class='bx bx-chevrons-right'></i> Derechos del paciente</a></li>
-        <li><a href="./integral.html"><i class='bx bx-chevrons-right'></i> Gestión integral</a></li>
-      </ul>
-    </div>
+        <!-- Políticas -->
+        <div class="footer-section">
+          <h3>Políticas</h3>
+          <ul>
+            <li>
+              <a href="./proveedores.html"
+                ><i class="bx bx-chevrons-right"></i> Proveedores</a
+              >
+            </li>
+            <!--<li><a href="#"><i class='bx bx-chevrons-right'></i> PQRS</a></li>-->
+            <li>
+              <a href="./politicaprivacidad.html"
+                ><i class="bx bx-chevrons-right"></i> Política de protección de
+                datos</a
+              >
+            </li>
+            <li>
+              <a href="./etica.html"
+                ><i class="bx bx-chevrons-right"></i> Ética y transparencia</a
+              >
+            </li>
+            <li>
+              <a href="./derechospaciente.html"
+                ><i class="bx bx-chevrons-right"></i> Derechos del paciente</a
+              >
+            </li>
+            <li>
+              <a href="./integral.html"
+                ><i class="bx bx-chevrons-right"></i> Gestión integral</a
+              >
+            </li>
+          </ul>
+        </div>
 
-    <!-- PQRSF -->
-    <div class="footer-section">
-      <h3>PQRSF</h3>
-      <p>
-        Tu opinión es importante. Escríbenos a través de nuestros canales de atención.
-      </p>
-      <ul>
-        <li><a href="mailto:pluslaboratorioclinicoctg@gmail.com"><i class='bx bx-chevrons-right'></i> Canales de atención</a></li>
-      </ul>
-    </div>
+        <!-- PQRSF -->
+        <div class="footer-section">
+          <h3>PQRSF</h3>
+          <p>
+            Tu opinión es importante. Escríbenos a través de nuestros canales de
+            atención.
+          </p>
+          <ul>
+            <li>
+              <a href="mailto:pluslaboratorioclinicoctg@gmail.com"
+                ><i class="bx bx-chevrons-right"></i> Canales de atención</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
 
-  </div>
+      <!-- Línea inferior -->
+      <div class="footer-bottom">
+        <p>
+          © 2025 Plus Laboratorio Clínico Cartagena. Todos los derechos
+          reservados.
+        </p>
+      </div>
+    </footer>
 
-  <!-- Línea inferior -->
-  <div class="footer-bottom">
-    <p>© 2025 Plus Laboratorio Clínico Cartagena. Todos los derechos reservados.</p>
-  </div>
-</footer>
+    <!-- Fin footer -->
 
-<!-- Fin footer -->
-
-  <!-- Bootstrap JS -->
-  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script1.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script>
-    // Aquí puedes manejar extras JS
-    document.addEventListener("DOMContentLoaded", () => {
-      console.log("JS cargado correctamente ✅");
-    });
-  </script>
-
-  <!-- Promociones de la semana -->
-
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const imagenes = document.querySelectorAll(".promo-img");
-  const prevBtn = document.querySelector(".promo-btn.prev");
-  const nextBtn = document.querySelector(".promo-btn.next");
-
-  let diaHoy = new Date().getDay(); // 0 = domingo, 1 = lunes...
-  let indiceActual = Array.from(imagenes).findIndex(
-    img => parseInt(img.dataset.dia) === diaHoy
-  );
-
-  if (indiceActual === -1) indiceActual = 0;
-
-  function mostrarImagen(index) {
-    imagenes.forEach(img => img.classList.remove("activa"));
-    imagenes[index].classList.add("activa");
-  }
-
-  mostrarImagen(indiceActual);
-
-  prevBtn.addEventListener("click", () => {
-    indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
-    mostrarImagen(indiceActual);
-  });
-
-  nextBtn.addEventListener("click", () => {
-    indiceActual = (indiceActual + 1) % imagenes.length;
-    mostrarImagen(indiceActual);
-  });
-});
-</script>
-  <!-- Promociones de la semana final -->
-
-<!-- SCRIPT PARA HACER DESPLEGABLES LAS PREGUNTAS -->
-<script>
-  const questions = document.querySelectorAll('.faq-question');
-  questions.forEach(q => {
-    q.addEventListener('click', () => {
-      const answer = q.nextElementSibling;
-      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-    });
-  });
-</script>
-
-<script>
-document.querySelectorAll('.faq-question').forEach(button => {
-  button.addEventListener('click', () => {
-    const answer = button.nextElementSibling;
-    answer.classList.toggle('open');
-  });
-});
-</script>
-
-<!-- FIN SCRIPT CIERRE-->
-
-<!-- Script Promociones mes -->
-
-<script>
-    const promoSlides = document.querySelectorAll('.slide-promo');
-    let currentMonth = new Date().getMonth(); // 0 = enero, 11 = diciembre
-
-    function mostrarPromocionDelMes() {
-      promoSlides.forEach(item => item.classList.remove('slide-activo'));
-      promoSlides.forEach((item) => {
-        const mes = parseInt(item.dataset.mes, 10);
-        if (mes === currentMonth) {
-          item.classList.add('slide-activo');
-        }
+    <!-- Bootstrap JS -->
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      // Aquí puedes manejar extras JS
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log("JS cargado correctamente ✅");
       });
-    }
+    </script>
 
-    mostrarPromocionDelMes();
+    <!-- Promociones de la semana -->
 
-    setInterval(() => {
-      const newMonth = new Date().getMonth();
-      if (newMonth !== currentMonth) {
-        currentMonth = newMonth;
-        mostrarPromocionDelMes();
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const imagenes = document.querySelectorAll(".promo-img");
+        const prevBtn = document.querySelector(".promo-btn.prev");
+        const nextBtn = document.querySelector(".promo-btn.next");
+
+        let diaHoy = new Date().getDay(); // 0 = domingo, 1 = lunes...
+        let indiceActual = Array.from(imagenes).findIndex(
+          (img) => parseInt(img.dataset.dia) === diaHoy
+        );
+
+        if (indiceActual === -1) indiceActual = 0;
+
+        function mostrarImagen(index) {
+          imagenes.forEach((img) => img.classList.remove("activa"));
+          imagenes[index].classList.add("activa");
+        }
+
+        mostrarImagen(indiceActual);
+
+        prevBtn.addEventListener("click", () => {
+          indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+          mostrarImagen(indiceActual);
+        });
+
+        nextBtn.addEventListener("click", () => {
+          indiceActual = (indiceActual + 1) % imagenes.length;
+          mostrarImagen(indiceActual);
+        });
+      });
+    </script>
+    <!-- Promociones de la semana final -->
+
+    <!-- SCRIPT PARA HACER DESPLEGABLES LAS PREGUNTAS -->
+    <script>
+      const questions = document.querySelectorAll(".faq-question");
+      questions.forEach((q) => {
+        q.addEventListener("click", () => {
+          const answer = q.nextElementSibling;
+          answer.style.display =
+            answer.style.display === "block" ? "none" : "block";
+        });
+      });
+    </script>
+
+    <script>
+      document.querySelectorAll(".faq-question").forEach((button) => {
+        button.addEventListener("click", () => {
+          const answer = button.nextElementSibling;
+          answer.classList.toggle("open");
+        });
+      });
+    </script>
+
+    <!-- FIN SCRIPT CIERRE-->
+
+    <!-- Script Promociones mes -->
+
+    <script>
+      const promoSlides = document.querySelectorAll(".slide-promo");
+      let currentMonth = new Date().getMonth(); // 0 = enero, 11 = diciembre
+
+      function mostrarPromocionDelMes() {
+        promoSlides.forEach((item) => item.classList.remove("slide-activo"));
+        promoSlides.forEach((item) => {
+          const mes = parseInt(item.dataset.mes, 10);
+          if (mes === currentMonth) {
+            item.classList.add("slide-activo");
+          }
+        });
       }
-    }, 60 * 60 * 1000);
-  </script>
 
-<!-- Fin promociones mes -->
+      mostrarPromocionDelMes();
 
-   
-<!-- ================================
+      setInterval(() => {
+        const newMonth = new Date().getMonth();
+        if (newMonth !== currentMonth) {
+          currentMonth = newMonth;
+          mostrarPromocionDelMes();
+        }
+      }, 60 * 60 * 1000);
+    </script>
+
+    <!-- Fin promociones mes -->
+
+    <!-- ================================
     ASESOR VIRTUAL TABOPLUS SCRIPT OPTIMIZADO
 ================================ -->
-<script>
-  const chatToggle = document.getElementById('chat-toggle');
-  const chatBox = document.getElementById('chatbox');
-  const input = document.getElementById('input');
-  const messages = document.getElementById('chat-messages');
+    <script>
+      const chatToggle = document.getElementById("chat-toggle");
+      const chatBox = document.getElementById("chatbox");
+      const input = document.getElementById("input");
+      const messages = document.getElementById("chat-messages");
 
-  // 🔔 Sonido de notificación
-  const sonido = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_f54f6c3b7b.mp3?filename=notification-3-125447.mp3");
-
-  // ✅ Mostrar automáticamente al cargar la página
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      chatBox.style.display = 'flex';
-      iniciarChat();
-
-      // Restaurar historial si existe
-      const historial = JSON.parse(localStorage.getItem('chatHistorial')) || [];
-      if (historial.length > 0) {
-        historial.forEach(msg => agregarMensaje(msg.texto, msg.tipo, false));
-      }
-    }, 600);
-  });
-
-  // 🟢 Alternar visibilidad manual del chat
-  chatToggle.addEventListener('click', () => {
-    if (chatBox.style.display === 'flex') {
-      chatBox.style.display = 'none';
-    } else {
-      chatBox.style.display = 'flex';
-      iniciarChat();
-    }
-  });
-
-  // 📨 Enviar mensaje con botón o Enter
-  input.addEventListener('keypress', (e) => { if (e.key === 'Enter') enviar(); });
-
-  function enviar() {
-    const texto = input.value.trim();
-    if (!texto) return;
-    agregarMensaje(texto, 'user');
-    input.value = '';
-    setTimeout(() => respuestaAutomatica(texto.toLowerCase()), 600);
-  }
-
-  // 💬 Agregar mensaje al chat
-  function agregarMensaje(texto, tipo, guardar = true) {
-    const msg = document.createElement('div');
-    msg.classList.add('msg', tipo);
-    msg.innerHTML = texto;
-    messages.appendChild(msg);
-    messages.scrollTop = messages.scrollHeight;
-
-    if (tipo === 'bot') sonido.play(); // 🔔 reproducir sonido
-    if (guardar) guardarMensaje(texto, tipo);
-  }
-
-  // 💾 Guardar mensaje en localStorage
-  function guardarMensaje(texto, tipo) {
-    const historial = JSON.parse(localStorage.getItem('chatHistorial')) || [];
-    historial.push({ texto, tipo });
-    localStorage.setItem('chatHistorial', JSON.stringify(historial));
-  }
-
-  // 🧠 Iniciar conversación (solo una vez)
-  function iniciarChat() {
-    if (!localStorage.getItem('chatIniciado')) {
-      agregarMensaje(
-        "👋 ¡Hola! Soy <b>Taboplus</b>, tu asesor virtual. ¿Qué deseas hacer?<br><br>" +
-        "1️⃣ Consultar horarios<br>" +
-        "2️⃣ Agendar cita<br>" +
-        "3️⃣ Requisitos de exámenes<br>" +
-        "4️⃣ Resultados<br>" +
-        "5️⃣ Hablar con un agente",
-        "bot"
+      // 🔔 Sonido de notificación
+      const sonido = new Audio(
+        "https://cdn.pixabay.com/download/audio/2022/03/15/audio_f54f6c3b7b.mp3?filename=notification-3-125447.mp3"
       );
-      localStorage.setItem('chatIniciado', true);
-    }
-  }
 
-  // 🔄 Reiniciar conversación completamente
-  function reiniciarConversacion() {
-    localStorage.removeItem('chatHistorial');
-    localStorage.removeItem('chatIniciado');
-    messages.innerHTML = "";
-    agregarMensaje(
-      "🔄 Conversación reiniciada.<br><br>👋 Hola, soy <b>Taboplus</b>, tu asesor virtual. ¿Qué deseas hacer?<br><br>" +
-      "1️⃣ Consultar horarios<br>" +
-      "2️⃣ Agendar cita<br>" +
-      "3️⃣ Requisitos de exámenes<br>" +
-      "4️⃣ Resultados<br>" +
-      "5️⃣ Hablar con un agente",
-      "bot"
-    );
-  }
+      // ✅ Mostrar automáticamente al cargar la página
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          chatBox.style.display = "flex";
+          iniciarChat();
 
-  // 🤖 Lógica de respuestas automáticas
-  function respuestaAutomatica(texto) {
-    let respuesta = "";
+          // Restaurar historial si existe
+          const historial =
+            JSON.parse(localStorage.getItem("chatHistorial")) || [];
+          if (historial.length > 0) {
+            historial.forEach((msg) =>
+              agregarMensaje(msg.texto, msg.tipo, false)
+            );
+          }
+        }, 600);
+      });
 
-    if (texto.includes("1") || texto.includes("horario") || texto.includes("hora")) {
-      respuesta = "🕒 Nuestro horario de atención es:<br>Lun-Vie: 7:00 a.m. - 4:00 p.m.<br>Sábados: 7:00 a.m. - 12:00 p.m.<br>Domingos y festivos con cita previa.";
-    } 
-    else if (texto.includes("2") || texto.includes("agendar") || texto.includes("cita")) {
-      respuesta = "📅 Puedes agendar tu cita escribiéndonos por WhatsApp al <a href='https://api.whatsapp.com/send?phone=573113212221' target='_blank'>+57 311 321 2221</a> o a través de nuestra página web.";
-    }
-    else if (texto.includes("3") || texto.includes("requisito") || texto.includes("preparación")) {
-      respuesta = "📋 Cada examen tiene requisitos específicos. Por ejemplo, para exámenes de sangre se recomienda ayuno de 8 horas. ¿Deseas conocer los requisitos de un examen específico?";
-    }
-    else if (texto.includes("4") || texto.includes("resultado")) {
-      respuesta = "📑 Puedes consultar tus resultados en línea o solicitarlos por WhatsApp. Generalmente están disponibles entre 24 y 48 horas después del examen.";
-    }
-    else if (texto.includes("5") || texto.includes("agente") || texto.includes("humano")) {
-      respuesta = "👩‍💼 Un agente humano te atenderá en breve. También puedes contactarnos directamente por WhatsApp 👉 <a href='https://api.whatsapp.com/send?phone=573113212221' target='_blank'>aquí</a>.";
-    } 
-    else if (texto.includes("reiniciar") || texto.includes("nuevo chat")) {
-      reiniciarConversacion();
-      return;
-    }
-    else {
-      respuesta = "🤖 No entendí completamente. Por favor elige una opción del 1 al 5.<br><br>" +
-                  "1️⃣ Horarios<br>2️⃣ Cita<br>3️⃣ Requisitos<br>4️⃣ Resultados<br>5️⃣ Agente";
-    }
+      // 🟢 Alternar visibilidad manual del chat
+      chatToggle.addEventListener("click", () => {
+        if (chatBox.style.display === "flex") {
+          chatBox.style.display = "none";
+        } else {
+          chatBox.style.display = "flex";
+          iniciarChat();
+        }
+      });
 
-    setTimeout(() => agregarMensaje(respuesta, 'bot'), 700);
-  }
-</script>
-<!-- Fin Script Taboplus asesor virtual -->
+      // 📨 Enviar mensaje con botón o Enter
+      input.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") enviar();
+      });
 
-<!-- Script Filtro de categoria -->
+      function enviar() {
+        const texto = input.value.trim();
+        if (!texto) return;
+        agregarMensaje(texto, "user");
+        input.value = "";
+        setTimeout(() => respuestaAutomatica(texto.toLowerCase()), 600);
+      }
 
-<script>
-  const exams = [
-  { id:1, name:"Alergias e intolerancias", desc:"Detecta reacciones adversas a alimentos o alérgenos ambientales.", category:"Alergias e intolerancias", img:"https://img.freepik.com/foto-gratis/doctor-realizando-prueba-alergias_23-2149351061.jpg", price:"$240.000", sample:"Sangre/Prick test", time:"3 - 7 días", details:"Evitar antihistamínicos 3 días antes." },
-  { id:2, name:"Bienestar general", desc:"Evalúa tu estado general de salud y equilibrio corporal.", category:"Bienestar general", img:"https://img.freepik.com/foto-gratis/medico-sonriente-consultorio_23-2148230399.jpg", price:"$60.000", sample:"Sangre", time:"24 - 48 horas", details:"Ayuno de 8 horas recomendado." },
-  { id:3, name:"Chequeos", desc:"Exámenes preventivos para detectar enfermedades a tiempo.", category:"Chequeos", img:"https://img.freepik.com/foto-gratis/doctor-laboratorio_23-2149829694.jpg", price:"$180.000", sample:"Sangre/Orina", time:"3 - 5 días", details:"Incluye perfil básico y consulta médica." },
-  { id:4, name:"Exámenes de laboratorio", desc:"Pruebas clínicas que analizan sangre, orina y otros fluidos.", category:"Exámenes de laboratorio", img:"https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg", price:"$45.000", sample:"Sangre/Orina", time:"24 - 72 horas", details:"Depende del panel seleccionado." },
-  { id:5, name:"Genética", desc:"Análisis genéticos para conocer predisposiciones hereditarias.", category:"Genética", img:"https://img.freepik.com/foto-gratis/adn-genetica_23-2148514857.jpg", price:"$650.000", sample:"Hisopado/DNA", time:"2 - 3 semanas", details:"Incluye asesoría genética personalizada." },
-  { id:6, name:"Nutrición y salud gastrointestinal", desc:"Evalúa digestión, microbiota y deficiencias nutricionales.", category:"Nutrición y salud gastrointestinal", img:"https://img.freepik.com/foto-gratis/doctor-concepto-nutricion_23-2148522273.jpg", price:"$210.000", sample:"Heces/Sangre", time:"5 - 10 días", details:"Mostrar medicamentos activos al técnico." },
-  { id:7, name:"Pruebas especiales", desc:"Análisis específicos para diagnósticos clínicos avanzados.", category:"Pruebas especiales", img:"https://img.freepik.com/foto-gratis/cientifico-realizando-prueba-especial_23-2149523621.jpg", price:"Variable", sample:"Variable", time:"Variable", details:"Consultar protocolo según el examen solicitado." },
-  { id:8, name:"Salud de la mujer", desc:"Pruebas hormonales, ginecológicas y de bienestar femenino.", category:"Salud de la mujer", img:"https://img.freepik.com/foto-gratis/doctor-consultando-mujer_23-2148183908.jpg", price:"$140.000", sample:"Sangre/Orina", time:"48 - 72 horas", details:"Consultar día del ciclo para exámenes hormonales." },
-  { id:9, name:"Salud del hombre", desc:"Análisis de hormonas, próstata y rendimiento físico.", category:"Salud del hombre", img:"https://img.freepik.com/foto-gratis/doctor-consultorio-paciente_23-2148230385.jpg", price:"$110.000", sample:"Sangre/Espermograma", time:"3 - 5 días", details:"Espermograma requiere abstinencia de 2-5 días." },
-  { id:10, name:"Salud sexual", desc:"Pruebas para ETS, fertilidad y equilibrio hormonal.", category:"Salud sexual", img:"https://img.freepik.com/foto-gratis/pareja-consultorio-medico_23-2148523069.jpg", price:"$75.000", sample:"Sangre/Orina", time:"24 - 72 horas", details:"Prueba confidencial con entrega segura." },
-  { id:11, name:"Prueba de fertilidad [Espermograma, Hormona antimugueriana, LH, FSH]", desc:"Incluye espermograma, hormona antimülleriana, LH y FSH.", category:"Prueba de fertilidad", img:"https://img.freepik.com/foto-gratis/concepto-fertilidad-pruebas_23-2149476651.jpg", price:"Desde $95.000", sample:"Sangre/Espermograma", time:"2 - 7 días", details:"Ver requisitos específicos para cada subprueba." }
-];
+      // 💬 Agregar mensaje al chat
+      function agregarMensaje(texto, tipo, guardar = true) {
+        const msg = document.createElement("div");
+        msg.classList.add("msg", tipo);
+        msg.innerHTML = texto;
+        messages.appendChild(msg);
+        messages.scrollTop = messages.scrollHeight;
 
-const sectionHeader = document.getElementById("section-header");
-const examContainer = document.getElementById("exam-list");
-const categoryItems = document.querySelectorAll("#category-list li");
-const compareBtn = document.getElementById("compare-btn");
-const modal = document.getElementById("compare-modal");
-const modalBody = document.getElementById("modal-body");
-const closeModal = document.getElementById("close-modal");
-const listViewBtn = document.getElementById("list-view");
-const gridViewBtn = document.getElementById("grid-view");
+        if (tipo === "bot") sonido.play(); // 🔔 reproducir sonido
+        if (guardar) guardarMensaje(texto, tipo);
+      }
 
-let currentCategory = "Alergias e intolerancias";
-let selectedExams = [];
-let currentView = "grid";
+      // 💾 Guardar mensaje en localStorage
+      function guardarMensaje(texto, tipo) {
+        const historial =
+          JSON.parse(localStorage.getItem("chatHistorial")) || [];
+        historial.push({ texto, tipo });
+        localStorage.setItem("chatHistorial", JSON.stringify(historial));
+      }
 
-const headers = {
-  "Alergias e intolerancias": {icon:"🧪", title:"Alergias e Intolerancias", text:"Detecta reacciones adversas a alimentos o alérgenos ambientales."},
-  "Bienestar general": {icon:"💖", title:"Bienestar General", text:"Evalúa tu estado general de salud y equilibrio corporal."},
-  "Chequeos": {icon:"🩺", title:"Chequeos", text:"Exámenes preventivos para detectar enfermedades a tiempo."},
-  "Exámenes de laboratorio": {icon:"🔬", title:"Exámenes de Laboratorio", text:"Pruebas clínicas que analizan sangre, orina y otros fluidos."},
-  "Genética": {icon:"🧬", title:"Genética", text:"Análisis genéticos para conocer predisposiciones hereditarias."},
-  "Nutrición y salud gastrointestinal": {icon:"🥗", title:"Nutrición y Salud Gastrointestinal", text:"Evalúa digestión, microbiota y deficiencias nutricionales."},
-  "Pruebas especiales": {icon:"⚗️", title:"Pruebas Especiales", text:"Análisis específicos para diagnósticos clínicos avanzados."},
-  "Salud de la mujer": {icon:"👩‍⚕️", title:"Salud de la Mujer", text:"Pruebas hormonales, ginecológicas y de bienestar femenino."},
-  "Salud del hombre": {icon:"👨‍⚕️", title:"Salud del Hombre", text:"Chequeos y diagnósticos integrales, con énfasis en próstata y prevención de enfermedades crónicas."},
-  "Salud sexual": {icon:"❤️", title:"Salud Sexual", text:"Pruebas de ITS y fertilidad, promoviendo la detección temprana y confidencialidad."},
-};
+      // 🧠 Iniciar conversación (solo una vez)
+      function iniciarChat() {
+        if (!localStorage.getItem("chatIniciado")) {
+          agregarMensaje(
+            "👋 ¡Hola! Soy <b>Taboplus</b>, tu asesor virtual. ¿Qué deseas hacer?<br><br>" +
+              "1️⃣ Consultar horarios<br>" +
+              "2️⃣ Agendar cita<br>" +
+              "3️⃣ Requisitos de exámenes<br>" +
+              "4️⃣ Resultados<br>" +
+              "5️⃣ Hablar con un agente",
+            "bot"
+          );
+          localStorage.setItem("chatIniciado", true);
+        }
+      }
 
-function renderHeader(){
-  const h = headers[currentCategory];
-  if(!h) return sectionHeader.innerHTML="";
-  const anim = "fadeIn";
-  sectionHeader.innerHTML = `
+      // 🔄 Reiniciar conversación completamente
+      function reiniciarConversacion() {
+        localStorage.removeItem("chatHistorial");
+        localStorage.removeItem("chatIniciado");
+        messages.innerHTML = "";
+        agregarMensaje(
+          "🔄 Conversación reiniciada.<br><br>👋 Hola, soy <b>Taboplus</b>, tu asesor virtual. ¿Qué deseas hacer?<br><br>" +
+            "1️⃣ Consultar horarios<br>" +
+            "2️⃣ Agendar cita<br>" +
+            "3️⃣ Requisitos de exámenes<br>" +
+            "4️⃣ Resultados<br>" +
+            "5️⃣ Hablar con un agente",
+          "bot"
+        );
+      }
+
+      // 🤖 Lógica de respuestas automáticas
+      function respuestaAutomatica(texto) {
+        let respuesta = "";
+
+        if (
+          texto.includes("1") ||
+          texto.includes("horario") ||
+          texto.includes("hora")
+        ) {
+          respuesta =
+            "🕒 Nuestro horario de atención es:<br>Lun-Vie: 7:00 a.m. - 4:00 p.m.<br>Sábados: 7:00 a.m. - 12:00 p.m.<br>Domingos y festivos con cita previa.";
+        } else if (
+          texto.includes("2") ||
+          texto.includes("agendar") ||
+          texto.includes("cita")
+        ) {
+          respuesta =
+            "📅 Puedes agendar tu cita escribiéndonos por WhatsApp al <a href='https://api.whatsapp.com/send?phone=573113212221' target='_blank'>+57 311 321 2221</a> o a través de nuestra página web.";
+        } else if (
+          texto.includes("3") ||
+          texto.includes("requisito") ||
+          texto.includes("preparación")
+        ) {
+          respuesta =
+            "📋 Cada examen tiene requisitos específicos. Por ejemplo, para exámenes de sangre se recomienda ayuno de 8 horas. ¿Deseas conocer los requisitos de un examen específico?";
+        } else if (texto.includes("4") || texto.includes("resultado")) {
+          respuesta =
+            "📑 Puedes consultar tus resultados en línea o solicitarlos por WhatsApp. Generalmente están disponibles entre 24 y 48 horas después del examen.";
+        } else if (
+          texto.includes("5") ||
+          texto.includes("agente") ||
+          texto.includes("humano")
+        ) {
+          respuesta =
+            "👩‍💼 Un agente humano te atenderá en breve. También puedes contactarnos directamente por WhatsApp 👉 <a href='https://api.whatsapp.com/send?phone=573113212221' target='_blank'>aquí</a>.";
+        } else if (
+          texto.includes("reiniciar") ||
+          texto.includes("nuevo chat")
+        ) {
+          reiniciarConversacion();
+          return;
+        } else {
+          respuesta =
+            "🤖 No entendí completamente. Por favor elige una opción del 1 al 5.<br><br>" +
+            "1️⃣ Horarios<br>2️⃣ Cita<br>3️⃣ Requisitos<br>4️⃣ Resultados<br>5️⃣ Agente";
+        }
+
+        setTimeout(() => agregarMensaje(respuesta, "bot"), 700);
+      }
+    </script>
+    <!-- Fin Script Taboplus asesor virtual -->
+
+    <!-- Script Filtro de categoria -->
+
+    <script>
+      const exams = [
+        {
+          id: 1,
+          name: "Alergias e intolerancias",
+          desc: "",
+          category: "Alergias e intolerancias",
+          img: "https://img.freepik.com/foto-gratis/doctor-realizando-prueba-alergias_23-2149351061.jpg",
+          price: "$240.000",
+          sample: "Sangre/Prick test",
+          time: "3 - 7 días",
+          details: "Evitar antihistamínicos 3 días antes.",
+        },
+        {
+          id: 2,
+          name: "Bienestar general",
+          desc: "",
+          category: "Bienestar general",
+          img: "https://img.freepik.com/foto-gratis/medico-sonriente-consultorio_23-2148230399.jpg",
+          price: "$60.000",
+          sample: "Sangre",
+          time: "24 - 48 horas",
+          details: "Ayuno de 8 horas recomendado.",
+        },
+        {
+          id: 3,
+          name: "Chequeos",
+          desc: "",
+          category: "Chequeos",
+          img: "https://img.freepik.com/foto-gratis/doctor-laboratorio_23-2149829694.jpg",
+          price: "$180.000",
+          sample: "Sangre/Orina",
+          time: "3 - 5 días",
+          details: "Incluye perfil básico y consulta médica.",
+        },
+        {
+          id: 4,
+          name: "Exámenes de laboratorio",
+          desc: "",
+          category: "Exámenes de laboratorio",
+          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
+          price: "$45.000",
+          sample: "Sangre/Orina",
+          time: "24 - 72 horas",
+          details: "Depende del panel seleccionado.",
+        },
+        {
+          id: 5,
+          name: "Genética",
+          desc: "",
+          category: "Genética",
+          img: "https://img.freepik.com/foto-gratis/adn-genetica_23-2148514857.jpg",
+          price: "$650.000",
+          sample: "Hisopado/DNA",
+          time: "2 - 3 semanas",
+          details: "Incluye asesoría genética personalizada.",
+        },
+        {
+          id: 6,
+          name: "Nutrición y salud gastrointestinal",
+          desc: "",
+          category: "Nutrición y salud gastrointestinal",
+          img: "https://img.freepik.com/foto-gratis/doctor-concepto-nutricion_23-2148522273.jpg",
+          price: "$210.000",
+          sample: "Heces/Sangre",
+          time: "5 - 10 días",
+          details: "Mostrar medicamentos activos al técnico.",
+        },
+        {
+          id: 7,
+          name: "Pruebas especiales",
+          desc: "",
+          category: "Pruebas especiales",
+          img: "https://img.freepik.com/foto-gratis/cientifico-realizando-prueba-especial_23-2149523621.jpg",
+          price: "Variable",
+          sample: "Variable",
+          time: "Variable",
+          details: "Consultar protocolo según el examen solicitado.",
+        },
+        {
+          id: 8,
+          name: "Preconception Test",
+          desc: "Preconception Focus, es un estudio genético que analiza 299 genes ayudando a establecer la idoneidad genética de los futuros padres antes de programar un embarazo para disminuir el riesgo de transmisión de enfermedades hereditarias a las siguientes generaciones. Se estudian 363 enfermedades hereditarias monogénicas, con herencia autosómica recesiva y ligada al cromosoma X.",
+          category: "Salud de la mujer",
+          img: "https://img.freepik.com/foto-gratis/doctor-consultando-mujer_23-2148183908.jpg",
+          price: "$3.500.000",
+          sample: "Sangre/Orina",
+          time: "48 - 72 horas",
+          details: "Consultar día del ciclo para exámenes hormonales.",
+        },
+        {
+          id: 9,
+          name: "Salud del hombre",
+          desc: "",
+          category: "Salud del hombre",
+          img: "https://img.freepik.com/foto-gratis/doctor-consultorio-paciente_23-2148230385.jpg",
+          price: "$110.000",
+          sample: "Sangre/Espermograma",
+          time: "3 - 5 días",
+          details: "Espermograma requiere abstinencia de 2-5 días.",
+        },
+        {
+          id: 10,
+          name: "Salud sexual",
+          desc: "",
+          category: "Salud sexual",
+          img: "https://img.freepik.com/foto-gratis/pareja-consultorio-medico_23-2148523069.jpg",
+          price: "$75.000",
+          sample: "Sangre/Orina",
+          time: "24 - 72 horas",
+          details: "Prueba confidencial con entrega segura.",
+        },
+        {
+          id: 11,
+          name: "Prueba de fertilidad",
+          desc: "",
+          category: "Prueba de fertilidad",
+          img: "https://img.freepik.com/foto-gratis/pareja-consultorio-medico_23-2148523069.jpg",
+          price: "$75.000",
+          sample: "Sangre/Orina",
+          time: "24 - 72 horas",
+          details: "Prueba confidencial con entrega segura.",
+        },
+      ];
+
+      const sectionHeader = document.getElementById("section-header");
+      const examContainer = document.getElementById("exam-list");
+      const categoryItems = document.querySelectorAll("#category-list li");
+      const compareBtn = document.getElementById("compare-btn");
+      const modal = document.getElementById("compare-modal");
+      const modalBody = document.getElementById("modal-body");
+      const closeModal = document.getElementById("close-modal");
+      const listViewBtn = document.getElementById("list-view");
+      const gridViewBtn = document.getElementById("grid-view");
+
+      let currentCategory = "Alergias e intolerancias";
+      let selectedExams = [];
+      let currentView = "grid";
+
+      const headers = {
+        "Alergias e intolerancias": {
+          icon: "🧪",
+          title: "Alergias e Intolerancias",
+          text: "Detecta reacciones adversas a alimentos o alérgenos ambientales.",
+        },
+        "Bienestar general": {
+          icon: "💖",
+          title: "Bienestar General",
+          text: "Evalúa tu estado general de salud y equilibrio corporal.",
+        },
+        Chequeos: {
+          icon: "🩺",
+          title: "Chequeos",
+          text: "Exámenes preventivos para detectar enfermedades a tiempo.",
+        },
+        "Exámenes de laboratorio": {
+          icon: "🔬",
+          title: "Exámenes de Laboratorio",
+          text: "Pruebas clínicas que analizan sangre, orina y otros fluidos.",
+        },
+        Genética: {
+          icon: "🧬",
+          title: "Genética",
+          text: "Análisis genéticos para conocer predisposiciones hereditarias.",
+        },
+        "Nutrición y salud gastrointestinal": {
+          icon: "🥗",
+          title: "Nutrición y Salud Gastrointestinal",
+          text: "Evalúa digestión, microbiota y deficiencias nutricionales.",
+        },
+        "Pruebas especiales": {
+          icon: "⚗️",
+          title: "Pruebas Especiales",
+          text: "Análisis específicos para diagnósticos clínicos avanzados.",
+        },
+        "Salud de la mujer": {
+          icon: "👩‍⚕️",
+          title: "Salud de la Mujer",
+          text: "Pruebas hormonales, ginecológicas y de bienestar femenino.",
+        },
+        "Salud del hombre": {
+          icon: "👨‍⚕️",
+          title: "Salud del Hombre",
+          text: "Chequeos y diagnósticos integrales, con énfasis en próstata y prevención de enfermedades crónicas.",
+        },
+        "Salud sexual": {
+          icon: "❤️",
+          title: "Salud Sexual",
+          text: "Varias enfermedades de transmisión sexual suelen provocar síntomas similares, pero en muchos casos no se desarrolla ningún síntoma. Por esta razón, las ITS a menudo se transmiten sin saberlo. Aquí encontrarás paneles y pruebas de las enfermedades de transmisión sexual más comunes.",
+        },
+        "Prueba de Fertilidad": {
+          icon: "🧪",
+          title: "Prueba de Fertilidad",
+          text: "Incluye análisis de espermograma, Hormona antimülleriana, LH y FSH. Evalúa la fertilidad y permite un diagnóstico integral sin iconos adicionales en los resultados.",
+        },
+      };
+
+      function renderHeader() {
+        const h = headers[currentCategory];
+        if (!h) return (sectionHeader.innerHTML = "");
+        const anim = "fadeIn";
+        sectionHeader.innerHTML = `
     <div class="icon" style="animation-name:${anim}">${h.icon}</div>
     <h2 style="animation-name:${anim}">${h.title}</h2>
     <p style="animation-name:${anim}">${h.text}</p>
   `;
-}
+      }
 
-function renderExams(list) {
-  renderHeader();
-  examContainer.className = currentView === "grid" ? "exam-grid" : "exam-list";
-  examContainer.innerHTML = "";
+      function renderExams(list) {
+        renderHeader();
+        examContainer.className =
+          currentView === "grid" ? "exam-grid" : "exam-list";
+        examContainer.innerHTML = "";
 
-  list.forEach(exam => {
-    const card = document.createElement("div");
-    card.className = "exam-card";
-    card.innerHTML = `
+        list.forEach((exam) => {
+          const card = document.createElement("div");
+          card.className = "exam-card";
+          card.innerHTML = `
       <img src="${exam.img}" alt="${exam.name}">
       <div>
         <h3>${exam.name}</h3>
@@ -874,53 +1223,57 @@ function renderExams(list) {
         <button class="compare" data-id="${exam.id}">Comparar</button>
       </div>
     `;
-    examContainer.appendChild(card);
-  });
+          examContainer.appendChild(card);
+        });
 
-  document.querySelectorAll(".compare").forEach(btn=>{
-    btn.addEventListener("click", e=>{
-      const id = parseInt(e.target.dataset.id);
-      if(selectedExams.includes(id)) selectedExams = selectedExams.filter(x=>x!==id);
-      else if(selectedExams.length<2) selectedExams.push(id);
-      compareBtn.style.display = selectedExams.length===2 ? "block" : "none";
-    });
-  });
-}
+        document.querySelectorAll(".compare").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            const id = parseInt(e.target.dataset.id);
+            if (selectedExams.includes(id))
+              selectedExams = selectedExams.filter((x) => x !== id);
+            else if (selectedExams.length < 2) selectedExams.push(id);
+            compareBtn.style.display =
+              selectedExams.length === 2 ? "block" : "none";
+          });
+        });
+      }
 
-// Inicial render
-renderExams(exams.filter(e=>e.category===currentCategory));
+      // Inicial render
+      renderExams(exams.filter((e) => e.category === currentCategory));
 
-// Categorías
-categoryItems.forEach(item=>{
-  item.addEventListener("click", ()=>{
-    categoryItems.forEach(li=>li.classList.remove("active"));
-    item.classList.add("active");
-    currentCategory = item.dataset.category;
-    renderExams(exams.filter(e=>e.category===currentCategory));
-    selectedExams=[];
-    compareBtn.style.display="none";
-  });
-});
+      // Categorías
+      categoryItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          categoryItems.forEach((li) => li.classList.remove("active"));
+          item.classList.add("active");
+          currentCategory = item.dataset.category;
+          renderExams(exams.filter((e) => e.category === currentCategory));
+          selectedExams = [];
+          compareBtn.style.display = "none";
+        });
+      });
 
-// Vistas
-listViewBtn.addEventListener("click", ()=>{
-  listViewBtn.classList.add("active");
-  gridViewBtn.classList.remove("active");
-  currentView="list";
-  renderExams(exams.filter(e=>e.category===currentCategory));
-});
+      // Vistas
+      listViewBtn.addEventListener("click", () => {
+        listViewBtn.classList.add("active");
+        gridViewBtn.classList.remove("active");
+        currentView = "list";
+        renderExams(exams.filter((e) => e.category === currentCategory));
+      });
 
-gridViewBtn.addEventListener("click", ()=>{
-  gridViewBtn.classList.add("active");
-  listViewBtn.classList.remove("active");
-  currentView="grid";
-  renderExams(exams.filter(e=>e.category===currentCategory));
-});
+      gridViewBtn.addEventListener("click", () => {
+        gridViewBtn.classList.add("active");
+        listViewBtn.classList.remove("active");
+        currentView = "grid";
+        renderExams(exams.filter((e) => e.category === currentCategory));
+      });
 
-// Comparativa
-compareBtn.addEventListener("click", ()=>{
-  const [e1,e2] = selectedExams.map(id=>exams.find(x=>x.id===id));
-  modalBody.innerHTML=`
+      // Comparativa
+      compareBtn.addEventListener("click", () => {
+        const [e1, e2] = selectedExams.map((id) =>
+          exams.find((x) => x.id === id)
+        );
+        modalBody.innerHTML = `
     <div class="compare-grid">
       <div class="compare-item">
         <img src="${e1.img}" alt="${e1.name}">
@@ -936,17 +1289,37 @@ compareBtn.addEventListener("click", ()=>{
       </div>
     </div>
   `;
-  modal.style.display="flex";
-});
+        modal.style.display = "flex";
+      });
 
-closeModal.addEventListener("click", ()=>{
-  modal.style.display="none";
-});
+      closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
 
-window.addEventListener("click", e=>{
-  if(e.target===modal) modal.style.display="none";
-});
-</script>
+      window.addEventListener("click", (e) => {
+        if (e.target === modal) modal.style.display = "none";
+      });
 
-</body>
+      // Reutilizamos el array exams del script principal
+      const params = new URLSearchParams(window.location.search);
+      const examId = parseInt(params.get("id"));
+      const exam = exams.find((e) => e.id === examId);
+
+      const detailContainer = document.getElementById("exam-detail");
+
+      if (exam) {
+        detailContainer.innerHTML = `
+    <h2>${exam.name}</h2>
+    <img src="${exam.img}" alt="${exam.name}" style="width:100%; max-height:400px; object-fit:cover; border-radius:12px; margin:1rem 0;">
+    <p><strong>Descripción:</strong> ${exam.desc}</p>
+    <p><strong>Precio:</strong> ${exam.price}</p>
+    <p><strong>Muestra:</strong> ${exam.sample}</p>
+    <p><strong>Tiempo de entrega:</strong> ${exam.time}</p>
+    <p><strong>Detalles:</strong> ${exam.details}</p>
+  `;
+      } else {
+        detailContainer.innerHTML = "<p>Examen no encontrado.</p>";
+      }
+    </script>
+  </body>
 </html>
