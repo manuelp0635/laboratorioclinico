@@ -56,6 +56,44 @@
         --radius: 12px;
       }
 
+      /* BUSCADOR ajustado al diseño */
+.search-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#search-input {
+  background: #f0f4f8;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 10px 14px;
+  font-size: 14px;
+  outline: none;
+  transition: .3s;
+}
+
+#search-input:focus {
+  border-color: var(--primary);
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(0,123,255,.1);
+}
+
+#search-results-hint {
+  font-size: 12px;
+  opacity: .7;
+  padding-left: 6px;
+}
+
+#search-results-hint {
+  opacity: .6;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+
       /* Header principal */
       .header {
         text-align: center;
@@ -587,31 +625,46 @@
       <!-- Se llenará dinámicamente -->
     </section>
 
-    <!-- Barra de categorías y vistas -->
-    <nav class="category-nav">
-      <ul id="category-list">
-        <li data-category="Alergias e intolerancias" class="active">
-          Alergias e Intolerancias
-        </li>
-        <li data-category="Bienestar general">Bienestar General</li>
-        <li data-category="Chequeos">Chequeos</li>
-        <li data-category="Exámenes de laboratorio">Exámenes de Laboratorio</li>
-        <li data-category="Genética">Genética</li>
-        <li data-category="Nutrición y salud gastrointestinal">
-          Nutrición y Salud Gastrointestinal
-        </li>
-        <li data-category="Pruebas especiales">Pruebas Especiales</li>
-        <li data-category="Salud de la mujer">Salud de la Mujer</li>
-        <li data-category="Salud del hombre">Salud del Hombre</li>
-        <li data-category="Salud sexual">Salud Sexual</li>
-        <li data-category="Prueba de fertilidad">Prueba de Fertilidad</li>
-      </ul>
+   <!-- Barra de categorías, búsqueda y vistas -->
+<nav class="category-nav">
 
-      <div class="view-toggle">
-        <button id="list-view">📋 Lista</button>
-        <button id="grid-view" class="active">🔲 Cuadrícula</button>
-      </div>
-    </nav>
+  <!-- BUSCADOR -->
+  <div class="search-box">
+  <input 
+    id="search-input"
+    type="text"
+    placeholder="Buscar pruebas aquí 🔍"
+  >
+  
+  <!-- Este texto se actualizará dinámicamente -->
+  <span id="search-results-hint">ej: 10 resultados</span>
+</div>
+
+
+  <ul id="category-list">
+    <li data-category="Alergias e intolerancias" class="active">
+      Alergias e Intolerancias
+    </li>
+    <li data-category="Bienestar general">Bienestar General</li>
+    <li data-category="Chequeos">Chequeos</li>
+    <li data-category="Exámenes de laboratorio">Exámenes de Laboratorio</li>
+    <li data-category="Genética">Genética</li>
+    <li data-category="Nutrición y salud gastrointestinal">
+      Nutrición y Salud Gastrointestinal
+    </li>
+    <li data-category="Pruebas especiales">Pruebas Especiales</li>
+    <li data-category="Salud de la mujer">Salud de la Mujer</li>
+    <li data-category="Salud del hombre">Salud del Hombre</li>
+    <li data-category="Salud sexual">Salud Sexual</li>
+    <li data-category="Prueba de fertilidad">Prueba de Fertilidad</li>
+  </ul>
+
+  <div class="view-toggle">
+    <button id="list-view">📋 Lista</button>
+    <button id="grid-view" class="active">🔲 Cuadrícula</button>
+  </div>
+</nav>
+
 
     <main class="exam-container">
       <div id="exam-list" class="exam-grid"></div>
@@ -1046,7 +1099,7 @@
           name: "HLA Tipificación para Enfermedad Celíaca (DQ Alfa 1 - DQ Beta 1)",
           desc: "La HLA tipificación para enfermedad celíaca (DQ Alfa 1 - DQ Beta 1) es un análisis genético que se realiza a partir de una muestra de sangre para identificar si una persona tiene predisposición genética a desarrollar enfermedad celíaca, una condición autoinmune provocada por el consumo de gluten.",
           category: "Alergias e intolerancias",
-          img: "./assets/images/Examenes/Alergias e Intolerancias/50HLA_Tipificacion_para_Enfermedad_Celiaca_DQ_Alfa_1_-_DQ_Beta_1-100__23584.jpg",
+          img: "./assets/images/Examenes/Alergias e Intolerancias/50HLA_Tipificacion_para_Enfermedad_Celiaca_DQ_Alfa_1_-_DQ_Beta_1-100__23584.webp",
           price: "$1.073.800",
           sample: "Sangre/Prick test",
           time: "3 - 7 días",
@@ -1057,7 +1110,7 @@
           name: "Migratest",
           desc: "MigraTest evalúa la actividad de DAO para detectar propensión a migrañas por histamina. Este análisis permite adaptar la dieta y mejorar la calidad de vida. La actividad de DAO puede verse afectada por factores genéticos, medicamentos o enfermedades. Durante el embarazo, su evaluación no es recomendable por la alta síntesis placentaria de DAO.",
           category: "Alergias e intolerancias",
-          img: "./assets/images/Examenes/Alergias e Intolerancias/47Migratest-100__26519.jpg",
+          img: "./assets/images/Examenes/Alergias e Intolerancias/47Migratest-100__26519.webp",
           price: "$371.300",
           sample: "Sangre/Prick test",
           time: "3 - 7 días",
@@ -1068,7 +1121,7 @@
           name: "Intolerancia a la Fructosa (Secuenciación)",
           desc: "La intolerancia hereditaria a la fructosa es una enfermedad metabólica causada por deficiencia de la aldolasa B. Los individuos afectos sufren dolor abdominal, vómitos, hipoglucemia después de la ingesta de fructosa, sacarosa o sorbitol. La ingesta continua de estos azúcares causa lesiones renales y hepáticas.",
           category: "Alergias e intolerancias",
-          img: "./assets/images/Examenes/Alergias e Intolerancias/4Intolerancia_a_la_Fructosa_Secuenciacin__77288.jpg",
+          img: "./assets/images/Examenes/Alergias e Intolerancias/4Intolerancia_a_la_Fructosa_Secuenciacin__77288.webp",
           price: "$1.066.500",
           sample: "Sangre/Prick test",
           time: "3 - 7 días",
@@ -1079,7 +1132,7 @@
           name: "Prueba de Aliento, Intolerancia a la Lactosa",
           desc: "La prueba de aliento permite detectar si existe malabsorción o intolerancia a la lactosa. Para ello, se administra lactosa como sustrato, y si esta llega intacta al intestino grueso, es metabolizada por la microbiota intestinal. Durante este proceso se generan gases como hidrógeno y metano, los cuales pasan al torrente sanguíneo y son transportados hasta los pulmones, donde se eliminan a través del aire espirado. Un aumento en la concentración de estos gases en el aliento indica la presencia de intolerancia a la lactosa.",
           category: "Alergias e intolerancias",
-          img: "./assets/images/Examenes/Alergias e Intolerancias/6Prueba_de_Aliento_Intolerancia_a_la_Lactosa___35114.jpg",
+          img: "./assets/images/Examenes/Alergias e Intolerancias/6Prueba_de_Aliento_Intolerancia_a_la_Lactosa___35114.webp",
           price: "$619.100",
           sample: "Sangre/Prick test",
           time: "3 - 7 días",
@@ -1090,7 +1143,7 @@
           name: "Prueba de Aliento, Intolerancia a la Fructuosa",
           desc: "La prueba de aliento permite detectar si hay malabsorción o intolerancia a la fructosa. Tras administrar este azúcar, si llega sin digerir al intestino grueso, la microbiota lo fermenta y produce gases como hidrógeno y metano. Estos gases pasan a la sangre, llegan a los pulmones y se eliminan al exhalar. Un aumento en su concentración en el aliento indica una posible intolerancia a la fructosa.",
           category: "Alergias e intolerancias",
-          img: "./assets/images/Examenes/Alergias e Intolerancias/5Prueba_de_Aliento_Intolerancia_a_la_Fructuosa_2__80460.jpg",
+          img: "./assets/images/Examenes/Alergias e Intolerancias/5Prueba_de_Aliento_Intolerancia_a_la_Fructuosa_2__80460.webp",
           price: "$619.100",
           sample: "Sangre/Prick test",
           time: "3 - 7 días",
@@ -1101,7 +1154,7 @@
           name: "Intolerance 2 - Intoleracia al Gluten y Lactosa (RPLP -PCR RT)",
           desc: "Actualmente son cada vez más las personas que presentan molestias digestivas originadas tras la ingestión de determinados alimentos. Los alimentos que más frecuentemente son alimentos derivados de cereales y de lácteos. La prueba INTOLERANCE2 permite conocer en un solo análisis si existe predisposición genética a la celiaquía y/o intolerancia primaria a la lactosa.",
           category: "Alergias e intolerancias",
-          img: "./assets/images/Examenes/Alergias e Intolerancias/0_Intolerance_2__24903.jpg",
+          img: "./assets/images/Examenes/Alergias e Intolerancias/0_Intolerance_2__24903.webp",
           price: "$695.350",
           sample: "Sangre/Prick test",
           time: "3 - 7 días",
@@ -1112,7 +1165,7 @@
           name: "A200 Test de Hipersensibilidad Alimentaria",
           desc: "La hipersensibilidad alimentaria, popularmente conocida como intolerancia alimentaria, es una reacción de rechazo que produce el organismo ante la ingesta de determinados componentes de los alimentos. Esta reacción inmunitaria se debe a alteraciones de la membrana intestinal, y generan diversa sintomatología.",
           category: "Alergias e intolerancias",
-          img: "./assets/images/Examenes/Alergias e Intolerancias/48A200_Test_de_Hipersensibilidad_Alimentaria-100__25635.jpg",
+          img: "./assets/images/Examenes/Alergias e Intolerancias/48A200_Test_de_Hipersensibilidad_Alimentaria-100__25635.webp",
           price: "$956.700",
           sample: "Sangre/Prick test",
           time: "3 - 7 días",
@@ -1123,7 +1176,7 @@
           name: "Perfil de Alérgenos de Amplio Espectro a Nivel Moleculars (Isac)",
           desc: "ImmunoCAP ISAC es un test diagnóstico in vitro muy avanzado. Permite medir simultáneamente en un solo test anticuerpos específicos frente a componentes alergénicos múltiples, empleando únicamente pocos ML de suero o plasma proporcionando resultados para más de un centenar de componentes de más de 50 alérgenos. Los alérgenos se seleccionan previamente e incluyen marcadores para la reactividad cruzada.",
           category: "Alergias e intolerancias",
-          img: "./assets/images/Examenes/Alergias e Intolerancias/23Perfil_de_Alergenos_de_Amplio_Espectro_a_Nivel_Moleculars_Isac-100__56863.jpg",
+          img: "./assets/images/Examenes/Alergias e Intolerancias/23Perfil_de_Alergenos_de_Amplio_Espectro_a_Nivel_Moleculars_Isac-100__56863.webp",
           price: "$1.923.600",
           sample: "Sangre/Prick test",
           time: "3 - 7 días",
@@ -1134,7 +1187,7 @@
           name: "Intolerancia a la Lactosa (Secuenciación)",
           desc: "La intolerancia a la lactosa en adultos ocurre cuando el cuerpo deja de producir suficiente lactasa, la enzima que ayuda a digerir la lactosa (el azúcar de la leche), pero hay personas que presentan una menor producción de lactasa por las siguientes variantes genéticas en el gen MCM6 (alelos 13910C y 22018G).",
           category: "Alergias e intolerancias",
-          img: "./assets/images/Examenes/Alergias e Intolerancias/29Intolerancia_a_la_Lactosa_Secuenciacion-100__22907.jpg",
+          img: "./assets/images/Examenes/Alergias e Intolerancias/29Intolerancia_a_la_Lactosa_Secuenciacion-100__22907.webp",
           sample: "Sangre/Prick test",
           time: "3 - 7 días",
           details: "Evitar antihistamínicos 3 días antes.",
@@ -1144,7 +1197,7 @@
           name: "Panel de Alimentos (20 Alergenos)",
           desc: "La alergia alimentaria es una reacción rápida del sistema inmunológico causada por ciertos alimentos. Está mediada por anticuerpos IgE y tiene una relación clara entre el alimento y los síntomas. El estudio 20IgE analiza los 20 alimentos que más frecuentemente generan alergias.",
           category: "Alergias e intolerancias",
-          img: "./assets/images/Examenes/Alergias e Intolerancias/35Panel_de_Alimentos_20_Alergenos-100__96400.jpg",
+          img: "./assets/images/Examenes/Alergias e Intolerancias/35Panel_de_Alimentos_20_Alergenos-100__96400.webp",
           price: "$541.900",
           sample: "Sangre/Prick test",
           time: "3 - 7 días",
@@ -1342,7 +1395,7 @@
           name: "Chequeo Médico del Adulto",
           desc: "Este chequeo busca hacer prevención y detección temprana de diversas enfermedades comunes en adultos cómo lo son el riesgo cardiovascular, diabetes, alteraciones en tiroidea, alteraciones renales entre otros, permitiendo intervenciones oportunas y mejorando la calidad de vida.",
           category: "Chequeos",
-          img: "./assets/images/Examenes/Chequeos/2Chequeo_Medico_del_Adulto-100__82225.jpg",
+          img: "./assets/images/Examenes/Chequeos/2Chequeo_Medico_del_Adulto-100__82225_2_11zon.webp",
           price: "$255.200",
           sample: "Sangre/Orina",
           time: "3 - 5 días",
@@ -1353,7 +1406,7 @@
           name: "Chequeo Médico del Hombre",
           desc: "El Chequeo Médico del Hombre va dirigido a toda la población masculina mayor de 50 años con la finalidad de realizar prevención de cáncer de próstata y cáncer colorrectal, además de diagnóstico temprano y oportuno enfermedad crónica no transmisible cómo enfermedad cardiovascular, metabólica, disfunción renal, hepática y tiroidea.",
           category: "Chequeos",
-          img: "./assets/images/Examenes/Chequeos/3Chequeo_Medico_del_Hombre-100__02974.jpg",
+          img: "./assets/images/Examenes/Chequeos/3Chequeo_Medico_del_Hombre-100__02974_3_11zon.webp",
           price: "$282.200",
           sample: "Sangre/Orina",
           time: "3 - 5 días",
@@ -1364,7 +1417,7 @@
           name: "Chequeo de la Mujer",
           desc: "El Chequeo Médico de la mujer va dirigido a toda la población femenina de 25 a 29 años con la finalidad de realizar prevención y/o detección temprana de cáncer de cuello uterino y diagnóstico oportuno en enfermedades crónicas no transmisibles.",
           category: "Chequeos",
-          img: "./assets/images/Examenes/Chequeos/4Chequeo_de_la_Mujer-100__87834.jpg",
+          img: "./assets/images/Examenes/Chequeos/4Chequeo_de_la_Mujer-100__87834_4_11zon.webp",
           price: "$317.200",
           sample: "Sangre/Orina",
           time: "3 - 5 días",
@@ -1375,7 +1428,7 @@
           name: "Chequeo de la Mujer Plus",
           desc: "El Chequeo Médico Preventivo Mujer Plus va dirigido mujeres entre 30 a 65 años, este cheque permite detectar a tiempo el virus de papiloma humano (VPH), con el objetivo de hacer detección y prevención temprana de cáncer de cuello uterino,  también hace análisis para prevención de cáncer colon y otras enfermedades crónicas no trasmisibles.",
           category: "Chequeos",
-          img: "./assets/images/Examenes/Chequeos/5Chequeo_de_la_Mujer_Plus-100__36682.jpg",
+          img: "./assets/images/Examenes/Chequeos/5Chequeo_de_la_Mujer_Plus-100__36682_5_11zon.webp",
           price: "$405.500",
           sample: "Sangre/Orina",
           time: "3 - 5 días",
@@ -1386,7 +1439,7 @@
           name: "Chequeo Médico del Joven",
           desc: "El Chequeo Médico Preventivo Joven es una evaluación integral diseñada para detectar de forma temprana enfermedades comunes en la infancia y adolescencia cómo diabetes, hipercolesterolemia, trastorno tiroideo o problemas renales y metabólicos, incluso antes de que aparezcan los síntomas. Su objetivo es intervenir oportunamente para mejorar la calidad de vida de niños y jóvenes.",
           category: "Chequeos",
-          img: "./assets/images/Examenes/Chequeos/6Chequeo_Medico_del_Joven-100__03541.jpg",
+          img: "./assets/images/Examenes/Chequeos/6Chequeo_Medico_del_Joven-100__03541_6_11zon.webp",
           price: "$126.550",
           sample: "Sangre/Orina",
           time: "3 - 5 días",
@@ -1397,7 +1450,7 @@
           name: "Chequeo Médico de Salud Sexual",
           desc: "El Chequeo Médico de Salud Sexual va dirigido a la población en general que haya iniciado su vida sexual activa o según la exposición al riesgo (relaciones sexuales sin protección), con el fin de realizar detección (cribado) de enfermedades de transmisión sexual (ETS) que generalmente son asintomáticas.",
           category: "Chequeos",
-          img: "./assets/images/Examenes/Chequeos/9Chequeo_Medico_de_Salud_Sexual-100__07725.jpg",
+          img: "./assets/images/Examenes/Chequeos/9Chequeo_Medico_de_Salud_Sexual-100__07725_7_11zon.webp",
           price: "$74.850",
           sample: "Sangre/Orina",
           time: "3 - 5 días",
@@ -1408,7 +1461,7 @@
           name: "Chequeo Prequirúrgico",
           desc: "Todo paciente que se va a someter a un procedimiento quirúrgico con anestesia necesita una evaluación preoperatoria, el objetivo principal de esta es identificar los factores de riesgo del paciente y optimizar los cuidados para lograr una significativa disminución de las complicaciones durante estos procedimientos.",
           category: "Chequeos",
-          img: "./assets/images/Examenes/Chequeos/11Chequeo_Prequirurgico-100__42684.jpg",
+          img: "./assets/images/Examenes/Chequeos/11Chequeo_Prequirurgico-100__42684_9_11zon.webp",
           price: "$129.950",
           sample: "Sangre/Orina",
           time: "3 - 5 días",
@@ -1419,7 +1472,7 @@
           name: "Chequeo Metabólico",
           desc: "El panel metabólico integral (CMP) ayuda a evaluar la salud general, detectar signos tempranos de enfermedad y monitorear condiciones crónicas. Mide 13 componentes. Los resultados anormales de la prueba CMP pueden indicar diversas condiciones de salud, como enfermedad hepática o renal en desarrollo o activa, hipertensión o diabetes.",
           category: "Chequeos",
-          img: "./assets/images/Examenes/Chequeos/14Chequeo_Metabolico-100__27169.jpg",
+          img: "./assets/images/Examenes/Chequeos/14Chequeo_Metabolico-100__27169_10_11zon.webp",
           price: "$146.900",
           sample: "Sangre/Orina",
           time: "3 - 5 días",
@@ -1430,7 +1483,7 @@
           name: "Chequeo Deficiencias Nutricionales Dietas Altas en Grasa",
           desc: "Las dietas Altas en grasas pueden generan desbalances nutricionales, pueden aumentar el riesgo cardiovascular, problemas digestivos por falta de fibra y calambres o fatiga por deficiencias en vitaminas especialmente las del grupo B. El Chequeo de la dieta alta en grasas mide 8 parámetros que permiten entender si la dieta está generando deficiencias nutricionales.",
           category: "Chequeos",
-          img: "./assets/images/Examenes/Chequeos/16Chequeo_Deficiencias_Nutricionales_Dietas_Altas_en_Grasa-100__70378.jpg",
+          img: "./assets/images/Examenes/Chequeos/16Chequeo_Deficiencias_Nutricionales_Dietas_Altas_en_Grasa-100__70378_11_11zon.webp",
           price: "$400.600",
           sample: "Sangre/Orina",
           time: "3 - 5 días",
@@ -1441,7 +1494,7 @@
           name: "Chequeo Deficiencias Nutricionales Dieta Baja en Carbohidratos",
           desc: "Las dietas restrictivas pueden generan desbalances nutricionales como; problemas de piel, problemas de memoria, fatiga, cansancio, entumecimiento, calambres pueden significar que hay deficiencias nutricionales, él Chequeo de la dieta baja en carbohidratos, mide 11 parámetros que permiten entender si la dieta baja en carbohidratos está generando deficiencias.",
           category: "Chequeos",
-          img: "./assets/images/Examenes/Chequeos/17Chequeo_Deficiencias_Nutricionales_Dieta_Baja_en_Carbohidratos-100__73117.jpg",
+          img: "./assets/images/Examenes/Chequeos/17Chequeo_Deficiencias_Nutricionales_Dieta_Baja_en_Carbohidratos-100__73117_12_11zon.webp",
           price: "$919.900",
           sample: "Sangre/Orina",
           time: "3 - 5 días",
@@ -1452,7 +1505,7 @@
           name: "Chequeo Deficiencias Nutricionales Dieta Vegana o Vegetariana",
           desc: "Este chequeo nos permite determinar si las personas bajo una dieta vegana o vegetariana están teniendo alguna deficiencia nutricional causada por la dieta. Este panel está recomendado para pacientes con síntomas como; cansancio y fatiga, uñas quebradizas, caída del pelo o sequedad.",
           category: "Chequeos",
-          img: "./assets/images/Examenes/Chequeos/18Chequeo_Deficiencias_Nutricionales_Dieta_Vegana_o_Vegetariana-100__92493.jpg",
+          img: "./assets/images/Examenes/Chequeos/18Chequeo_Deficiencias_Nutricionales_Dieta_Vegana_o_Vegetariana-100__92493_13_11zon.webp",
           price: "$860.100",
           sample: "Sangre/Orina",
           time: "3 - 5 días",
@@ -1463,7 +1516,7 @@
           name: "Chequeo Hormonal de la Mujer",
           desc: "Este chequeo es especialmente útil para anticiparse a los cambios hormonales de la transición a la menopausia en las mujeres.",
           category: "Chequeos",
-          img: "./assets/images/Examenes/Chequeos/19Chequeo_Hormonal_de_la_Mujer-100__92796.jpg",
+          img: "./assets/images/Examenes/Chequeos/19Chequeo_Hormonal_de_la_Mujer-100__92796_14_11zon.webp",
           price: "$138.950",
           sample: "Sangre/Orina",
           time: "3 - 5 días",
@@ -1474,7 +1527,7 @@
           name: "Chequeo Mujer Ampliado",
           desc: "El Chequeo Mujer Ampliado es una evaluación médica integral diseñada para la detección temprana de enfermedades crónicas no transmisibles, con especial énfasis en la prevención del cáncer de colon y otras condiciones que afectan la salud femenina en esta etapa de la vida, cómo cáncer de colon, enfermedades cardiovasculares o alteraciones metabólicas (como diabetes y dislipidemias).",
           category: "Chequeos",
-          img: "./assets/images/Examenes/Chequeos/10Chequeo_Mujer_Ampliado-100__33830.jpg",
+          img: "./assets/images/Examenes/Chequeos/10Chequeo_Mujer_Ampliado-100__33830_8_11zon.webp",
           price: "$225.950",
           sample: "Sangre/Orina",
           time: "3 - 5 días",
@@ -1485,7 +1538,7 @@
           name: "Perfil Hormonal Básico - Hombre",
           desc: "El análisis es útil para determinar la concentración hormonal androgénica necesaria para una adecuada salud en el hombre. Estas influyen en el estado emocional, la función sexual, la fuerza, la masa muscular, la salud cardiaca, el estado de los huesos, la capacidad cognitiva entre otras.",
           category: "Chequeos",
-          img: "./assets/images/Examenes/Chequeos/1Perfil_Hormonal_Basico_-_Hombre-100_copia_13__56267.jpg",
+          img: "./assets/images/Examenes/Chequeos/1Perfil_Hormonal_Basico_-_Hombre-100_copia_13__56267_1_11zon.webp",
           price: "$228.500",
           sample: "Sangre/Orina",
           time: "3 - 5 días",
@@ -1496,7 +1549,7 @@
           name: "Ácidos Grasos (Omega 3-Omega 6), Niveles Séricos",
           desc: "Los ácidos grasos omega-3 y omega-6 son grasas buenas que el cuerpo necesita pero no puede producir, por eso deben obtenerse de los alimentos como el pescado, frutos secos o aceites vegetales. Ayudan al buen funcionamiento de las células, el cerebro, el corazón y la piel.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/67cidos_Grasos_Omega_3-Omega_6_Niveles_Sricos__95219.jpg",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/67cidos_Grasos_Omega_3-Omega_6_Niveles_Sricos__95219_65_11zon.webp",
           /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
@@ -1507,7 +1560,7 @@
           name: "Hemograma",
           desc: "Este examen analiza las células de la sangre como los glóbulos rojos, glóbulos blancos y plaquetas. Sirve para detectar problemas como anemia, infecciones, inflamaciones o enfermedades en la sangre como la leucemia. Es una prueba muy común para revisar el estado general de salud.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/7Hemograma__89617.jpg",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/7Hemograma__89617_6_11zon.webp",
           /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
@@ -1516,10 +1569,10 @@
         {
           id: 4,
           name: "Tiempo de Protrombina",
-          desc: "",
+          desc: "Este examen evalúa qué tan bien y en cuánto tiempo coagula la sangre. Es fundamental para controlar tratamientos con anticoagulantes (como la warfarina) y para diagnosticar trastornos de coagulación, enfermedades hepáticas o deficiencia de vitamina K. También se usa para evaluar sangrados inexplicables o antes de cirugías.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/8Tiempo_de_Protrombina__75643_7_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1527,10 +1580,10 @@
         {
           id: 4,
           name: "Tiempo de Tromboplastina",
-          desc: "",
+          desc: "Prueba clave para evaluar la vía intrínseca de la coagulación. Detecta deficiencias congénitas o adquiridas de factores de coagulación y monitorea tratamientos anticoagulantes como heparina no fraccionada, argatrobán e hirudina.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/9Tiempo_de_Tromboplastina__41135_8_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1538,10 +1591,10 @@
         {
           id: 4,
           name: "Vitamina E (Tocoferol)",
-          desc: "",
+          desc: "Esta prueba mide los niveles de vitamina E en la sangre, una vitamina importante para proteger las células del cuerpo y mantener una buena salud. Ayuda a detectar si hay deficiencia o exceso de esta vitamina, especialmente en personas con problemas nutricionales o enfermedades del hígado o los nervios.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/10Vitamina_E_Tocoferol__59237_9_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1549,10 +1602,10 @@
         {
           id: 4,
           name: "Ácido Fólico",
-          desc: "",
+          desc: "Esta prueba mide los niveles de ácido fólico en la sangre, una vitamina del grupo B que es fundamental para la formación de células, el desarrollo del sistema nervioso del bebé en embarazo y para prevenir ciertos tipos de anemia.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/11cido_Flico__59929_10_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1560,10 +1613,10 @@
         {
           id: 4,
           name: "Ácido Úrico",
-          desc: "",
+          desc: "Evalúa los niveles de ácido úrico en la sangre, sustancia que proviene del metabolismo de las purinas (presentes en alimentos como carne roja, mariscos y vísceras). Es útil en el diagnóstico de problemas renales, gota, síndrome metabólico y otras alteraciones metabólicas.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/12cido_rico__77046_11_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1571,10 +1624,10 @@
         {
           id: 4,
           name: "Alanina Aminotransferasa (ALT)",
-          desc: "",
+          desc: "Enzima hepática clave para el diagnóstico de enfermedades del hígado como hepatitis, inflamaciones o lesiones hepáticas por medicamentos. Indicador sensible de daño hepático.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/13Alanina_Aminotransferasa_ALT__55685_12_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1582,10 +1635,10 @@
         {
           id: 4,
           name: "Albúmina en Suero",
-          desc: "",
+          desc: "Esta prueba mide la cantidad de albúmina, una proteína que produce el hígado. La albúmina es importante para transportar nutrientes y mantener el equilibrio de líquidos en el cuerpo. Ayuda a detectar problemas como desnutrición, enfermedades del hígado, riñones o inflamaciones graves.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/14Albmina_en_Suero__05309_13_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1593,10 +1646,10 @@
         {
           id: 4,
           name: "Fosfatasa Alcalina Total",
-          desc: "",
+          desc: "Evalúa los niveles de la enzima fosfatasa alcalina, útil en el diagnóstico de enfermedades hepáticas y óseas. Especialmente indicado en etapas de crecimiento, postmenopausia, embarazo y en casos de sospecha de obstrucción biliar.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/15Fosfatasa_Alcalina_Total__89624_14_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1604,10 +1657,10 @@
         {
           id: 4,
           name: "Aspartato transaminasa (AST)",
-          desc: "",
+          desc: "Esta prueba mide la cantidad de una enzima llamada AST, que normalmente se encuentra dentro de las células del hígado, el corazón y los músculos. Cuando estas células se dañan, la enzima pasa a la sangre. Este examen ayuda a detectar posibles problemas en esos órganos.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/16Aspartato_transaminasa_AST__90547_15_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1615,10 +1668,10 @@
         {
           id: 4,
           name: "Bilirrubina Directa",
-          desc: "",
+          desc: "Esta prueba mide los niveles de bilirrubina directa en la sangre, una sustancia que el cuerpo produce al eliminar glóbulos rojos viejos. Ayuda a saber si el hígado está funcionando bien y a detectar posibles problemas en el hígado o en las vías biliares.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/17Bilirrubina_Directa__50945_16_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1626,10 +1679,10 @@
         {
           id: 4,
           name: "Calcio",
-          desc: "",
+          desc: "Evalúa los niveles totales de calcio en sangre, fundamental para funciones neuromusculares, coagulación y salud ósea. Permite identificar alteraciones relacionadas con enfermedades renales, endocrinas, óseas y metabólicas.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/18Calcio__72834_17_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1637,10 +1690,10 @@
         {
           id: 4,
           name: "Cloro",
-          desc: "",
+          desc: "Esta prueba mide los niveles de cloruro en la sangre, un mineral que ayuda a mantener el equilibrio de líquidos y el pH del cuerpo. Es útil para revisar el estado de hidratación y el buen funcionamiento de riñones, pulmones y metabolismo general.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/19Cloro__27036_18_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1648,10 +1701,10 @@
         {
           id: 4,
           name: "Colesterol HDL",
-          desc: "",
+          desc: "Esta prueba mide el nivel de colesterol HDL, conocido como 'colesterol bueno', porque ayuda a limpiar la grasa en la sangre y protege el corazón. Niveles más altos significan menos riesgo de enfermedades cardíacas.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/20Colesterol_HDL__46884_19_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1659,10 +1712,10 @@
         {
           id: 4,
           name: "Colesterol Total",
-          desc: "",
+          desc: "Esta prueba mide la cantidad total de colesterol en la sangre. El colesterol es una grasa que el cuerpo necesita para producir hormonas, bilis y formar células, pero en exceso puede tapar las arterias y causar enfermedades del corazón o derrames cerebrales.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/21Colesterol_Total__44418_20_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1670,10 +1723,10 @@
         {
           id: 4,
           name: "Creatinquinasa Total (CK NAC)",
-          desc: "",
+          desc: "Esta prueba mide la cantidad de una enzima llamada creatina kinasa (CK) que se encuentra en los músculos. Cuando los músculos se dañan, esta enzima se libera a la sangre. Un nivel alto puede indicar un infarto al corazón, una lesión muscular o enfermedades musculares. Es útil para detectar problemas como un ataque al corazón o enfermedades que afectan los músculos.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/22Creatinquinasa_Total_CK_NAC__28843_21_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1681,10 +1734,10 @@
         {
           id: 4,
           name: "Creatinina",
-          desc: "",
+          desc: "Mide la cantidad de creatinina en sangre, una sustancia que eliminan los riñones. Ayuda a evaluar si los riñones están funcionando bien.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/23Creatinina__32281_22_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1692,10 +1745,10 @@
         {
           id: 4,
           name: "Deshidrogenasa Láctica (LDH)",
-          desc: "",
+          desc: "Esta prueba mide una enzima llamada LDH que se encuentra en casi todos los tejidos del cuerpo. Cuando hay daño en las células (por ejemplo, por un infarto, hepatitis, cáncer o una anemia), esta enzima se libera a la sangre y sus niveles aumentan. Sirve para detectar si hay lesiones en órganos como el corazón, el hígado o la sangre.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/24Deshidrogenasa_Lctica_LDH__74336_23_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1703,10 +1756,10 @@
         {
           id: 4,
           name: "Ferritina",
-          desc: "",
+          desc: "Cuantificación de ferritina sérica mediante inmunoensayo quimioluminiscente (CMIA), útil en el diagnóstico diferencial de anemias y evaluación de depósitos de hierro.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/25Ferritina__67792_24_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1714,10 +1767,10 @@
         {
           id: 4,
           name: "Fósforo",
-          desc: "",
+          desc: "El fósforo es un mineral esencial para el cuerpo. La mayoría se encuentra en los huesos junto con el calcio. Es importante para tener huesos fuertes, producir energía y mantener la función celular normal. Se obtiene principalmente de alimentos como leche, carne y pescado. Sus niveles pueden verse alterados por problemas de riñón, huesos, nutrición o enfermedades hormonales.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/26Fsforo__07260_25_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1725,10 +1778,10 @@
         {
           id: 4,
           name: "Glicemia",
-          desc: "",
+          desc: "Mide la concentración de glucosa (azúcar) en la sangre para evaluar el metabolismo de los carbohidratos. Es clave en el diagnóstico y control de la diabetes, hipoglucemia y otras alteraciones endocrinas.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/27Glicemia__09167_26_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1736,10 +1789,10 @@
         {
           id: 4,
           name: "Glicemia Pre Y Post prandial",
-          desc: "",
+          desc: "La glucosa es el azúcar que el cuerpo obtiene de los alimentos y que usa como fuente principal de energía. Su cantidad en sangre debe mantenerse en equilibrio. Esta prueba se usa para saber si tienes niveles normales de azúcar o si hay riesgo o presencia de diabetes, prediabetes o hipoglucemia.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/28Glicemia_Pre_Y_Post_prandial__64469_27_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1747,10 +1800,10 @@
         {
           id: 4,
           name: "Hemoglobina Glicosilada A1C",
-          desc: "",
+          desc: "Esta prueba mide el promedio de azúcar en la sangre de los últimos 3 meses. Es clave para saber si una persona con diabetes está bien controlada o si existe riesgo de desarrollarla.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/29Hemoglobina_Glicosilada_A1C__86785_28_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1758,10 +1811,10 @@
         {
           id: 4,
           name: "Hierro Sérico",
-          desc: "",
+          desc: "Este examen mide la cantidad de hierro que circula en la sangre. El hierro es necesario para producir hemoglobina (el componente de los glóbulos rojos que transporta oxígeno). Los niveles bajos pueden indicar anemia por deficiencia de hierro, y los niveles altos pueden sugerir problemas de absorción o exceso de hierro.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/30Hierro_Srico__09303_29_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1769,10 +1822,10 @@
         {
           id: 4,
           name: "Lipoproteína A",
-          desc: "",
+          desc: "Esta prueba mide los niveles de una grasa especial en la sangre llamada Lipoproteína(A). Niveles elevados están asociados con un mayor riesgo de sufrir problemas del corazón, como infartos o accidentes cerebrovasculares. Esta grasa en particular es hereditaria, y no se puede modificar con dieta ni ejercicio.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/31Lipoprotena_A__33944_30_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1780,10 +1833,10 @@
         {
           id: 4,
           name: "Magnesio",
-          desc: "",
+          desc: "Este examen sirve para conocer los niveles de magnesio en el cuerpo, un mineral esencial para los músculos, nervios y el corazón. Ayuda a identificar si hay deficiencia o exceso de este mineral, lo cual puede causar síntomas como debilidad, calambres o problemas en el ritmo cardíaco.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/32Magnesio__27939_31_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1791,10 +1844,10 @@
         {
           id: 4,
           name: "Nitrógeno Ureico (BUN)",
-          desc: "",
+          desc: "Evalúa el nivel de nitrógeno ureico en sangre, sustancia producida en el hígado a partir del metabolismo de proteínas. Es clave para el análisis de la función renal y el diagnóstico de afecciones como azoemia o síndrome urémico.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/33Nitrgeno_Ureico_BUN__05831_32_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1802,10 +1855,10 @@
         {
           id: 4,
           name: "Potasio",
-          desc: "",
+          desc: "Evalúa los niveles de potasio en sangre, cruciales para la función muscular, neurológica y cardíaca. Detecta hipopotasemia o hiperpotasemia, condiciones asociadas con fatiga muscular, arritmias, parálisis o confusión.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/34Potasio__88590_33_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1813,10 +1866,10 @@
         {
           id: 4,
           name: "Proteínas Totales",
-          desc: "",
+          desc: "Las proteínas totales son la suma de todas las proteínas presentes en la sangre, incluyendo la albúmina y las globulinas. Estas proteínas cumplen funciones esenciales como transportar sustancias, mantener el equilibrio de líquidos y defender al organismo. Medir los niveles de proteínas totales ayuda a detectar posibles enfermedades del hígado, riñones o del sistema inmunológico.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/35Protenas_Totales__66173_34_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1824,10 +1877,10 @@
         {
           id: 4,
           name: "Sodio",
-          desc: "",
+          desc: "El sodio es un mineral que tu cuerpo necesita para funcionar bien. Es importante medirlo porque: Ayuda a mantener el equilibrio del agua en tu cuerpo, hace que los nervios y músculos trabajen correctamente, controla la presión arterial.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/36Sodio__22404_35_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1835,10 +1888,10 @@
         {
           id: 4,
           name: "Triglicéridos",
-          desc: "",
+          desc: "Este examen sirve para medir los niveles de triglicéridos, que son un tipo de grasa presente en la sangre. Estas grasas son una fuente importante de energía, pero cuando están en exceso, pueden aumentar el riesgo de enfermedades del corazón.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/37Triglicridos__97752_36_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1846,10 +1899,10 @@
         {
           id: 4,
           name: "Vitamina B12 (Cianocobalamina)",
-          desc: "",
+          desc: "Esta vitamina es esencial para formar glóbulos rojos, crecer de manera saludable y reparar tejidos. Si no hay suficiente, se puede producir una anemia llamada 'anemia perniciosa', que causa cansancio y palidez.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/38Vitamina_B12_Cianocobalamina__92168_37_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1857,10 +1910,10 @@
         {
           id: 4,
           name: "Vitamina B7 (Biotina)",
-          desc: "",
+          desc: "Este examen permite saber si tienes niveles adecuados de biotina (vitamina B7) en el cuerpo. Esta vitamina es necesaria para obtener energía a partir de los alimentos, especialmente para procesar grasas, proteínas y carbohidratos. También ayuda al buen funcionamiento de la piel, cabello, sistema digestivo y nervioso. Se usa para detectar deficiencias que pueden causar problemas como caída del cabello, piel reseca, cansancio o falta de apetito.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/39Vitamina_B7_Biotina__27959_38_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1868,10 +1921,10 @@
         {
           id: 4,
           name: "Vitamina B6 (Piridoxina)",
-          desc: "",
+          desc: "Mide los niveles de vitamina B6 en la sangre. Sirve para saber si tienes deficiencia, lo cual puede deberse a problemas en los riñones, mala absorción, alcoholismo o algunos medicamentos.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/40Vitamina_B6_Piridoxina__44227_39_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1879,10 +1932,10 @@
         {
           id: 4,
           name: "Zinc en Suero",
-          desc: "",
+          desc: "El zinc es un mineral esencial que el cuerpo necesita para crecer, defenderse de enfermedades, tener buena memoria y mantener la piel y el cabello saludables. Si te falta zinc, puedes sentirte débil, tener diarrea, perder cabello o presentar lesiones en la piel.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/41Zinc_en_Suero__45446_40_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1890,10 +1943,10 @@
         {
           id: 4,
           name: "Vitamina B1 (Tiamina) en Sangre Total",
-          desc: "",
+          desc: "Esta prueba mide la cantidad de tiamina (vitamina B1) en la sangre, la cual es fundamental para transformar los alimentos en energía. Es muy importante para el buen funcionamiento del corazón, músculos y sistema nervioso. Se usa especialmente para detectar si hay déficit de esta vitamina, como puede suceder en personas con consumo excesivo de alcohol o con ciertos problemas nutricionales.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/42Vitamina_B1_Tiamina_en_Sangre_Total__47711_41_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1901,10 +1954,10 @@
         {
           id: 4,
           name: "Cortisol",
-          desc: "",
+          desc: "El cortisol es una hormona que produce el cuerpo cuando estamos estresados o con bajos niveles de energía. Ayuda a controlar el azúcar en la sangre, el sistema inmune y cómo usamos las grasas y proteínas. Esta prueba se hace para verificar si las glándulas suprarrenales (encima de los riñones) están funcionando bien. Es útil para detectar problemas como insuficiencia adrenal o el síndrome de Cushing (cuando hay mucho cortisol en el cuerpo). La prueba mide cómo responde tu cuerpo cuando se le da una hormona que estimula la producción de cortisol.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/43Cortisol__10142_42_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1912,10 +1965,10 @@
         {
           id: 4,
           name: "Cortisol Am y PM",
-          desc: "",
+          desc: "Esta prueba mide los niveles de cortisol, una hormona que produce el cuerpo en respuesta al estrés. El cortisol también ayuda a controlar la presión, el azúcar en la sangre y otros procesos importantes del cuerpo. Se analiza para saber si las glándulas suprarrenales están funcionando bien o si hay problemas como el síndrome de Cushing o insuficiencia suprarrenal.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/44Cortisol_Am_y_PM__92401_43_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1923,10 +1976,10 @@
         {
           id: 4,
           name: "Dehidroepiandrosterona Sulfato",
-          desc: "",
+          desc: "Esta prueba analiza si las plaquetas (las células que ayudan a detener el sangrado) están funcionando correctamente. Se usa para detectar riesgos de sangrado, antes de una cirugía, en personas con problemas cardíacos, o para revisar si un medicamento está afectando la coagulación. También puede ayudar a diagnosticar enfermedades raras que afectan la coagulación, como la enfermedad de von Willebrand.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/45Dehidroepiandrosterona_Sulfato__26771_44_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1934,10 +1987,10 @@
         {
           id: 4,
           name: "Dihidrotestosterona - DHT",
-          desc: "",
+          desc: "La Dihidrotestosterona (DHT) es una hormona androgénica derivada de la testosterona, más potente que esta, y es clave en el desarrollo de las características sexuales masculinas y en el crecimiento del vello corporal. Se produce por acción de la enzima 5-alfa-reductasa, que existe en dos tipos según el tejido. Este examen se usa para evaluar alteraciones hormonales relacionadas con: Alopecia androgenética (calvicie masculina) Trastornos de desarrollo sexual (seudohermafroditismo) Eficacia de tratamientos con inhibidores de 5-alfa-reductasa como la finasterida Seguimiento de terapia hormonal o quimioterapia",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/46Dihidrotestosterona_-_DHT__72429_45_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1945,10 +1998,10 @@
         {
           id: 4,
           name: "Estradiol (E2)",
-          desc: "",
+          desc: "El estradiol es una hormona muy importante en el cuerpo de las mujeres. Ayuda al desarrollo de los órganos sexuales, regula el ciclo menstrual y también influye en la distribución de grasa corporal. Se produce en los ovarios, la placenta y otras glándulas. Este examen se usa para estudiar problemas hormonales como la infertilidad, reglas irregulares, ovarios poliquísticos, menopausia y también para detectar tumores o alteraciones hormonales en hombres.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/49Estradiol_E2__66811_48_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1956,10 +2009,10 @@
         {
           id: 4,
           name: "BNP",
-          desc: "",
+          desc: "Este examen mide una sustancia que produce el corazón cuando está bajo presión o trabaja más de lo normal. Es muy útil para detectar o hacer seguimiento a la insuficiencia cardíaca, tanto en casos crónicos como agudos.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/50BNP__32085_49_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1967,10 +2020,10 @@
         {
           id: 4,
           name: "TSH",
-          desc: "",
+          desc: "Es una hormona que regula el buen funcionamiento de la tiroides. Ayuda a saber si esta glándula está trabajando de más o de menos.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/51TSH__76795_50_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1978,10 +2031,10 @@
         {
           id: 4,
           name: "Folículo Estimulante Hormona (FSH)",
-          desc: "",
+          desc: "La FSH es una hormona que regula la fertilidad en hombres y mujeres. En las mujeres, ayuda a que los óvulos maduren en los ovarios. En los hombres, es clave para la producción de espermatozoides. Esta prueba se usa para estudiar problemas hormonales como infertilidad, menstruaciones irregulares, menopausia, desarrollo sexual precoz o tardío, y alteraciones en la función de los ovarios o los testículos.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/52Folculo_Estimulante_Hormona_FSH__81747_51_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -1989,10 +2042,10 @@
         {
           id: 4,
           name: "Microalbuminuria",
-          desc: "",
+          desc: "Prueba clave para evaluar daño renal incipiente, especialmente útil en el seguimiento de pacientes diabéticos. Ayuda a predecir progresión de nefropatía en etapas tempranas.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/68Microalbuminuria__05689_66_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2000,10 +2053,10 @@
         {
           id: 4,
           name: "Luteinizante Hormona (LH)",
-          desc: "",
+          desc: "Esta prueba mide los niveles de la hormona LH, que es clave en la reproducción femenina y masculina. En las mujeres, la LH es responsable de que el óvulo madure y se libere del ovario (ovulación). En los hombres, esta hormona ayuda a que los testículos produzcan testosterona.",
           category: "Exámenes de laboratorio",
-          img: "https://img.freepik.com/foto-gratis/laboratorio-cientifico_23-2149245651.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/53Luteinizante_Hormona_LH__21448_52_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2011,10 +2064,10 @@
         {
           id: 4,
           name: "Insulina",
-          desc: "",
+          desc: "La insulina es una hormona producida por el páncreas, esencial para que la glucosa entre a las células y se utilice como energía. También participa en el almacenamiento de glucosa como glucógeno en hígado y músculos.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/57Testosterona__96179.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/54Insulina__36212_53_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2022,10 +2075,10 @@
         {
           id: 4,
           name: "Progesterona",
-          desc: "",
+          desc: "Este examen mide la progesterona, una hormona clave para la ovulación, la función del cuerpo lúteo y el embarazo. Se usa para: Confirmar si hubo ovulación. Evaluar el estado del cuerpo lúteo (fase post-ovulación). Estudiar causas de infertilidad. Valorar la función ovárica y placentaria durante el embarazo. También puede ayudar a calcular el momento del ciclo menstrual.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/47T3_Libre__94201.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/55Progesterona__21737_54_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2033,10 +2086,10 @@
         {
           id: 4,
           name: "Somatomedina C / IGF-1",
-          desc: "",
+          desc: "La Somatomedina C, también conocida como IGF-1 (Factor de Crecimiento Insulínico Tipo 1), es una hormona producida principalmente en el hígado que ayuda al crecimiento corporal y al metabolismo. Su producción depende de la hormona del crecimiento (GH). Este examen es útil para evaluar si hay problemas con la hormona del crecimiento, tanto exceso como deficiencia. También ayuda a evaluar el estado nutricional del paciente. Niveles bajos pueden indicar deficiencia de GH o enfermedades como el enanismo de Laron, mientras que niveles altos se observan en condiciones como la acromegalia.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/48Microalbuminuria_en_Orina_Parcial__64090.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/56Somatomedina_C_-_IGF-1__44240_55_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2044,10 +2097,10 @@
         {
           id: 4,
           name: "Testosterona",
-          desc: "",
+          desc: "La testosterona es la hormona que más influye en las características masculinas, como el crecimiento del vello, la fuerza muscular y el deseo sexual. También ayuda a formar espermatozoides y mantener los huesos fuertes.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/59Hepatitis_B_HBsAg_o_Antgeno_de_Superficie__81986.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/57Testosterona__96179_56_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2055,10 +2108,10 @@
         {
           id: 4,
           name: "T3 Libre",
-          desc: "",
+          desc: "Esta prueba mide la T3 libre, una hormona producida por la tiroides. A diferencia de la T3 total, esta forma no está unida a proteínas en la sangre, por lo que da una idea más precisa del funcionamiento tiroideo. Se usa cuando los niveles de otras hormonas tiroideas son anormales o cuando hay síntomas de hipertiroidismo (como ansiedad, pérdida de peso o palpitaciones). También ayuda a ver si el tratamiento está funcionando bien.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/60Protena_C_Reactiva_de_Alta_Sensibilidad__26021.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/47T3_Libre__94201_46_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2066,10 +2119,10 @@
         {
           id: 4,
           name: "Microalbuminuria en Orina Parcial",
-          desc: "",
+          desc: "Prueba clave para evaluar daño renal incipiente, especialmente útil en el seguimiento de pacientes diabéticos. Ayuda a predecir progresión de nefropatía en etapas tempranas.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/61Protena_C_Reactiva_Cualitativa__80863.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/48Microalbuminuria_en_Orina_Parcial__64090_47_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2077,10 +2130,10 @@
         {
           id: 4,
           name: "Hepatitis B (HBsAg) o Antígeno de Superficie",
-          desc: "",
+          desc: "El HBsAg es una sustancia producida por el virus de la hepatitis B. Su presencia en la sangre indica que la persona está infectada con este virus, incluso si no tiene síntomas. Este examen ayuda a detectar infecciones recientes o crónicas, e identifica a personas que pueden transmitir la enfermedad, aunque se vean sanas.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/62Serologa__70208.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/59Hepatitis_B_HBsAg_o_Antgeno_de_Superficie__81986_57_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2088,10 +2141,10 @@
         {
           id: 4,
           name: "Proteína C Reactiva de Alta Sensibilidad",
-          desc: "",
+          desc: "Esta prueba mide la cantidad de una proteína llamada PCR en la sangre, que aumenta cuando el cuerpo tiene inflamación. Es útil para detectar infecciones o inflamaciones internas, y también para evaluar el riesgo de enfermedades del corazón, como infartos. Se puede usar tanto si ya hay síntomas como para revisar la salud general.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/63VIH_1_y_2__25169.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/60Protena_C_Reactiva_de_Alta_Sensibilidad__26021_58_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2099,10 +2152,10 @@
         {
           id: 4,
           name: "Proteína C Reactiva Cualitativa",
-          desc: "",
+          desc: " La PCR es una proteína que se eleva rápidamente en el cuerpo cuando hay inflamación, infección o daño en los tejidos. Este examen permite detectar la presencia y evolución de estos procesos, así como evaluar la respuesta a tratamientos. Es útil en enfermedades como artritis reumatoidea, infecciones virales, infartos y postoperatorios.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/64Sangre_oculta_en_heces__02600.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/61Protena_C_Reactiva_Cualitativa__80863_59_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2110,10 +2163,10 @@
         {
           id: 4,
           name: "Serología",
-          desc: "",
+          desc: "Esta prueba se utiliza para detectar sífilis, una enfermedad que se transmite principalmente por contacto sexual. La prueba analiza si hay signos de infección en la sangre, incluso si la persona no presenta síntomas. Es útil para identificar la enfermedad a tiempo y evitar complicaciones.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/65Parcial_de_Orina__69745.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/62Serologa__70208_60_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2121,10 +2174,10 @@
         {
           id: 4,
           name: "VIH 1 y 2",
-          desc: "",
+          desc: "Este examen se realiza cuando una prueba rápida o inicial de VIH necesita confirmarse. Es una prueba de alta precisión que detecta si hay anticuerpos contra el virus del VIH tipo 1 o tipo 2 en la sangre. Es útil para confirmar o descartar si una persona está infectada con el virus que causa el SIDA.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/69Vitamina_D125_Dihidroxi_D2-D3_Calcifidol__62223.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/63VIH_1_y_2__25169_61_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2132,10 +2185,10 @@
         {
           id: 4,
           name: "Sangre oculta en heces",
-          desc: "",
+          desc: "Este examen detecta sangre no visible en las heces, que puede ser un signo temprano de cáncer de colon, pólipos, úlceras o enfermedades intestinales.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/6Hemoglobina_en_Sangre_Total__38742.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/64Sangre_oculta_en_heces__02600_62_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2143,10 +2196,10 @@
         {
           id: 4,
           name: "Parcial de Orina",
-          desc: "",
+          desc: "Este examen de orina ayuda a detectar problemas en los riñones, las vías urinarias o el metabolismo general del cuerpo, como infecciones, inflamación o desequilibrios. Es una herramienta clave para encontrar enfermedades en etapas tempranas.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/5Tioles_Totales__16852.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/65Parcial_de_Orina__69745_63_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2154,10 +2207,10 @@
         {
           id: 4,
           name: "Vitamina D,1,25 Dihidroxi (D2-D3) (Calcifidol)",
-          desc: "",
+          desc: "Esta prueba mide la forma activa de la vitamina D en el cuerpo, la cual es clave para absorber el calcio y mantener huesos fuertes. También ayuda en el buen funcionamiento de los riñones, el sistema inmunológico y los músculos. Es útil para diagnosticar problemas como niveles bajos de calcio en sangre, enfermedades óseas o condiciones relacionadas con daño renal.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/3HLA-DQ8_Genotipo_-_Susceptibilidad_Celiaqua__39935.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/69Vitamina_D125_Dihidroxi_D2-D3_Calcifidol__62223_67_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2165,10 +2218,10 @@
         {
           id: 4,
           name: "Hemoglobina en Sangre Total",
-          desc: "",
+          desc: "Esta prueba mide la cantidad de hemoglobina en la sangre, una proteína de los glóbulos rojos que transporta oxígeno desde los pulmones a todo el cuerpo. Es útil para saber si una persona tiene anemia (muy poca hemoglobina) o algún otro problema relacionado con la sangre.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/2HLA-DQ2_Genotipo_-_Susceptibilidad_Celiaqua__60535.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/6Hemoglobina_en_Sangre_Total__38742_5_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2176,10 +2229,10 @@
         {
           id: 4,
           name: "Tioles Totales",
-          desc: "",
+          desc: "Este examen mide los niveles de tioles, unas moléculas antioxidantes esenciales que protegen las células del daño causado por los radicales libres. Uno de los tioles más importantes es el glutatión, que se encuentra en altas concentraciones en los músculos y otros tejidos. El glutatión ayuda al cuerpo a mantener su equilibrio interno y apoya funciones importantes como la protección cardiovascular y el fortalecimiento del sistema inmunológico, especialmente en personas que hacen ejercicio intenso.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/1_17_Beta_Estradiol__63045.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/5Tioles_Totales__16852_4_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2187,10 +2240,10 @@
         {
           id: 4,
           name: "HLA-DQ8 Genotipo - Susceptibilidad Celiaquía",
-          desc: "",
+          desc: "El análisis genético HLA-DQ8 es una herramienta útil en el diagnóstico y manejo de la enfermedad celíaca, ya que casi todos los pacientes celíacos presentan positividad para alguno de estos marcadores. Está especialmente indicado en personas con síntomas intestinales recurrentes a cualquier edad, y en aquellos con sospecha clínica bien fundamentada, pero con resultados serológicos negativos. Un resultado genético negativo prácticamente descarta la enfermedad celíaca.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/66CITOLOGA_EN_BASE_LQUIDA__35283.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/3HLA-DQ8_Genotipo_-_Susceptibilidad_Celiaqua__39935_3_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2198,10 +2251,10 @@
         {
           id: 4,
           name: "HLA-DQ2 Genotipo - Susceptibilidad Celiaquía",
-          desc: "",
+          desc: "El análisis genético analiza de mutación en HLA-DQ2 con el fin de ayuda a confirmar o descartar la enfermedad celíaca. Esta alteración hace que el cuerpo reacciona negativamente al gluten, generando molestias digestivas frecuentes, como dolor abdominal, hinchazón o diarrea.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/66CITOLOGA_EN_BASE_LQUIDA__35283.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/2HLA-DQ2_Genotipo_-_Susceptibilidad_Celiaqua__60535_2_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2209,10 +2262,10 @@
         {
           id: 4,
           name: "17 Beta Estradiol",
-          desc: "",
+          desc: "Es una hormona muy importante, especialmente en las mujeres. Es un tipo de estrógeno, que ayuda a regular el ciclo menstrual, la fertilidad y otras funciones del cuerpo y se usa para medir si los ovarios están funcionando bien, Investigar causas de infertilidad o ausencia de menstruación, síntomas menopáusicos, control de tratamiento hormonal, reserva ovárica y en hombres. En hombres nos sirve para investigar el aumento del tamaño de las mamas (ginecomastia) o revisar problemas hormonales que afectan la libido o la fertilidad.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/66CITOLOGA_EN_BASE_LQUIDA__35283.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/1_17_Beta_Estradiol__63045_1_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2220,10 +2273,10 @@
         {
           id: 4,
           name: "Citología En Base Líquida",
-          desc: "",
+          desc: "La citología en base líquida es una técnica moderna utilizada en citopatología para examinar células en busca de anomalías, especialmente en la detección del cáncer.",
           category: "Exámenes de laboratorio",
-          img: "./assets/images/Examenes/Examenes de Laboratorio/66CITOLOGA_EN_BASE_LQUIDA__35283.jpg",
-          price: "$45.000",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/66CITOLOGA_EN_BASE_LQUIDA__35283_64_11zon.webp",
+          /*price: "$45.000",*/
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
           details: "Depende del panel seleccionado.",
@@ -2233,7 +2286,7 @@
           name: "HLA Tipificación para Enfermedad Celíaca (DQ Alfa 1 - DQ Beta 1)",
           desc: "La HLA tipificación para enfermedad celíaca (DQ Alfa 1 - DQ Beta 1) es un análisis genético que se realiza a partir de una muestra de sangre para identificar si una persona tiene predisposición genética a desarrollar enfermedad celíaca, una condición autoinmune provocada por el consumo de gluten.",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/50HLA_Tipificacion_para_Enfermedad_Celiaca_DQ_Alfa_1_-_DQ_Beta_1-100__23584.jpg",
+          img: "./assets/images/Examenes/Genetica/50HLA_Tipificacion_para_Enfermedad_Celiaca_DQ_Alfa_1_-_DQ_Beta_1-100__23584_14_11zon.webp",
           price: "$1.073.800",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2244,7 +2297,7 @@
           name: "Preconception Test",
           desc: "Preconception Focus, es un estudio genético que analiza 299 genes ayudando a establecer la idoneidad genética de los futuros padres antes de programar un embarazo para disminuir el riesgo de transmisión de enfermedades hereditarias a las siguientes generaciones. Se estudian 363 enfermedades hereditarias monogénicas, con herencia autosómica recesiva y ligada al cromosoma X.",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/43Preconception_Test-100__84131.jpg",
+          img: "./assets/images/Examenes/Genetica/43Preconception_Test-100__84131_12_11zon.webp",
           price: "$3.500.000",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2255,7 +2308,7 @@
           name: "Neobona",
           desc: "La prueba prenatal no invasiva NeoBona detecta las anomalías cromosómicas más frecuentes en el embarazo a través del estudio del ADN fetal. Esta prueba es de utilidad para detectar anomalías en los cromosomas 21, 18 y 13, sexo fetal y aneuploidías en cromosomas sexuales (X e Y).",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/46Neobona-100__04528.jpg",
+          img: "./assets/images/Examenes/Genetica/46Neobona-100__04528_13_11zon.webp",
           price: "$2.588.650",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2266,7 +2319,7 @@
           name: "NeoBona Genomewide",
           desc: "Esta Prueba analisa en el ADN fetal presente en la sangre materna para detectar anomalías en los cromosomas no Sexuales de 1 -22 incluido 21, 18 y 13, que son los más frcuentes durante el embarazo y Deleciones y Duplicaciones ( Perdidas y Ganancias de Material.) en estos cromosomas, tambien se determina sexo fetal, aneuploidías en cromosomas sexuales (X e Y).",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/41NeoBona_Genomewide-100__38485.jpg",
+          img: "./assets/images/Examenes/Genetica/41NeoBona_Genomewide-100__38485_10_11zon.webp",
           price: "$3.725.200",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2277,7 +2330,7 @@
           name: "Test Deportivo Avanzando",
           desc: "Tiene un enfoque integral que permite determinar qué tipo de entrenamiento es el más adecuado para ti o cómo prevenir posibles lesiones, incrementar tu rendimiento deportivo y mejorar tu capacidad de recuperación. El test Deportivo Avanzado es la única prueba que combina el estudio del perfil genético y perfil bioquímico, permitiendo conocer las siguientes 5 áreas de estudio: Respuesta muscular y rendimiento Capacidad de oxigenación muscular Respuesta al entrenamiento de potencia y de resistencia Recuperación y lesiones Ayudas para rendimiento Ayudas a la recuperación Nutrición en el Deporte",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/42Test_Deportivo_Avanzando-100__96389.jpg",
+          img: "./assets/images/Examenes/Genetica/42Test_Deportivo_Avanzando-100__96389_11_11zon.webp",
           price: "$1.952.900",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2288,7 +2341,7 @@
           name: "Mama, Ovario y Endometrio. Cancer Hereditario (BR+16) Panel (NGS + CNV)",
           desc: "El cáncer de mama (CM) es el cáncer más común en las mujeres, entre el 5-10% se estima que se debe a una predisposición hereditaria. Este examen analiza los 18 genes más frecuentes relacionados en aumentar la susceptibilidad y el riesgo de desarrollar cáncer de mama, ovario y endometrio.",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/51Mama_Ovario_y_Endometrio._Cancer_Hereditario_BR_16_Panel_NGS_CNV-100__05365.jpg",
+          img: "./assets/images/Examenes/Genetica/51Mama_Ovario_y_Endometrio._Cancer_Hereditario_BR_16_Panel_NGS_CNV-100__05365_15_11zon.webp",
           price: "$4.227.600",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2299,7 +2352,7 @@
           name: "Intolerancia a la Fructosa (Secuenciación)",
           desc: "La intolerancia hereditaria a la fructosa es una enfermedad metabólica causada por deficiencia de la aldolasa B. Los individuos afectos sufren dolor abdominal, vómitos, hipoglucemia después de la ingesta de fructosa, sacarosa o sorbitol. La ingesta continua de estos azúcares causa lesiones renales y hepáticas.",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/4Intolerancia_a_la_Fructosa_Secuenciacin__77288.jpg",
+          img: "./assets/images/Examenes/Genetica/4Intolerancia_a_la_Fructosa_Secuenciacin__77288_2_11zon.webp",
           price: "$1.066.500",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2310,7 +2363,7 @@
           name: "Intolerance 2 - Intoleracia al Gluten y Lactosa (RPLP -PCR RT)",
           desc: "Actualmente son cada vez más las personas que presentan molestias digestivas originadas tras la ingestión de determinados alimentos. Los alimentos que más frecuentemente son alimentos derivados de cereales y de lácteos. La prueba INTOLERANCE2 permite conocer en un solo análisis si existe predisposición genética a la celiaquía y/o intolerancia primaria a la lactosa.",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/0_Intolerance_2__24903.jpg",
+          img: "./assets/images/Examenes/Genetica/0_Intolerance_2__24903_1_11zon.webp",
           price: "$695.350",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2321,7 +2374,7 @@
           name: "RH Fetal",
           desc: "La determinación del grupo RhD fetal es una prueba genética no invasiva que se realiza a partir de una muestra de sangre de la madre. Es especialmente importante en embarazos donde la madre es RhD negativa, ya que permite identificar si el feto es RhD positivo y, por tanto, existe riesgo de enfermedad hemolítica del feto y del recién nacido (EHRN) por incompatibilidad sanguínea.",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/27RH_Fetal-100__28507.jpg",
+          img: "./assets/images/Examenes/Genetica/27RH_Fetal-100__28507_3_11zon.webp",
           price: "$451.550",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2332,7 +2385,7 @@
           name: "Perfil Genético CardioScore",
           desc: "CARDIO inCode® Score integra la información genética con la información clínica y de estilo de vida del paciente, para determinar el riesgo cardiovascular real.",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/28Perfil_Genetico_CardioScore-100__76405.jpg",
+          img: "./assets/images/Examenes/Genetica/28Perfil_Genetico_CardioScore-100__76405_4_11zon.webp",
           price: "$1.972.300",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2343,7 +2396,7 @@
           name: "Intolerancia a la Lactosa (Secuenciación)",
           desc: "La intolerancia a la lactosa en adultos ocurre cuando el cuerpo deja de producir suficiente lactasa, la enzima que ayuda a digerir la lactosa (el azúcar de la leche), pero hay personas que presentan una menor producción de lactasa por las siguientes variantes genéticas en el gen MCM6 (alelos 13910C y 22018G).",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/29Intolerancia_a_la_Lactosa_Secuenciacion-100__22907.jpg",
+          img: "./assets/images/Examenes/Genetica/29Intolerancia_a_la_Lactosa_Secuenciacion-100__22907_5_11zon.webp",
           price: "$1.218.950",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2354,7 +2407,7 @@
           name: "Sexo Fetal",
           desc: "La prueba prenatal no invasiva Sexo Fetal, detecta la presencia de cromosoma Y en ADN fetal en Sangre Materna, esto nos ayuda si el bebé es de sexo Femenino o Masculino.",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/30Sexo_Fetal-100__88812.jpg",
+          img: "./assets/images/Examenes/Genetica/30Sexo_Fetal-100__88812_6_11zon.webp",
           price: "$372.500",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2365,7 +2418,7 @@
           name: "Nutrihealth",
           desc: "Nutihealth es un examen de nutrigenómica que busca dar información relevante tanto al médico y al paciente sobre aspectos cómo nutrición, metabolismo, estilo de vida y deporte. Basados en tu genética Nutrihealth ofrece recomendaciones personalizadas, acerca del tipo de nutrición, ejercicio y estilo de vida más favorable para ti, que te ayudara a asegurar que aportes a tu organismo todo lo que necesitas y lograr un estado de salud óptimo.",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/37Nutrihealth-100__60283.jpg",
+          img: "./assets/images/Examenes/Genetica/37Nutrihealth-100__60283_7_11zon.webp",
           price: "$1.671.000",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2376,7 +2429,7 @@
           name: "Test Wellness Check",
           desc: "El test genético Wellness Check le permite conocer su predisposición genética respecto de la regulación del metabolismo y otros procesos relacionados con la nutrición para ajustar la dieta de forma personalizada para evitar el riesgo de enfermedades crónicas cómo diabetes, obesidad y enfermedades cardiovasculares.",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/38Test_Wellness_Check-100__98926.jpg",
+          img: "./assets/images/Examenes/Genetica/38Test_Wellness_Check-100__98926_8_11zon.webp",
           price: "$796.000",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2387,7 +2440,7 @@
           name: "My Biome",
           desc: "MyBiome es un test de secuenciación metagenómica, que permite un estudio profundo y objetivo sobre el microbioma intestinal. El estudio proporciona información detallada de los microorganismos que habitan el intestino y su funcionalidad, el impacto que tiene sobre la salud y cómo alcanzar su equilibrio a través de recomendaciones nutricionales personalizadas.",
           category: "Genética",
-          img: "./assets/images/Examenes/Genetica/39My_Biome-100__63397.jpg",
+          img: "./assets/images/Examenes/Genetica/39My_Biome-100__63397_9_11zon.webp",
           price: "$2.009.400",
           sample: "Hisopado/DNA",
           time: "2 - 3 semanas",
@@ -2398,7 +2451,7 @@
           name: "Prueba de Aliento (Urea C13) - Helicobacter Pylori",
           desc: "Helicobacter pylori es una bacteria que vive en el estómago y está relacionada con varias enfermedades del sistema digestivo como: Gastritis crónica (inflamación del estómago) Úlceras en el estómago o el intestino Cáncer gástrico Linfoma MALT, un tipo de cáncer en el tejido del estómago 1 Esta prueba permite detectar esta bacteria, de forma no invasiva para determinar si la bacteria está presente en el estómago o verificar si el tratamiento funciono y la bacteria desapareció.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/14Chequeo_Metabolico-100__27169.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/58Prueba_de_Aliento_Urea_C13_-_Helicobacter_Pylori__53767_16_11zon.webp",
           price: "$282.100",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2409,7 +2462,7 @@
           name: "Test Deportivo Avanzando",
           desc: "Tiene un enfoque integral que permite determinar qué tipo de entrenamiento es el más adecuado para ti o cómo prevenir posibles lesiones, incrementar tu rendimiento deportivo y mejorar tu capacidad de recuperación.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/42Test_Deportivo_Avanzando-100__96389.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/42Test_Deportivo_Avanzando-100__96389_14_11zon.webp",
           price: "$1.952.900",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2420,7 +2473,7 @@
           name: "Ácidos Grasos (Omega 3-Omega 6), Perfil Completo",
           desc: "Este análisis mide los niveles de los ácidos grases omega 3 y omega 6, que adquirimos por la dieta, determinar si hay algún desequilibrio es importante ya que los niveles altos de omega 6 están incrementan el riesgo de inflamación y enfermedades cardíacas y diabetes.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/24Acidos_Grasos_Omega_3-Omega_6_Perfil_Completo-100__50642.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/24Acidos_Grasos_Omega_3-Omega_6_Perfil_Completo-100__50642_8_11zon.webp",
           price: "$337.500",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2431,7 +2484,7 @@
           name: "Prueba de Aliento, Intolerancia a la Lactosa",
           desc: "La prueba de aliento permite detectar si existe malabsorción o intolerancia a la lactosa. Para ello, se administra lactosa como sustrato, y si esta llega intacta al intestino grueso, es metabolizada por la microbiota intestinal. Durante este proceso se generan gases como hidrógeno y metano, los cuales pasan al torrente sanguíneo y son transportados hasta los pulmones, donde se eliminan a través del aire espirado. Un aumento en la concentración de estos gases en el aliento indica la presencia de intolerancia a la lactosa.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/6Prueba_de_Aliento_Intolerancia_a_la_Lactosa___35114.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/6Prueba_de_Aliento_Intolerancia_a_la_Lactosa___35114_3_11zon.webp",
           price: "$619.100",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2442,7 +2495,7 @@
           name: "Prueba de Aliento, Intolerancia a la Fructuosa",
           desc: "La prueba de aliento permite detectar si hay malabsorción o intolerancia a la fructosa. Tras administrar este azúcar, si llega sin digerir al intestino grueso, la microbiota lo fermenta y produce gases como hidrógeno y metano. Estos gases pasan a la sangre, llegan a los pulmones y se eliminan al exhalar. Un aumento en su concentración en el aliento indica una posible intolerancia a la fructosa.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/5Prueba_de_Aliento_Intolerancia_a_la_Fructuosa_2__80460.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/5Prueba_de_Aliento_Intolerancia_a_la_Fructuosa_2__80460_2_11zon.webp",
           price: "$619.100",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2453,7 +2506,7 @@
           name: "Hiperproliferación Bacteriana Intestinal (SIBO) Test de Aliento",
           desc: "Esta prueba de aliento, que no es invasiva ni causa dolor, mide los gases que exhalas después de tomar una solución con lactulosa. Sirve para detectar si hay un exceso de bacterias en el intestino delgado, una condición conocida como SIBO. Esta puede causar síntomas como gases, hinchazón, y molestias después de comer, y a veces se relaciona con el síndrome de colon irritable.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/3Hiperproliferacion_Bacteriana_Intestinal_SIBO__89952.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/3Hiperproliferacion_Bacteriana_Intestinal_SIBO__89952_1_11zon.webp",
           price: "$619.100",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2464,7 +2517,7 @@
           name: "A200 Test de Hipersensibilidad Alimentaria",
           desc: "La hipersensibilidad alimentaria, popularmente conocida como intolerancia alimentaria, es una reacción de rechazo que produce el organismo ante la ingesta de determinados componentes de los alimentos. Esta reacción inmunitaria se debe a alteraciones de la membrana intestinal, y generan diversa sintomatología. Trastornos gastrointestinales Alteraciones respiratorias Afecciones psicológicas Trastornos músculo-esqueléticos Otros: retención de líquidos y obesidad. Con el A200 podemos identificar en un listado de 200 alimentos los anticuerpos IgG, cuales están generando algún tipo de reacción. La eliminación de la dieta de aquellos alimentos proporciona una notable mejoría.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/48A200_Test_de_Hipersensibilidad_Alimentaria-100__25635.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/48A200_Test_de_Hipersensibilidad_Alimentaria-100__25635_15_11zon.webp",
           price: "$956.700",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2475,7 +2528,7 @@
           name: "Chequeo Metabólico",
           desc: "El panel metabólico integral (CMP) ayuda a evaluar la salud general, detectar signos tempranos de enfermedad y monitorear condiciones crónicas. Mide 13 componentes. Los resultados anormales de la prueba CMP pueden indicar diversas condiciones de salud, como enfermedad hepática o renal en desarrollo o activa, hipertensión o diabetes.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/14Chequeo_Metabolico-100__27169.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/14Chequeo_Metabolico-100__27169_4_11zon.webp",
           price: "$146.900",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2486,7 +2539,7 @@
           name: "Chequeo Deficiencias Nutricionales Dietas Altas en Grasa",
           desc: "Las dietas Altas en grasas pueden generan desbalances nutricionales, pueden aumentar el riesgo cardiovascular, problemas digestivos por falta de fibra y calambres o fatiga por deficiencias en vitaminas especialmente las del grupo B. El Chequeo de la dieta alta en grasas mide 8 parámetros que permiten entender si la dieta está generando deficiencias nutricionales.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/16Chequeo_Deficiencias_Nutricionales_Dietas_Altas_en_Grasa-100__70378.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/16Chequeo_Deficiencias_Nutricionales_Dietas_Altas_en_Grasa-100__70378_5_11zon.webp",
           price: "$400.600",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2497,7 +2550,7 @@
           name: "Chequeo Deficiencias Nutricionales Dieta Baja en Carbohidratos",
           desc: "Las dietas restrictivas pueden generan desbalances nutricionales como; problemas de piel, problemas de memoria, fatiga, cansancio, entumecimiento, calambres pueden significar que hay deficiencias nutricionales, él Chequeo de la dieta baja en carbohidratos, mide 11 parámetros que permiten entender si la dieta baja en carbohidratos está generando deficiencias.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/17Chequeo_Deficiencias_Nutricionales_Dieta_Baja_en_Carbohidratos-100__73117.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/17Chequeo_Deficiencias_Nutricionales_Dieta_Baja_en_Carbohidratos-100__73117_6_11zon.webp",
           price: "$919.900",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2508,7 +2561,7 @@
           name: "Chequeo Deficiencias Nutricionales Dieta Vegana o Vegetariana",
           desc: "Este chequeo nos permite determinar si las personas bajo una dieta vegana o vegetariana están teniendo alguna deficiencia nutricional causada por la dieta. Este panel está recomendado para pacientes con síntomas como; cansancio y fatiga, uñas quebradizas, caída del pelo o sequedad.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/18Chequeo_Deficiencias_Nutricionales_Dieta_Vegana_o_Vegetariana-100__92493.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/18Chequeo_Deficiencias_Nutricionales_Dieta_Vegana_o_Vegetariana-100__92493_7_11zon.webp",
           price: "$860.100",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2519,7 +2572,7 @@
           name: "Índice Omega 3",
           desc: "El índice Omega-3 está considerado hoy en día como uno de los indicadores más adecuados para determinar con precisión el riesgo de padecer enfermedades cardiovasculares o cerebrales, puesto que un nivel bajo de esta índice crea un entorno favorable para el desarrollo de la arterioesclerosis. Este examen determina cómo esta este índice.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/25Indice_Omega_3-100__34672.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/25Indice_Omega_3-100__34672_9_11zon.webp",
           price: "$399.900",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2530,7 +2583,7 @@
           name: "Intolerancia a la Lactosa (Secuenciación)",
           desc: "La intolerancia a la lactosa en adultos ocurre cuando el cuerpo deja de producir suficiente lactasa, la enzima que ayuda a digerir la lactosa (el azúcar de la leche), pero hay personas que presentan una menor producción de lactasa por las siguientes variantes genéticas en el gen MCM6 (alelos 13910C y 22018G).",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/29Intolerancia_a_la_Lactosa_Secuenciacion-100__22907.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/29Intolerancia_a_la_Lactosa_Secuenciacion-100__22907_10_11zon.webp",
           price: "$1.218.950",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2541,7 +2594,7 @@
           name: "Panel de Alimentos (20 Alergenos)",
           desc: "La alergia alimentaria es una reacción rápida del sistema inmunológico causada por ciertos alimentos. Está mediada por anticuerpos IgE y tiene una relación clara entre el alimento y los síntomas. El estudio 20IgE analiza los 20 alimentos que más frecuentemente generan alergias.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/35Panel_de_Alimentos_20_Alergenos-100__96400.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/35Panel_de_Alimentos_20_Alergenos-100__96400_11_11zon.webp",
           price: "$541.900",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2552,7 +2605,7 @@
           name: "Nutrihealth",
           desc: "Nutihealth es un examen de nutrigenómica que busca dar información relevante tanto al médico y al paciente sobre aspectos cómo nutrición, metabolismo, estilo de vida y deporte. Basados en tu genética Nutrihealth ofrece recomendaciones personalizadas, acerca del tipo de nutrición, ejercicio y estilo de vida más favorable para ti, que te ayudara a asegurar que aportes a tu organismo todo lo que necesitas y lograr un estado de salud óptimo.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/37Nutrihealth-100__60283.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/37Nutrihealth-100__60283_12_11zon.webp",
           price: "$1.671.000",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2563,7 +2616,7 @@
           name: "My Biome",
           desc: "MyBiome es un test de secuenciación metagenómica, que permite un estudio profundo y objetivo sobre el microbioma intestinal. El estudio proporciona información detallada de los microorganismos que habitan el intestino y su funcionalidad, el impacto que tiene sobre la salud y cómo alcanzar su equilibrio a través de recomendaciones nutricionales personalizadas.",
           category: "Nutrición y salud gastrointestinal",
-          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/39My_Biome-100__63397.jpg",
+          img: "./assets/images/Examenes/Nutricion y Salud Gastrointestinal/39My_Biome-100__63397_13_11zon.webp",
           price: "$2.009.400",
           sample: "Heces/Sangre",
           time: "5 - 10 días",
@@ -2574,7 +2627,7 @@
           name: "HLA Tipificación para Enfermedad Celíaca (DQ Alfa 1 - DQ Beta 1)",
           desc: "La HLA tipificación para enfermedad celíaca (DQ Alfa 1 - DQ Beta 1) es un análisis genético que se realiza a partir de una muestra de sangre para identificar si una persona tiene predisposición genética a desarrollar enfermedad celíaca, una condición autoinmune provocada por el consumo de gluten.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/50HLA_Tipificacion_para_Enfermedad_Celiaca_DQ_Alfa_1_-_DQ_Beta_1-100__23584.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/50HLA_Tipificacion_para_Enfermedad_Celiaca_DQ_Alfa_1_-_DQ_Beta_1-100__23584_32_11zon.webp",
           price: "1.073.800",
           sample: "Variable",
           time: "Variable",
@@ -2585,7 +2638,7 @@
           name: "Prueba de Aliento (Urea C13) - Helicobacter Pylori",
           desc: "Helicobacter pylori es una bacteria que vive en el estómago y está relacionada con varias enfermedades del sistema digestivo como: Gastritis crónica (inflamación del estómago) Úlceras en el estómago o el intestino Cáncer gástrico Linfoma MALT, un tipo de cáncer en el tejido del estómago 1 Esta prueba permite detectar esta bacteria, de forma no invasiva para determinar si la bacteria está presente en el estómago o verificar si el tratamiento funciono y la bacteria desapareció.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/58Prueba_de_Aliento_Urea_C13_-_Helicobacter_Pylori__53767.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/58Prueba_de_Aliento_Urea_C13_-_Helicobacter_Pylori__53767_35_11zon.webp",
           price: "282.100",
           sample: "Variable",
           time: "Variable",
@@ -2596,7 +2649,7 @@
           name: "Preconception Test",
           desc: "Preconception Focus, es un estudio genético que analiza 299 genes ayudando a establecer la idoneidad genética de los futuros padres antes de programar un embarazo para disminuir el riesgo de transmisión de enfermedades hereditarias a las siguientes generaciones. Se estudian 363 enfermedades hereditarias monogénicas, con herencia autosómica recesiva y ligada al cromosoma X.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/43Preconception_Test-100__84131.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/43Preconception_Test-100__84131_26_11zon.webp",
           price: "3.500.000",
           sample: "Variable",
           time: "Variable",
@@ -2607,7 +2660,7 @@
           name: "Neobona",
           desc: "La prueba prenatal no invasiva NeoBona detecta las anomalías cromosómicas más frecuentes en el embarazo a través del estudio del ADN fetal. Esta prueba es de utilidad para detectar anomalías en los cromosomas 21, 18 y 13, sexo fetal y aneuploidías en cromosomas sexuales (X e Y).",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/46Neobona-100__04528.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/46Neobona-100__04528_28_11zon.webp",
           price: "2.588.650",
           sample: "Variable",
           time: "Variable",
@@ -2618,7 +2671,7 @@
           name: "NeoBona Genomewide",
           desc: "Esta Prueba analisa en el ADN fetal presente en la sangre materna para detectar anomalías en los cromosomas no Sexuales de 1 -22 incluido 21, 18 y 13, que son los más frcuentes durante el embarazo y Deleciones y Duplicaciones ( Perdidas y Ganancias de Material.) en estos cromosomas, tambien se determina sexo fetal, aneuploidías en cromosomas sexuales (X e Y).",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/41NeoBona_Genomewide-100__38485.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/41NeoBona_Genomewide-100__38485_24_11zon.webp",
           price: "3.725.200",
           sample: "Variable",
           time: "Variable",
@@ -2629,7 +2682,7 @@
           name: "Test Deportivo Avanzando",
           desc: "Tiene un enfoque integral que permite determinar qué tipo de entrenamiento es el más adecuado para ti o cómo prevenir posibles lesiones, incrementar tu rendimiento deportivo y mejorar tu capacidad de recuperación. El test Deportivo Avanzado es la única prueba que combina el estudio del perfil genético y perfil bioquímico, permitiendo conocer las siguientes 5 áreas de estudio: Respuesta muscular y rendimiento Capacidad de oxigenación muscular Respuesta al entrenamiento de potencia y de resistencia Recuperación y lesiones Ayudas para rendimiento Ayudas a la recuperación Nutrición en el Deporte",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/42Test_Deportivo_Avanzando-100__96389.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/42Test_Deportivo_Avanzando-100__96389_25_11zon.webp",
           price: "1.952.900",
           sample: "Variable",
           time: "Variable",
@@ -2640,7 +2693,7 @@
           name: "Mama, Ovario y Endometrio. Cancer Hereditario (BR+16) Panel (NGS + CNV)",
           desc: "El cáncer de mama (CM) es el cáncer más común en las mujeres, entre el 5-10% se estima que se debe a una predisposición hereditaria. Este examen analiza los 18 genes más frecuentes relacionados en aumentar la susceptibilidad y el riesgo de desarrollar cáncer de mama, ovario y endometrio.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/51Mama_Ovario_y_Endometrio._Cancer_Hereditario_BR_16_Panel_NGS_CNV-100__05365.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/51Mama_Ovario_y_Endometrio._Cancer_Hereditario_BR_16_Panel_NGS_CNV-100__05365_33_11zon.webp",
           price: "4.227.600",
           sample: "Variable",
           time: "Variable",
@@ -2651,7 +2704,7 @@
           name: "Papiloma Humano Virus (VPH) Tipificación",
           desc: "Esta prueba permite detectar e identificar los distintos genotipos del Virus del Papiloma Humano (VPH), diferenciando entre aquellos asociados a: Lesiones benignas como verrugas genitales o condilomas. Infecciones subclínicas que pueden pasar desapercibidas. Lesiones precancerosas y cáncer. La identificación precisa de los tipos de VPH es fundamental para evaluar el riesgo de progresión a enfermedades graves y definir estrategias de seguimiento y tratamiento.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/52Papiloma_Humano_Virus_VPH_Tipificacion-100__52780.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/52Papiloma_Humano_Virus_VPH_Tipificacion-100__52780_34_11zon.webp",
           price: "814.750",
           sample: "Variable",
           time: "Variable",
@@ -2662,7 +2715,7 @@
           name: "Papiloma Humano Virus (VPH) y Citología Cérvico Uterina en Base Líquida",
           desc: "Esta prueba detecta y diferencia tipos de Papiloma Humano asociados con lesiones causan verrugas o condilomas e infecciones subclínicas, que pueden progresar a cáncer. Los diferentes tipos de VPH identificables en esta prueba y sus respectivos riesgos: Alto riesgo, Probable alto riesgo, Bajo riesgo. La citología en base líquida es un método que permite la evaluación de una muestra de cérvix de células del exo y endocérvix, para determinar si se observa algún cambio en dichas células. Este método aumenta la sensibilidad.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/45Papiloma_Humano_Virus_VPH_y_Citologia_Cervico_Uterina_en_Base_Liquida-100__43091.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/52Papiloma_Humano_Virus_VPH_Tipificacion-100__52780_34_11zon.webp",
           price: "276.600",
           sample: "Variable",
           time: "Variable",
@@ -2673,7 +2726,7 @@
           name: "Papiloma Humano Virus (VPH) - PCR Tiempo Real / Reflex",
           desc: "El virus del papiloma humano o VPH (en inglés HPV), es un virus de transmisión sexual generalmente asintomática, sin embargo, algunos tipos de VPH causan verrugas o condilomas e infecciones subclínicas, que pueden progresar a cáncer. Esta prueba se hace para tamizar e identificar si hay presencia de virus de papiloma Humano (VPH), especialmente de los tipos de Alto Riesgo, en caso de resultado positivo se procesa de también la citología, para ver si hay cambios celulares en el cuello del utero.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/31Papiloma_Humano_Virus_VPH_-_PCR_Tiempo_Real_-_Reflex-100__12979.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/45Papiloma_Humano_Virus_VPH_y_Citologia_Cervico_Uterina_en_Base_Liquida-100__43091_27_11zon.webp",
           price: "269.000",
           sample: "Variable",
           time: "Variable",
@@ -2684,7 +2737,7 @@
           name: "Ácidos Grasos (Omega 3-Omega 6), Perfil Completo",
           desc: "Este análisis mide los niveles de los ácidos grases omega 3 y omega 6, que adquirimos por la dieta, determinar si hay algún desequilibrio es importante ya que los niveles altos de omega 6 están incrementan el riesgo de inflamación y enfermedades cardíacas y diabetes.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/24Acidos_Grasos_Omega_3-Omega_6_Perfil_Completo-100__50642.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/31Papiloma_Humano_Virus_VPH_-_PCR_Tiempo_Real_-_Reflex-100__12979_16_11zon.webp",
           price: "337.500",
           sample: "Variable",
           time: "Variable",
@@ -2695,7 +2748,7 @@
           name: "Minerales Toxicos en Cabellos",
           desc: "La cantidad de minerales en el cabello refleja lo que hay en otros tejidos del organismo. Si hay un desequilibrio en los minerales esenciales (que ayudan a las funciones celulares) o si hay metales tóxicos en niveles altos durante mucho tiempo, esto puede afectar la salud. Este estudio analiza la presencia de los siguientes metales tóxicos: Aluminio, arsénico, cadmio, mercurio y plomo.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/49Minerales_Toxicos_en_Cabellos-100__30653.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/24Acidos_Grasos_Omega_3-Omega_6_Perfil_Completo-100__50642_9_11zon.webp",
           price: "183.900",
           sample: "Variable",
           time: "Variable",
@@ -2706,7 +2759,7 @@
           name: "Migratest",
           desc: "MigraTest evalúa la actividad de DAO para detectar propensión a migrañas por histamina. Este análisis permite adaptar la dieta y mejorar la calidad de vida. La actividad de DAO puede verse afectada por factores genéticos, medicamentos o enfermedades. Durante el embarazo, su evaluación no es recomendable por la alta síntesis placentaria de DAO.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/47Migratest-100__26519.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/49Minerales_Toxicos_en_Cabellos-100__30653_31_11zon.webp",
           price: "371.300",
           sample: "Variable",
           time: "Variable",
@@ -2717,7 +2770,7 @@
           name: "Intolerancia a la Fructosa (Secuenciación)",
           desc: "La intolerancia hereditaria a la fructosa es una enfermedad metabólica causada por deficiencia de la aldolasa B. Los individuos afectos sufren dolor abdominal, vómitos, hipoglucemia después de la ingesta de fructosa, sacarosa o sorbitol. La ingesta continua de estos azúcares causa lesiones renales y hepáticas.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/4Intolerancia_a_la_Fructosa_Secuenciacin__77288.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/47Migratest-100__26519_29_11zon.webp",
           price: "1.066.500",
           sample: "Variable",
           time: "Variable",
@@ -2728,7 +2781,7 @@
           name: "Prueba de Aliento, Intolerancia a la Lactosa",
           desc: "La prueba de aliento permite detectar si existe malabsorción o intolerancia a la lactosa. Para ello, se administra lactosa como sustrato, y si esta llega intacta al intestino grueso, es metabolizada por la microbiota intestinal. Durante este proceso se generan gases como hidrógeno y metano, los cuales pasan al torrente sanguíneo y son transportados hasta los pulmones, donde se eliminan a través del aire espirado. Un aumento en la concentración de estos gases en el aliento indica la presencia de intolerancia a la lactosa.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/6Prueba_de_Aliento_Intolerancia_a_la_Lactosa___35114.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/4Intolerancia_a_la_Fructosa_Secuenciacin__77288_5_11zon.webp",
           price: "619.100",
           sample: "Variable",
           time: "Variable",
@@ -2739,7 +2792,7 @@
           name: "Prueba de Aliento, Intolerancia a la Fructuosa",
           desc: "La prueba de aliento permite detectar si hay malabsorción o intolerancia a la fructosa. Tras administrar este azúcar, si llega sin digerir al intestino grueso, la microbiota lo fermenta y produce gases como hidrógeno y metano. Estos gases pasan a la sangre, llegan a los pulmones y se eliminan al exhalar. Un aumento en su concentración en el aliento indica una posible intolerancia a la fructosa.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/5Prueba_de_Aliento_Intolerancia_a_la_Fructuosa_2__80460.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/6Prueba_de_Aliento_Intolerancia_a_la_Lactosa___35114_7_11zon.webp",
           price: "619.100",
           sample: "Variable",
           time: "Variable",
@@ -2750,7 +2803,7 @@
           name: "Hiperproliferación Bacteriana Intestinal (SIBO) Test de Aliento",
           desc: "Esta prueba de aliento, que no es invasiva ni causa dolor, mide los gases que exhalas después de tomar una solución con lactulosa. Sirve para detectar si hay un exceso de bacterias en el intestino delgado, una condición conocida como SIBO. Esta puede causar síntomas como gases, hinchazón, y molestias después de comer, y a veces se relaciona con el síndrome de colon irritable.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/3Hiperproliferacion_Bacteriana_Intestinal_SIBO__89952.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/5Prueba_de_Aliento_Intolerancia_a_la_Fructuosa_2__80460_6_11zon.webp",
           price: "619.100",
           sample: "Variable",
           time: "Variable",
@@ -2761,7 +2814,7 @@
           name: "Indice de Salud Prostática (ProPSA)",
           desc: "El Test proPSA es un examen de sangre que ayuda a evaluar el riesgo de cáncer de próstata. Este análisis mide tres componentes: PSA total PSA libre (fPSA) [-2]proPSA, Con estos valores se calcula el Índice de Salud Prostático (PHI), que da una idea más clara del riesgo de tener cáncer de próstata.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/2Indice_de_Salud_Prostatica_ProPSA__24699.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/2Indice_de_Salud_Prostatica_ProPSA__24699_3_11zon.webp",
           price: "674.100",
           sample: "Variable",
           time: "Variable",
@@ -2772,7 +2825,7 @@
           name: "Intolerance 2 - Intoleracia al Gluten y Lactosa (RPLP -PCR RT)",
           desc: "Actualmente son cada vez más las personas que presentan molestias digestivas originadas tras la ingestión de determinados alimentos. Los alimentos que más frecuentemente son alimentos derivados de cereales y de lácteos. La prueba INTOLERANCE2 permite conocer en un solo análisis si existe predisposición genética a la celiaquía y/o intolerancia primaria a la lactosa.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/0_Intolerance_2__24903.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/0_Intolerance_2__24903_1_11zon.webp",
           price: "695.350",
           sample: "Variable",
           time: "Variable",
@@ -2783,7 +2836,7 @@
           name: "A200 Test de Hipersensibilidad Alimentaria",
           desc: "La hipersensibilidad alimentaria, popularmente conocida como intolerancia alimentaria, es una reacción de rechazo que produce el organismo ante la ingesta de determinados componentes de los alimentos. Esta reacción inmunitaria se debe a alteraciones de la membrana intestinal, y generan diversa sintomatología. Trastornos gastrointestinales Alteraciones respiratorias Afecciones psicológicas Trastornos músculo-esqueléticos Otros: retención de líquidos y obesidad. Con el A200 podemos identificar en un listado de 200 alimentos los anticuerpos IgG, cuales están generando algún tipo de reacción. La eliminación de la dieta de aquellos alimentos proporciona una notable mejoría.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/48A200_Test_de_Hipersensibilidad_Alimentaria-100__25635.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/48A200_Test_de_Hipersensibilidad_Alimentaria-100__25635_30_11zon.webp",
           price: "956.700",
           sample: "Variable",
           time: "Variable",
@@ -2794,7 +2847,7 @@
           name: "Perfil de Alérgenos de Amplio Espectro a Nivel Moleculars (Isac)",
           desc: "ImmunoCAP ISAC es un test diagnóstico in vitro muy avanzado. Permite medir simultáneamente en un solo test anticuerpos específicos frente a componentes alergénicos múltiples, empleando únicamente pocos ML de suero o plasma proporcionando resultados para más de un centenar de componentes de más de 50 alérgenos. Los alérgenos se seleccionan previamente e incluyen marcadores para la reactividad cruzada.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/23Perfil_de_Alergenos_de_Amplio_Espectro_a_Nivel_Moleculars_Isac-100__56863.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/23Perfil_de_Alergenos_de_Amplio_Espectro_a_Nivel_Moleculars_Isac-100__56863_8_11zon.webp",
           price: "1.923.600",
           sample: "Variable",
           time: "Variable",
@@ -2805,7 +2858,7 @@
           name: "Índice Omega 3",
           desc: "El índice Omega-3 está considerado hoy en día como uno de los indicadores más adecuados para determinar con precisión el riesgo de padecer enfermedades cardiovasculares o cerebrales, puesto que un nivel bajo de esta índice crea un entorno favorable para el desarrollo de la arterioesclerosis. Este examen determina cómo esta este índice.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/25Indice_Omega_3-100__34672.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/25Indice_Omega_3-100__34672_10_11zon.webp",
           price: "399.900",
           sample: "Variable",
           time: "Variable",
@@ -2816,7 +2869,7 @@
           name: "Metales, Nutrientes y Tóxicos en Cabello, Perfil Completo",
           desc: "El cabello es una muestra ideal para evaluar los niveles de minerales en el cuerpo. Los minerales se incorporan de forma permanente al cabello, reflejando su concentración en otros tejidos. Por eso, este análisis ofrece una visión más precisa para determinar si hay desequilibrios que estén afectando la salud.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/26Metales_Nutrientes_y_Toxicos_en_Cabello_Perfil_Completo-100__94653.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/26Metales_Nutrientes_y_Toxicos_en_Cabello_Perfil_Completo-100__94653_11_11zon.webp",
           price: "238.500",
           sample: "Variable",
           time: "Variable",
@@ -2827,7 +2880,7 @@
           name: "RH Fetal",
           desc: "La determinación del grupo RhD fetal es una prueba genética no invasiva que se realiza a partir de una muestra de sangre de la madre. Es especialmente importante en embarazos donde la madre es RhD negativa, ya que permite identificar si el feto es RhD positivo y, por tanto, existe riesgo de enfermedad hemolítica del feto y del recién nacido (EHRN) por incompatibilidad sanguínea.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/27RH_Fetal-100__28507.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/27RH_Fetal-100__28507_12_11zon.webp",
           price: "451.550",
           sample: "Variable",
           time: "Variable",
@@ -2838,7 +2891,7 @@
           name: "Perfil Genético CardioScore",
           desc: "CARDIO inCode® Score integra la información genética con la información clínica y de estilo de vida del paciente, para determinar el riesgo cardiovascular real.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/28Perfil_Genetico_CardioScore-100__76405.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/28Perfil_Genetico_CardioScore-100__76405_13_11zon.webp",
           price: "1.972.300",
           sample: "Variable",
           time: "Variable",
@@ -2849,7 +2902,7 @@
           name: "Intolerancia a la Lactosa (Secuenciación)",
           desc: "La intolerancia a la lactosa en adultos ocurre cuando el cuerpo deja de producir suficiente lactasa, la enzima que ayuda a digerir la lactosa (el azúcar de la leche), pero hay personas que presentan una menor producción de lactasa por las siguientes variantes genéticas en el gen MCM6 (alelos 13910C y 22018G).",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/29Intolerancia_a_la_Lactosa_Secuenciacion-100__22907.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/29Intolerancia_a_la_Lactosa_Secuenciacion-100__22907_14_11zon.webp",
           price: "1.218.950",
           sample: "Variable",
           time: "Variable",
@@ -2860,7 +2913,7 @@
           name: "Sexo Fetal",
           desc: "La prueba prenatal no invasiva Sexo Fetal, detecta la presencia de cromosoma Y en ADN fetal en Sangre Materna, esto nos ayuda si el bebé es de sexo Femenino o Masculino.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/30Sexo_Fetal-100__88812.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/30Sexo_Fetal-100__88812_15_11zon.webp",
           price: "372.500",
           sample: "Variable",
           time: "Variable",
@@ -2871,7 +2924,7 @@
           name: "Índice de Riesgo Preeclampsia (sFlt-1/PlGF) Segundo-Tercer Trimestre",
           desc: "La preeclampsia (PE) constituye una de las principales causas de enfermedad perinatal y embarazo pretérmino, El índice de preeclampsia nos permite medir Los niveles de PIGF (factor de crecimiento placentario) y sFlt1 (tirosina quinasa 1 soluble tipo fms), circulantes durante el embarazo para identificar y estratificar el riesgo de la paciente incluso antes de que aparezcan síntomas clínicos.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/32Indice_de_Riesgo_Preeclampsia_sFlt-1-PlGF_Segundo-Tercer_Trimestre-100__35805.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/32Indice_de_Riesgo_Preeclampsia_sFlt-1-PlGF_Segundo-Tercer_Trimestre-100__35805_17_11zon.webp",
           price: "846.650",
           sample: "Variable",
           time: "Variable",
@@ -2882,7 +2935,7 @@
           name: "Preeclampsia Primer Trimestre, Tamizaje",
           desc: "Esta prueba se realiza entre las semanas 11 y 13 del embarazo y permite conocer el riesgo de desarrollar preeclampsia (PE) mucho antes de que aparezcan los síntomas. El riesgo se calcula usando un algoritmo desarrollado por la Fetal Medicine Foundation que incluye: Factores maternos como edad, peso, antecedentes médicos, etc. Parámetros biofísicos: presión arterial media (PAM) y flujo en las arterias uterinas (IP-Au) Marcadores bioquímicos: PAPP-A y PlGF (proteínas relacionadas con el desarrollo de la placenta)",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/1Preeclampsia_Primer_Trimestre_Tamizaje__78823.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/1Preeclampsia_Primer_Trimestre_Tamizaje__78823_2_11zon.webp",
           price: "541.900",
           sample: "Variable",
           time: "Variable",
@@ -2893,7 +2946,7 @@
           name: "Alteración del sueño",
           desc: "El Test ALTERACIONES DEL SUEÑO es una prueba capaz de determinar los niveles de melatonina en saliva en diferentes momentos de la noche, pudiendo detectar cualquier desviación respecto al nivel normal, tanto en horarios como en intensidad. Con ello, se puede observar si la producción de melatonina es o no suficiente para la conciliación del sueño.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/34Alteracion_del_sueno-100__37460.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/34Alteracion_del_sueno-100__37460_18_11zon.webp",
           price: "676.150",
           sample: "Variable",
           time: "Variable",
@@ -2904,7 +2957,7 @@
           name: "Panel de Alimentos (20 Alergenos)",
           desc: "La alergia alimentaria es una reacción rápida del sistema inmunológico causada por ciertos alimentos. Está mediada por anticuerpos IgE y tiene una relación clara entre el alimento y los síntomas. El estudio 20IgE analiza los 20 alimentos que más frecuentemente generan alergias.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/35Panel_de_Alimentos_20_Alergenos-100__96400.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/35Panel_de_Alimentos_20_Alergenos-100__96400_19_11zon.webp",
           price: "541.900",
           sample: "Variable",
           time: "Variable",
@@ -2915,7 +2968,7 @@
           name: "Valoración del estrés",
           desc: "La prueba Valoración del Estrés (o índice de estrés adrenal) permite una evaluación de los niveles de cortisol y DHEA sulfato (DHEA-S), con el fin de determinar si existe un patrón biológico de estrés. El estrés supone una amenaza para la salud cuando se prolonga en el tiempo y se hace crónico, está relacionado con riesgo cardiovascular, diabetes, enfermedades autoinmunes entre otros.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/36Valoracion_del_estres-100__26746.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/36Valoracion_del_estres-100__26746_20_11zon.webp",
           price: "428.950",
           sample: "Variable",
           time: "Variable",
@@ -2926,7 +2979,7 @@
           name: "Nutrihealth",
           desc: "Nutihealth es un examen de nutrigenómica que busca dar información relevante tanto al médico y al paciente sobre aspectos cómo nutrición, metabolismo, estilo de vida y deporte. Basados en tu genética Nutrihealth ofrece recomendaciones personalizadas, acerca del tipo de nutrición, ejercicio y estilo de vida más favorable para ti, que te ayudara a asegurar que aportes a tu organismo todo lo que necesitas y lograr un estado de salud óptimo.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/37Nutrihealth-100__60283.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/37Nutrihealth-100__60283_21_11zon.webp",
           price: "1.671.000",
           sample: "Variable",
           time: "Variable",
@@ -2937,7 +2990,7 @@
           name: "Test Wellness Check",
           desc: "El test genético Wellness Check le permite conocer su predisposición genética respecto de la regulación del metabolismo y otros procesos relacionados con la nutrición para ajustar la dieta de forma personalizada para evitar el riesgo de enfermedades crónicas cómo diabetes, obesidad y enfermedades cardiovasculares.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/38Test_Wellness_Check-100__98926.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/38Test_Wellness_Check-100__98926_22_11zon.webp",
           price: "796.000",
           sample: "Variable",
           time: "Variable",
@@ -2948,7 +3001,7 @@
           name: "My Biome",
           desc: "MyBiome es un test de secuenciación metagenómica, que permite un estudio profundo y objetivo sobre el microbioma intestinal. El estudio proporciona información detallada de los microorganismos que habitan el intestino y su funcionalidad, el impacto que tiene sobre la salud y cómo alcanzar su equilibrio a través de recomendaciones nutricionales personalizadas.",
           category: "Pruebas especiales",
-          img: "./assets/images/Examenes/Pruebas Especiales/39My_Biome-100__63397.jpg",
+          img: "./assets/images/Examenes/Pruebas Especiales/39My_Biome-100__63397_23_11zon.webp",
           price: "2.009.400",
           sample: "Variable",
           time: "Variable",
@@ -2959,7 +3012,7 @@
           name: "NeoBona Genomewide",
           desc: "Esta Prueba analisa en el ADN fetal presente en la sangre materna para detectar anomalías en los cromosomas no Sexuales de 1 -22 incluido 21, 18 y 13, que son los más frcuentes durante el embarazo y Deleciones y Duplicaciones ( Perdidas y Ganancias de Material.) en estos cromosomas, tambien se determina sexo fetal, aneuploidías en cromosomas sexuales (X e Y).",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/41NeoBona_Genomewide-100__38485.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/41NeoBona_Genomewide-100__38485_10_11zon.webp",
           price: "$3.725.200",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -2970,7 +3023,7 @@
           name: "Mama, Ovario y Endometrio. Cancer Hereditario (BR+16) Panel (NGS + CNV)",
           desc: "El cáncer de mama (CM) es el cáncer más común en las mujeres, entre el 5-10% se estima que se debe a una predisposición hereditaria. Este examen analiza los 18 genes más frecuentes relacionados en aumentar la susceptibilidad y el riesgo de desarrollar cáncer de mama, ovario y endometrio.",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/51Mama_Ovario_y_Endometrio._Cancer_Hereditario_BR_16_Panel_NGS_CNV-100__05365.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/51Mama_Ovario_y_Endometrio._Cancer_Hereditario_BR_16_Panel_NGS_CNV-100__05365_14_11zon.webp",
           price: "$4.227.600",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -2981,7 +3034,7 @@
           name: "Papiloma Humano Virus (VPH) Tipificación",
           desc: "Esta prueba permite detectar e identificar los distintos genotipos del Virus del Papiloma Humano (VPH), diferenciando entre aquellos asociados a: Lesiones benignas como verrugas genitales o condilomas.          Infecciones subclínicas que pueden pasar desapercibidas. Lesiones precancerosas y cáncer. La identificación precisa de los tipos de VPH es fundamental para evaluar el riesgo de progresión a enfermedades graves y definir estrategias de seguimiento y tratamiento.",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/52Papiloma_Humano_Virus_VPH_Tipificacion-100__52780.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/52Papiloma_Humano_Virus_VPH_Tipificacion-100__52780_15_11zon.webp",
           price: "$814.750",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -2992,7 +3045,7 @@
           name: "Papiloma Humano Virus (VPH) y Citología Cérvico Uterina en Base Líquida",
           desc: "Esta prueba detecta y diferencia tipos de Papiloma Humano asociados con lesiones causan verrugas o condilomas e infecciones subclínicas, que pueden progresar a cáncer. Los diferentes tipos de VPH identificables en esta prueba y sus respectivos riesgos: Alto riesgo, Probable alto riesgo, Bajo riesgo. La citología en base líquida es un método que permite la evaluación de una muestra de cérvix de células del exo y endocérvix, para determinar si se observa algún cambio en dichas células. Este método aumenta la sensibilidad.",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/45Papiloma_Humano_Virus_VPH_y_Citologia_Cervico_Uterina_en_Base_Liquida-100__43091.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/45Papiloma_Humano_Virus_VPH_y_Citologia_Cervico_Uterina_en_Base_Liquida-100__43091_12_11zon.webp",
           price: "$276.600",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -3003,7 +3056,7 @@
           name: "Papiloma Humano Virus (VPH) - PCR Tiempo Real / Reflex",
           desc: "El virus del papiloma humano o VPH (en inglés HPV), es un virus de transmisión sexual generalmente asintomática, sin embargo, algunos tipos de VPH causan verrugas o condilomas e infecciones subclínicas, que pueden progresar a cáncer. Esta prueba se hace para tamizar e identificar si hay presencia de virus de papiloma Humano (VPH), especialmente de los tipos de Alto Riesgo, en caso de resultado positivo se procesa de también la citología, para ver si hay cambios celulares en el cuello del utero.",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/31Papiloma_Humano_Virus_VPH_-_PCR_Tiempo_Real_-_Reflex-100__12979.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/31Papiloma_Humano_Virus_VPH_-_PCR_Tiempo_Real_-_Reflex-100__12979_8_11zon.webp",
           price: "$269.000",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -3014,7 +3067,7 @@
           name: "Chequeo de la Mujer",
           desc: "El Chequeo Médico de la mujer va dirigido a toda la población femenina de 25 a 29 años con la finalidad de realizar prevención y/o detección temprana de cáncer de cuello uterino y diagnóstico oportuno en enfermedades crónicas no transmisibles.",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/4Chequeo_de_la_Mujer-100__87834.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/4Chequeo_de_la_Mujer-100__87834_2_11zon.webp",
           price: "$317.200",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -3025,7 +3078,7 @@
           name: "Chequeo de la Mujer Plus",
           desc: "El Chequeo Médico Preventivo Mujer Plus va dirigido mujeres entre 30 a 65 años, este cheque permite detectar a tiempo el virus de papiloma humano (VPH), con el objetivo de hacer detección y prevención temprana de cáncer de cuello uterino,  también hace análisis para prevención de cáncer colon y otras enfermedades crónicas no trasmisibles.",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/5Chequeo_de_la_Mujer_Plus-100__36682.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/5Chequeo_de_la_Mujer_Plus-100__36682_3_11zon.webp",
           price: "$405.500",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -3036,7 +3089,7 @@
           name: "Chequeo Hormonal de la Mujer",
           desc: "Este chequeo es especialmente útil para anticiparse a los cambios hormonales de la transición a la menopausia en las mujeres.",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/19Chequeo_Hormonal_de_la_Mujer-100__92796.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/19Chequeo_Hormonal_de_la_Mujer-100__92796_5_11zon.webp",
           price: "$138.950",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -3047,7 +3100,7 @@
           name: "Chequeo Mujer Ampliado",
           desc: "El Chequeo Mujer Ampliado es una evaluación médica integral diseñada para la detección temprana de enfermedades crónicas no transmisibles, con especial énfasis en la prevención del cáncer de colon y otras condiciones que afectan la salud femenina en esta etapa de la vida, cómo cáncer de colon, enfermedades cardiovasculares o alteraciones metabólicas (como diabetes y dislipidemias).",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/10Chequeo_Mujer_Ampliado-100__33830.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/10Chequeo_Mujer_Ampliado-100__33830_4_11zon.webp",
           price: "$255.950",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -3058,7 +3111,7 @@
           name: "RH Fetal",
           desc: "La determinación del grupo RhD fetal es una prueba genética no invasiva que se realiza a partir de una muestra de sangre de la madre. Es especialmente importante en embarazos donde la madre es RhD negativa, ya que permite identificar si el feto es RhD positivo y, por tanto, existe riesgo de enfermedad hemolítica del feto y del recién nacido (EHRN) por incompatibilidad sanguínea.",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/27RH_Fetal-100__28507.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/27RH_Fetal-100__28507_6_11zon.webp",
           price: "$451.550",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -3069,7 +3122,7 @@
           name: "Sexo Fetal",
           desc: "La prueba prenatal no invasiva Sexo Fetal, detecta la presencia de cromosoma Y en ADN fetal en Sangre Materna, esto nos ayuda si el bebé es de sexo Femenino o Masculino.",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/30Sexo_Fetal-100__88812.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/30Sexo_Fetal-100__88812_7_11zon.webp",
           price: "$372.500",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -3080,7 +3133,7 @@
           name: "Índice de Riesgo Preeclampsia (sFlt-1/PlGF) Segundo-Tercer Trimestre",
           desc: "La preeclampsia (PE) constituye una de las principales causas de enfermedad perinatal y embarazo pretérmino, El índice de preeclampsia nos permite medir Los niveles de PIGF (factor de crecimiento placentario) y sFlt1 (tirosina quinasa 1 soluble tipo fms), circulantes durante el embarazo para identificar y estratificar el riesgo de la paciente incluso antes de que aparezcan síntomas clínicos.",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/32Indice_de_Riesgo_Preeclampsia_sFlt-1-PlGF_Segundo-Tercer_Trimestre-100__35805.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/32Indice_de_Riesgo_Preeclampsia_sFlt-1-PlGF_Segundo-Tercer_Trimestre-100__35805_9_11zon.webp",
           price: "$846.650",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -3091,7 +3144,7 @@
           name: "Preeclampsia Primer Trimestre, Tamizaje",
           desc: "Esta prueba se realiza entre las semanas 11 y 13 del embarazo y permite conocer el riesgo de desarrollar preeclampsia (PE) mucho antes de que aparezcan los síntomas. El riesgo se calcula usando un algoritmo desarrollado por la Fetal Medicine Foundation que incluye: Factores maternos como edad, peso, antecedentes médicos, etc. Parámetros biofísicos: presión arterial media (PAM) y flujo en las arterias uterinas (IP-Au) Marcadores bioquímicos: PAPP-A y PlGF (proteínas relacionadas con el desarrollo de la placenta)",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/1Preeclampsia_Primer_Trimestre_Tamizaje__78823.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/1Preeclampsia_Primer_Trimestre_Tamizaje__78823_1_11zon.webp",
           price: "$541.900",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -3102,7 +3155,7 @@
           name: "Citología En Base Líquida",
           desc: "La citología en base líquida es una técnica moderna utilizada en citopatología para examinar células en busca de anomalías, especialmente en la detección del cáncer.",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/66CITOLOGA_EN_BASE_LQUIDA__35283.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/66CITOLOGA_EN_BASE_LQUIDA__35283_16_11zon.webp",
           /*price: "$3.500.000",*/
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -3113,7 +3166,7 @@
           name: "Neobona",
           desc: "Preconception Focus, es un estudio genético que analiza 299 genes ayudando a establecer la idoneidad genética de los futuros padres antes de programar un embarazo para disminuir el riesgo de transmisión de enfermedades hereditarias a las siguientes generaciones. Se estudian 363 enfermedades hereditarias monogénicas, con herencia autosómica recesiva y ligada al cromosoma X.",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/46Neobona-100__04528.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/46Neobona-100__04528_13_11zon.webp",
           price: "$2.588.650",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -3124,7 +3177,7 @@
           name: "Preconception Test",
           desc: "Preconception Focus, es un estudio genético que analiza 299 genes ayudando a establecer la idoneidad genética de los futuros padres antes de programar un embarazo para disminuir el riesgo de transmisión de enfermedades hereditarias a las siguientes generaciones. Se estudian 363 enfermedades hereditarias monogénicas, con herencia autosómica recesiva y ligada al cromosoma X.",
           category: "Salud de la mujer",
-          img: "./assets/images/Examenes/Salud de la mujer/43Preconception_Test-100__84131.jpg",
+          img: "./assets/images/Examenes/Salud de la mujer/43Preconception_Test-100__84131_11_11zon.webp",
           price: "$3.500.000",
           sample: "Sangre/Orina",
           time: "48 - 72 horas",
@@ -3135,7 +3188,7 @@
           name: "Indice de Salud Prostática (ProPSA)",
           desc: "El Test proPSA es un examen de sangre que ayuda a evaluar el riesgo de cáncer de próstata.",
           category: "Salud del hombre",
-          img: "./assets/images/Examenes/Salud del hombre/2Indice_de_Salud_Prostatica_ProPSA__24699.jpg",
+          img: "./assets/images/Examenes/Salud del hombre/2Indice_de_Salud_Prostatica_ProPSA__24699_2_11zon.webp",
           price: "$674.100",
           sample: "Sangre/Espermograma",
           time: "3 - 5 días",
@@ -3146,7 +3199,7 @@
           name: "Chequeo Médico del Hombre",
           desc: "El Chequeo Médico del Hombre va dirigido a toda la población masculina mayor de 50 años con la finalidad de realizar prevención de cáncer de próstata y cáncer colorrectal, además de diagnóstico temprano y oportuno enfermedad crónica no transmisible cómo enfermedad cardiovascular, metabólica, disfunción renal, hepática y tiroidea.",
           category: "Salud del hombre",
-          img: "./assets/images/Examenes/Salud del hombre/3Chequeo_Medico_del_Hombre-100__02974.jpg",
+          img: "./assets/images/Examenes/Salud del hombre/3Chequeo_Medico_del_Hombre-100__02974_3_11zon.webp",
           price: "$282.200",
           sample: "Sangre/Espermograma",
           time: "3 - 5 días",
@@ -3157,7 +3210,7 @@
           name: "Perfil Hormonal Básico - Hombre",
           desc: "El análisis es útil para determinar la concentración hormonal androgénica necesaria para una adecuada salud en el hombre. Estas influyen en el estado emocional, la función sexual, la fuerza, la masa muscular, la salud cardiaca, el estado de los huesos, la capacidad cognitiva entre otras.",
           category: "Salud del hombre",
-          img: "./assets/images/Examenes/Salud del hombre/1Perfil_Hormonal_Basico_-_Hombre-100_copia_13__56267.jpg",
+          img: "./assets/images/Examenes/Salud del hombre/1Perfil_Hormonal_Basico_-_Hombre-100_copia_13__56267_1_11zon.webp",
           price: "$228.500",
           sample: "Sangre/Espermograma",
           time: "3 - 5 días",
@@ -3168,7 +3221,7 @@
           name: "Papiloma Humano Virus (VPH) Tipificación",
           desc: "La identificación precisa de los tipos de VPH es fundamental para evaluar el riesgo de progresión a enfermedades graves y definir estrategias de seguimiento y tratamiento.",
           category: "Salud sexual",
-          img: "./assets/images/Examenes/Salud Sexual/52Papiloma_Humano_Virus_VPH_Tipificacion-100__52780.jpg",
+          img: "./assets/images/Examenes/Salud Sexual/52Papiloma_Humano_Virus_VPH_Tipificacion-100__52780_4_11zon.webp",
           price: "$814.750",
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
@@ -3179,7 +3232,7 @@
           name: "Papiloma Humano Virus (VPH) y Citología Cérvico Uterina en Base Líquida",
           desc: "Esta prueba detecta y diferencia tipos de Papiloma Humano asociados con lesiones causan verrugas o condilomas e infecciones subclínicas, que pueden progresar a cáncer. Los diferentes tipos de VPH identificables en esta prueba y sus respectivos riesgos: Alto riesgo, Probable alto riesgo, Bajo riesgo.",
           category: "Salud sexual",
-          img: "./assets/images/Examenes/Salud Sexual/45Papiloma_Humano_Virus_VPH_y_Citologia_Cervico_Uterina_en_Base_Liquida-100__43091.jpg",
+          img: "./assets/images/Examenes/Salud Sexual/45Papiloma_Humano_Virus_VPH_y_Citologia_Cervico_Uterina_en_Base_Liquida-100__43091_3_11zon.webp",
           price: "$276.600",
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
@@ -3190,7 +3243,7 @@
           name: "Papiloma Humano Virus (VPH) - PCR Tiempo Real / Reflex",
           desc: "El virus del papiloma humano o VPH (en inglés HPV), es un virus de transmisión sexual generalmente asintomática, sin embargo, algunos tipos de VPH causan verrugas o condilomas e infecciones subclínicas, que pueden progresar a cáncer. Esta prueba se hace para tamizar e identificar si hay presencia de virus de papiloma Humano (VPH), especialmente de los tipos de Alto Riesgo, en caso de resultado positivo se procesa de también la citología, para ver si hay cambios celulares en el cuello del utero.",
           category: "Salud sexual",
-          img: "./assets/images/Examenes/Salud Sexual/31Papiloma_Humano_Virus_VPH_-_PCR_Tiempo_Real_-_Reflex-100__12979.jpg",
+          img: "./assets/images/Examenes/Salud Sexual/31Papiloma_Humano_Virus_VPH_-_PCR_Tiempo_Real_-_Reflex-100__12979_2_11zon.webp",
           price: "$269.000",
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
@@ -3201,7 +3254,7 @@
           name: "Chequeo Médico de Salud Sexual",
           desc: "El Chequeo Médico de Salud Sexual va dirigido a la población en general que haya iniciado su vida sexual activa o según la exposición al riesgo (relaciones sexuales sin protección), con el fin de realizar detección (cribado) de enfermedades de transmisión sexual (ETS) que generalmente son asintomáticas.",
           category: "Salud sexual",
-          img: "./assets/images/Examenes/Salud Sexual/9Chequeo_Medico_de_Salud_Sexual-100__07725.jpg",
+          img: "./assets/images/Examenes/Salud Sexual/9Chequeo_Medico_de_Salud_Sexual-100__07725_1_11zon.webp",
           price: "$74.850",
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
@@ -3212,7 +3265,7 @@
           name: "Hormona Antimülleriana",
           desc: "es una proteína producida por los ovarios que se utiliza para evaluar la reserva ovárica.",
           category: "Prueba de fertilidad",
-          img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL4UHrucWNZHdolysapFvF_gtzZwZb2NcGKg&s",
+          img: "./assets/images/Examenes/Prueba fertilidad/hormona antimulleriana.webp",
           price: "$160.000",
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
@@ -3223,7 +3276,7 @@
           name: "Espermograma basico",
           desc: "análisis de laboratorio que evalúa la cantidad y la calidad del semen y los espermatozoides.",
           category: "Prueba de fertilidad",
-          img: "https://invitro.com.ar/wp-content/uploads/2021/02/espermograma-invitro-buenos-aires.jpg",
+          img: "./assets/images/Examenes/Prueba fertilidad/espermograma basico.webp",
           price: "$80.000",
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
@@ -3234,7 +3287,7 @@
           name: "LH (hormona luteinizante)",
           desc: "conjunto de análisis que se realizan a hombres y mujeres para evaluar su capacidad reproductiva y diagnosticar posibles causas de infertilidad.",
           category: "Prueba de fertilidad",
-          img: "data:image/jpeg;base64,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",
+          img: "./assets/images/Examenes/Prueba fertilidad/Hormona LH.webp",
           price: "$60.000",
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
@@ -3245,7 +3298,7 @@
           name: "FSH (hormona foliculoestimulante)",
           desc: "hormona producida por la hipófisis que regula la función reproductiva en hombres y mujeres.",
           category: "Prueba de fertilidad",
-          img: "data:image/jpeg;base64,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",
+          img: "./assets/images/Examenes/Prueba fertilidad/Hormona FSH.webp",
           price: "$60.000",
           sample: "Sangre/Orina",
           time: "24 - 72 horas",
