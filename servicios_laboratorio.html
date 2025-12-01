@@ -3085,6 +3085,29 @@ const exams = [
     return filtered;
   }
 
+  // -----------------------------
+// BOTONES
+// -----------------------------
+const btnList = document.getElementById("vista-list");
+const btnGrid = document.getElementById("vista-grid");
+const examenesContainer = document.getElementById("examenes");
+
+// Cambiar visualización
+btnList.addEventListener("click", () => {
+  btnGrid.classList.remove("active");
+  btnList.classList.add("active");
+  examenesContainer.classList.remove("cuadricula");
+  examenesContainer.classList.add("lista");
+});
+
+btnGrid.addEventListener("click", () => {
+  btnList.classList.remove("active");
+  btnGrid.classList.add("active");
+  examenesContainer.classList.remove("lista");
+  examenesContainer.classList.add("cuadricula");
+});
+// Botonos cuadricula | lista
+
   // Renderiza tarjetas
   function renderCards(list){
     examListEl.innerHTML = "";
@@ -3501,6 +3524,7 @@ const exams = [
     <!-- Fin Script Taboplus asesor virtual -->
   </body>
 </html>
+
 
 
 
