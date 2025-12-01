@@ -673,6 +673,24 @@ p {
   <li data-category="Prueba de fertilidad">Prueba de fertilidad</li>
 </ul>
 
+<!-- ===========================
+ VISTA LISTA / CUADRÍCULA
+=========================== -->
+<div class="vista-toggle">
+  <button id="vista-list" class="vista-btn">
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="Lista" />
+    Lista
+  </button>
+
+  <button id="vista-grid" class="vista-btn active">
+    <img src="https://cdn-icons-png.flaticon.com/512/560/560256.png" alt="Cuadrícula" />
+    Cuadrícula
+  </button>
+</div>
+
+<!-- CONTENEDOR DONDE SE RENDERIZAN LOS EXÁMENES -->
+<div id="examenes" class="cuadricula"></div>
+
 <input type="text" id="search-input" placeholder="Buscar examenes aqui...">
 <div id="exam-list"></div>
 
@@ -3402,5 +3420,6 @@ const exams = [
     <!-- Fin Script Taboplus asesor virtual -->
   </body>
 </html>
+
 
 
