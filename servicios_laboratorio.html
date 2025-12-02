@@ -260,6 +260,27 @@ p {
   background-color: #0056b3;
 }
 
+/* ==================== CONTADOR DE EXAMENES ===============*/
+.exam-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  margin: 20px 0;
+}
+
+#exam-count {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2b7cff;
+}
+
+.exam-counter p {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 5px;
+}
+
 /* ===================== MODALES ===================== */
 .modal {
   display: none;
@@ -771,6 +792,11 @@ p {
 
 <!-- CONTENEDOR DONDE SE RENDERIZAN LOS EXÁMENES -->
 <div id="examenes" class="cuadricula"></div>
+
+<div class="exam-counter">
+  <span id="exam-count">0</span>
+  <p>Resultados de exámenes</p>
+</div>
 
 <input type="text" id="search-input" placeholder="Buscar examenes aqui...">
 <div id="exam-list"></div>
@@ -3563,6 +3589,7 @@ btnGrid.addEventListener("click", () => {
     <!-- Fin Script Taboplus asesor virtual -->
   </body>
 </html>
+
 
 
 
