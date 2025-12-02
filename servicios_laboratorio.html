@@ -3085,6 +3085,45 @@ const exams = [
     return filtered;
   }
 
+  // Funcion contador de examenes 
+function updateCategoryCounters(data) {
+  const categories = document.querySelectorAll("#category-list li");
+
+  categories.forEach(cat => {
+    const category = cat.getAttribute("data-category");
+
+    let count = 0;
+
+    if (category === "all") {
+      count = data.length; // Todos
+    } else {
+      count = data.filter(exam => exam.category === category).length;
+    }
+
+    // Agregar el contador al texto
+    cat.textContent = `${category} (${count})`;
+  });
+}
+
+function animateCounter(id, targetNumber, duration = 1000) {
+  const element = document.getElementById(id);
+  let start = 0;
+  const increment = targetNumber / (duration / 16);
+
+  const counter = setInterval(() => {
+    start += increment;
+    if (start >= targetNumber) {
+      element.textContent = targetNumber;
+      clearInterval(counter);
+    } else {
+      element.textContent = Math.floor(start);
+    }
+  }, 16);
+}
+
+// Llamada: 67 resultados como referencia
+animateCounter("exam-count", 67);
+
   // -----------------------------
 // BOTONES
 // -----------------------------
@@ -3524,6 +3563,7 @@ btnGrid.addEventListener("click", () => {
     <!-- Fin Script Taboplus asesor virtual -->
   </body>
 </html>
+
 
 
 
