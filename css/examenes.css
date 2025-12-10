@@ -1,0 +1,701 @@
+ /* ===================== ESTILOS GENERALES ===================== */
+:root {
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --bg: #f8f9fa;
+  --card-bg: #fff;
+  --text-color: #333;
+  --modal-bg: rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.section-header {
+  text-align: center;
+  padding: 30px 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+/* ==================== CUADRICULAS |  LISTAS ===============*
+/* Contenedor */
+.vista-toggle {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin: 20px 0;
+}
+
+/* Botones */
+.vista-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #35526b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Iconos */
+.vista-btn img {
+  width: 22px;
+  opacity: 0.8;
+}
+
+/* Botón activo */
+.vista-btn.active {
+  background: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 6px;
+}
+
+/* Hover */
+.vista-btn:hover {
+  opacity: 0.8;
+}
+
+/* ====== CONTENEDOR SUPERIOR CUADRICULA - RESULTADOS - SEARCH TYPE EXAMS ====== */
+
+.header-exams {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 40px;
+  background: linear-gradient(to bottom, #ececd4, #ffffff);
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* ====== RESULTADOS ====== */
+.resultados-box {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0a3d62;
+}
+
+/* ====== VISTA LISTA / CUADRÍCULA ====== */
+.vista-toggle {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.vista-btn {
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  color: #0a3d62;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.6;
+}
+
+.vista-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.vista-btn.active {
+  background: #ffffff;
+  padding: 6px 15px;
+  border-radius: 10px;
+  opacity: 1;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+/* ====== CONTAINER ========== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: block;
+  overflow: visible;
+}
+
+/* ====== BUSCADOR ====== */
+.search-container {
+  position: relative;
+}
+
+#search-input {
+  width: 320px;
+  padding: 10px 40px 10px 20px;
+  border-radius: 30px;
+  border: 1px solid #bcd;
+  font-size: 14px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #0a3d62;
+  cursor: pointer;
+}
+
+/* ====== CONTENEDOR EXÁMENES ====== */
+#examenes.cuadricula {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+
+
+/* ==========================================
+     📱 MEDIA QUERIES RESPONSIVAS
+========================================== */
+
+/* ——— TABLETS (≤ 1024px) ——— */
+@media (max-width: 1024px) {
+  #search-input {
+    width: 260px;
+  }
+
+  .header-exams {
+    padding: 20px 25px;
+  }
+}
+
+/* ——— TABLETS PEQUEÑAS Y GRANDES MÓVILES (≤ 768px) ——— */
+@media (max-width: 768px) {
+
+  .header-exams {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .vista-toggle {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  #search-input {
+    width: 100%;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+
+  .search-icon {
+    right: 20px;
+  }
+}
+
+/* ——— MÓVILES PEQUEÑOS (≤ 480px) ——— */
+@media (max-width: 480px) {
+
+  .resultados-box {
+    font-size: 14px;
+  }
+
+  .vista-btn img {
+    width: 16px;
+  }
+
+  .vista-btn {
+    font-size: 14px;
+  }
+
+  #search-input {
+    font-size: 13px;
+    padding: 9px 38px 9px 18px;
+  }
+}
+
+/* =======================
+   LISTA DE EXÁMENES
+   ======================= */
+#exam-list {
+  margin-top: 15px;
+}
+
+/* =======================
+   RESPONSIVE DESIGN
+   ======================= */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 768px) {
+  .container-exams {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .exam-counter {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 15px;
+  }
+
+  .exam-counter span {
+    font-size: 1.7rem;
+  }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+  .container-exams {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .exam-counter {
+    width: 100%;
+    text-align: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  #search-input {
+    width: 100%;
+  }
+}
+
+/* =======================================
+   CATEGORY LIST — NUEVA VERSIÓN OPTIMIZADA
+   ======================================= */
+
+#category-list {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 10px;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative !important;
+  z-index: 20 !important;
+  padding: 10px 0;
+  margin: 15px 0;
+}
+
+#category-list li {
+  padding: 8px 15px;
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#category-list li.active,
+#category-list li:hover {
+  background-color: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+#category-list li .count {
+  background: #0d6efd;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+/* ===================== BUSCADOR ===================== */
+#search-input {
+  width: 90%;
+  max-width: 400px;
+  margin: 10px auto 30px auto;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  display: block;
+}
+
+/* ===================== TARJETAS DE EXAMEN ===================== */
+#exam-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 15px 50px 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.exam-card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.exam-card:hover {
+  transform: translateY(-3px);
+}
+
+.exam-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  max-height: 40px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.card-desc.expanded {
+  max-height: 500px;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.actions button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.actions button:hover {
+  background-color: #0056b3;
+}
+
+.select-box {
+  font-size: 0.85rem;
+}
+
+/* ===================== BOTTOM BAR ===================== */
+#bottom-compare {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--card-bg);
+  border-top: 1px solid #ddd;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  z-index: 999;
+  flex-wrap: wrap;
+}
+
+#bottom-compare-info {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#bottom-compare button {
+  margin-left: 5px;
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+#bottom-compare button:hover {
+  background-color: #0056b3;
+}
+
+/* ===================== MODALES ===================== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: var(--modal-bg);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 15px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-modal-content {
+  max-width: 650px;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.detail-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.detail-img {
+  flex: 1 1 200px;
+  max-width: 250px;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.detail-info {
+  flex: 2 1 300px;
+}
+
+.detail-actions,
+.compare-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.detail-actions button,
+.compare-buttons button {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.detail-actions button:hover,
+.compare-buttons button:hover {
+  background-color: #0056b3;
+}
+
+/* ===================== COMPARAR GRID ===================== */
+.compare-grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.compare-item {
+  flex: 1 1 45%;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.compare-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+/* ===================== MEDIA QUERIES ===================== */
+@media (max-width: 768px){
+  .detail-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .detail-img {
+    max-width: 100%;
+  }
+
+  .compare-grid {
+    flex-direction: column;
+  }
+
+  #bottom-compare {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .exam-card img {
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px){
+  .exam-card img {
+    height: 100px;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+
+  #search-input {
+    width: 95%;
+  }
+
+  .modal-content {
+    padding: 10px;
+    width: 95%;
+  }
+}
+
+/* --------------------
+ BOTONES
+-------------------- */
+.vista-toggle {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.vista-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #35526b;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.vista-btn img {
+  width: 22px;
+  opacity: 0.8;
+}
+
+.vista-btn.active {
+  background: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 6px;
+}
+
+/* --------------------
+ VISTA CUADRÍCULA
+-------------------- */
+#examenes.cuadricula {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.examen-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: rgba(0,0,0,0.06) 0px 4px 10px;
+  transition: 0.2s ease;
+}
+
+.examen-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* --------------------
+ VISTA LISTA
+-------------------- */
+#examenes.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#examenes.lista .examen-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+}
+
+#examenes.lista .examen-card img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
