@@ -40,7 +40,8 @@
       }
       gtag("js", new Date());
       gtag("config", "G-XXXXXXXXXX"); // Reemplaza con tu ID GA4
-    </script>s
+    </script>
+    s
 
     <!-- FIN SEO optimizado + Google Search Console -->
 
@@ -63,7 +64,7 @@
     <!-- Favicon -->
     <link
       rel="shortcut icon"
-      href="assets/images/PLUS.png"
+      href="assets/images/PLUS.webp"
       type="image/x-icon"
     />
 
@@ -189,7 +190,7 @@
                 </ul>
               </li>
 
-              <!-- Servicios -->
+              <!-- Servicios
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -209,7 +210,7 @@
                 </ul>
               </li>
 
-              <!-- Muestras -->
+              <!-- Muestras 
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -271,7 +272,7 @@
     </section>
     <!-- FIN NAVBAR -->
 
-     <!-- Asesor virtual -->
+    <!-- Asesor virtual -->
     <!-- ================================
  ASESOR VIRTUAL TABOPLUS
 ================================ -->
@@ -440,7 +441,7 @@
           </div>
         </div>
       </div>
-    </section><br>
+    </section>
     <!-- FIN SECCIÓN FAQ -->
 
     <!-- Promoción del mes -->
@@ -568,7 +569,7 @@
           </div>
         </div>
       </div>
-    </div><br>
+    </div>
 
     <!-- Fin promociones del mes -->
 
@@ -589,7 +590,7 @@
           "
         >
           <!-- TESTIMONIOS -->
-         <div class="testimonials" style="flex: 1 1 45%">
+          <div class="testimonials" style="flex: 1 1 45%">
             <div
               class="testimonial-item"
               style="
@@ -650,7 +651,7 @@
                 >- Jimena O.</strong
               >
             </div>
-           <div
+            <div
               class="testimonial-item"
               style="
                 margin-bottom: 20px;
@@ -1058,25 +1059,38 @@
     >
       <div class="container">
         <div class="row align-items-center justify-content-center">
+          <!-- TEXTO -->
           <div class="text-content col-12 col-md-6">
             <h2
               class="mbr-section-title mbr-fonts-style"
               style="font-size: 28px"
             >
-              <strong
-                >Visítanos en nuestra sede y recibe atención
-                personalizada</strong
-              >
+              <strong>
+                Visítanos en nuestra sede y recibe atención personalizada
+              </strong>
             </h2>
-            <p class="mbr-text mbr-fonts-style" style="font-size: 16px">.</p>
+            <p class="mbr-text mbr-fonts-style" style="font-size: 16px">
+              Encuéntranos fácilmente y llega con tu app de navegación favorita.
+            </p>
+
+            <!-- BOTONES DE NAVEGACIÓN -->
+            <div class="map-buttons mt-3">
+              <button onclick="openGoogleMaps()">
+                Cómo llegar en Google Maps
+              </button>
+              <button onclick="openWaze()">Llegar con Waze</button>
+              <button onclick="openAppleMaps()">Abrir en Apple Maps</button>
+            </div>
           </div>
+
+          <!-- MAPA -->
           <div
-            class="icons d-flex align-items-center col-12 col-md-6 justify-content-end mt-md-0 mt-2 flex-wrap"
+            class="icons d-flex align-items-center col-12 col-md-6 justify-content-end mt-md-0 mt-3"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.2921330636327!2d-75.49837412586521!3d10.398356389728328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef625b88706e2b3%3A0xcdaaa4bbf49b9b47!2sCra.%2057%20%2330%20C%2C%20Escall%C3%B3n%20Villa%2C%20Cartagena%20de%20Indias%2C%20Provincia%20de%20Cartagena%2C%20Bol%C3%ADvar!5e0!3m2!1ses!2sco!4v1736953342822!5m2!1ses!2sco"
-              width="100%"
-              height="400"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7848.581062387342!2d-75.50467494875194!3d10.398483839409927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef62501c50f8c5f%3A0x8d4aa031e8afb071!2sPLUS%20Laboratorio%20Cl%C3%ADnico!5e0!3m2!1ses-419!2sco!4v1766245296388!5m2!1ses-419!2sco"
+              width="600"
+              height="450"
               style="border: 0"
               allowfullscreen=""
               loading="lazy"
@@ -1433,6 +1447,43 @@
       }
     </script>
     <!-- Fin Script Taboplus asesor virtual -->
+
+    <script>
+      const DESTINO = {
+        lat: 10.3984838,
+        lng: -75.5046749,
+        nombre: "PLUS Laboratorio Clínico, Cartagena",
+      };
+
+      // Google Maps
+      function openGoogleMaps() {
+        window.open(
+          `https://www.google.com/maps/dir/?api=1&destination=${DESTINO.lat},${DESTINO.lng}&destination_place_id=PLUS+Laboratorio+Clínico`,
+          "_blank"
+        );
+      }
+
+      // Waze
+      function openWaze() {
+        window.open(
+          `https://waze.com/ul?ll=${DESTINO.lat},${DESTINO.lng}&navigate=yes`,
+          "_blank"
+        );
+      }
+
+      // Apple Maps (detección iOS)
+      function openAppleMaps() {
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        const url = `https://maps.apple.com/?daddr=${DESTINO.lat},${
+          DESTINO.lng
+        }&q=${encodeURIComponent(DESTINO.nombre)}`;
+
+        if (isIOS) {
+          window.location.href = url;
+        } else {
+          window.open(url, "_blank");
+        }
+      }
+    </script>
   </body>
 </html>
-
