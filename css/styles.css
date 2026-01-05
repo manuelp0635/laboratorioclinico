@@ -2374,6 +2374,35 @@ textarea.form-control {
   color: #34495e;
 }
 
+.map-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.map-buttons button {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+  transition: all 0.25s ease;
+}
+
+.map-buttons button:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .map-buttons {
+    justify-content: center;
+  }
+}
+
 /* =====================
    MENSAJES
 ===================== */
@@ -2594,6 +2623,259 @@ textarea.form-control {
   margin-bottom: 20px;
   display: inline-block;
 }
+
+/* =========================
+   CATEGORY LIST BASE
+========================= */
+#category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* =========================
+   CATEGORY ITEM
+========================= */
+#category-list li {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background-color: #f2f4f7;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+}
+
+/* Hover */
+#category-list li:hover {
+  background-color: #e3e7ee;
+}
+
+/* Active */
+#category-list li.active {
+  background-color: #0d6efd;
+  color: #fff;
+  border-color: #0d6efd;
+}
+
+/* =========================
+   MOBILE FIRST (<= 768px)
+========================= */
+@media (max-width: 768px) {
+  #category-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  #category-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+
+  #category-list li {
+    flex: 0 0 auto;
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (<= 480px)
+========================= */
+@media (max-width: 480px) {
+  #category-list {
+    gap: 8px;
+  }
+
+  #category-list li {
+    font-size: 12.5px;
+    padding: 7px 12px;
+  }
+}
+
+/* =========================
+   LARGE SCREENS (>= 1024px)
+========================= */
+@media (min-width: 1024px) {
+  #category-list {
+    justify-content: center;
+  }
+
+  #category-list li {
+    font-size: 14.5px;
+    padding: 10px 18px;
+  }
+}
+
+/* =========================
+   HEADER EXAMS - BASE
+========================= */
+.header-exams {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   RESULTADOS
+========================= */
+.resultados-box {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  white-space: nowrap;
+}
+
+/* =========================
+   VISTA TOGGLE
+========================= */
+.vista-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.vista-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.vista-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.vista-btn:hover {
+  background-color: #f2f4f7;
+}
+
+.vista-btn.active {
+  background-color: #0d6efd;
+  color: #fff;
+  border-color: #0d6efd;
+}
+
+.vista-btn.active img {
+  filter: brightness(0) invert(1);
+}
+
+/* =========================
+   SEARCH
+========================= */
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 280px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 10px 14px;
+  padding-right: 38px;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  font-size: 13px;
+  outline: none;
+}
+
+#search-input:focus {
+  border-color: #0d6efd;
+}
+
+/* Icono (opcional si lo agregas por CSS) */
+.search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-image: url("https://cdn-icons-png.flaticon.com/512/622/622669.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* =========================
+   TABLET & MOBILE (<= 768px)
+========================= */
+@media (max-width: 768px) {
+  .header-exams {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .vista-toggle {
+    justify-content: center;
+  }
+
+  .vista-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .search-container {
+    max-width: 100%;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (<= 480px)
+========================= */
+@media (max-width: 480px) {
+  .vista-btn {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+
+  .vista-btn img {
+    width: 14px;
+    height: 14px;
+  }
+
+  #search-input {
+    font-size: 12.5px;
+    padding: 9px 12px;
+    padding-right: 36px;
+  }
+}
+
+/* =========================
+   LARGE SCREENS (>= 1024px)
+========================= */
+@media (min-width: 1024px) {
+  .header-exams {
+    flex-wrap: nowrap;
+  }
+
+  .search-container {
+    max-width: 320px;
+  }
+}
+
 
 /* ===========================
    PROMOCIONES MES
@@ -3025,6 +3307,140 @@ html, body {
   margin-top: 0 !important;
 }
 
+/* ===============================
+MODAL LEER MAS
+================================ */
+
+.exam-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.exam-modal.active {
+  display: flex;
+}
+
+.exam-modal-content {
+  background: #fff;
+  width: 95%;
+  max-width: 720px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  animation: fadeInUp 0.3s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 26px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.exam-category {
+  font-size: 13px;
+  color: #0d6efd;
+  font-weight: 600;
+}
+
+.exam-description {
+  color: #555;
+  margin: 12px 0;
+}
+
+.exam-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.exam-meta div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.exam-meta img {
+  width: 20px;
+}
+
+.btn-contact {
+  display: inline-block;
+  margin: 12px 0;
+  padding: 10px 18px;
+  background: #0d6efd;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================
+    BUSCADOR EXAMENES POR
+    NOMBRE, CODIGO O CATEGORIA
+======================== */
+
+.buscador{
+  padding:20px;
+  text-align:center;
+}
+
+.buscador input{
+  width:60%;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:16px;
+}
+
+.resultados{
+  max-width:900px;
+  margin:0 auto;
+  padding:20px;
+}
+
+.examen-item{
+  background:white;
+  padding:15px;
+  margin-bottom:12px;
+  border-radius:8px;
+  border:1px solid #ddd;
+}
+
+.examen-item h3{
+  margin-top:0;
+  color:#003B7A;
+}
+
+button{
+  background:#007BFF;
+  border:none;
+  color:white;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#0056c1;
+}
 
 /* ===========================
    ASESOR VIRTUAL TABOPLUS
