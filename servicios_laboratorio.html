@@ -309,6 +309,12 @@
   <li data-category="Prueba de fertilidad">Prueba de fertilidad</li>
 </ul>
 
+<section class="buscador">
+  <input id="buscadorExamen" type="text" placeholder="Buscar examen por nombre, código o categoría...">
+</section>
+
+<section id="resultadosExamenes" class="resultados"></section>
+
 <!-- ===========================
      CONTADOR + BUSCADOR + VISTA
 =========================== -->
@@ -335,13 +341,15 @@
   <!-- BUSCADOR -->
   <div class="search-container">
     <input type="text" id="search-input" placeholder="Buscar pruebas aquí">
-    <span class="search-icon"></span>
+    <!--<span class="search-icon"></span>-->
   </div>
 
 </div>
 
+<div id="pagination"></div>
+
 <!-- CONTENEDOR DINÁMICO PARA RENDERIZAR EXÁMENES -->
-<div id="examenes" class="cuadricula"></div>
+<div id="examenes" class="grid-container"></div>
 
 
 <div id="exam-list"></div>
@@ -381,7 +389,80 @@
 
     <!-- Script general filtro de examenes -->
 
+    <div class="exam-modal" id="examModal">
+  <div class="exam-modal-content">
+    <button class="modal-close">&times;</button>
+
+    <span class="exam-category" id="modalCategory"></span>
+    <h2 id="modalTitle"></h2>
+    <p class="exam-description" id="modalDescription"></p>
+
+    <div class="exam-meta">
+      <div>
+        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966486.png">
+        <span id="modalSample"></span>
+      </div>
+      <div>
+        <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png">
+        <span id="modalResultTime"></span>
+      </div>
+      <div>
+        <img src="https://cdn-icons-png.flaticon.com/512/2907/2907253.png">
+        <span id="modalParams"></span>
+      </div>
+    </div>
+
+    <a href="#contacto" class="btn-contact">Contáctenos</a>
+
+    <hr>
+
+    <h3>¿Qué mide esta prueba?</h3>
+    <p id="modalWhatMeasures"></p>
+
+    <h3>Cómo prepararse</h3>
+
+    <p><strong>Condiciones de ayuno:</strong> <span id="modalFasting"></span></p>
+    <p><strong>Requerimientos adicionales:</strong> <span id="modalRequirements"></span></p>
+    <p><strong>Ejercicio físico:</strong> <span id="modalExercise"></span></p>
+  </div>
+</div>
+
  <script>
+
+  const modal = document.getElementById("examModal");
+
+document.addEventListener("click", e => {
+  if (e.target.classList.contains("btn-leer-mas")) {
+    const examId = Number(e.target.dataset.id);
+    const exam = exams.find(x => x.id === examId);
+
+    if (!exam) return;
+
+    modal.classList.add("active");
+
+    modalCategory.textContent = exam.category;
+    modalTitle.textContent = exam.name;
+    modalDescription.textContent = exam.description;
+
+    modalSample.textContent = exam.sample;
+    modalResultTime.textContent = exam.resultTime;
+    modalParams.textContent = exam.parameters;
+
+    modalWhatMeasures.textContent = exam.whatMeasures;
+    modalFasting.textContent = exam.preparation.fasting;
+    modalRequirements.textContent = exam.preparation.requirements;
+    modalExercise.textContent = exam.preparation.exercise;
+  }
+
+  if (
+    e.target.classList.contains("modal-close") ||
+    e.target === modal
+  ) {
+    modal.classList.remove("active");
+  }
+});
+
+
 // Aquí va tu array "exams" con todos los exámenes que me compartiste anteriormente
   const exams = [ 
     /* Alergias e inrolerancias */
@@ -392,9 +473,18 @@
     category: "Alergias e intolerancias",
     img: "./assets/images/Examenes/Alergias e Intolerancias/50HLA_Tipificacion_para_Enfermedad_Celiaca_DQ_Alfa_1_-_DQ_Beta_1-100__23584.webp",
     price: "$1.073.800",
-    sample: "Sangre/Prick test",
-    time: "3 - 7 días",
-    details: "Evitar antihistamínicos 3 días antes.",
+     sample: "Muestra de sangre",
+    resultTime: "Resultados en 1 día",
+    parameters: "1 parámetro",
+
+    whatMeasures:
+      "Evalúa el tiempo que tarda la sangre en coagularse. Valores alterados pueden indicar deficiencias de factores de coagulación, enfermedad hepática o uso de anticoagulantes.",
+
+    preparation: {
+      fasting: "El ayuno es recomendado pero no indispensable",
+      requirements: "No requiere",
+      exercise: "No afecta"
+    }
   },
   {
     id: 2,
@@ -3137,5 +3227,166 @@ function renderExamenes(lista) {
       }
     </script>
     <!-- Fin Script Taboplus asesor virtual -->
+
+   <!-- Script buscador exámenes -->
+<script>
+// ===============================
+// BASE DE DATOS
+// ===============================
+
+const examenesLaboratorio = [
+  {
+    categoria: "Hematología",
+    nombre: "Cuadro Hemático Completo",
+    codigo: "HEM001",
+    descripcion: "Evalúa glóbulos rojos, blancos y plaquetas.",
+    indicaciones: "Ayuno 8 horas recomendado.",
+    tiempoEntrega: "24 horas",
+    valoresReferencia: "Dependen de edad y sexo",
+    muestra: "Sangre",
+    usoClinico: "Detección de anemia, infecciones y trastornos hematológicos",
+    acreditado: true
+  },
+  {
+    categoria: "Química Clínica",
+    nombre: "Glucosa en sangre",
+    codigo: "QUI002",
+    descripcion: "Mide el nivel de glucosa.",
+    indicaciones: "Ayuno 8–12 horas.",
+    tiempoEntrega: "24 horas",
+    valoresReferencia: "70–100 mg/dL",
+    muestra: "Sangre",
+    usoClinico: "Diagnóstico de diabetes",
+    acreditado: true
+  },
+  {
+    categoria: "Microbiología",
+    nombre: "Urocultivo",
+    codigo: "MIC010",
+    descripcion: "Identifica bacterias en orina.",
+    indicaciones: "Recolectar primera orina de la mañana.",
+    tiempoEntrega: "72 horas",
+    valoresReferencia: "Negativo",
+    muestra: "Orina",
+    usoClinico: "Diagnóstico de infecciones urinarias",
+    acreditado: true
+  }
+];
+
+// ===============================
+// BUSCADOR PACIENTE (SOLO CÓDIGO)
+// ===============================
+
+const inputBuscador = document.getElementById("buscadorExamen");
+const resultadosContainer = document.getElementById("resultadosExamenes");
+
+inputBuscador.addEventListener("input", function () {
+
+  const codigoIngresado = this.value.trim().toUpperCase();
+  resultadosContainer.innerHTML = "";
+
+  // No buscar si está vacío o incompleto
+  if (codigoIngresado.length < 3) return;
+
+  const examen = examenesLaboratorio.find(
+    e => e.codigo === codigoIngresado
+  );
+
+  if (!examen) {
+    resultadosContainer.innerHTML = `
+      <p style="color:#777;">
+        Código no válido. Verifique su orden médica.
+      </p>
+    `;
+    return;
+  }
+
+  mostrarResultadoPaciente(examen);
+});
+
+// ===============================
+// MOSTRAR RESULTADO ÚNICO
+// ===============================
+
+function mostrarResultadoPaciente(examen) {
+
+  resultadosContainer.innerHTML = `
+    <div class="examen-item">
+      <h3>${examen.nombre}</h3>
+      <p><strong>Código:</strong> ${examen.codigo}</p>
+      <p><strong>Descripción:</strong> ${examen.descripcion}</p>
+      <p><strong>Muestra:</strong> ${examen.muestra}</p>
+      <p><strong>Indicaciones:</strong> ${examen.indicaciones}</p>
+      <p><strong>Tiempo de entrega:</strong> ${examen.tiempoEntrega}</p>
+      <p><strong>Valores de referencia:</strong> ${examen.valoresReferencia}</p>
+      <p><strong>Acreditación:</strong> ${examen.acreditado ? "ISO 15189" : "No acreditado"}</p>
+
+      <button onclick="generarInformePaciente('${examen.codigo}')">
+        Descargar informe
+      </button>
+    </div>
+  `;
+}
+
+// ===============================
+// GENERAR INFORME (PACIENTE)
+// ===============================
+
+function generarInformePaciente(codigo) {
+
+  const examen = examenesLaboratorio.find(e => e.codigo === codigo);
+  if (!examen) return;
+
+  const contenido = `
+LABORATORIO CLÍNICO CENTRAL
+INFORME DE EXAMEN
+
+Nombre del examen:
+${examen.nombre}
+
+Código de referencia:
+${examen.codigo}
+
+Muestra:
+${examen.muestra}
+
+Indicaciones:
+${examen.indicaciones}
+
+Tiempo de entrega:
+${examen.tiempoEntrega}
+
+Valores de referencia:
+${examen.valoresReferencia}
+
+Este informe es confidencial y de uso exclusivo del paciente.
+`;
+
+  const blob = new Blob([contenido], { type: "text/plain;charset=utf-8" });
+  const link = document.createElement("a");
+
+  link.href = URL.createObjectURL(blob);
+  link.download = `Informe_${codigo}.txt`;
+  link.click();
+
+  URL.revokeObjectURL(link.href);
+}
+
+// ===============================
+// HL7 (USO INTERNO – NO PACIENTE)
+// ===============================
+
+function generarHL7Resultado(examen) {
+  return `
+MSH|^~\\&|LAB|CENTRO|DEST|HOSP|20260105||ORU^R01|123|P|2.5
+PID|||0001||PACIENTE^DEMO
+OBR|1||${examen.codigo}||${examen.nombre}
+OBX|1|TX|RESULTADO||PENDIENTE
+`;
+}
+
+console.log(generarHL7Resultado(examenesLaboratorio[0]));
+</script>
+
   </body>
 </html>
