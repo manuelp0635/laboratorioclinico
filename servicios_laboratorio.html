@@ -3235,40 +3235,275 @@ function renderExamenes(lista) {
 // ===============================
 
 const examenesLaboratorio = [
+  // ===============================
+  // HEMATOLOGÍA / COAGULACIÓN
+  // ===============================
   {
     categoria: "Hematología",
-    nombre: "Cuadro Hemático Completo",
-    codigo: "HEM001",
-    descripcion: "Evalúa glóbulos rojos, blancos y plaquetas.",
-    indicaciones: "Ayuno 8 horas recomendado.",
+    nombre: "Tiempo de Protrombina (TP)",
+    codigo: "HEM101",
+    descripcion: "Evalúa la vía extrínseca de la coagulación.",
+    indicaciones: "Ayuno no requerido.",
     tiempoEntrega: "24 horas",
-    valoresReferencia: "Dependen de edad y sexo",
+    valoresReferencia: "Dependen del reactivo",
     muestra: "Sangre",
-    usoClinico: "Detección de anemia, infecciones y trastornos hematológicos",
+    usoClinico: "Control de anticoagulación y trastornos hemorrágicos",
+    acreditado: true
+  },
+  {
+    categoria: "Hematología",
+    nombre: "Tiempo de Tromboplastina Parcial (TTP)",
+    codigo: "HEM102",
+    descripcion: "Evalúa la vía intrínseca de la coagulación.",
+    indicaciones: "Ayuno no requerido.",
+    tiempoEntrega: "24 horas",
+    valoresReferencia: "Dependen del reactivo",
+    muestra: "Sangre",
+    usoClinico: "Evaluación de trastornos de coagulación",
+    acreditado: true
+  },
+  {
+    categoria: "Hematología",
+    nombre: "Tiempo de Trombina",
+    codigo: "HEM103",
+    descripcion: "Evalúa la conversión de fibrinógeno a fibrina.",
+    indicaciones: "Ayuno no requerido.",
+    tiempoEntrega: "24 horas",
+    valoresReferencia: "Dependen del método",
+    muestra: "Sangre",
+    usoClinico: "Diagnóstico de coagulopatías",
+    acreditado: true
+  },
+
+  // ===============================
+  // QUÍMICA CLÍNICA
+  // ===============================
+  {
+    categoria: "Química Clínica",
+    nombre: "Triglicéridos",
+    codigo: "QUI201",
+    descripcion: "Mide el nivel de triglicéridos en sangre.",
+    indicaciones: "Ayuno 12 horas.",
+    tiempoEntrega: "24 horas",
+    valoresReferencia: "<150 mg/dL",
+    muestra: "Sangre",
+    usoClinico: "Evaluación de riesgo cardiovascular",
     acreditado: true
   },
   {
     categoria: "Química Clínica",
-    nombre: "Glucosa en sangre",
-    codigo: "QUI002",
-    descripcion: "Mide el nivel de glucosa.",
-    indicaciones: "Ayuno 8–12 horas.",
+    nombre: "Urea",
+    codigo: "QUI202",
+    descripcion: "Evalúa la función renal.",
+    indicaciones: "Ayuno recomendado.",
     tiempoEntrega: "24 horas",
-    valoresReferencia: "70–100 mg/dL",
+    valoresReferencia: "15–40 mg/dL",
     muestra: "Sangre",
-    usoClinico: "Diagnóstico de diabetes",
+    usoClinico: "Control de función renal",
     acreditado: true
   },
   {
+    categoria: "Química Clínica",
+    nombre: "Transaminasa Glutámico Oxalacética (AST)",
+    codigo: "QUI203",
+    descripcion: "Evalúa daño hepático y muscular.",
+    indicaciones: "Ayuno recomendado.",
+    tiempoEntrega: "24 horas",
+    valoresReferencia: "Hasta 40 U/L",
+    muestra: "Sangre",
+    usoClinico: "Evaluación de función hepática",
+    acreditado: true
+  },
+  {
+    categoria: "Química Clínica",
+    nombre: "Transaminasa Glutámico Pirúvica (ALT)",
+    codigo: "QUI204",
+    descripcion: "Indicador específico de daño hepático.",
+    indicaciones: "Ayuno recomendado.",
+    tiempoEntrega: "24 horas",
+    valoresReferencia: "Hasta 41 U/L",
+    muestra: "Sangre",
+    usoClinico: "Diagnóstico de enfermedades hepáticas",
+    acreditado: true
+  },
+
+  // ===============================
+  // HORMONAS
+  // ===============================
+  {
+    categoria: "Hormonas",
+    nombre: "Testosterona Total",
+    codigo: "HOR301",
+    descripcion: "Mide el nivel total de testosterona.",
+    indicaciones: "Muestra en la mañana.",
+    tiempoEntrega: "24 horas",
+    valoresReferencia: "Dependen de sexo y edad",
+    muestra: "Sangre",
+    usoClinico: "Evaluación hormonal masculina y femenina",
+    acreditado: true
+  },
+  {
+    categoria: "Hormonas",
+    nombre: "Testosterona Libre",
+    codigo: "HOR302",
+    descripcion: "Evalúa la fracción activa de testosterona.",
+    indicaciones: "Muestra en la mañana.",
+    tiempoEntrega: "24 horas",
+    valoresReferencia: "Dependen de sexo y edad",
+    muestra: "Sangre",
+    usoClinico: "Diagnóstico de trastornos hormonales",
+    acreditado: true
+  },
+
+  // ===============================
+  // TIROIDES
+  // ===============================
+  {
+    categoria: "Hormonas Tiroideas",
+    nombre: "TSH",
+    codigo: "TIR401",
+    descripcion: "Hormona estimulante de la tiroides.",
+    indicaciones: "Ayuno no requerido.",
+    tiempoEntrega: "24 horas",
+    valoresReferencia: "0.4–4.0 µUI/mL",
+    muestra: "Sangre",
+    usoClinico: "Evaluación de función tiroidea",
+    acreditado: true
+  },
+  {
+    categoria: "Hormonas Tiroideas",
+    nombre: "Tiroxina Libre (T4 Libre)",
+    codigo: "TIR402",
+    descripcion: "Evalúa la hormona tiroidea libre.",
+    indicaciones: "Ayuno no requerido.",
+    tiempoEntrega: "24 horas",
+    valoresReferencia: "0.8–1.8 ng/dL",
+    muestra: "Sangre",
+    usoClinico: "Diagnóstico de hipotiroidismo e hipertiroidismo",
+    acreditado: true
+  },
+  {
+    categoria: "Hormonas Tiroideas",
+    nombre: "Triyodotironina Total (T3)",
+    codigo: "TIR403",
+    descripcion: "Mide la hormona tiroidea T3.",
+    indicaciones: "Ayuno no requerido.",
+    tiempoEntrega: "24 horas",
+    valoresReferencia: "80–200 ng/dL",
+    muestra: "Sangre",
+    usoClinico: "Evaluación de función tiroidea",
+    acreditado: true
+  },
+
+  // ===============================
+  // INMUNOLOGÍA / SEROLOGÍA
+  // ===============================
+  {
+    categoria: "Inmunología",
+    nombre: "Rubeola Anticuerpos IgM",
+    codigo: "INM501",
+    descripcion: "Detecta infección aguda por rubeola.",
+    indicaciones: "Ayuno no requerido.",
+    tiempoEntrega: "48 horas",
+    valoresReferencia: "Negativo",
+    muestra: "Suero",
+    usoClinico: "Diagnóstico de infección reciente",
+    acreditado: true
+  },
+  {
+    categoria: "Inmunología",
+    nombre: "Sarampión Anticuerpos IgG",
+    codigo: "INM502",
+    descripcion: "Evalúa inmunidad contra sarampión.",
+    indicaciones: "Ayuno no requerido.",
+    tiempoEntrega: "48 horas",
+    valoresReferencia: "Positivo indica inmunidad",
+    muestra: "Suero",
+    usoClinico: "Control inmunológico",
+    acreditado: true
+  },
+  {
+    categoria: "Inmunología",
+    nombre: "VIH 1 y 2 Anticuerpos",
+    codigo: "INM503",
+    descripcion: "Detección de anticuerpos contra VIH.",
+    indicaciones: "Ayuno no requerido.",
+    tiempoEntrega: "24–48 horas",
+    valoresReferencia: "No reactivo",
+    muestra: "Sangre",
+    usoClinico: "Tamizaje de VIH",
+    acreditado: true
+  },
+
+  // ===============================
+  // MICROBIOLOGÍA
+  // ===============================
+  {
     categoria: "Microbiología",
-    nombre: "Urocultivo",
-    codigo: "MIC010",
-    descripcion: "Identifica bacterias en orina.",
-    indicaciones: "Recolectar primera orina de la mañana.",
+    nombre: "Urocultivo con Antibiograma",
+    codigo: "MIC601",
+    descripcion: "Identifica bacterias y sensibilidad antibiótica.",
+    indicaciones: "Orina de la mañana, aseo previo.",
     tiempoEntrega: "72 horas",
     valoresReferencia: "Negativo",
     muestra: "Orina",
-    usoClinico: "Diagnóstico de infecciones urinarias",
+    usoClinico: "Diagnóstico de infección urinaria",
+    acreditado: true
+  },
+
+  // ===============================
+  // ORINA Y HECES
+  // ===============================
+  {
+    categoria: "Uroanálisis",
+    nombre: "Uroanálisis",
+    codigo: "ORH701",
+    descripcion: "Examen físico, químico y microscópico de orina.",
+    indicaciones: "Primera orina de la mañana.",
+    tiempoEntrega: "24 horas",
+    valoresReferencia: "Dentro de rangos normales",
+    muestra: "Orina",
+    usoClinico: "Evaluación renal y urinaria",
+    acreditado: true
+  },
+  {
+    categoria: "Coprológico",
+    nombre: "Sangre Oculta en Materia Fecal",
+    codigo: "COP702",
+    descripcion: "Detecta hemoglobina humana en heces.",
+    indicaciones: "Dieta previa según indicación médica.",
+    tiempoEntrega: "24 horas",
+    valoresReferencia: "Negativo",
+    muestra: "Heces",
+    usoClinico: "Tamizaje de sangrado digestivo",
+    acreditado: true
+  },
+
+  // ===============================
+  // VITAMINAS Y OLIGOELEMENTOS
+  // ===============================
+  {
+    categoria: "Vitaminas",
+    nombre: "Vitamina D 25 Hidroxi Total",
+    codigo: "VIT801",
+    descripcion: "Evalúa niveles de vitamina D.",
+    indicaciones: "Ayuno no requerido.",
+    tiempoEntrega: "48 horas",
+    valoresReferencia: "30–100 ng/mL",
+    muestra: "Sangre",
+    usoClinico: "Evaluación de metabolismo óseo",
+    acreditado: true
+  },
+  {
+    categoria: "Oligoelementos",
+    nombre: "Zinc en Suero",
+    codigo: "OLI802",
+    descripcion: "Mide niveles de zinc en sangre.",
+    indicaciones: "Ayuno recomendado.",
+    tiempoEntrega: "48 horas",
+    valoresReferencia: "70–120 µg/dL",
+    muestra: "Suero",
+    usoClinico: "Evaluación nutricional",
     acreditado: true
   }
 ];
