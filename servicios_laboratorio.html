@@ -3229,9 +3229,10 @@ function renderExamenes(lista) {
     <!-- Fin Script Taboplus asesor virtual -->
 
    <!-- Script buscador exámenes -->
+
 <script>
 // ===============================
-// BASE DE DATOS
+// NORMALIZAR Y INDEXAR EXÁMENES
 // ===============================
 
 const examenesLaboratorio = [
@@ -3505,32 +3506,872 @@ const examenesLaboratorio = [
     muestra: "Suero",
     usoClinico: "Evaluación nutricional",
     acreditado: true
-  }
+  },
+  // ===============================
+// VITAMINAS Y OLIGOELEMENTOS
+// ===============================
+{
+  categoria: "Oligoelementos",
+  nombre: "Zinc en Suero",
+  codigo: "OLI802",
+  descripcion: "Mide los niveles de zinc en sangre.",
+  indicaciones: "Ayuno recomendado.",
+  tiempoEntrega: "48 horas",
+  valoresReferencia: "70–120 µg/dL",
+  muestra: "Suero",
+  usoClinico: "Evaluación nutricional, inmunológica y metabólica",
+  acreditado: true
+},
+{
+  categoria: "Química Clínica",
+  nombre: "Nitrógeno Ureico - BUN (Orina al azar)",
+  codigo: "QUI301",
+  descripcion: "Mide la excreción de nitrógeno ureico en orina.",
+  indicaciones: "Recolección de muestra al azar.",
+  tiempoEntrega: "24 horas",
+  valoresReferencia: "Dependen del método",
+  muestra: "Orina",
+  usoClinico: "Evaluación de función renal",
+  acreditado: true
+},
+{
+  categoria: "Química Clínica",
+  nombre: "Nitrógeno Ureico en Orina de 24 Horas",
+  codigo: "QUI302",
+  descripcion: "Cuantifica nitrógeno ureico en recolección de 24 horas.",
+  indicaciones: "Recolección completa de 24 horas.",
+  tiempoEntrega: "24–48 horas",
+  valoresReferencia: "Dependen del método",
+  muestra: "Orina 24 horas",
+  usoClinico: "Evaluación renal y balance nitrogenado",
+  acreditado: true
+},
+{
+  categoria: "Química Clínica",
+  nombre: "Osmolaridad en Suero",
+  codigo: "QUI303",
+  descripcion: "Evalúa la concentración osmótica del suero.",
+  indicaciones: "Ayuno recomendado.",
+  tiempoEntrega: "24 horas",
+  valoresReferencia: "275–295 mOsm/kg",
+  muestra: "Suero",
+  usoClinico: "Trastornos hidroelectrolíticos",
+  acreditado: true
+},
+{
+  categoria: "Química Clínica",
+  nombre: "Osmolaridad en Orina",
+  codigo: "QUI304",
+  descripcion: "Evalúa la capacidad de concentración renal.",
+  indicaciones: "Muestra espontánea.",
+  tiempoEntrega: "24 horas",
+  valoresReferencia: "Dependen de hidratación",
+  muestra: "Orina",
+  usoClinico: "Evaluación de función renal",
+  acreditado: true
+}, 
+{
+  categoria: "Niveles Terapéuticos",
+  nombre: "Lidocaína / MEGX en Suero",
+  codigo: "TOX401",
+  descripcion: "Mide niveles de lidocaína y su metabolito MEGX.",
+  indicaciones: "Según indicación médica.",
+  tiempoEntrega: "48 horas",
+  valoresReferencia: "Dependen del fármaco",
+  muestra: "Suero",
+  usoClinico: "Monitoreo terapéutico",
+  acreditado: true
+},
+{
+  categoria: "Niveles Terapéuticos",
+  nombre: "Levodopa en Suero",
+  codigo: "TOX402",
+  descripcion: "Cuantificación de levodopa sérica.",
+  indicaciones: "Según horario de medicación.",
+  tiempoEntrega: "48 horas",
+  valoresReferencia: "Dependen del tratamiento",
+  muestra: "Suero",
+  usoClinico: "Monitoreo farmacológico",
+  acreditado: true
+},
+{
+  categoria: "Niveles Terapéuticos",
+  nombre: "Carbamazepina Libre",
+  codigo: "TOX403",
+  descripcion: "Mide la fracción libre de carbamazepina.",
+  indicaciones: "Antes de dosis.",
+  tiempoEntrega: "48 horas",
+  valoresReferencia: "Dependen del método",
+  muestra: "Suero",
+  usoClinico: "Control de epilepsia",
+  acreditado: true
+},
+{
+  categoria: "Niveles Terapéuticos",
+  nombre: "Lamotrigina – Niveles Séricos",
+  codigo: "TOX404",
+  descripcion: "Cuantificación de lamotrigina en sangre.",
+  indicaciones: "Antes de dosis.",
+  tiempoEntrega: "48 horas",
+  valoresReferencia: "Dependen del tratamiento",
+  muestra: "Suero",
+  usoClinico: "Monitoreo anticonvulsivante",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Parotiditis Anticuerpos IgG",
+  codigo: "INM601",
+  descripcion: "Evalúa inmunidad contra parotiditis.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "48 horas",
+  valoresReferencia: "Positivo indica inmunidad",
+  muestra: "Suero",
+  usoClinico: "Control inmunológico",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Parotiditis Anticuerpos IgM",
+  codigo: "INM602",
+  descripcion: "Detecta infección aguda por parotiditis.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "48 horas",
+  valoresReferencia: "Negativo",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de infección reciente",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Rubeola Anticuerpos IgG",
+  codigo: "INM603",
+  descripcion: "Evalúa inmunidad contra rubeola.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "48 horas",
+  valoresReferencia: "Positivo indica inmunidad",
+  muestra: "Suero",
+  usoClinico: "Control inmunológico",
+  acreditado: true
+},
+{
+  categoria: "Microbiología",
+  nombre: "Panel ETS por PCR",
+  codigo: "MIC701",
+  descripcion: "Detección molecular de patógenos de transmisión sexual.",
+  indicaciones: "Según tipo de muestra.",
+  tiempoEntrega: "48–72 horas",
+  valoresReferencia: "No detectado",
+  muestra: "Exudado / Orina",
+  usoClinico: "Diagnóstico de ETS",
+  acreditado: true
+},
+{
+  categoria: "Microbiología",
+  nombre: "Papilomavirus por PCR (14 genotipos alto riesgo)",
+  codigo: "MIC702",
+  descripcion: "Detección y tipificación de VPH de alto riesgo.",
+  indicaciones: "Muestra cervical.",
+  tiempoEntrega: "72 horas",
+  valoresReferencia: "No detectado",
+  muestra: "Exudado cervical",
+  usoClinico: "Tamizaje oncológico",
+  acreditado: true
+},
+{
+  categoria: "Hematología",
+  nombre: "Recuento de Plaquetas",
+  codigo: "HEM501",
+  descripcion: "Cuantificación de plaquetas en sangre.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "24 horas",
+  valoresReferencia: "150.000–450.000 /µL",
+  muestra: "Sangre",
+  usoClinico: "Trastornos de coagulación",
+  acreditado: true
+},
+{
+  categoria: "Hematología",
+  nombre: "Recuento de Reticulocitos",
+  codigo: "HEM502",
+  descripcion: "Evalúa producción de glóbulos rojos.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "24 horas",
+  valoresReferencia: "0.5–2.5 %",
+  muestra: "Sangre",
+  usoClinico: "Anemias",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "IgE Específica – Ampicilina (RAST)",
+  codigo: "ALG801",
+  descripcion: "Detección de IgE específica frente a ampicilina.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "5 días",
+  valoresReferencia: "Negativo / Clases 0–6",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de alergia medicamentosa",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "IgE Específica – Anchoa (RAST)",
+  codigo: "ALG802",
+  descripcion: "Detección de IgE específica frente a anchoa.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "5 días",
+  valoresReferencia: "Negativo / Clases 0–6",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de alergia alimentaria",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "IgE Específica – Anís (RAST)",
+  codigo: "ALG803",
+  descripcion: "Detección de IgE específica frente a anís.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "5 días",
+  valoresReferencia: "Negativo / Clases 0–6",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de alergia alimentaria",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "IgE Específica – Anisakis (RAST)",
+  codigo: "ALG804",
+  descripcion: "Detección de IgE específica frente a Anisakis.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "5 días",
+  valoresReferencia: "Negativo / Clases 0–6",
+  muestra: "Suero",
+  usoClinico: "Alergia parasitaria asociada a alimentos marinos",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "IgE Específica – Apio (RAST)",
+  codigo: "ALG805",
+  descripcion: "Detección de IgE específica frente a apio.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "5 días",
+  valoresReferencia: "Negativo / Clases 0–6",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de alergia alimentaria",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Inmunoglobulina G (IgG)",
+  codigo: "INM801",
+  descripcion: "Cuantificación total de IgG.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "48 horas",
+  valoresReferencia: "700–1600 mg/dL",
+  muestra: "Suero",
+  usoClinico: "Evaluación inmunológica",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "IgG Subclases 1, 2, 3 y 4",
+  codigo: "INM802",
+  descripcion: "Cuantificación de subclases de IgG.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "72 horas",
+  valoresReferencia: "Dependen de subclase",
+  muestra: "Suero",
+  usoClinico: "Inmunodeficiencias y enfermedades autoinmunes",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Inmunoglobulina G4 (IgG4)",
+  codigo: "INM803",
+  descripcion: "Cuantificación de IgG4 sérica.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "72 horas",
+  valoresReferencia: "Dependen del método",
+  muestra: "Suero",
+  usoClinico: "Enfermedad relacionada con IgG4",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Inmunoglobulina M (IgM)",
+  codigo: "INM804",
+  descripcion: "Cuantificación total de IgM.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "48 horas",
+  valoresReferencia: "40–230 mg/dL",
+  muestra: "Suero",
+  usoClinico: "Evaluación inmunológica",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Cadenas Livianas Kappa y Lambda en Suero",
+  codigo: "INM805",
+  descripcion: "Cuantificación de cadenas livianas de inmunoglobulinas.",
+  indicaciones: "Ayuno no requerido.",
+  tiempoEntrega: "72 horas",
+  valoresReferencia: "Dependen del método",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de gammapatías monoclonales",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Cadenas Livianas Kappa y Lambda en Orina",
+  codigo: "INM806",
+  descripcion: "Detección de cadenas livianas en orina.",
+  indicaciones: "Orina parcial o 24 horas.",
+  tiempoEntrega: "72 horas",
+  valoresReferencia: "Negativo",
+  muestra: "Orina",
+  usoClinico: "Diagnóstico de mieloma múltiple",
+  acreditado: true
+},
+{
+  categoria: "Hormonas",
+  nombre: "Insulina (cada muestra)",
+  codigo: "HOR901",
+  descripcion: "Cuantificación de insulina sérica.",
+  indicaciones: "Ayuno 8 horas.",
+  tiempoEntrega: "24 horas",
+  valoresReferencia: "2–25 µUI/mL",
+  muestra: "Suero",
+  usoClinico: "Evaluación de metabolismo glucídico",
+  acreditado: true
+},
+{
+  categoria: "Hormonas",
+  nombre: "Insulina Libre",
+  codigo: "HOR902",
+  descripcion: "Mide la fracción libre de insulina.",
+  indicaciones: "Ayuno 8 horas.",
+  tiempoEntrega: "48 horas",
+  valoresReferencia: "Dependen del método",
+  muestra: "Suero",
+  usoClinico: "Resistencia a la insulina",
+  acreditado: true
+},
+{
+  categoria: "Hormonas",
+  nombre: "Insulina Curva 2 Horas (0, 60, 120)",
+  codigo: "HOR903",
+  descripcion: "Evaluación dinámica de insulina.",
+  indicaciones: "Ayuno + carga de glucosa.",
+  tiempoEntrega: "24 horas",
+  valoresReferencia: "Interpretación médica",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de resistencia a la insulina",
+  acreditado: true
+},
+{
+  categoria: "Química Clínica",
+  nombre: "Ionograma (Sodio, Potasio, Cloro)",
+  codigo: "QUI901",
+  descripcion: "Medición de electrolitos séricos.",
+  indicaciones: "Ayuno recomendado.",
+  tiempoEntrega: "24 horas",
+  valoresReferencia: "Valores individuales",
+  muestra: "Suero",
+  usoClinico: "Trastornos hidroelectrolíticos",
+  acreditado: true
+},
+{
+  categoria: "Química Clínica",
+  nombre: "Lipasa",
+  codigo: "QUI902",
+  descripcion: "Evaluación de función pancreática.",
+  indicaciones: "Ayuno recomendado.",
+  tiempoEntrega: "24 horas",
+  valoresReferencia: "Hasta 60 U/L",
+  muestra: "Suero",
+  usoClinico: "Pancreatitis",
+  acreditado: true
+},
+{
+  categoria: "Química Clínica",
+  nombre: "Lipoproteína A",
+  codigo: "QUI903",
+  descripcion: "Marcador de riesgo cardiovascular.",
+  indicaciones: "Ayuno recomendado.",
+  tiempoEntrega: "48 horas",
+  valoresReferencia: "<30 mg/dL",
+  muestra: "Suero",
+  usoClinico: "Riesgo aterosclerótico",
+  acreditado: true
+},
+{
+  categoria: "Toxicología",
+  nombre: "Mercurio en Sangre u Orina",
+  codigo: "TOX901",
+  descripcion: "Detección de exposición a mercurio.",
+  indicaciones: "Según tipo de muestra.",
+  tiempoEntrega: "72 horas",
+  valoresReferencia: "Dependen del método",
+  muestra: "Sangre u Orina",
+  usoClinico: "Intoxicación por metales pesados",
+  acreditado: true
+},
+{
+  categoria: "Toxicología",
+  nombre: "Plomo en Sangre u Orina",
+  codigo: "TOX902",
+  descripcion: "Detección de plomo por absorción atómica.",
+  indicaciones: "Según tipo de muestra.",
+  tiempoEntrega: "72 horas",
+  valoresReferencia: "<5 µg/dL",
+  muestra: "Sangre u Orina",
+  usoClinico: "Intoxicación por plomo",
+  acreditado: true
+},
+{
+  categoria: "Microbiología",
+  nombre: "Mycobacterium tuberculosis – PCR",
+  codigo: "MIC901",
+  descripcion: "Detección molecular de M. tuberculosis.",
+  indicaciones: "Muestra respiratoria.",
+  tiempoEntrega: "48 horas",
+  valoresReferencia: "No detectado",
+  muestra: "Esputo",
+  usoClinico: "Diagnóstico de tuberculosis",
+  acreditado: true
+},
+{
+  categoria: "Microbiología",
+  nombre: "Legionella spp Antígeno en Orina",
+  codigo: "MIC902",
+  descripcion: "Detección rápida de antígeno de Legionella.",
+  indicaciones: "Muestra espontánea.",
+  tiempoEntrega: "24 horas",
+  valoresReferencia: "Negativo",
+  muestra: "Orina",
+  usoClinico: "Neumonía por Legionella",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Inmunoglobulina E [IgE] Específica – RAST: Pera",
+  codigo: "IGE001",
+  descripcion: "Determinación de IgE específica frente a alérgeno individual mediante técnica RAST.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "Clases 0–6 (kU/L)",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de alergias alimentarias",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Inmunoglobulina E [IgE] Específica – RAST: Perejil",
+  codigo: "IGE002",
+  descripcion: "Determinación de IgE específica frente a alérgeno individual mediante técnica RAST.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "Clases 0–6 (kU/L)",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de alergias alimentarias",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Inmunoglobulina E [IgE] Específica – RAST: Pimienta negra",
+  codigo: "IGE003",
+  descripcion: "Determinación de IgE específica frente a alérgeno individual mediante técnica RAST.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "Clases 0–6 (kU/L)",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de alergias alimentarias",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Inmunoglobulina E [IgE] Específica – RAST: Pino",
+  codigo: "IGE004",
+  descripcion: "Determinación de IgE específica frente a alérgeno individual mediante técnica RAST.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "Clases 0–6 (kU/L)",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de alergias respiratorias",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Inmunoglobulina E [IgE] Específica – RAST: Piña",
+  codigo: "IGE005",
+  descripcion: "Determinación de IgE específica frente a alérgeno individual mediante técnica RAST.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "Clases 0–6 (kU/L)",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de alergias alimentarias",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Inmunoglobulina E [IgE] Específica – RAST: Piroxicam",
+  codigo: "IGE006",
+  descripcion: "Determinación de IgE específica frente a alérgeno individual mediante técnica RAST.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "Clases 0–6 (kU/L)",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de alergias a medicamentos",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Inmunoglobulina E [IgE] Específica – RAST: Pistacho",
+  codigo: "IGE007",
+  descripcion: "Determinación de IgE específica frente a alérgeno individual mediante técnica RAST.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "Clases 0–6 (kU/L)",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de alergias a frutos secos",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Inmunoglobulina E [IgE] Específica – RAST: <ALERGENO>",
+  codigo: "IGE008",
+  descripcion: "Determinación de IgE específica frente a alérgeno individual mediante técnica RAST.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "Clases 0–6 (kU/L)",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de alergias mediadas por IgE",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Hormona Antimulleriana",
+  codigo: "HORM001",
+  descripcion: "Determinación sérica de la hormona antimulleriana.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "Según edad y sexo",
+  muestra: "Suero",
+  usoClinico: "Evaluación de reserva ovárica",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Hormona de Crecimiento [Somatotrópica]",
+  codigo: "HORM002",
+  descripcion: "Medición de hormona de crecimiento en sangre.",
+  indicaciones: "Ayuno según indicación médica.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "Según edad",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de alteraciones del crecimiento",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Hormona Estimulante del Tiroides Ultrasensible (TSH)",
+  codigo: "HORM003",
+  descripcion: "Cuantificación ultrasensible de TSH.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "3 días hábiles",
+  valoresReferencia: "0.4 – 4.0 µUI/mL",
+  muestra: "Suero",
+  usoClinico: "Evaluación de función tiroidea",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Hormona Folículo Estimulante (FSH)",
+  codigo: "HORM004",
+  descripcion: "Determinación de FSH sérica.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "3 días hábiles",
+  valoresReferencia: "Según fase del ciclo",
+  muestra: "Suero",
+  usoClinico: "Evaluación de función gonadal",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Hormona Luteinizante (LH)",
+  codigo: "HORM005",
+  descripcion: "Medición de hormona luteinizante.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "3 días hábiles",
+  valoresReferencia: "Según fase del ciclo",
+  muestra: "Suero",
+  usoClinico: "Estudio de fertilidad y función ovárica",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Hormona Paratiroidea Molécula Intacta",
+  codigo: "HORM006",
+  descripcion: "Cuantificación de hormona paratiroidea intacta.",
+  indicaciones: "Ayuno recomendado.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "15 – 65 pg/mL",
+  muestra: "Suero",
+  usoClinico: "Evaluación del metabolismo calcio-fósforo",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Identificación de Anticuerpos – Babesia microti IgG / IgM",
+  codigo: "AC001",
+  descripcion: "Detección de anticuerpos contra Babesia microti.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "7 días hábiles",
+  valoresReferencia: "Negativo",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de babesiosis",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Identificación de Anticuerpos – Coxsackie A9 IgG",
+  codigo: "AC002",
+  descripcion: "Determinación de anticuerpos IgG contra Coxsackie A9.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "7 días hábiles",
+  valoresReferencia: "Negativo",
+  muestra: "Suero",
+  usoClinico: "Evaluación de infección pasada",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Identificación de Anticuerpos – Coxsackie B1-6 IgG",
+  codigo: "AC003",
+  descripcion: "Detección de anticuerpos IgG contra Coxsackie B.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "7 días hábiles",
+  valoresReferencia: "Negativo",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico serológico viral",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Identificación de Anticuerpos – Receptores de Acetilcolina",
+  codigo: "AC004",
+  descripcion: "Determinación de anticuerpos totales contra receptores de acetilcolina.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "7 días hábiles",
+  valoresReferencia: "Negativo",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de miastenia gravis",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Inmunoglobulina E [IgE] Específica – RAST: <ALÉRGENO>",
+  codigo: "IGE001",
+  descripcion: "Determinación de IgE específica frente a alérgeno individual mediante técnica RAST.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "Clases 0–6 (kU/L)",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de alergias mediadas por IgE",
+  acreditado: true
+},
+{
+  categoria: "Química Clínica",
+  nombre: "Acetaminofén – Niveles Séricos",
+  codigo: "QC001",
+  descripcion: "Determinación cuantitativa de acetaminofén en suero.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "3 días hábiles",
+  valoresReferencia: "10–30 µg/mL",
+  muestra: "Suero",
+  usoClinico: "Monitoreo terapéutico y toxicidad",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Receptores de Acetilcolina – Anticuerpos Bloqueadores",
+  codigo: "INM001",
+  descripcion: "Detección de anticuerpos bloqueadores contra receptores de acetilcolina.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "7 días hábiles",
+  valoresReferencia: "Negativo",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de miastenia gravis",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Receptores de Acetilcolina – Anticuerpos Fijadores",
+  codigo: "INM002",
+  descripcion: "Determinación de anticuerpos fijadores contra receptores de acetilcolina.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "7 días hábiles",
+  valoresReferencia: "Negativo",
+  muestra: "Suero",
+  usoClinico: "Evaluación de trastornos neuromusculares",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Receptores de Acetilcolina – Anticuerpos Moduladores",
+  codigo: "INM003",
+  descripcion: "Detección de anticuerpos moduladores contra receptores de acetilcolina.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "7 días hábiles",
+  valoresReferencia: "Negativo",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de miastenia gravis",
+  acreditado: true
+},
+{
+  categoria: "Química Clínica",
+  nombre: "Ácido 5-Hidroxiindolacético en Orina de 24 Horas",
+  codigo: "QC002",
+  descripcion: "Cuantificación de metabolito de serotonina en orina de 24 horas.",
+  indicaciones: "Recolección de orina 24 horas. Dieta controlada.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "2–9 mg/24 h",
+  muestra: "Orina 24 horas",
+  usoClinico: "Diagnóstico de tumores carcinoides",
+  acreditado: true
+},
+{
+  categoria: "Química Clínica",
+  nombre: "Ácido Delta Aminolevulínico (ALA) en Orina de 24 Horas",
+  codigo: "QC003",
+  descripcion: "Medición de ALA en orina.",
+  indicaciones: "Orina de 24 horas.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "≤ 7 mg/24 h",
+  muestra: "Orina 24 horas",
+  usoClinico: "Evaluación de porfirias e intoxicación por plomo",
+  acreditado: true
+},
+{
+  categoria: "Hematología",
+  nombre: "Ácido Fólico Eritrocitario",
+  codigo: "HEM001",
+  descripcion: "Determinación de folato en eritrocitos.",
+  indicaciones: "Ayuno recomendado.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "150–600 ng/mL",
+  muestra: "Sangre total",
+  usoClinico: "Evaluación de reservas de folato",
+  acreditado: true
+},
+{
+  categoria: "Química Clínica",
+  nombre: "Ácido Fólico (Folatos) en Suero",
+  codigo: "QC004",
+  descripcion: "Cuantificación de folato sérico.",
+  indicaciones: "Ayuno recomendado.",
+  tiempoEntrega: "3 días hábiles",
+  valoresReferencia: "> 4 ng/mL",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de deficiencia de folato",
+  acreditado: true
+},
+{
+  categoria: "Inmunología",
+  nombre: "Ácido Glutámico Descarboxilasa – Anticuerpos (Anti-GAD)",
+  codigo: "INM004",
+  descripcion: "Detección de anticuerpos anti-GAD.",
+  indicaciones: "No requiere ayuno.",
+  tiempoEntrega: "7 días hábiles",
+  valoresReferencia: "Negativo",
+  muestra: "Suero",
+  usoClinico: "Diabetes autoinmune y síndromes neurológicos",
+  acreditado: true
+},
+{
+  categoria: "Química Clínica",
+  nombre: "Ácido Láctico (L-Lactato)",
+  codigo: "QC005",
+  descripcion: "Medición de lactato en sangre.",
+  indicaciones: "Reposo previo a la toma.",
+  tiempoEntrega: "24 horas",
+  valoresReferencia: "0.5–2.2 mmol/L",
+  muestra: "Plasma",
+  usoClinico: "Evaluación de hipoxia tisular",
+  acreditado: true
+},
+{
+  categoria: "Química Clínica",
+  nombre: "Ácido Úrico en Suero",
+  codigo: "QC006",
+  descripcion: "Determinación de ácido úrico.",
+  indicaciones: "Ayuno recomendado.",
+  tiempoEntrega: "24 horas",
+  valoresReferencia: "3.4–7.0 mg/dL",
+  muestra: "Suero",
+  usoClinico: "Diagnóstico de gota y trastornos renales",
+  acreditado: true
+},
+{
+  categoria: "Endocrinología",
+  nombre: "Hormona Adrenocorticotrópica (ACTH)",
+  codigo: "END001",
+  descripcion: "Cuantificación de ACTH plasmática.",
+  indicaciones: "Muestra refrigerada. Ayuno recomendado.",
+  tiempoEntrega: "5 días hábiles",
+  valoresReferencia: "7–63 pg/mL",
+  muestra: "Plasma",
+  usoClinico: "Evaluación del eje hipotálamo-hipófisis-suprarrenal",
+  acreditado: true
+}
 ];
 
+const examenesIndexados = {};
+const codigosInvalidos = ["IGE###"];
+
+examenesLaboratorio.forEach(examen => {
+  const codigo = examen.codigo?.trim();
+
+  // Ignorar códigos genéricos o inválidos
+  if (!codigo || codigosInvalidos.includes(codigo) || codigo.includes("<")) {
+    return;
+  }
+
+  // Evitar duplicados: se conserva el primero
+  if (!examenesIndexados[codigo]) {
+    examenesIndexados[codigo] = examen;
+  }
+});
+
 // ===============================
-// BUSCADOR PACIENTE (SOLO CÓDIGO)
+// ELEMENTOS DOM
 // ===============================
 
 const inputBuscador = document.getElementById("buscadorExamen");
 const resultadosContainer = document.getElementById("resultadosExamenes");
 
-inputBuscador.addEventListener("input", function () {
+if (!inputBuscador || !resultadosContainer) {
+  console.warn("Buscador o contenedor no encontrado en el DOM");
+}
 
-  const codigoIngresado = this.value.trim().toUpperCase();
+// ===============================
+// BUSCADOR POR CÓDIGO EXACTO
+// ===============================
+
+inputBuscador.addEventListener("input", function () {
+  const codigo = this.value.trim().toUpperCase();
   resultadosContainer.innerHTML = "";
 
-  // No buscar si está vacío o incompleto
-  if (codigoIngresado.length < 3) return;
+  if (codigo.length < 3) return;
 
-  const examen = examenesLaboratorio.find(
-    e => e.codigo === codigoIngresado
-  );
+  const examen = examenesIndexados[codigo];
 
   if (!examen) {
     resultadosContainer.innerHTML = `
       <p style="color:#777;">
-        Código no válido. Verifique su orden médica.
+        Código no encontrado. Verifique la orden médica.
       </p>
     `;
     return;
@@ -3540,21 +4381,25 @@ inputBuscador.addEventListener("input", function () {
 });
 
 // ===============================
-// MOSTRAR RESULTADO ÚNICO
+// MOSTRAR RESULTADO
 // ===============================
 
 function mostrarResultadoPaciente(examen) {
-
   resultadosContainer.innerHTML = `
     <div class="examen-item">
       <h3>${examen.nombre}</h3>
+
+      <p><strong>Categoría:</strong> ${examen.categoria}</p>
       <p><strong>Código:</strong> ${examen.codigo}</p>
       <p><strong>Descripción:</strong> ${examen.descripcion}</p>
       <p><strong>Muestra:</strong> ${examen.muestra}</p>
       <p><strong>Indicaciones:</strong> ${examen.indicaciones}</p>
       <p><strong>Tiempo de entrega:</strong> ${examen.tiempoEntrega}</p>
       <p><strong>Valores de referencia:</strong> ${examen.valoresReferencia}</p>
-      <p><strong>Acreditación:</strong> ${examen.acreditado ? "ISO 15189" : "No acreditado"}</p>
+      <p><strong>Uso clínico:</strong> ${examen.usoClinico}</p>
+      <p><strong>Acreditación:</strong> ${
+        examen.acreditado ? "ISO 15189" : "No acreditado"
+      }</p>
 
       <button onclick="generarInformePaciente('${examen.codigo}')">
         Descargar informe
@@ -3564,23 +4409,20 @@ function mostrarResultadoPaciente(examen) {
 }
 
 // ===============================
-// GENERAR INFORME (PACIENTE)
+// GENERAR INFORME TXT
 // ===============================
 
 function generarInformePaciente(codigo) {
-
-  const examen = examenesLaboratorio.find(e => e.codigo === codigo);
+  const examen = examenesIndexados[codigo];
   if (!examen) return;
 
   const contenido = `
-LABORATORIO CLÍNICO CENTRAL
+LABORATORIO CLÍNICO
 INFORME DE EXAMEN
 
-Nombre del examen:
-${examen.nombre}
-
-Código de referencia:
-${examen.codigo}
+Examen: ${examen.nombre}
+Código: ${examen.codigo}
+Categoría: ${examen.categoria}
 
 Muestra:
 ${examen.muestra}
@@ -3594,7 +4436,10 @@ ${examen.tiempoEntrega}
 Valores de referencia:
 ${examen.valoresReferencia}
 
-Este informe es confidencial y de uso exclusivo del paciente.
+Uso clínico:
+${examen.usoClinico}
+
+Documento confidencial.
 `;
 
   const blob = new Blob([contenido], { type: "text/plain;charset=utf-8" });
@@ -3602,25 +4447,12 @@ Este informe es confidencial y de uso exclusivo del paciente.
 
   link.href = URL.createObjectURL(blob);
   link.download = `Informe_${codigo}.txt`;
+  document.body.appendChild(link);
   link.click();
 
+  document.body.removeChild(link);
   URL.revokeObjectURL(link.href);
 }
-
-// ===============================
-// HL7 (USO INTERNO – NO PACIENTE)
-// ===============================
-
-function generarHL7Resultado(examen) {
-  return `
-MSH|^~\\&|LAB|CENTRO|DEST|HOSP|20260105||ORU^R01|123|P|2.5
-PID|||0001||PACIENTE^DEMO
-OBR|1||${examen.codigo}||${examen.nombre}
-OBX|1|TX|RESULTADO||PENDIENTE
-`;
-}
-
-console.log(generarHL7Resultado(examenesLaboratorio[0]));
 </script>
 
   </body>
