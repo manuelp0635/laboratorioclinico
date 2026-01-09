@@ -3392,56 +3392,6 @@ MODAL LEER MAS
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==========================
-    BUSCADOR EXAMENES POR
-    NOMBRE, CODIGO O CATEGORIA
-======================== */
-
-.buscador{
-  padding:20px;
-  text-align:center;
-}
-
-.buscador input{
-  width:60%;
-  padding:10px;
-  border-radius:6px;
-  border:1px solid #ccc;
-  font-size:16px;
-}
-
-.resultados{
-  max-width:900px;
-  margin:0 auto;
-  padding:20px;
-}
-
-.examen-item{
-  background:white;
-  padding:15px;
-  margin-bottom:12px;
-  border-radius:8px;
-  border:1px solid #ddd;
-}
-
-.examen-item h3{
-  margin-top:0;
-  color:#003B7A;
-}
-
-button{
-  background:#007BFF;
-  border:none;
-  color:white;
-  padding:8px 12px;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-button:hover{
-  background:#0056c1;
-}
-
 /* ===========================
    ASESOR VIRTUAL TABOPLUS
    Versión con UX/UI mejorado
