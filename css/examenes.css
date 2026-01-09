@@ -855,3 +855,137 @@ p {
     max-width: 100%;
   }
 }
+
+/*-- =====================================
+        CSS ADICIONAL
+================================== --*/
+
+/* ===== GRID & CARDS ===== */
+.grid-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding: 20px 0;
+}
+
+.exam-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s;
+}
+
+.exam-card:hover {
+  transform: translateY(-4px);
+}
+
+.exam-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.exam-card h3 {
+  font-size: 18px;
+  margin: 10px;
+  color: #333;
+}
+
+.exam-card p {
+  font-size: 14px;
+  margin: 0 10px 10px;
+  color: #666;
+}
+
+.exam-card .btn-group {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.btn-detail, .btn-compare {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-detail {
+  background: #0090e3;
+  color: #fff;
+}
+
+.btn-compare {
+  background: #4caf50;
+  color: #fff;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+#search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+/* ==========================
+    BUSCADOR EXAMENES POR
+    NOMBRE, CODIGO O CATEGORIA
+======================== */
+
+.buscador{
+  padding:20px;
+  text-align:center;
+}
+
+.buscador input{
+  width:60%;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:16px;
+}
+
+.resultados{
+  max-width:900px;
+  margin:0 auto;
+  padding:20px;
+}
+
+.examen-item{
+  background:white;
+  padding:15px;
+  margin-bottom:12px;
+  border-radius:8px;
+  border:1px solid #ddd;
+}
+
+.examen-item h3{
+  margin-top:0;
+  color:#003B7A;
+}
+
+button{
+  background:#007BFF;
+  border:none;
+  color:white;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#0056c1;
+}
