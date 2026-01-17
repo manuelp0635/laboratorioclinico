@@ -593,6 +593,7 @@
   <li data-category="Salud Ocupacional">Salud Ocupacional</li>
   <li data-category="Paquete Rutinario">Paquete Rutinario</li>
   <li data-category="Salud de la Mujer">Salud de la Mujer</li>
+  <li data-category="Examenes de Laboratorio">Examenes de Laboratorio</li>
   <li data-category="Salud sexual">Salud Sexual</li>
   <li data-category="Prueba de fertilidad">Prueba de Fertilidad</li>
 </ul>
@@ -709,9 +710,10 @@
    <script>
 /* ===================== BASE DE DATOS ===================== */
 const exams = [
+  /* Perfil Tiroideo */
   {
     id: 1,
-    name: "TSH (Hormona estimulante de tiroides)",
+    name: "T3",
     desc: "Evalúa el funcionamiento de la glándula tiroides.",
     category: "Perfil Tiroideo",
     img: "https://cdn-icons-png.flaticon.com/512/2966/2966327.png",
@@ -720,10 +722,76 @@ const exams = [
     time: "24 horas",
     details: "Útil para diagnóstico de hipotiroidismo e hipertiroidismo."
   },
-
   {
     id: 2,
-    name: "CA 125",
+    name: "T3 libre",
+    desc: "Evalúa el funcionamiento de la glándula tiroides.",
+    category: "Perfil Tiroideo",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966327.png",
+    price: "$45.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Útil para diagnóstico de hipotiroidismo e hipertiroidismo."
+  },
+  {
+    id: 3,
+    name: "T4",
+    desc: "Evalúa el funcionamiento de la glándula tiroides.",
+    category: "Perfil Tiroideo",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966327.png",
+    price: "$45.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Útil para diagnóstico de hipotiroidismo e hipertiroidismo."
+  },
+  {
+    id: 4,
+    name: "T4 Libre",
+    desc: "Evalúa el funcionamiento de la glándula tiroides.",
+    category: "Perfil Tiroideo",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966327.png",
+    price: "$45.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Útil para diagnóstico de hipotiroidismo e hipertiroidismo."
+  },
+  {
+    id: 5,
+    name: "Hormona",
+    desc: "Evalúa el funcionamiento de la glándula tiroides.",
+    category: "Perfil Tiroideo",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966327.png",
+    price: "$45.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Útil para diagnóstico de hipotiroidismo e hipertiroidismo."
+  },
+  {
+    id: 6,
+    name: "Tiroestimulante (TSH)",
+    desc: "Evalúa el funcionamiento de la glándula tiroides.",
+    category: "Perfil Tiroideo",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966327.png",
+    price: "$45.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Útil para diagnóstico de hipotiroidismo e hipertiroidismo."
+  },
+  {
+    id: 7,
+    name: "Anti-TPO",
+    desc: "Evalúa el funcionamiento de la glándula tiroides.",
+    category: "Perfil Tiroideo",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966327.png",
+    price: "$45.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Útil para diagnóstico de hipotiroidismo e hipertiroidismo."
+  },
+/* Paquete Tumoral */
+  {
+    id: 8,
+    name: "CA-125 (ovario)",
     desc: "Marcador tumoral asociado a ovario.",
     category: "Paquete Tumoral",
     img: "https://cdn-icons-png.flaticon.com/512/2966/2966486.png",
@@ -732,10 +800,109 @@ const exams = [
     time: "48 horas",
     details: "Seguimiento oncológico."
   },
-
   {
-    id: 3,
-    name: "Glicemia en ayunas",
+    id: 9,
+    name: "CA-15.3 (Mamas)",
+    desc: "Marcador tumoral asociado a ovario.",
+    category: "Paquete Tumoral",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966486.png",
+    price: "$120.000",
+    sample: "Sangre",
+    time: "48 horas",
+    details: "Seguimiento oncológico."
+  },
+  {
+    id: 10,
+    name: "CA 19-9 (pancreas)",
+    desc: "Marcador tumoral asociado a ovario.",
+    category: "Paquete Tumoral",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966486.png",
+    price: "$120.000",
+    sample: "Sangre",
+    time: "48 horas",
+    details: "Seguimiento oncológico."
+  },
+  {
+    id: 11,
+    name: "CA-72.4 (Estomago)",
+    desc: "Marcador tumoral asociado a ovario.",
+    category: "Paquete Tumoral",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966486.png",
+    price: "$120.000",
+    sample: "Sangre",
+    time: "48 horas",
+    details: "Seguimiento oncológico."
+  },
+  {
+    id: 12,
+    name: "CEA (Colateral y pulmon)",
+    desc: "Marcador tumoral asociado a ovario.",
+    category: "Paquete Tumoral",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966486.png",
+    price: "$120.000",
+    sample: "Sangre",
+    time: "48 horas",
+    details: "Seguimiento oncológico."
+  },
+  {
+    id: 13,
+    name: "CEA (Colateral y pulmon)",
+    desc: "Marcador tumoral asociado a ovario.",
+    category: "Paquete Tumoral",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966486.png",
+    price: "$120.000",
+    sample: "Sangre",
+    time: "48 horas",
+    details: "Seguimiento oncológico."
+  },
+  {
+    id: 14,
+    name: "PSA y PSA libre (prostata)",
+    desc: "Marcador tumoral asociado a ovario.",
+    category: "Paquete Tumoral",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966486.png",
+    price: "$120.000",
+    sample: "Sangre",
+    time: "48 horas",
+    details: "Seguimiento oncológico."
+  },
+  {
+    id: 15,
+    name: "AFP (testiculos y higado)",
+    desc: "Marcador tumoral asociado a ovario.",
+    category: "Paquete Tumoral",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966486.png",
+    price: "$120.000",
+    sample: "Sangre",
+    time: "48 horas",
+    details: "Seguimiento oncológico."
+  },
+  {
+    id: 16,
+    name: "HCG (Testiculos y Mola)",
+    desc: "Marcador tumoral asociado a ovario.",
+    category: "Paquete Tumoral",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966486.png",
+    price: "$120.000",
+    sample: "Sangre",
+    time: "48 horas",
+    details: "Seguimiento oncológico."
+  },
+  {
+    id: 16,
+    name: "Tiroglobulinas (Tiroides)",
+    desc: "Marcador tumoral asociado a ovario.",
+    category: "Paquete Tumoral",
+    img: "https://cdn-icons-png.flaticon.com/512/2966/2966486.png",
+    price: "$120.000",
+    sample: "Sangre",
+    time: "48 horas",
+    details: "Seguimiento oncológico."
+  },
+/* Paquete Diabetes */
+  {
+    id: 17,
+    name: "Glucosa",
     desc: "Mide nivel de glucosa en sangre.",
     category: "Paquete Diabetes",
     img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
@@ -743,7 +910,578 @@ const exams = [
     sample: "Sangre",
     time: "24 horas",
     details: "Diagnóstico de diabetes."
-  }
+  },
+  {
+    id: 18,
+    name: "Hemoglobina",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Paquete Diabetes",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+ {
+    id: 19,
+    name: "Glicosilada (HBA1C)",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Paquete Diabetes",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 19,
+    name: "Insulina",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Paquete Diabetes",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 20,
+    name: "Microalbuminuria",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Paquete Diabetes",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  /* Examenes de Laboratorio */
+  {
+    id: 21,
+    name: "Perfil Hematico",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Examenes de Laboratorio",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 22,
+    name: "Hemograma",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Examenes de Laboratorio",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 23,
+    name: "Hierro",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Examenes de Laboratorio",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 24,
+    name: "Ferritina",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Examenes de Laboratorio",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 25,
+    name: "Transferina",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Examenes de Laboratorio",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+
+  /* Salud de la mujer */
+  {
+    id: 26,
+    name: "Citologia convencional",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud de la mujer",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 27,
+    name: "Citologia capa fina",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud de la mujer",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 28,
+    name: "Frotis vaginal",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud de la mujer",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 29,
+    name: "VPH",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud de la mujer",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 30,
+    name: "FSH",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud de la mujer",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 31,
+    name: "LH",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud de la mujer",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 32,
+    name: "Prolactina",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud de la mujer",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 33,
+    name: "Extradiol",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud de la mujer",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 34,
+    name: "Progesterona",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud de la mujer",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+
+  /* Salud del Hombre */
+
+  {
+    id: 35,
+    name: "Testosterona",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud del Hombre",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 36,
+    name: "PSA",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud del Hombre",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 37,
+    name: "Chequeo medico del hombre",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud del Hombre",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+
+  /* Salud Sexual */
+
+  {
+    id: 38,
+    name: "ULH",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud sexual",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 39,
+    name: "UPH",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud sexual",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 40,
+    name: "Clamidia",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud sexual",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 41,
+    name: "Gonorrea",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud sexual",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 42,
+    name: "Herpes",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud sexual",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 43,
+    name: "Tricomonas",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud sexual",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 44,
+    name: "Gardenelas",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud sexual",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 45,
+    name: "Siflis",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud sexual",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+
+  /* Genetica */
+
+  {
+    id: 46,
+    name: "Pruebas de paternidad",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Genetica",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 47,
+    name: "Cariotipo de bandeo [G,R y C]",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Genetica",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 48,
+    name: "PCR en tiempo real",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Genetica",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+
+  /* Salud Ocupacional */
+
+  {
+    id: 49,
+    name: "Examen ingreso",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud Ocupacional",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 50,
+    name: "Examen preingreso",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud Ocupacional",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 51,
+    name: "Examen periodico",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud Ocupacional",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 52,
+    name: "Examen retiro",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud Ocupacional",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 53,
+    name: "Examen pos incapacidad y seguimientos",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud Ocupacional",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 54,
+    name: "Toma de muestras",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud Ocupacional",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 55,
+    name: "Manipulacion de alimentos",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Salud Ocupacional",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  
+  /* Prueba de fertilidad */
+
+  {
+    id: 56,
+    name: "Estradiol",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Prueba de Fertilidad",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 57,
+    name: "Prolactina",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Prueba de Fertilidad",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 58,
+    name: "Progesterona",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Prueba de Fertilidad",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 59,
+    name: "Hormona antimulleriana",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Prueba de Fertilidad",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 60,
+    name: "Espermograma basico",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Prueba de Fertilidad",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 61,
+    name: "Hormona Luteinizante (LH)",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Prueba de Fertilidad",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+  {
+    id: 62,
+    name: "FSH (hormona foliculoestimulante)",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Prueba de Fertilidad",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+
+  /* Paquete Rutinario */
+
+  {
+    id: 63,
+    name: "Glicemia",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Paquete Rutinario",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+   {
+    id: 64,
+    name: "Colesterol",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Paquete Rutinario",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+   {
+    id: 65,
+    name: "Triglicéridos",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Paquete Rutinario",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
+   {
+    id: 66,
+    name: "Hemograma (Cuadro Hemático)",
+    desc: "Mide nivel de glucosa en sangre.",
+    category: "Paquete Rutinario",
+    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    price: "$25.000",
+    sample: "Sangre",
+    time: "24 horas",
+    details: "Diagnóstico de diabetes."
+  },
 ];
 
 /* ===================== VARIABLES ===================== */
