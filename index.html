@@ -3833,5 +3833,128 @@ Documento confidencial.
   URL.revokeObjectURL(link.href);
 }
 </script>
+
+<!-- Script funcionalidades -->
+ <script>
+/* ===============================
+   VARIABLES
+================================ */
+const compareBar = document.getElementById('bottom-compare');
+const compareInfo = document.getElementById('bottom-compare-info');
+const compareBtn = document.getElementById('compare-btn');
+
+const compareModal = document.getElementById('compare-modal');
+const modalBody = document.getElementById('modal-body');
+const modalClose = document.getElementById('modal-close');
+const modalCloseBtn = document.getElementById('close-modal');
+
+const detailModal = document.getElementById('detail-modal');
+const detailBody = document.getElementById('detail-body');
+const detailClose = document.getElementById('detail-close');
+const whatsappBtn = document.getElementById('detail-whatsapp');
+
+let selectedExams = [];
+
+/* ===============================
+   SELECCIONAR PARA COMPARAR
+================================ */
+document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
+  checkbox.addEventListener('change', () => {
+    const card = checkbox.closest('.exam-card');
+    const examName = card.dataset.name;
+
+    if (checkbox.checked) {
+      selectedExams.push(card);
+    } else {
+      selectedExams = selectedExams.filter(e => e !== card);
+    }
+
+    updateCompareBar();
+  });
+});
+
+/* ===============================
+   ACTUALIZAR BARRA INFERIOR
+================================ */
+function updateCompareBar() {
+  if (selectedExams.length > 0) {
+    compareBar.style.display = 'flex';
+    compareInfo.textContent = `${selectedExams.length} examen(es) seleccionados`;
+  } else {
+    compareBar.style.display = 'none';
+  }
+
+  compareBtn.disabled = selectedExams.length < 2;
+}
+
+/* ===============================
+   ABRIR MODAL COMPARACIÓN
+================================ */
+compareBtn.addEventListener('click', () => {
+  modalBody.innerHTML = '';
+
+  selectedExams.forEach(card => {
+    const item = document.createElement('div');
+    item.classList.add('compare-item');
+
+    item.innerHTML = `
+      <h4>${card.dataset.name}</h4>
+      <p>${card.dataset.desc}</p>
+    `;
+
+    modalBody.appendChild(item);
+  });
+
+  compareModal.classList.add('active');
+});
+
+/* ===============================
+   CERRAR MODAL COMPARACIÓN
+================================ */
+modalClose.addEventListener('click', () => {
+  compareModal.classList.remove('active');
+});
+
+modalCloseBtn.addEventListener('click', () => {
+  compareModal.classList.remove('active');
+});
+
+/* ===============================
+   VER DETALLE DEL EXAMEN
+================================ */
+document.querySelectorAll('.btn-detail').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.exam-card');
+
+    detailBody.innerHTML = `
+      <h3>${card.dataset.name}</h3>
+      <p>${card.dataset.desc}</p>
+    `;
+
+    whatsappBtn.onclick = () => {
+      const msg = `Hola, deseo información sobre el examen ${card.dataset.name}`;
+      window.open(
+        `https://wa.me/57XXXXXXXXXX?text=${encodeURIComponent(msg)}`,
+        '_blank'
+      );
+    };
+
+    detailModal.classList.add('active');
+  });
+});
+
+/* ===============================
+   CERRAR MODAL DETALLE
+================================ */
+detailClose.addEventListener('click', () => {
+  detailModal.classList.remove('active');
+});
+
+window.addEventListener('click', e => {
+  if (e.target === compareModal) compareModal.classList.remove('active');
+  if (e.target === detailModal) detailModal.classList.remove('active');
+});
+</script>
+
   </body>
 </html>
