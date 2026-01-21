@@ -585,17 +585,17 @@
 
 <ul id="category-list">
   <li data-category="all" class="active">Todos</li>
-  <li data-category="Perfil Tiroideo">Perfil Tiroideo</li>
-  <li data-category="Paquete Tumoral">Paquete Tumoral</li>
-  <li data-category="Paquete Diabetes">Paquete Diabetes</li>
-  <li data-category="Perfil Hepatico">Perfil Hepatico</li>
-  <li data-category="Genética">Genética</li>
-  <li data-category="Salud Ocupacional">Salud Ocupacional</li>
-  <li data-category="Paquete Rutinario">Paquete Rutinario</li>
-  <li data-category="Salud de la Mujer">Salud de la Mujer</li>
-  <li data-category="Examenes de Laboratorio">Examenes de Laboratorio</li>
-  <li data-category="Salud sexual">Salud Sexual</li>
-  <li data-category="Prueba de fertilidad">Prueba de Fertilidad</li>
+  <li data-category="Perfil Tiroideo">Perfil Tiroideo <b>$00.000</b></li>
+  <li data-category="Paquete Tumoral">Paquete Tumoral <b>$00.000</b></li>
+  <li data-category="Paquete Diabetes">Paquete Diabetes <b>$00.000</b></li>
+  <li data-category="Perfil Hepatico">Perfil Hepatico <b>$00.000</b></li>
+  <li data-category="Genética">Genética <b>$00.000</b></li>
+  <li data-category="Salud Ocupacional">Salud Ocupacional <b>$00.000</b></li>
+  <li data-category="Paquete Rutinario">Paquete Rutinario <b>$00.000</b></li>
+  <li data-category="Salud de la Mujer">Salud de la Mujer <b>$00.000</b></li>
+  <li data-category="Examenes de Laboratorio">Examenes de Laboratorio <b>$00.000</b></li>
+  <li data-category="Salud sexual">Salud Sexual <b>$00.000</b></li>
+  <li data-category="Prueba de fertilidad">Prueba de Fertilidad <b>$00.000</b></li>
 </ul>
 
 <section class="buscador">
@@ -1222,7 +1222,7 @@ const exams = [
 
   /* Genetica */
 
-  {
+ {
   id: 48,
   name: "Pruebas de paternidad",
   desc: "Análisis de ADN para determinar relación biológica entre padre e hijo.",
@@ -1487,7 +1487,7 @@ const exams = [
 
    /* Perfil Hepatico */
 
-{
+ {
   id: 69,
   name: "Transaminasas [ALT, AST]",
   desc: "Evalúa las enzimas ALT y AST para detectar inflamación o daño en el hígado.",
@@ -3834,127 +3834,310 @@ Documento confidencial.
 }
 </script>
 
-<!-- Script funcionalidades -->
- <script>
-/* ===============================
-   VARIABLES
-================================ */
-const compareBar = document.getElementById('bottom-compare');
-const compareInfo = document.getElementById('bottom-compare-info');
-const compareBtn = document.getElementById('compare-btn');
+<!-- Script funciones Ver Detalles & Comparar -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
 
-const compareModal = document.getElementById('compare-modal');
-const modalBody = document.getElementById('modal-body');
-const modalClose = document.getElementById('modal-close');
-const modalCloseBtn = document.getElementById('close-modal');
+  const compareBar = document.getElementById('bottom-compare');
+  const compareInfo = document.getElementById('bottom-compare-info');
+  const compareBtn = document.getElementById('compare-btn');
 
-const detailModal = document.getElementById('detail-modal');
-const detailBody = document.getElementById('detail-body');
-const detailClose = document.getElementById('detail-close');
-const whatsappBtn = document.getElementById('detail-whatsapp');
+  const compareModal = document.getElementById('compare-modal');
+  const modalBody = document.getElementById('modal-body');
+  const modalClose = document.getElementById('modal-close');
+  const modalCloseBtn = document.getElementById('close-modal');
 
-let selectedExams = [];
+  const detailModal = document.getElementById('detail-modal');
+  const detailBody = document.getElementById('detail-body');
+  const detailClose = document.getElementById('detail-close');
+  const whatsappBtn = document.getElementById('detail-whatsapp');
 
-/* ===============================
-   SELECCIONAR PARA COMPARAR
-================================ */
-document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
-  checkbox.addEventListener('change', () => {
-    const card = checkbox.closest('.exam-card');
-    const examName = card.dataset.name;
+  /** 👉 AHORA SOLO GUARDAMOS IDS **/
+  let selectedExamIds = [];
 
-    if (checkbox.checked) {
-      selectedExams.push(card);
+  /* ===============================
+     SELECCIONAR EXÁMENES
+  ================================ */
+  document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      const card = checkbox.closest('.exam-card');
+      const examId = card.dataset.id;
+
+      if (checkbox.checked) {
+        if (!selectedExamIds.includes(examId)) {
+          selectedExamIds.push(examId);
+        }
+      } else {
+        selectedExamIds = selectedExamIds.filter(id => id !== examId);
+      }
+
+      updateCompareBar();
+    });
+  });
+
+  /* ===============================
+     ACTUALIZAR BOTTOM BAR
+  ================================ */
+  function updateCompareBar() {
+    if (selectedExamIds.length > 0) {
+      compareBar.style.display = 'flex';
+      compareInfo.textContent = `${selectedExamIds.length} examen(es) seleccionados`;
     } else {
-      selectedExams = selectedExams.filter(e => e !== card);
+      compareBar.style.display = 'none';
     }
 
-    updateCompareBar();
+    compareBtn.disabled = selectedExamIds.length < 2;
+  }
+
+  /* ===============================
+     MODAL COMPARAR
+  ================================ */
+  compareBtn.addEventListener('click', () => {
+    modalBody.innerHTML = '';
+
+    selectedExamIds.forEach(id => {
+      const card = document.querySelector(`.exam-card[data-id="${id}"]`);
+
+      if (!card) return;
+
+      const item = document.createElement('div');
+      item.classList.add('compare-item');
+
+      item.innerHTML = `
+        <img src="${card.dataset.img}" alt="${card.dataset.name}">
+        <h4>${card.dataset.name}</h4>
+        <p><strong>Tipo:</strong> ${card.dataset.type}</p>
+        <p>${card.dataset.desc}</p>
+      `;
+
+      modalBody.appendChild(item);
+    });
+
+    compareModal.style.display = 'flex';
   });
+
+  modalClose.onclick = modalCloseBtn.onclick = () => {
+    compareModal.style.display = 'none';
+  };
+
+  /* ===============================
+     MODAL DETALLE
+  ================================ */
+  document.querySelectorAll('.btn-detail').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.exam-card');
+
+      detailBody.innerHTML = `
+        <div class="detail-wrapper">
+          <img src="${card.dataset.img}" class="detail-img">
+          <div class="detail-info">
+            <h3>${card.dataset.name}</h3>
+            <p><strong>Tipo:</strong> ${card.dataset.type}</p>
+            <p>${card.dataset.desc}</p>
+          </div>
+        </div>
+      `;
+
+      whatsappBtn.onclick = () => {
+        const msg = `Hola, deseo información sobre el examen ${card.dataset.name}`;
+        window.open(
+          `https://wa.me/573113212221?text=${encodeURIComponent(msg)}`,
+          '_blank'
+        );
+      };
+
+      detailModal.style.display = 'flex';
+    });
+  });
+
+  detailClose.onclick = () => {
+    detailModal.style.display = 'none';
+  };
+
+  window.addEventListener('click', e => {
+    if (e.target === compareModal) compareModal.style.display = 'none';
+    if (e.target === detailModal) detailModal.style.display = 'none';
+  });
+
+});
+
+/* Funciones extras */
+function openDetail(examId) {
+  const exam = exams.find(e => e.id === examId);
+  if (!exam) return;
+
+  document.getElementById("detail-body").innerHTML = `
+    <img 
+      src="${exam.img}" 
+      alt="${exam.name}" 
+      class="detail-img"
+    >
+
+    <h2>${exam.name}</h2>
+
+    <p class="detail-category">
+      ${exam.category}
+    </p>
+
+    <p>${exam.desc}</p>
+
+    <ul class="detail-info">
+      <li><strong>Muestra:</strong> ${exam.sample}</li>
+      <li><strong>Tiempo:</strong> ${exam.time}</li>
+      <li><strong>Precio:</strong> ${exam.price}</li>
+    </ul>
+
+    <p>${exam.details}</p>
+  `;
+
+  document.getElementById("detail-whatsapp").onclick = () => {
+    const msg = encodeURIComponent(
+      `Hola, deseo información sobre el examen: ${exam.name}`
+    );
+    window.open(
+      `https://wa.me/573113212221?text=${msg}`,
+      "_blank"
+    );
+  };
+
+  document.getElementById("detail-modal").style.display = "flex";
+}
+
+document.getElementById("detail-close").onclick = () => {
+  document.getElementById("detail-modal").style.display = "none";
+};
+
+window.addEventListener("click", e => {
+  const modal = document.getElementById("detail-modal");
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+/* Comparar examenes */
+let selectedExamIds = [];
+
+/* ===============================
+   CHECKBOX COMPARAR (DELEGADO)
+================================ */
+document.addEventListener("change", e => {
+  if (!e.target.classList.contains("compare-checkbox")) return;
+
+  const examId = Number(e.target.dataset.id);
+  if (!examId) return;
+
+  if (e.target.checked) {
+    if (selectedExamIds.length >= 2) {
+      e.target.checked = false;
+      alert("Solo puedes comparar 2 exámenes");
+      return;
+    }
+    selectedExamIds.push(examId);
+  } else {
+    selectedExamIds = selectedExamIds.filter(id => id !== examId);
+  }
+
+  updateCompareBar();
 });
 
 /* ===============================
-   ACTUALIZAR BARRA INFERIOR
+   BARRA INFERIOR
 ================================ */
 function updateCompareBar() {
-  if (selectedExams.length > 0) {
-    compareBar.style.display = 'flex';
-    compareInfo.textContent = `${selectedExams.length} examen(es) seleccionados`;
+  const bar = document.getElementById("bottom-compare");
+  const info = document.getElementById("bottom-compare-info");
+  const btn = document.getElementById("compare-btn");
+
+  if (selectedExamIds.length > 0) {
+    bar.style.display = "flex";
+    info.textContent = `${selectedExamIds.length} examen(es) seleccionados`;
   } else {
-    compareBar.style.display = 'none';
+    bar.style.display = "none";
   }
 
-  compareBtn.disabled = selectedExams.length < 2;
+  // 🔥 AQUÍ ESTABA EL PROBLEMA
+  btn.disabled = selectedExamIds.length !== 2;
 }
 
 /* ===============================
-   ABRIR MODAL COMPARACIÓN
+   CLICK BOTÓN COMPARAR
 ================================ */
-compareBtn.addEventListener('click', () => {
-  modalBody.innerHTML = '';
+document.getElementById("compare-btn").addEventListener("click", () => {
+  if (selectedExamIds.length !== 2) return;
 
-  selectedExams.forEach(card => {
-    const item = document.createElement('div');
-    item.classList.add('compare-item');
+  const body = document.getElementById("modal-body");
+  body.innerHTML = "";
 
-    item.innerHTML = `
-      <h4>${card.dataset.name}</h4>
-      <p>${card.dataset.desc}</p>
+  selectedExamIds.forEach(id => {
+    const exam = exams.find(e => e.id === id);
+    if (!exam) return;
+
+    body.innerHTML += `
+      <div class="compare-item">
+        <img src="${exam.img}" alt="${exam.name}">
+        <h3>${exam.name}</h3>
+        <p><strong>${exam.category}</strong></p>
+        <p>${exam.desc}</p>
+        <ul>
+          <li><strong>Muestra:</strong> ${exam.sample}</li>
+          <li><strong>Tiempo:</strong> ${exam.time}</li>
+          <li><strong>Precio:</strong> ${exam.price}</li>
+        </ul>
+      </div>
     `;
-
-    modalBody.appendChild(item);
   });
 
-  compareModal.classList.add('active');
+  document.getElementById("compare-modal").style.display = "flex";
 });
+</script>
+<!-- Fin Script funcionalidades Comparar - Ver detalles-->
 
-/* ===============================
-   CERRAR MODAL COMPARACIÓN
-================================ */
-modalClose.addEventListener('click', () => {
-  compareModal.classList.remove('active');
-});
+<!-- Incio funcionalidades extras -->
+<script>
+const examContainer = document.getElementById('exam-container');
 
-modalCloseBtn.addEventListener('click', () => {
-  compareModal.classList.remove('active');
-});
+exams.forEach(exam => {
+  const card = document.createElement('div');
+  card.className = 'exam-card';
 
-/* ===============================
-   VER DETALLE DEL EXAMEN
-================================ */
-document.querySelectorAll('.btn-detail').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const card = btn.closest('.exam-card');
+  /* 🔑 DATA ATRIBUTES */
+  card.dataset.id = exam.id;
+  card.dataset.name = exam.name;
+  card.dataset.type = exam.category;
+  card.dataset.desc = exam.desc;
+  card.dataset.img = exam.img;
+  card.dataset.price = exam.price;
+  card.dataset.sample = exam.sample;
+  card.dataset.time = exam.time;
+  card.dataset.details = exam.details;
 
-    detailBody.innerHTML = `
-      <h3>${card.dataset.name}</h3>
-      <p>${card.dataset.desc}</p>
-    `;
+  card.innerHTML = `
+    <img src="${exam.img}" alt="${exam.name}">
 
-    whatsappBtn.onclick = () => {
-      const msg = `Hola, deseo información sobre el examen ${card.dataset.name}`;
-      window.open(
-        `https://wa.me/57XXXXXXXXXX?text=${encodeURIComponent(msg)}`,
-        '_blank'
-      );
-    };
+    <div class="card-body">
+      <h3>${exam.name}</h3>
+      <p>${exam.desc}</p>
 
-    detailModal.classList.add('active');
-  });
-});
+      <div class="card-meta">
+        <span><strong>Muestra:</strong> ${exam.sample}</span><br>
+        <span><strong>Entrega:</strong> ${exam.time}</span><br>
+        <span><strong>Precio:</strong> ${exam.price}</span>
+      </div>
 
-/* ===============================
-   CERRAR MODAL DETALLE
-================================ */
-detailClose.addEventListener('click', () => {
-  detailModal.classList.remove('active');
-});
+      <div class="card-actions">
+        <label>
+          <input type="checkbox" class="compare-checkbox">
+          Comparar
+        </label>
 
-window.addEventListener('click', e => {
-  if (e.target === compareModal) compareModal.classList.remove('active');
-  if (e.target === detailModal) detailModal.classList.remove('active');
+        <button class="btn-detail">Ver detalle</button>
+      </div>
+    </div>
+  `;
+
+  examContainer.appendChild(card);
 });
 </script>
 
-  </body>
+</body>
 </html>
