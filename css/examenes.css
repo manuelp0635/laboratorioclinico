@@ -439,38 +439,46 @@ p {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: var(--card-bg);
-  border-top: 1px solid #ddd;
-  display: none;
-  justify-content: space-between;
+  background: #0a2e5c;
+  color: #fff;
+  display: flex;
   align-items: center;
-  padding: 10px 15px;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-  z-index: 999;
-  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 12px 20px;
+  z-index: 1000;
+}
+
+#compare-btn {
+  background: #00c2ff;
+  color: #00314d;
+  border: none;
+  padding: 10px 18px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#compare-btn:disabled {
+  background: #8fbfd1;
+  cursor: not-allowed;
 }
 
 #bottom-compare-info {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  font-size: 14px;
 }
 
-#bottom-compare button {
-  margin-left: 5px;
-  background-color: var(--primary);
-  color: #fff;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.85rem;
-}
+@media (max-width: 600px) {
+  #bottom-compare {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-#bottom-compare button:hover {
-  background-color: #0056b3;
+  #compare-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
-
 /* ===================== MODALES ===================== */
 .modal {
   display: none;
