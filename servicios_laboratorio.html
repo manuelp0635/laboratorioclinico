@@ -293,17 +293,18 @@
 
 <ul id="category-list">
   <li data-category="all" class="active">Todos</li>
-  <li data-category="Perfil Tiroideo">Perfil Tiroideo <b>$00.000</b></li>
-  <li data-category="Paquete Tumoral">Paquete Tumoral <b>$00.000</b></li>
-  <li data-category="Paquete Diabetes">Paquete Diabetes <b>$00.000</b></li>
-  <li data-category="Perfil Hepatico">Perfil Hepatico <b>$00.000</b></li>
-  <li data-category="Genética">Genética <b>$00.000</b></li>
-  <li data-category="Salud Ocupacional">Salud Ocupacional <b>$00.000</b></li>
-  <li data-category="Paquete Rutinario">Paquete Rutinario <b>$00.000</b></li>
-  <li data-category="Salud de la Mujer">Salud de la Mujer <b>$00.000</b></li>
+  <li data-category="Perfil Tiroideo">Perfil Tiroideo <b>$60.000</b></li>
+  <li data-category="Paquete Tumoral">Paquete Tumoral <b>$75.000</b></li>
+  <li data-category="Paquete Diabetes">Paquete Diabetes <b>$140.000</b></li>
+  <li data-category="Perfil Hepatico">Perfil Hepatico <b>$90.000</b></li>
+  <li data-category="Genética">Genética <b>$2'450.000</b></li>
+  <li data-category="Salud Ocupacional">Salud Ocupacional <b>$50.000</b></li>
+  <li data-category="Paquete Rutinario">Paquete Rutinario <b>$70.000</b></li>
+  <li data-category="Salud de la Mujer">Salud de la Mujer <b>$550.000</b></li>
+  <li data-category="Salud del Hombre">Salud del Hombre <b>$160.000</b></li>
   <li data-category="Examenes de Laboratorio">Examenes de Laboratorio <b>$00.000</b></li>
-  <li data-category="Salud sexual">Salud Sexual <b>$00.000</b></li>
-  <li data-category="Prueba de fertilidad">Prueba de Fertilidad <b>$00.000</b></li>
+  <li data-category="Salud sexual">Salud Sexual <b>$350.000</b></li>
+  <li data-category="Prueba de fertilidad">Prueba de Fertilidad <b>$800.000 Hombres</b> | <b>$600.000 Mujeres</b></li>
 </ul>
 
 <section class="buscador">
@@ -2136,7 +2137,7 @@ const exams = [
   name: "Perfil Hemático",
   desc: "Conjunto de pruebas que evalúan los componentes celulares de la sangre.",
   category: "Examenes de Laboratorio",
-  img: "./assets/images/Examenes/Perfil Hematico/Perfil_Hematico.png",
+  img: "./assets/images/Examenes/Examenes de Laboratorio/Perfil Hematico.png",
   price: "$25.000",
   sample: "Sangre",
   time: "24 horas",
@@ -2147,7 +2148,7 @@ const exams = [
   name: "Hemograma",
   desc: "Analiza glóbulos rojos, blancos y plaquetas.",
   category: "Examenes de Laboratorio",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Examenes de Laboratorio/Hemograma.png",
   price: "$25.000",
   sample: "Sangre",
   time: "24 horas",
@@ -2158,7 +2159,7 @@ const exams = [
   name: "Hierro",
   desc: "Mide la cantidad de hierro circulante en la sangre.",
   category: "Examenes de Laboratorio",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Examenes de Laboratorio/Hierro.png",
   price: "$25.000",
   sample: "Sangre",
   time: "24 horas",
@@ -2169,7 +2170,7 @@ const exams = [
   name: "Ferritina",
   desc: "Evalúa las reservas de hierro almacenadas en el cuerpo.",
   category: "Examenes de Laboratorio",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Examenes de Laboratorio/Ferritina.png",
   price: "$25.000",
   sample: "Sangre",
   time: "24 horas",
@@ -2180,7 +2181,7 @@ const exams = [
   name: "Transferina",
   desc: "Proteína encargada de transportar el hierro en la sangre.",
   category: "Examenes de Laboratorio",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Examenes de Laboratorio/Transferina.png",
   price: "$25.000",
   sample: "Sangre",
   time: "24 horas",
@@ -2188,23 +2189,12 @@ const exams = [
 },
 
   /* Salud de la mujer */
-  {
-  id: 28,
-  name: "Citología convencional",
-  desc: "Examen que analiza células del cuello uterino para detectar alteraciones.",
-  category: "Salud de la mujer",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
-  price: "$25.000",
-  sample: "Secreción cervical",
-  time: "24 horas",
-  details: "Permite la detección temprana de lesiones precancerosas."
-},
 {
   id: 29,
   name: "Citología en capa fina",
   desc: "Método más preciso para evaluar células del cuello uterino.",
   category: "Salud de la mujer",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Salud de la Mujer/Citologia en capa fina.png",
   price: "$25.000",
   sample: "Secreción cervical",
   time: "24 horas",
@@ -2215,7 +2205,7 @@ const exams = [
   name: "Frotis vaginal",
   desc: "Estudio microscópico de secreción vaginal.",
   category: "Salud de la mujer",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Salud de la Mujer/Frotis vaginal.png",
   price: "$25.000",
   sample: "Secreción vaginal",
   time: "24 horas",
@@ -2226,7 +2216,7 @@ const exams = [
   name: "VPH",
   desc: "Prueba para detectar el Virus del Papiloma Humano.",
   category: "Salud de la mujer",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Salud de la Mujer/VPH.png",
   price: "$25.000",
   sample: "Secreción cervical",
   time: "24 horas",
@@ -2237,7 +2227,7 @@ const exams = [
   name: "FSH",
   desc: "Hormona que regula el ciclo menstrual y la ovulación.",
   category: "Salud de la mujer",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Salud de la Mujer/FSH.png",
   price: "$25.000",
   sample: "Sangre",
   time: "24 horas",
@@ -2248,7 +2238,7 @@ const exams = [
   name: "LH",
   desc: "Hormona luteinizante relacionada con la ovulación.",
   category: "Salud de la mujer",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Salud de la Mujer/LI-H.png",
   price: "$25.000",
   sample: "Sangre",
   time: "24 horas",
@@ -2259,7 +2249,7 @@ const exams = [
   name: "Prolactina",
   desc: "Hormona relacionada con producción de leche materna.",
   category: "Salud de la mujer",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Salud de la Mujer/Prolactina.png",
   price: "$25.000",
   sample: "Sangre",
   time: "24 horas",
@@ -2270,7 +2260,7 @@ const exams = [
   name: "Estradiol",
   desc: "Principal hormona femenina producida por los ovarios.",
   category: "Salud de la mujer",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Salud de la Mujer/Estradiol.png",
   price: "$25.000",
   sample: "Sangre",
   time: "24 horas",
@@ -2281,7 +2271,7 @@ const exams = [
   name: "Progesterona",
   desc: "Hormona clave en el ciclo menstrual y embarazo.",
   category: "Salud de la mujer",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Salud de la Mujer/",
   price: "$25.000",
   sample: "Sangre",
   time: "24 horas",
@@ -3314,6 +3304,48 @@ exams.forEach(exam => {
 });
 </script>
 
+<!-- Comparar examenes -->
+ <script>
+const checks = document.querySelectorAll('.exam-check');
+const compareBtn = document.getElementById('compare-btn');
+const bottomBar = document.getElementById('bottom-compare');
+const modal = document.getElementById('compare-modal');
+const tableBody = document.getElementById('compare-table');
+const closeModal = document.querySelector('.close');
 
+function validarSeleccion() {
+  const seleccionados = document.querySelectorAll('.exam-check:checked');
+
+  bottomBar.style.display = seleccionados.length > 0 ? 'flex' : 'none';
+  compareBtn.disabled = seleccionados.length !== 2;
+
+  if (seleccionados.length >= 2) {
+    checks.forEach(c => { if (!c.checked) c.disabled = true; });
+  } else {
+    checks.forEach(c => c.disabled = false);
+  }
+}
+
+checks.forEach(check => check.addEventListener('change', validarSeleccion));
+
+compareBtn.addEventListener('click', () => {
+  const seleccionados = [...document.querySelectorAll('.exam-check:checked')];
+  tableBody.innerHTML = '';
+
+  seleccionados.forEach(exam => {
+    tableBody.innerHTML += `
+      <tr>
+        <td>${exam.value}</td>
+        <td>${exam.dataset.desc}</td>
+      </tr>
+    `;
+  });
+
+  modal.style.display = 'flex';
+});
+
+closeModal.onclick = () => modal.style.display = 'none';
+window.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };
+</script>
   </body>
 </html>
