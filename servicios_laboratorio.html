@@ -352,17 +352,28 @@
 <div id="exam-list" class="grid-container"></div>
 
 <!-- ======= BARRA INFERIOR COMPARAR ======= -->
-<div id="bottom-compare" style="display:none">
-  <div id="bottom-compare-info"></div>
-  <button id="compare-btn">Comparar</button>
+<div id="bottom-compare" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#0b5ed7; color:#fff; padding:12px 20px; display:flex; justify-content:space-between; align-items:center; z-index:1000;">
+  <div id="bottom-compare-info">Selecciona 2 exámenes para comparar</div>
+  <button id="compare-btn" disabled style="padding:8px 16px; cursor:pointer;">
+    Comparar
+  </button>
 </div>
 
-<!-- ======= MODAL COMPARACIÓN ======= -->
-<div id="compare-modal" class="modal">
-  <div class="modal-content">
-    <span id="modal-close" class="close">×</span>
-    <div id="modal-body"></div>
-    <button id="close-modal">Cerrar</button>
+<!-- ======= MODAL COMPARAR ======= -->
+<div id="compare-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); justify-content:center; align-items:center; z-index:2000;">
+  <div style="background:#fff; padding:20px; width:90%; max-width:600px; border-radius:8px; position:relative;">
+    <span class="close" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:18px;">✖</span>
+    <h3>Comparación de exámenes</h3>
+
+    <table border="1" width="100%" cellpadding="8" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Examen</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody id="compare-table"></tbody>
+    </table>
   </div>
 </div>
 
@@ -2285,7 +2296,7 @@ const exams = [
   name: "Testosterona",
   desc: "Mide el nivel de testosterona, principal hormona masculina.",
   category: "Salud del Hombre",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Salud del Hombre/Testosterona.png",
   price: "$25.000",
   sample: "Sangre",
   time: "24 horas",
@@ -2296,7 +2307,7 @@ const exams = [
   name: "PSA",
   desc: "Antígeno prostático específico para evaluar la próstata.",
   category: "Salud del Hombre",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Salud del Hombre/PSA.png",
   price: "$25.000",
   sample: "Sangre",
   time: "24 horas",
@@ -2307,7 +2318,7 @@ const exams = [
   name: "Chequeo médico del hombre",
   desc: "Perfil integral para evaluar el estado general de salud masculina.",
   category: "Salud del Hombre",
-  img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+  img: "./assets/images/Examenes/Salud del Hombre/Chequeo medico del hombre.png",
   price: "$25.000",
   sample: "Sangre y orina",
   time: "24 horas",
@@ -3411,12 +3422,17 @@ const bottomBar = document.getElementById('bottom-compare');
 const modal = document.getElementById('compare-modal');
 const tableBody = document.getElementById('compare-table');
 const closeModal = document.querySelector('.close');
+const infoText = document.getElementById('bottom-compare-info');
 
 function validarSeleccion() {
   const seleccionados = document.querySelectorAll('.exam-check:checked');
 
   bottomBar.style.display = seleccionados.length > 0 ? 'flex' : 'none';
   compareBtn.disabled = seleccionados.length !== 2;
+
+  infoText.textContent = seleccionados.length === 2
+    ? 'Listo para comparar'
+    : `Seleccionados: ${seleccionados.length} / 2`;
 
   if (seleccionados.length >= 2) {
     checks.forEach(c => { if (!c.checked) c.disabled = true; });
@@ -3444,7 +3460,10 @@ compareBtn.addEventListener('click', () => {
 });
 
 closeModal.onclick = () => modal.style.display = 'none';
-window.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };
+window.onclick = e => {
+  if (e.target === modal) modal.style.display = 'none';
+};
 </script>
+
   </body>
 </html>
