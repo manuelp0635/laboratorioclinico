@@ -352,14 +352,59 @@
 <div id="exam-list" class="grid-container"></div>
 
 <!-- ======= BARRA INFERIOR COMPARAR ======= -->
-<div id="bottom-compare" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#0b5ed7; color:#fff; padding:12px 20px; display:flex; justify-content:space-between; align-items:center; z-index:1000;">
-  <div id="bottom-compare-info">Selecciona 2 exámenes para comparar</div>
-  <button id="compare-btn" disabled style="padding:8px 16px; cursor:pointer;">
+<div id="bottom-compare" style="
+  display:none;
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#0b5ed7;
+  color:#fff;
+  padding:12px 20px;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+">
+  <div id="bottom-compare-info">
+    Selecciona 2 exámenes para comparar
+  </div>
+
+  <button id="compare-btn" style="padding:8px 16px; cursor:pointer;">
     Comparar
   </button>
 </div>
 
 <!-- ======= MODAL COMPARAR ======= -->
+ <div id="compare-modal" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+">
+  <div style="
+    background:#fff;
+    padding:20px;
+    width:90%;
+    max-width:600px;
+    border-radius:8px;
+    position:relative;
+  ">
+    <span id="modal-close" style="
+      position:absolute;
+      top:10px;
+      right:15px;
+      cursor:pointer;
+      font-size:18px;
+    ">✖</span>
+
+    <h3>Comparación de exámenes</h3>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
 <div id="compare-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); justify-content:center; align-items:center; z-index:2000;">
   <div style="background:#fff; padding:20px; width:90%; max-width:600px; border-radius:8px; position:relative;">
     <span class="close" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:18px;">✖</span>
@@ -375,6 +420,18 @@
       <tbody id="compare-table"></tbody>
     </table>
   </div>
+</div>
+
+<div id="compare-modal" class="modal">
+  <div class="modal-content">
+    <span id="modal-close">&times;</span>
+    <div id="modal-body" class="compare-grid"></div>
+  </div>
+</div>
+
+<div id="bottom-compare">
+  <span id="bottom-compare-info"></span>
+  <button id="compare-btn" active>Comparar</button>
 </div>
 
 <!-- ======= MODAL DETALLE ======= -->
@@ -3463,6 +3520,45 @@ closeModal.onclick = () => modal.style.display = 'none';
 window.onclick = e => {
   if (e.target === modal) modal.style.display = 'none';
 };
+</script>
+
+<!-- SCRIPT QUE GENERA AUTOMÁTICAMENTE LOS .exam-card-->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("exams-container");
+  if (!container) return;
+
+  container.innerHTML = exams.map(exam => `
+    <div class="exam-card"
+      data-id="${exam.id}"
+      data-name="${exam.name}"
+      data-type="${exam.category}"
+      data-desc="${exam.desc}"
+      data-img="${exam.img}"
+      data-price="${exam.price}"
+      data-sample="${exam.sample}"
+      data-time="${exam.time}"
+      data-details="${exam.details}"
+    >
+      <div class="exam-header">
+        <input type="checkbox" class="compare-checkbox">
+        <span class="compare-label">Comparar</span>
+      </div>
+
+      <img src="${exam.img}" alt="${exam.name}" class="exam-img">
+
+      <h3 class="exam-title">${exam.name}</h3>
+      <p class="exam-category">${exam.category}</p>
+
+      <p class="exam-desc">${exam.desc}</p>
+
+      <div class="exam-footer">
+        <button class="btn-detail">Ver detalles</button>
+        <span class="exam-price">${exam.price}</span>
+      </div>
+    </div>
+  `).join("");
+});
 </script>
 
   </body>
