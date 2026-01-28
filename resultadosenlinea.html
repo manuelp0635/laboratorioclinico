@@ -101,159 +101,10 @@
     />
 
     <style>
-       .plc-resultados{
-  font-family: Arial, sans-serif;
-  background: #f1f5f9;
-  padding: 40px 15px;
-}
-
-.plc-header{
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.plc-header h2{
-  margin: 0;
-  color: #0b3d6e;
-  font-size: 26px;
-}
-
-.marca{
-  color: #1e88e5;
-  font-weight: bold;
-}
-
-.plc-contenedor{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-/* ===== TARJETAS ===== */
-.plc-info,
-.plc-card{
-  background: white;
-  padding: 22px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,.06);
-}
-
-.plc-campo{
-  margin-bottom: 12px;
-}
-
-.plc-campo label{
-  display: block;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-.plc-campo input{
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.plc-btn{
-  width: 100%;
-  padding: 12px;
-  background: #0b3d6e;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.plc-btn-descarga{
-  display: block;
-  text-align: center;
-  padding: 12px;
-  background: #1e88e5;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-}
-
-.plc-estado{ margin-top: 10px; }
-.plc-exito{ color: green; }
-.plc-error{ color: red; }
-
-.oculto{ display: none; }
-
-.plc-soporte{
-  text-align: center;
-  margin-top: 20px;
-}
-
-/* ===================================== */
-/*           MEDIA QUERIES               */
-/* ===================================== */
-
-/* 📱 Móviles pequeños */
-@media (max-width: 480px){
-
-  .plc-resultados{
-    padding: 25px 10px;
-  }
-
-  .plc-header h2{
-    font-size: 22px;
-  }
-
-  .plc-contenedor{
-    grid-template-columns: 1fr;
-  }
-
-  .plc-info,
-  .plc-card{
-    padding: 15px;
-  }
-
-  .plc-btn,
-  .plc-btn-descarga{
-    font-size: 14px;
-  }
-
-}
-
-/* 📲 Tablets */
-@media (max-width: 800px){
-
-  .plc-contenedor{
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .plc-header h2{
-    font-size: 24px;
-  }
-
-}
-
-/* 💻 Pantallas grandes */
-@media (min-width: 1200px){
-
-  .plc-contenedor{
-    max-width: 1100px;
-  }
-
-  .plc-header h2{
-    font-size: 28px;
-  }
-
-}
-
-/* 🖥 Extra grandes */
-@media (min-width: 1600px){
-
-  .plc-contenedor{
-    max-width: 1250px;
-  }
-
-}
+body { font-family: Arial; margin:0; background:#f4f6f8 }
+header { background:#0b5ed7; color:white; padding:20px; text-align:center }
+.card { background:white; padding:20px; margin:20px; border-radius:10px }
+button { padding:10px; background:#0b5ed7; color:white; border:none }
 </style>
   </head>
   <body>
@@ -425,15 +276,59 @@
                   Portal Pacientes
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Resultados</a></li>
+                  <li><a class="dropdown-item" href="login.html">Resultados</a></li>
                 </ul>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-    </section>
+    </section><br>
     <!-- FIN NAVBAR -->
+
+<header>
+<h1>🧪 Plus Laboratorio Clínico Cartagena</h1>
+</header>
+
+
+<div class="card">
+<h3>Registrar Resultado</h3>
+<input id="paciente" placeholder="Paciente"><br><br>
+<input id="prueba" placeholder="Prueba"><br><br>
+<input id="valor" placeholder="Resultado"><br><br>
+<input id="ref" placeholder="Referencia"><br><br>
+<input id="tec" placeholder="Técnico"><br><br>
+<button onclick="guardar()">Guardar</button>
+</div>
+
+
+<div class="card">
+<h3>Descargar Resultado</h3>
+<input id="rid" placeholder="ID Resultado">
+<button onclick="descargar()">PDF</button>
+</div>
+
+
+<script>
+function guardar() {
+fetch('http://localhost:3000/api/resultados', {
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({
+paciente: paciente.value,
+prueba: prueba.value,
+valor: valor.value,
+referencia: ref.value,
+tecnico: tec.value
+})
+}).then(()=>alert('Resultado guardado'));
+}
+
+
+function descargar() {
+window.open(`http://localhost:3000/api/resultados/${rid.value}/pdf`);
+}
+</script>
 
     <!-- ================================
  ASESOR VIRTUAL TABOPLUS
@@ -494,95 +389,6 @@
     </div><br>
 
     <!-- Asesor virtual final -->
-
-    <section class="plc-resultados">
-
-  <div class="plc-header">
-    <h2>Resultados de Laboratorio</h2>
-    <p class="marca">Plus Laboratorio Clínico Cartagena</p>
-  </div>
-
-  <div class="plc-contenedor">
-
-    <!-- INFO -->
-    <div class="plc-info">
-      <h3>Consulta segura</h3>
-      <ul>
-        <li>Resultados disponibles 24/7</li>
-        <li>Descarga en formato PDF</li>
-        <li>Documento con firma digital</li>
-        <li>Confidencialidad garantizada</li>
-      </ul>
-    </div>
-
-    <!-- FORMULARIO -->
-    <div class="plc-card">
-
-      <form id="plcForm">
-
-        <div class="plc-campo">
-          <label>Documento del paciente</label>
-          <input type="text" id="doc"
-            placeholder="Número de identificación"
-            required>
-        </div>
-
-        <div class="plc-campo">
-          <label>Código del resultado</label>
-          <input type="text" id="cod"
-            placeholder="Ej: PLC-2025-0001"
-            required>
-        </div>
-
-        <div class="plc-campo">
-          <label>Fecha de nacimiento</label>
-          <input type="date" id="nac" required>
-        </div>
-
-        <button class="plc-btn">
-          Consultar resultado
-        </button>
-
-      </form>
-
-      <!-- ESTADOS -->
-      <div id="plcLoading" class="plc-estado oculto">
-        Consultando información...
-      </div>
-
-      <div id="plcOk" class="plc-estado oculto">
-        <p class="plc-exito">
-          Resultado disponible
-        </p>
-
-        <a id="plcDescarga"
-           class="plc-btn-descarga"
-           target="_blank">
-          Descargar PDF
-        </a>
-      </div>
-
-      <div id="plcError" class="plc-estado oculto">
-        <p class="plc-error">
-          Datos no encontrados.  
-          Verifique la información o comuníquese al laboratorio.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="plc-soporte">
-    <p>
-      Soporte:  
-      📞 605-XXX-XXXX  
-      📲 WhatsApp  
-      📍 Cartagena – Colombia
-    </p>
-  </div>
-
-</section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -900,5 +706,26 @@
 
 });
 </script>
-  </body>
+
+<!-- Solo Admin -->
+<script src="assets/auth/roles.js"></script>
+<script>
+requireRole(['admin']);
+</script>
+
+<!-- Admin + Staff -->
+ <script>
+requireRole(['admin','staff']);
+</script>
+
+<script>
+  const user = JSON.parse(localStorage.getItem('user'));
+
+if (user.role === 'paciente') {
+document.getElementById('menu-admin').style.display = 'none';
+}
+
+<button class="btn btn-danger btn-sm" onclick="logout()">Cerrar sesión</button>
+</script>
+</body>
 </html>
