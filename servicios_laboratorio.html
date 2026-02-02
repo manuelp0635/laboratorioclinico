@@ -318,28 +318,30 @@
 <div class="header-exams">
 
   <!-- CONTADOR DE RESULTADOS -->
-  <div class="resultados-box">
+  <div >
     <!--<span id="exam-count">201</span> RESULTADOS-->
   </div>
 
-  <!-- BOTONES LISTA / CUADRÍCULA -->
-  <div class="vista-toggle">
-    <button id="vista-list" class="vista-btn">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="Lista" />
-      Lista
-    </button>
+  <section class="catalogo-section">
 
-    <button id="vista-grid" class="vista-btn active">
-      <img src="https://cdn-icons-png.flaticon.com/512/560/560256.png" alt="Cuadrícula" />
-      Cuadrícula
-    </button>
+  <!-- HEADER SUPERIOR -->
+  <div class="catalogo-header">
+    <div class="vista-toggle">
+      <button id="vista-list" class="vista-btn active">Lista</button>
+      <button id="vista-grid" class="vista-btn">Cuadrícula</button>
+    </div>
+
+    <input
+      type="text"
+      id="buscar-examen"
+      placeholder="Buscar pruebas"
+    />
   </div>
 
-  <!-- BUSCADOR -->
-  <div class="search-container">
-    <input type="text" id="search-input" placeholder="Buscar pruebas aquí">
-    <!--<span class="search-icon"></span>-->
-  </div>
+  <!-- CATÁLOGO -->
+  <div id="catalogo-examenes" class="grid-view"></div>
+
+</section>
 
 </div>
 
@@ -1980,7 +1982,6 @@ const exams = [
   desc: "Mide la hormona triyodotironina total para valorar la actividad de la glándula tiroides.",
   category: "Perfil Tiroideo",
   img: "./assets/images/Examenes/Perfil Tiroideo/T3.png",
-  /*price: "$25.000",*/
   sample: "Sangre",
   time: "24 horas",
   details: "Útil para identificar hipertiroidismo, hipotiroidismo y alteraciones metabólicas."
@@ -3471,54 +3472,120 @@ exams.forEach(exam => {
 </script>
 
 <!-- Comparar examenes -->
- <script>
-const checks = document.querySelectorAll('.exam-check');
-const compareBtn = document.getElementById('compare-btn');
-const bottomBar = document.getElementById('bottom-compare');
-const modal = document.getElementById('compare-modal');
-const tableBody = document.getElementById('compare-table');
-const closeModal = document.querySelector('.close');
-const infoText = document.getElementById('bottom-compare-info');
+<script>
+  const modalDetalle = document.getElementById("modal-detalle");
+  const modalBody = document.getElementById("modal-body");
+  const modalComparar = document.getElementById("modal-comparar");
+  const compararBody = document.getElementById("comparar-body");
 
-function validarSeleccion() {
-  const seleccionados = document.querySelectorAll('.exam-check:checked');
+  let compararSeleccion = [];
 
-  bottomBar.style.display = seleccionados.length > 0 ? 'flex' : 'none';
-  compareBtn.disabled = seleccionados.length !== 2;
+  function renderExams() {
+    catalogo.innerHTML = "";
 
-  infoText.textContent = seleccionados.length === 2
-    ? 'Listo para comparar'
-    : `Seleccionados: ${seleccionados.length} / 2`;
+    const filtrados = exams.filter(ex =>
+      normalizar(ex.category) === normalizar(categoriaActiva) &&
+      (
+        normalizar(ex.name).includes(normalizar(filtroTexto)) ||
+        normalizar(ex.desc).includes(normalizar(filtroTexto))
+      )
+    );
 
-  if (seleccionados.length >= 2) {
-    checks.forEach(c => { if (!c.checked) c.disabled = true; });
-  } else {
-    checks.forEach(c => c.disabled = false);
+    if (!filtrados.length) {
+      catalogo.innerHTML = "<p>No hay exámenes disponibles.</p>";
+      return;
+    }
+
+    filtrados.forEach(exam => {
+      const card = document.createElement("div");
+      card.className = "examen-card";
+
+      card.innerHTML = `
+        <img src="${exam.img}" class="examen-img">
+
+        <div>
+          <h4>${exam.name}</h4>
+          <p>${exam.desc}</p>
+          <small><b>Muestra:</b> ${exam.sample}</small><br>
+          <small><b>Entrega:</b> ${exam.time}</small>
+
+          <div class="examen-actions">
+            <button class="ver-detalle" data-id="${exam.id}">Ver detalles</button>
+            <button class="comparar-examen" data-id="${exam.id}">Comparar</button>
+          </div>
+        </div>
+      `;
+
+      catalogo.appendChild(card);
+    });
+
+    activarEventos();
   }
-}
 
-checks.forEach(check => check.addEventListener('change', validarSeleccion));
+  function activarEventos() {
+    document.querySelectorAll(".ver-detalle").forEach(btn => {
+      btn.onclick = () => {
+        const ex = exams.find(e => e.id == btn.dataset.id);
+        modalBody.innerHTML = `
+          <h3>${ex.name}</h3>
+          <p>${ex.desc}</p>
+          <ul>
+            <li><b>Muestra:</b> ${ex.sample}</li>
+            <li><b>Entrega:</b> ${ex.time}</li>
+            <li><b>Categoría:</b> ${ex.category}</li>
+          </ul>
+        `;
+        modalDetalle.style.display = "flex";
+      };
+    });
 
-compareBtn.addEventListener('click', () => {
-  const seleccionados = [...document.querySelectorAll('.exam-check:checked')];
-  tableBody.innerHTML = '';
+    document.querySelectorAll(".comparar-examen").forEach(btn => {
+      btn.onclick = () => {
+        const ex = exams.find(e => e.id == btn.dataset.id);
 
-  seleccionados.forEach(exam => {
-    tableBody.innerHTML += `
-      <tr>
-        <td>${exam.value}</td>
-        <td>${exam.dataset.desc}</td>
-      </tr>
-    `;
-  });
+        if (compararSeleccion.find(e => e.id === ex.id)) return;
 
-  modal.style.display = 'flex';
-});
+        if (compararSeleccion.length >= 2) {
+          alert("Solo puedes comparar 2 exámenes");
+          return;
+        }
 
-closeModal.onclick = () => modal.style.display = 'none';
-window.onclick = e => {
-  if (e.target === modal) modal.style.display = 'none';
-};
+        compararSeleccion.push(ex);
+
+        if (compararSeleccion.length === 2) {
+          mostrarComparacion();
+        }
+      };
+    });
+  }
+
+  function mostrarComparacion() {
+    compararBody.innerHTML = compararSeleccion.map(ex => `
+      <div>
+        <h4>${ex.name}</h4>
+        <p>${ex.desc}</p>
+        <ul>
+          <li><b>Muestra:</b> ${ex.sample}</li>
+          <li><b>Entrega:</b> ${ex.time}</li>
+          <li><b>Categoría:</b> ${ex.category}</li>
+        </ul>
+      </div>
+    `).join("");
+
+    modalComparar.style.display = "flex";
+    compararSeleccion = [];
+  }
+
+  document.querySelector(".close-modal").onclick = () =>
+    modalDetalle.style.display = "none";
+
+  document.querySelector(".close-comparar").onclick = () =>
+    modalComparar.style.display = "none";
+
+  window.onclick = e => {
+    if (e.target === modalDetalle) modalDetalle.style.display = "none";
+    if (e.target === modalComparar) modalComparar.style.display = "none";
+  };
 </script>
 
 <!-- SCRIPT QUE GENERA AUTOMÁTICAMENTE LOS .exam-card-->
@@ -3620,6 +3687,177 @@ document
 );
 
 renderExams(activeCategory.dataset.category);
+</script>
+
+<!-- Script Cuadricula | Lista -->
+<script>
+  const catalogo = document.getElementById("catalogo-examenes");
+  const buscarInput = document.getElementById("buscar-examen");
+  const btnLista = document.getElementById("vista-list");
+  const btnGrid = document.getElementById("vista-grid");
+  const categorias = document.querySelectorAll("#category-list li");
+
+  let categoriaActiva = document.querySelector("#category-list li.active")
+    ?.dataset.category || "";
+
+  let filtroTexto = "";
+
+  const normalizar = txt =>
+    txt.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+
+  /* Renderizar exámenes */
+  function renderExams() {
+    catalogo.innerHTML = "";
+
+    const filtrados = exams.filter(ex =>
+      normalizar(ex.category) === normalizar(categoriaActiva) &&
+      (
+        normalizar(ex.name).includes(normalizar(filtroTexto)) ||
+        normalizar(ex.desc).includes(normalizar(filtroTexto))
+      )
+    );
+
+    if (filtrados.length === 0) {
+      catalogo.innerHTML = "<p>No hay exámenes disponibles.</p>";
+      return;
+    }
+
+    filtrados.forEach(exam => {
+      const card = document.createElement("div");
+      card.className = "examen-card";
+      card.innerHTML = `
+        <h4>${exam.name}</h4>
+        <p>${exam.desc}</p>
+        <small><b>Muestra:</b> ${exam.sample}</small><br>
+        <small><b>Entrega:</b> ${exam.time}</small>
+      `;
+      catalogo.appendChild(card);
+    });
+  }
+
+  /* Click en categoría */
+  categorias.forEach(li => {
+    li.addEventListener("click", () => {
+      categorias.forEach(c => c.classList.remove("active"));
+      li.classList.add("active");
+
+      categoriaActiva = li.dataset.category;
+      filtroTexto = "";
+      buscarInput.value = "";
+
+      renderExams();
+    });
+  });
+
+  /* Buscador */
+  buscarInput.addEventListener("input", e => {
+    filtroTexto = e.target.value;
+    renderExams();
+  });
+
+  /* Vista lista */
+  btnLista.onclick = () => {
+    catalogo.className = "list-view";
+    btnLista.classList.add("active");
+    btnGrid.classList.remove("active");
+  };
+
+  /* Vista cuadrícula */
+  btnGrid.onclick = () => {
+    catalogo.className = "grid-view";
+    btnGrid.classList.add("active");
+    btnLista.classList.remove("active");
+  };
+
+  /* Render inicial */
+  renderExams();
+
+  function renderExams() {
+  catalogo.innerHTML = "";
+
+  const filtrados = exams.filter(ex =>
+    normalizar(ex.category) === normalizar(categoriaActiva) &&
+    (
+      normalizar(ex.name).includes(normalizar(filtroTexto)) ||
+      normalizar(ex.desc).includes(normalizar(filtroTexto))
+    )
+  );
+
+  if (!filtrados.length) {
+    catalogo.innerHTML = "<p>No hay exámenes disponibles.</p>";
+    return;
+  }
+
+  filtrados.forEach(exam => {
+    const card = document.createElement("div");
+    card.className = "examen-card";
+
+    card.innerHTML = `
+      <img src="${exam.img}" alt="${exam.name}" class="examen-img">
+
+      <div class="examen-body">
+        <h4>${exam.name}</h4>
+        <p>${exam.desc}</p>
+
+        <small><b>Muestra:</b> ${exam.sample}</small><br>
+        <small><b>Entrega:</b> ${exam.time}</small>
+
+        <button class="ver-detalle" data-id="${exam.id}">
+          Ver detalles
+        </button>
+      </div>
+    `;
+
+    catalogo.appendChild(card);
+  });
+
+  activarEventosDetalle();
+}
+
+function activarEventosDetalle() {
+  document.querySelectorAll(".ver-detalle").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.id;
+      const examen = exams.find(e => e.id == id);
+
+      alert(
+        `Examen: ${examen.name}\n` +
+        `Descripción: ${examen.desc}\n` +
+        `Muestra: ${examen.sample}\n` +
+        `Entrega: ${examen.time}`
+      );
+    });
+  });
+}
+</script>
+
+<!-- Script BÚSQUEDA ACTIVA REAL -->
+<script>
+  const inputBuscar = document.getElementById("buscar-examen");
+  const catalogo = document.getElementById("catalogo-examenes");
+
+  // Guardamos la BD original
+  const examsDB = [...exams];
+
+  // Escuchar escritura en tiempo real
+  inputBuscar.addEventListener("input", () => {
+    const texto = inputBuscar.value.toLowerCase().trim();
+
+    // Si está vacío → mostrar todo
+    if (texto === "") {
+      renderExams(examsDB);
+      return;
+    }
+
+    // Filtrado real
+    const resultados = examsDB.filter(exam =>
+      exam.name.toLowerCase().includes(texto) ||
+      exam.desc.toLowerCase().includes(texto) ||
+      exam.sample.toLowerCase().includes(texto)
+    );
+
+    renderExams(resultados);
+  });
 </script>
 
   </body>
