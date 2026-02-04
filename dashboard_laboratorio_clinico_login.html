@@ -40,6 +40,7 @@ body{
   border-radius:10px;
   margin:4px 10px;
   transition:.3s;
+  cursor:pointer;
 }
 .sidebar a:hover,
 .sidebar a.active{
@@ -225,14 +226,26 @@ body{
 
 <script>
 /* ================= AUTH ================= */
-function login(u){localStorage.setItem('user',JSON.stringify(u));location.reload()}
-function logout(){localStorage.clear();location.reload()}
-const user=JSON.parse(localStorage.getItem('user'))||{nombre:'Admin',rol:'admin',lab:'Sede Central'}
-localStorage.setItem('user',JSON.stringify(user))
+// Verificar si hay usuario logueado
+const user = JSON.parse(localStorage.getItem('user'));
+if(!user){
+  window.location.href="login.html"; // Redirige al login si no hay sesión
+}
+
+// Mostrar info del usuario
 infoUser.innerText=`Usuario: ${user.nombre} | Rol: ${user.rol} | Lab: ${user.lab}`
 
+// Logout
+function logout(){
+  localStorage.removeItem('user');
+  window.location.href="login.html"; // redirige al login
+}
+
 /* ================= ROLES ================= */
-const PERMISOS={admin:['dashboard','citas','usuarios','pruebas','reportes','config'],staff:['dashboard','citas','pruebas','reportes']}
+const PERMISOS={
+  admin:['dashboard','citas','usuarios','pruebas','reportes','config'],
+  staff:['dashboard','citas','pruebas','reportes']
+}
 function showSection(id,el){
  if(!PERMISOS[user.rol].includes(id)) return notificar('danger','Acceso denegado')
  document.querySelectorAll('.section').forEach(s=>s.classList.add('hidden'))
