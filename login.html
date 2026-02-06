@@ -45,33 +45,42 @@
 </div>
 
 <script>
-  /* Usuarios simulados por rol */
-  const USUARIOS = {
-    admin: ["123456789"],
-    staff: ["987654321"],
-    paciente: ["1020304050", "1122334455"]
-  };
+/* Usuarios simulados por rol */
+const USUARIOS = {
+  admin: ["123456789"],
+  staff: ["987654321"],
+  paciente: ["1020304050", "1122334455"]
+};
 
-  function login() {
-    const cedula = document.getElementById("cedula").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const role = document.getElementById("role").value;
+function login() {
+  const cedula = document.getElementById("cedula").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const role = document.getElementById("role").value;
 
-    if (!cedula || !password) {
-      alert("Debe completar todos los campos");
-      return;
-    }
-
-    if (USUARIOS[role]?.includes(cedula) && cedula === password) {
-      localStorage.setItem("session", "true");
-      localStorage.setItem("cedula", cedula);
-      localStorage.setItem("rol", role);
-
-      window.location.href = "./dashboard_laboratorio_clinico_login.html";
-    } else {
-      alert("❌ Acceso denegado. Verifique sus datos");
-    }
+  if (!cedula || !password) {
+    alert("Debe completar todos los campos");
+    return;
   }
+
+  // Validación básica (cédula = contraseña)
+  if (USUARIOS[role]?.includes(cedula) && cedula === password) {
+
+    const user = {
+      nombre: `Usuario ${cedula}`,
+      rol: role,
+      lab: "Plus Lab"
+    };
+
+    // 🔑 CLAVE ÚNICA QUE EL DASHBOARD NECESITA
+    localStorage.setItem("user", JSON.stringify(user));
+
+    // Redirección segura
+    window.location.replace("dashboard_laboratorio_clinico_login.html");
+
+  } else {
+    alert("❌ Acceso denegado. Verifique sus datos");
+  }
+}
 </script>
 
 </body>
