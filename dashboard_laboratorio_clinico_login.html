@@ -10,26 +10,87 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
-/* ================= BASE ================= */
+  /* =================================================
+   1. RESET GLOBAL & CONTROL DE EJES
+   ================================================= */
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+}
+
+html, body{
+  width:100%;
+  max-width:100%;
+  margin:0;
+  padding:0;
+  overflow-x:hidden;
+}
+
 body{
   background:#f4f6f9;
   font-family:system-ui,-apple-system,BlinkMacSystemFont;
+  position:relative;
 }
+
+/* Evita empujes en flex */
+.d-flex,
+.flex-fill,
+.row{
+  min-width:0;
+  max-width:100%;
+}
+
+/* Medios nunca desbordan */
+img,
+svg,
+canvas,
+video{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+/* =================================================
+   2. UTILIDADES GENERALES
+   ================================================= */
 .hidden{display:none}
+
+/* =================================================
+   3. CONTENEDORES PRINCIPALES
+   ================================================= */
+.flex-fill{
+  width:100%;
+  max-width:100%;
+  padding:1.5rem;
+  overflow-x:hidden;
+}
+
 .card{
+  width:100%;
+  max-width:100%;
   border-radius:18px;
   border:none;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
 
-/* ================= SIDEBAR ================= */
+/* =================================================
+   4. SIDEBAR (DESKTOP BASE)
+   ================================================= */
 .sidebar{
   width:260px;
   min-height:100vh;
   background:linear-gradient(180deg,#111827,#1f2937);
   color:#fff;
+  transition:transform .3s ease;
+  z-index:1000;
+  flex-shrink:0;
 }
-.sidebar h4{font-weight:700}
+
+.sidebar h4{
+  font-weight:700;
+}
+
 .sidebar a{
   color:#cbd5e1;
   text-decoration:none;
@@ -40,76 +101,178 @@ body{
   border-radius:10px;
   margin:4px 10px;
   transition:.3s;
-  cursor:pointer;
 }
+
 .sidebar a:hover,
 .sidebar a.active{
   background:#2563eb;
   color:#fff;
 }
 
-/* ================= BUTTONS ================= */
+/* =================================================
+   5. BOTÓN HAMBURGUESA
+   ================================================= */
+.menu-toggle{
+  display:none;
+  position:fixed;
+  top:14px;
+  left:14px;
+  background:#2563eb;
+  border:none;
+  border-radius:10px;
+  padding:10px 12px;
+  z-index:1200;
+  box-shadow:0 6px 15px rgba(0,0,0,.25);
+}
+
+.menu-toggle span{
+  display:block;
+  width:22px;
+  height:2px;
+  background:#fff;
+  margin:5px 0;
+}
+
+/* =================================================
+   6. OVERLAY
+   ================================================= */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:900;
+}
+
+.overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* =================================================
+   7. BOTONES
+   ================================================= */
 .btn{
+  width:auto;
+  max-width:100%;
   border-radius:12px;
   font-weight:600;
   transition:.3s ease;
   box-shadow:0 6px 15px rgba(0,0,0,.08);
 }
-.btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 20px rgba(0,0,0,.15);
-}
-.btn:active{
-  transform:scale(.97);
-}
 
-/* Colores personalizados */
-.btn-primary{
-  background:linear-gradient(135deg,#2563eb,#1d4ed8);
-  border:none;
-}
-.btn-success{
-  background:linear-gradient(135deg,#16a34a,#15803d);
-  border:none;
-}
-.btn-danger{
-  background:linear-gradient(135deg,#dc2626,#b91c1c);
-  border:none;
-}
-.btn-warning{
-  background:linear-gradient(135deg,#f59e0b,#d97706);
-  border:none;
-  color:#000;
-}
-.btn-secondary{
-  background:linear-gradient(135deg,#6b7280,#4b5563);
-  border:none;
-}
-.btn-outline{
-  background:#fff;
-  border:2px dashed #2563eb;
-  color:#2563eb;
-}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:scale(.97)}
 
-/* ================= TOAST ================= */
-.toast-success{background:#16a34a}
-.toast-danger{background:#dc2626}
-.toast-warning{background:#f59e0b;color:#000}
+.btn-primary{background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none}
+.btn-success{background:linear-gradient(135deg,#16a34a,#15803d);border:none}
+.btn-danger{background:linear-gradient(135deg,#dc2626,#b91c1c);border:none}
+.btn-warning{background:linear-gradient(135deg,#f59e0b,#d97706);border:none;color:#000}
+.btn-secondary{background:linear-gradient(135deg,#6b7280,#4b5563);border:none}
 
-/* ================= TABLE ================= */
+/* =================================================
+   8. TABLAS
+   ================================================= */
 .table{
+  width:100%;
+  max-width:100%;
   background:#fff;
   border-radius:14px;
-  overflow:hidden;
 }
-.table th{
-  background:#f1f5f9;
-  font-weight:700;
+
+.table-responsive{
+  width:100%;
+  max-width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* =================================================
+   9. CHARTS / CANVAS (CONTROL EJE X)
+   ================================================= */
+canvas{
+  width:100% !important;
+  max-width:100%;
+  height:auto !important;
+}
+
+/* =================================================
+   10. RESPONSIVE — TABLET
+   ================================================= */
+@media (max-width:992px){
+  .sidebar{
+    width:220px;
+  }
+}
+
+/* =================================================
+   11. RESPONSIVE — MOBILE
+   ================================================= */
+@media (max-width:768px){
+
+  /* Hamburguesa visible */
+  .menu-toggle{
+    display:block;
+  }
+
+  /* Sidebar off-canvas */
+  .sidebar{
+    position:fixed;
+    top:0;
+    left:0;
+    height:100vh;
+    max-width:85vw;
+    transform:translateX(-100%);
+  }
+
+  .sidebar.active{
+    transform:translateX(0);
+  }
+
+  /* Contenido baja para no tapar header */
+  .flex-fill{
+    padding-top:80px !important;
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+
+  /* Layout vertical */
+  .d-flex{
+    flex-direction:column;
+  }
+
+  /* Botones táctiles */
+  .btn{
+    width:100%;
+  }
+}
+
+/* =================================================
+   12. SMALL MOBILE
+   ================================================= */
+@media (max-width:480px){
+  .sidebar{
+    max-width:90vw;
+  }
+
+  .flex-fill{
+    padding-top:90px !important;
+  }
 }
 </style>
 </head>
 
 <body>
+
+  <button class="menu-toggle" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<div class="overlay" onclick="toggleMenu()"></div>
 
 <div class="d-flex">
 
@@ -226,80 +389,203 @@ body{
 
 <script>
 /* ================= AUTH ================= */
-// Verificar si hay usuario logueado
-const user = JSON.parse(localStorage.getItem('user'));
-if(!user){
-  window.location.href="login.html"; // Redirige al login si no hay sesión
-}
+let user = null;
 
-// Mostrar info del usuario
-infoUser.innerText=`Usuario: ${user.nombre} | Rol: ${user.rol} | Lab: ${user.lab}`
+// Validar sesión al cargar
+document.addEventListener("DOMContentLoaded", () => {
+  const storedUser = localStorage.getItem("user");
 
-// Logout
-function logout(){
-  localStorage.removeItem('user');
-  window.location.href="login.html"; // redirige al login
+  if (!storedUser) {
+    window.location.replace("login.html");
+    return;
+  }
+
+  try {
+    user = JSON.parse(storedUser);
+  } catch (e) {
+    localStorage.removeItem("user");
+    window.location.replace("login.html");
+    return;
+  }
+
+  // Mostrar info del usuario
+  document.getElementById("infoUser").innerText =
+    `Usuario: ${user.nombre} | Rol: ${user.rol} | Lab: ${user.lab}`;
+
+  renderHistorial();
+});
+
+// Logout seguro
+function logout() {
+  localStorage.removeItem("user");
+  sessionStorage.clear();
+  window.location.replace("login.html");
 }
 
 /* ================= ROLES ================= */
-const PERMISOS={
-  admin:['dashboard','citas','usuarios','pruebas','reportes','config'],
-  staff:['dashboard','citas','pruebas','reportes']
-}
-function showSection(id,el){
- if(!PERMISOS[user.rol].includes(id)) return notificar('danger','Acceso denegado')
- document.querySelectorAll('.section').forEach(s=>s.classList.add('hidden'))
- document.getElementById(id).classList.remove('hidden')
- document.querySelectorAll('.sidebar a').forEach(a=>a.classList.remove('active'))
- el.classList.add('active')
+const PERMISOS = {
+  admin: ['dashboard','citas','usuarios','pruebas','reportes','config'],
+  staff: ['dashboard','citas','pruebas','reportes']
+};
+
+function showSection(id, el) {
+  if (!user || !PERMISOS[user.rol]?.includes(id)) {
+    return notificar('danger', 'Acceso denegado');
+  }
+
+  document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+
+  document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+  el.classList.add('active');
 }
 
 /* ================= TOAST ================= */
-function notificar(tipo,msg){
- toast.className=`toast toast-${tipo} text-white`
- toastMsg.innerText=msg
- guardarHistorial(msg)
- new bootstrap.Toast(toast,{delay:2200}).show()
+function notificar(tipo, msg) {
+  const toast = document.getElementById("toast");
+  const toastMsg = document.getElementById("toastMsg");
+
+  toast.className = `toast toast-${tipo} text-white`;
+  toastMsg.innerText = msg;
+
+  guardarHistorial(msg);
+  new bootstrap.Toast(toast, { delay: 2200 }).show();
 }
 
 /* ================= HISTORIAL ================= */
-function guardarHistorial(msg){
- const h=JSON.parse(localStorage.getItem('historial'))||[]
- h.unshift({msg,fecha:new Date().toLocaleString(),user:user.nombre})
- localStorage.setItem('historial',JSON.stringify(h.slice(0,20)))
- renderHistorial()
+function guardarHistorial(msg) {
+  const h = JSON.parse(localStorage.getItem('historial')) || [];
+  h.unshift({
+    msg,
+    fecha: new Date().toLocaleString(),
+    user: user?.nombre || "Sistema"
+  });
+  localStorage.setItem('historial', JSON.stringify(h.slice(0, 20)));
+  renderHistorial();
 }
-function renderHistorial(){
- historial.innerHTML=''
- ;(JSON.parse(localStorage.getItem('historial'))||[]).forEach(i=>{
-  historial.innerHTML+=`<li class="list-group-item">${i.msg}<br><small>${i.fecha} - ${i.user}</small></li>`
- })
+
+function renderHistorial() {
+  const historial = document.getElementById("historial");
+  if (!historial) return;
+
+  historial.innerHTML = '';
+  (JSON.parse(localStorage.getItem('historial')) || []).forEach(i => {
+    historial.innerHTML += `
+      <li class="list-group-item">
+        ${i.msg}<br>
+        <small>${i.fecha} - ${i.user}</small>
+      </li>`;
+  });
 }
-renderHistorial()
 
 /* ================= API ================= */
-const API={get:k=>JSON.parse(localStorage.getItem(k))||[],set:(k,v)=>localStorage.setItem(k,JSON.stringify(v))}
-let citas=API.get('citas'),usuarios=API.get('usuarios'),pruebas=API.get('pruebas')
+const API = {
+  get: k => JSON.parse(localStorage.getItem(k)) || [],
+  set: (k, v) => localStorage.setItem(k, JSON.stringify(v))
+};
+
+let citas = API.get('citas');
+let usuarios = API.get('usuarios');
+let pruebas = API.get('pruebas');
 
 /* ================= CRUD ================= */
-function crearCita(){citas.push({paciente:prompt('Paciente'),fecha:prompt('Fecha'),lab:user.lab});API.set('citas',citas);notificar('success','Cita creada')}
-function crearUsuario(){usuarios.push({nombre:prompt('Nombre'),rol:prompt('Rol'),lab:prompt('Lab')});API.set('usuarios',usuarios);notificar('success','Usuario creado')}
-function crearPrueba(){pruebas.push(prompt('Prueba'));API.set('pruebas',pruebas);notificar('success','Prueba creada')}
+function crearCita() {
+  citas.push({
+    paciente: prompt('Paciente'),
+    fecha: prompt('Fecha'),
+    lab: user.lab
+  });
+  API.set('citas', citas);
+  notificar('success', 'Cita creada');
+}
+
+function crearUsuario() {
+  usuarios.push({
+    nombre: prompt('Nombre'),
+    rol: prompt('Rol'),
+    lab: prompt('Lab')
+  });
+  API.set('usuarios', usuarios);
+  notificar('success', 'Usuario creado');
+}
+
+function crearPrueba() {
+  pruebas.push(prompt('Prueba'));
+  API.set('pruebas', pruebas);
+  notificar('success', 'Prueba creada');
+}
 
 /* ================= REPORTES ================= */
-function generarReporte(){
- const t=filtroTipo.value,f=filtroFecha.value
- let d=[]
- citas.forEach(c=>d.push({tipo:'Cita',detalle:c.paciente,fecha:c.fecha,lab:c.lab,usuario:user.nombre}))
- pruebas.forEach(p=>d.push({tipo:'Prueba',detalle:p,fecha:'-',lab:user.lab,usuario:user.nombre}))
- d=d.filter(r=>(!t||r.tipo.toLowerCase().includes(t))&&(!f||r.fecha===f))
- tablaReportes.innerHTML=d.length?d.map(r=>`<tr><td>${r.tipo}</td><td>${r.detalle}</td><td>${r.fecha}</td><td>${r.lab}</td><td>${r.usuario}</td></tr>`).join(''):`<tr><td colspan="5" class="text-center">Sin resultados</td></tr>`
+function generarReporte() {
+  const t = filtroTipo.value;
+  const f = filtroFecha.value;
+  let d = [];
+
+  citas.forEach(c =>
+    d.push({
+      tipo: 'Cita',
+      detalle: c.paciente,
+      fecha: c.fecha,
+      lab: c.lab,
+      usuario: user.nombre
+    })
+  );
+
+  pruebas.forEach(p =>
+    d.push({
+      tipo: 'Prueba',
+      detalle: p,
+      fecha: '-',
+      lab: user.lab,
+      usuario: user.nombre
+    })
+  );
+
+  d = d.filter(r =>
+    (!t || r.tipo.toLowerCase().includes(t)) &&
+    (!f || r.fecha === f)
+  );
+
+  tablaReportes.innerHTML = d.length
+    ? d.map(r =>
+        `<tr>
+          <td>${r.tipo}</td>
+          <td>${r.detalle}</td>
+          <td>${r.fecha}</td>
+          <td>${r.lab}</td>
+          <td>${r.usuario}</td>
+        </tr>`
+      ).join('')
+    : `<tr><td colspan="5" class="text-center">Sin resultados</td></tr>`;
 }
-function exportarReportePDF(){html2pdf().from(document.getElementById('reportes')).save('reporte.pdf')}
+
+function exportarReportePDF() {
+  html2pdf().from(document.getElementById('reportes')).save('reporte.pdf');
+}
 
 /* ================= CHARTS ================= */
-new Chart(chartResultados,{type:'line',data:{labels:['L','M','X','J','V'],datasets:[{data:[10,20,15,25,30]}]}})
-new Chart(chartTipos,{type:'doughnut',data:{labels:['Hemo','Glu','Col'],datasets:[{data:[40,35,25]}]}})
+new Chart(chartResultados, {
+  type: 'line',
+  data: {
+    labels: ['L', 'M', 'X', 'J', 'V'],
+    datasets: [{ data: [10, 20, 15, 25, 30] }]
+  }
+});
+
+new Chart(chartTipos, {
+  type: 'doughnut',
+  data: {
+    labels: ['Hemo', 'Glu', 'Col'],
+    datasets: [{ data: [40, 35, 25] }]
+  }
+});
+</script>
+
+<script>
+  function toggleMenu(){
+    document.querySelector('.sidebar').classList.toggle('active');
+    document.querySelector('.overlay').classList.toggle('active');
+  }
 </script>
 
 </body>
