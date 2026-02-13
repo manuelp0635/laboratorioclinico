@@ -10,592 +10,436 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
-  /* =================================================
-   RESET + BASE (APP MOBILE FIRST)
-   ================================================= */
-*,
-*::before,
-*::after{
-  box-sizing:border-box;
-}
-
-html, body{
-  width:100%;
-  max-width:100%;
-  height:100%;
-  margin:0;
-  padding:0;
-  overflow-x:hidden;
-}
-
-body{
-  background:#f4f6f9;
-  font-family:system-ui,-apple-system,BlinkMacSystemFont;
-  -webkit-font-smoothing:antialiased;
-  position:relative;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#f4f6f9;font-family:system-ui}
 .hidden{display:none}
 
-/* =================================================
-   LAYOUT GENERAL (EJE X / Y CONTROLADO)
-   ================================================= */
-.d-flex{
-  width:100%;
-  max-width:100%;
-}
-
-.flex-fill{
-  width:100%;
-  max-width:100%;
-  min-width:0;
-  overflow-x:hidden;
-  padding:1.25rem;
-}
-
-/* =================================================
-   CARDS (LOOK APP)
-   ================================================= */
-.card{
-  border-radius:18px;
-  border:none;
-  box-shadow:0 10px 25px rgba(0,0,0,.06);
-  margin-bottom:1rem;
-  max-width:100%;
-}
-
-/* =================================================
-   SIDEBAR (APP STYLE)
-   ================================================= */
 .sidebar{
-  width:260px;
-  min-height:100vh;
-  background:linear-gradient(180deg,#111827,#1f2937);
-  color:#fff;
-  transition:transform .3s ease;
-  z-index:1100;
-}
-
-.sidebar h4{
-  font-weight:700;
+width:260px;
+min-height:100vh;
+background:#111827;
+color:#fff;
+transition:.3s;
 }
 
 .sidebar a{
-  color:#cbd5e1;
-  text-decoration:none;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:14px 18px;
-  border-radius:12px;
-  margin:4px 10px;
-  transition:.25s;
+display:block;
+color:#cbd5e1;
+padding:14px 18px;
+text-decoration:none;
+border-radius:10px;
+margin:6px;
+cursor:pointer;
 }
 
-.sidebar a:hover,
-.sidebar a.active{
-  background:#2563eb;
-  color:#fff;
+.sidebar a:hover,.active{background:#2563eb;color:#fff}
+
+.flex-fill{padding:1.5rem;width:100%}
+
+.card{
+border:none;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+margin-bottom:1rem;
 }
 
-/* =================================================
-   MENU HAMBURGUESA (APP)
-   ================================================= */
 .menu-toggle{
-  display:none;
-  position:fixed;
-  top:14px;
-  left:14px;
-  background:#2563eb;
-  border:none;
-  border-radius:12px;
-  padding:10px;
-  z-index:1300;
+display:none;
+position:fixed;
+top:15px;
+left:15px;
+background:#2563eb;
+border:none;
+border-radius:10px;
+padding:10px;
+z-index:2000;
 }
 
 .menu-toggle span{
-  display:block;
-  width:22px;
-  height:2px;
-  background:#fff;
-  margin:5px 0;
+display:block;
+width:22px;
+height:2px;
+background:#fff;
+margin:4px 0;
 }
 
-/* =================================================
-   OVERLAY
-   ================================================= */
 .overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.4);
-  opacity:0;
-  pointer-events:none;
-  transition:.3s;
-  z-index:1000;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.4);
+opacity:0;
+pointer-events:none;
+transition:.3s;
 }
 
 .overlay.active{
-  opacity:1;
-  pointer-events:auto;
+opacity:1;
+pointer-events:auto;
 }
 
-/* =================================================
-   BOTONES (TOUCH FRIENDLY)
-   ================================================= */
-.btn{
-  border-radius:14px;
-  font-weight:600;
-  padding:.65rem 1rem;
-  transition:.25s ease;
-  box-shadow:0 6px 14px rgba(0,0,0,.08);
+@media(max-width:768px){
+
+.menu-toggle{display:block}
+
+.sidebar{
+position:fixed;
+transform:translateX(-100%);
+z-index:1500;
 }
 
-.btn:active{
-  transform:scale(.96);
+.sidebar.active{
+transform:translateX(0);
 }
 
-.btn-primary{background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none}
-.btn-success{background:linear-gradient(135deg,#16a34a,#15803d);border:none}
-.btn-danger{background:linear-gradient(135deg,#dc2626,#b91c1c);border:none}
-.btn-warning{background:linear-gradient(135deg,#f59e0b,#d97706);border:none;color:#000}
-.btn-secondary{background:linear-gradient(135deg,#6b7280,#4b5563);border:none}
-
-/* =================================================
-   TABLAS RESPONSIVE (APP)
-   ================================================= */
-.table{
-  background:#fff;
-  border-radius:14px;
-  margin-bottom:0;
-  max-width:100%;
+.flex-fill{
+padding-top:80px;
 }
 
-.table-responsive{
-  width:100%;
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-}
-
-/* =================================================
-   TOAST
-   ================================================= */
-.toast-success{background:#16a34a}
-.toast-danger{background:#dc2626}
-.toast-warning{background:#f59e0b;color:#000}
-
-/* =================================================
-   MEDIA QUERIES (MOBILE FIRST)
-   ================================================= */
-
-/* Tablets */
-@media (max-width:992px){
-  .sidebar{
-    width:220px;
-  }
-}
-
-/* Mobile */
-@media (max-width:768px){
-
-  /* Mostrar hamburguesa */
-  .menu-toggle{
-    display:block;
-  }
-
-  /* Sidebar off-canvas */
-  .sidebar{
-    position:fixed;
-    top:0;
-    left:0;
-    height:100vh;
-    max-width:85vw;
-    transform:translateX(-100%);
-  }
-
-  .sidebar.active{
-    transform:translateX(0);
-  }
-
-  /* Contenido tipo app */
-  .d-flex{
-    flex-direction:column;
-  }
-
-  .flex-fill{
-    padding-top:70px;
-    padding-left:1rem;
-    padding-right:1rem;
-  }
-
-  /* Botones full width */
-  .btn{
-    width:100%;
-  }
-}
-
-/* Small mobile */
-@media (max-width:480px){
-  .sidebar{
-    max-width:90vw;
-  }
-
-  h3, h4{
-    font-size:1.1rem;
-  }
-}
-
-/* =================================================
-   PREVENCIÓN DESBORDES (FINAL)
-   ================================================= */
-img,
-svg,
-canvas{
-  max-width:100%;
-  height:auto;
-}
-
-/* =================================================
-   FIX HEADER: EVITA QUE EL HAMBURGUESA TAPE EL TEXTO
-   ================================================= */
-@media (max-width:768px){
-
-  /* Baja todo el contenido principal */
-  .flex-fill{
-    padding-top:90px !important;
-  }
-
-  /* Ajuste fino solo para títulos */
-  .section h3,
-  .section h4{
-    margin-top:0;
-    padding-top:10px;
-  }
 }
 </style>
 </head>
 
 <body>
 
-  <button class="menu-toggle" onclick="toggleMenu()">
-  <span></span>
-  <span></span>
-  <span></span>
+<button class="menu-toggle" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
 </button>
 
 <div class="overlay" onclick="toggleMenu()"></div>
 
 <div class="d-flex">
 
-<!-- SIDEBAR -->
-<div class="sidebar">
-<h4 class="text-center py-4">🔬 Plus Lab</h4>
-<a onclick="showSection('dashboard',this)" class="active">📊 Dashboard</a>
-<a onclick="showSection('citas',this)">📅 Citas</a>
-<a onclick="showSection('usuarios',this)">👥 Usuarios</a>
-<a onclick="showSection('pruebas',this)">🧪 Pruebas</a>
-<a onclick="showSection('reportes',this)">📊 Reportes</a>
-<a onclick="showSection('config',this)">⚙️ Configuración</a>
-<a onclick="exportarPDF()">📄 Exportar PDF</a>
-<a onclick="logout()">🚪 Cerrar sesión</a>
-</div>
+<!-- SIDEBAR DINÁMICO -->
+<div class="sidebar"></div>
 
 <!-- CONTENIDO -->
-<div class="flex-fill p-4">
+<div class="flex-fill">
 
 <!-- DASHBOARD -->
 <div id="dashboard" class="section">
-<h3 class="fw-bold">Bienvenido</h3>
-<p id="infoUser"></p>
-
-<div class="card p-4 mb-3">
-<h6 class="fw-bold">🚨 Notificaciones</h6>
-<div class="d-flex gap-2 flex-wrap">
-<button class="btn btn-success" onclick="notificar('success','Proceso exitoso')">✔ Success</button>
-<button class="btn btn-danger" onclick="notificar('danger','Registro eliminado')">🗑 Eliminar</button>
-<button class="btn btn-warning" onclick="notificar('warning','Registro modificado')">✏ Modificar</button>
-</div>
-</div>
-
-<div class="card p-4 mb-3">
-<h6 class="fw-bold">🧾 Historial</h6>
-<ul id="historial" class="list-group list-group-flush"></ul>
+<div class="card p-4">
+<h3>Bienvenido</h3>
+<div id="infoUser"></div>
 </div>
 
 <div class="row">
-<div class="col-md-6"><canvas id="chartResultados"></canvas></div>
-<div class="col-md-6"><canvas id="chartTipos"></canvas></div>
+<div class="col-lg-6">
+<div class="card p-3">
+<h6>Tipos de pruebas</h6>
+<canvas id="chartTipos"></canvas>
+</div>
+</div>
+
+<div class="col-lg-6">
+<div class="card p-3">
+<h6>Resultados semanales</h6>
+<canvas id="chartResultados"></canvas>
+</div>
+</div>
 </div>
 </div>
 
 <!-- CITAS -->
 <div id="citas" class="section hidden">
-<h4 class="fw-bold">📅 Citas</h4>
-<button class="btn btn-primary mb-3" onclick="crearCita()">➕ Nueva Cita</button>
+<h4>Citas</h4>
+<button class="btn btn-primary mb-2" onclick="crearCita()">Nueva cita</button>
 <table class="table"><tbody id="tablaCitas"></tbody></table>
 </div>
 
 <!-- USUARIOS -->
 <div id="usuarios" class="section hidden">
-<h4 class="fw-bold">👥 Usuarios</h4>
-<button class="btn btn-primary mb-3" onclick="crearUsuario()">➕ Nuevo Usuario</button>
+<h4>Usuarios</h4>
+<button class="btn btn-primary mb-2" onclick="crearUsuario()">Nuevo usuario</button>
 <table class="table"><tbody id="tablaUsuarios"></tbody></table>
 </div>
 
 <!-- PRUEBAS -->
 <div id="pruebas" class="section hidden">
-<h4 class="fw-bold">🧪 Pruebas</h4>
-<button class="btn btn-success mb-3" onclick="crearPrueba()">➕ Nueva Prueba</button>
+<h4>Pruebas</h4>
+<button class="btn btn-success mb-2" onclick="crearPrueba()">Nueva prueba</button>
 <ul id="listaPruebas" class="list-group"></ul>
 </div>
 
 <!-- REPORTES -->
 <div id="reportes" class="section hidden">
-<div class="card p-4">
-<h4 class="fw-bold">📊 Reportes Avanzados</h4>
-<div class="row g-3 mb-3">
-<div class="col-md-3">
-<select id="filtroTipo" class="form-select">
-<option value="">Todos</option>
-<option value="cita">Citas</option>
-<option value="prueba">Pruebas</option>
-</select>
-</div>
-<div class="col-md-3">
-<input type="date" id="filtroFecha" class="form-control">
-</div>
-<div class="col-md-3">
-<button class="btn btn-primary w-100" onclick="generarReporte()">Generar</button>
-</div>
-<div class="col-md-3">
-<button class="btn btn-danger w-100" onclick="exportarReportePDF()">PDF</button>
-</div>
-</div>
-<table class="table">
-<thead>
-<tr><th>Tipo</th><th>Detalle</th><th>Fecha</th><th>Lab</th><th>Usuario</th></tr>
-</thead>
-<tbody id="tablaReportes"></tbody>
-</table>
-</div>
+<h4>Reportes</h4>
+<button class="btn btn-danger" onclick="exportarReportePDF()">Exportar PDF</button>
 </div>
 
 <!-- CONFIG -->
 <div id="config" class="section hidden">
-<h4 class="fw-bold">⚙️ Configuración</h4>
-<button class="btn btn-secondary" onclick="notificar('warning','Configuración guardada')">Guardar</button>
+<h4>Configuración</h4>
 </div>
 
+<!-- RESULTADOS PACIENTE -->
+<div id="misResultados" class="section hidden">
+<div class="card p-4">
+<h4>Mis Resultados</h4>
+<table class="table">
+<thead>
+<tr>
+<th>Prueba</th>
+<th>Fecha</th>
+<th>Laboratorio</th>
+<th>Descargar</th>
+</tr>
+</thead>
+<tbody id="tablaResultadosPaciente"></tbody>
+</table>
 </div>
 </div>
 
-<!-- TOAST -->
-<div class="toast-container position-fixed top-0 end-0 p-3">
-<div id="toast" class="toast text-white">
-<div class="toast-body" id="toastMsg"></div>
 </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+
+/* ================= MENU ================= */
+
+function toggleMenu(){
+document.querySelector(".sidebar").classList.toggle("active");
+document.querySelector(".overlay").classList.toggle("active");
+}
+
 /* ================= AUTH ================= */
-let user = null;
 
-// Validar sesión al cargar
-document.addEventListener("DOMContentLoaded", () => {
-  const storedUser = localStorage.getItem("user");
+let user=null;
 
-  if (!storedUser) {
-    window.location.replace("login.html");
-    return;
-  }
+document.addEventListener("DOMContentLoaded",()=>{
 
-  try {
-    user = JSON.parse(storedUser);
-  } catch (e) {
-    localStorage.removeItem("user");
-    window.location.replace("login.html");
-    return;
-  }
+const storedUser=localStorage.getItem("user");
 
-  // Mostrar info del usuario
-  document.getElementById("infoUser").innerText =
-    `Usuario: ${user.nombre} | Rol: ${user.rol} | Lab: ${user.lab}`;
+if(!storedUser){
+window.location.replace("login.html");
+return;
+}
 
-  renderHistorial();
+user=JSON.parse(storedUser);
+
+document.getElementById("infoUser").innerText=
+`Usuario: ${user.nombre} | Rol: ${user.rol} | Lab: ${user.lab}`;
+
+generarSidebar();
+
+/* paciente directo */
+if(user.rol==="paciente"){
+showSection("misResultados");
+renderResultadosPaciente();
+}else{
+showSection("dashboard");
+}
+
+/* charts seguros */
+initCharts();
+
 });
 
-// Logout seguro
-function logout() {
-  localStorage.removeItem("user");
-  sessionStorage.clear();
-  window.location.replace("login.html");
+/* ================= LOGOUT ================= */
+
+function logout(){
+localStorage.removeItem("user");
+window.location.replace("login.html");
 }
 
-/* ================= ROLES ================= */
-const PERMISOS = {
-  admin: ['dashboard','citas','usuarios','pruebas','reportes','config'],
-  staff: ['dashboard','citas','pruebas','reportes']
+/* ================= SIDEBAR ================= */
+
+const PERMISOS={
+admin:['dashboard','citas','usuarios','pruebas','reportes','config'],
+staff:['dashboard','citas','pruebas','reportes'],
+paciente:['misResultados']
 };
 
-function showSection(id, el) {
-  if (!user || !PERMISOS[user.rol]?.includes(id)) {
-    return notificar('danger', 'Acceso denegado');
-  }
+function generarSidebar(){
 
-  document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
-  document.getElementById(id).classList.remove('hidden');
+const sidebar=document.querySelector(".sidebar");
 
-  document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
-  el.classList.add('active');
-}
+sidebar.innerHTML=`<h4 class="text-center py-4">🔬 Plus Lab</h4>`;
 
-/* ================= TOAST ================= */
-function notificar(tipo, msg) {
-  const toast = document.getElementById("toast");
-  const toastMsg = document.getElementById("toastMsg");
-
-  toast.className = `toast toast-${tipo} text-white`;
-  toastMsg.innerText = msg;
-
-  guardarHistorial(msg);
-  new bootstrap.Toast(toast, { delay: 2200 }).show();
-}
-
-/* ================= HISTORIAL ================= */
-function guardarHistorial(msg) {
-  const h = JSON.parse(localStorage.getItem('historial')) || [];
-  h.unshift({
-    msg,
-    fecha: new Date().toLocaleString(),
-    user: user?.nombre || "Sistema"
-  });
-  localStorage.setItem('historial', JSON.stringify(h.slice(0, 20)));
-  renderHistorial();
-}
-
-function renderHistorial() {
-  const historial = document.getElementById("historial");
-  if (!historial) return;
-
-  historial.innerHTML = '';
-  (JSON.parse(localStorage.getItem('historial')) || []).forEach(i => {
-    historial.innerHTML += `
-      <li class="list-group-item">
-        ${i.msg}<br>
-        <small>${i.fecha} - ${i.user}</small>
-      </li>`;
-  });
-}
-
-/* ================= API ================= */
-const API = {
-  get: k => JSON.parse(localStorage.getItem(k)) || [],
-  set: (k, v) => localStorage.setItem(k, JSON.stringify(v))
+const menus={
+admin:[
+["📊 Dashboard","dashboard"],
+["📅 Citas","citas"],
+["👥 Usuarios","usuarios"],
+["🧪 Pruebas","pruebas"],
+["📊 Reportes","reportes"],
+["⚙️ Configuración","config"]
+],
+staff:[
+["📊 Dashboard","dashboard"],
+["📅 Citas","citas"],
+["🧪 Pruebas","pruebas"],
+["📊 Reportes","reportes"]
+],
+paciente:[
+["📄 Mis Resultados","misResultados"]
+]
 };
 
-let citas = API.get('citas');
-let usuarios = API.get('usuarios');
-let pruebas = API.get('pruebas');
+menus[user.rol].forEach(item=>{
+const a=document.createElement("a");
+a.innerText=item[0];
+a.onclick=()=>showSection(item[1],a);
+sidebar.appendChild(a);
+});
 
-/* ================= CRUD ================= */
-function crearCita() {
-  citas.push({
-    paciente: prompt('Paciente'),
-    fecha: prompt('Fecha'),
-    lab: user.lab
-  });
-  API.set('citas', citas);
-  notificar('success', 'Cita creada');
+const logoutBtn=document.createElement("a");
+logoutBtn.innerText="🚪 Cerrar sesión";
+logoutBtn.onclick=logout;
+sidebar.appendChild(logoutBtn);
+
 }
 
-function crearUsuario() {
-  usuarios.push({
-    nombre: prompt('Nombre'),
-    rol: prompt('Rol'),
-    lab: prompt('Lab')
-  });
-  API.set('usuarios', usuarios);
-  notificar('success', 'Usuario creado');
+/* ================= SECCIONES ================= */
+
+function showSection(id,el){
+
+if(!PERMISOS[user.rol].includes(id)) return;
+
+document.querySelectorAll('.section')
+.forEach(s=>s.classList.add('hidden'));
+
+document.getElementById(id).classList.remove('hidden');
+
+document.querySelectorAll('.sidebar a')
+.forEach(a=>a.classList.remove('active'));
+
+el?.classList.add('active');
+
 }
 
-function crearPrueba() {
-  pruebas.push(prompt('Prueba'));
-  API.set('pruebas', pruebas);
-  notificar('success', 'Prueba creada');
+/* ================= RESULTADOS ================= */
+
+function renderResultadosPaciente(){
+
+const tabla=document.getElementById("tablaResultadosPaciente");
+
+const resultados=
+JSON.parse(localStorage.getItem('resultados'))||[];
+
+const mis=resultados.filter(r=>r.pacienteId===user.id);
+
+if(!mis.length){
+tabla.innerHTML=`<tr>
+<td colspan="4" class="text-center">Sin resultados</td>
+</tr>`;
+return;
 }
 
-/* ================= REPORTES ================= */
-function generarReporte() {
-  const t = filtroTipo.value;
-  const f = filtroFecha.value;
-  let d = [];
-
-  citas.forEach(c =>
-    d.push({
-      tipo: 'Cita',
-      detalle: c.paciente,
-      fecha: c.fecha,
-      lab: c.lab,
-      usuario: user.nombre
-    })
-  );
-
-  pruebas.forEach(p =>
-    d.push({
-      tipo: 'Prueba',
-      detalle: p,
-      fecha: '-',
-      lab: user.lab,
-      usuario: user.nombre
-    })
-  );
-
-  d = d.filter(r =>
-    (!t || r.tipo.toLowerCase().includes(t)) &&
-    (!f || r.fecha === f)
-  );
-
-  tablaReportes.innerHTML = d.length
-    ? d.map(r =>
-        `<tr>
-          <td>${r.tipo}</td>
-          <td>${r.detalle}</td>
-          <td>${r.fecha}</td>
-          <td>${r.lab}</td>
-          <td>${r.usuario}</td>
-        </tr>`
-      ).join('')
-    : `<tr><td colspan="5" class="text-center">Sin resultados</td></tr>`;
+tabla.innerHTML=mis.map(r=>`
+<tr>
+<td>${r.prueba}</td>
+<td>${r.fecha}</td>
+<td>${r.lab}</td>
+<td>
+<button class="btn btn-primary btn-sm"
+onclick="descargarArchivo('${r.archivo}')">
+Descargar
+</button>
+</td>
+</tr>
+`).join('');
 }
 
-function exportarReportePDF() {
-  html2pdf().from(document.getElementById('reportes')).save('reporte.pdf');
+function descargarArchivo(nombre){
+
+const link=document.createElement("a");
+link.href="resultados/"+nombre;
+link.download=nombre;
+link.click();
+
+}
+
+/* ================= CRUD SIMPLE ================= */
+
+const API={
+get:k=>JSON.parse(localStorage.getItem(k))||[],
+set:(k,v)=>localStorage.setItem(k,JSON.stringify(v))
+};
+
+let citas=API.get('citas');
+let usuarios=API.get('usuarios');
+let pruebas=API.get('pruebas');
+
+function crearCita(){
+
+citas.push({
+paciente:prompt("Paciente"),
+fecha:prompt("Fecha"),
+lab:user.lab
+});
+
+API.set('citas',citas);
+alert("Cita creada");
+
+}
+
+function crearUsuario(){
+
+const rol=prompt("Rol: admin / staff / paciente");
+
+if(!['admin','staff','paciente'].includes(rol)){
+alert("Rol inválido");
+return;
+}
+
+usuarios.push({
+id:crypto.randomUUID(),
+nombre:prompt("Nombre"),
+rol,
+lab:prompt("Lab")
+});
+
+API.set('usuarios',usuarios);
+alert("Usuario creado");
+
+}
+
+function crearPrueba(){
+
+pruebas.push(prompt("Nombre prueba"));
+API.set('pruebas',pruebas);
+
 }
 
 /* ================= CHARTS ================= */
-new Chart(chartResultados, {
-  type: 'line',
-  data: {
-    labels: ['L', 'M', 'X', 'J', 'V'],
-    datasets: [{ data: [10, 20, 15, 25, 30] }]
-  }
-});
 
-new Chart(chartTipos, {
-  type: 'doughnut',
-  data: {
-    labels: ['Hemo', 'Glu', 'Col'],
-    datasets: [{ data: [40, 35, 25] }]
-  }
-});
-</script>
+function initCharts(){
 
-<script>
-  function toggleMenu(){
-    document.querySelector('.sidebar').classList.toggle('active');
-    document.querySelector('.overlay').classList.toggle('active');
-  }
+const ctx1=document.getElementById("chartResultados");
+const ctx2=document.getElementById("chartTipos");
+
+if(ctx1){
+new Chart(ctx1,{
+type:'line',
+data:{
+labels:['L','M','X','J','V'],
+datasets:[{data:[12,22,26,30,41],tension:.4,fill:true}]
+},
+options:{plugins:{legend:{display:false}},responsive:true}
+});
+}
+
+if(ctx2){
+new Chart(ctx2,{
+type:'doughnut',
+data:{
+labels:['Hematología','Bioquímica','Otros'],
+datasets:[{data:[45,30,25],borderWidth:0}]
+},
+options:{plugins:{legend:{position:'bottom'}},cutout:'68%'}
+});
+}
+
+}
+
+function exportarReportePDF(){
+html2pdf().from(document.body).save('reporte.pdf');
+}
+
 </script>
 
 </body>
