@@ -1,0 +1,5 @@
+const user = validarSesion();
+
+if(user.rol !== "staff"){
+  window.location.replace("../login.html");
+}
