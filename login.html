@@ -36,7 +36,6 @@
   <!-- Rol -->
   <select id="role" class="form-select mb-4">
     <option value="admin">Administrador</option>
-    <option value="staff">Staff</option>
     <option value="paciente">Paciente</option>
   </select>
 
@@ -45,10 +44,8 @@
 </div>
 
 <script>
-/* Usuarios simulados por rol */
 const USUARIOS = {
   admin: ["123456789"],
-  staff: ["987654321"],
   paciente: ["1020304050", "1122334455"]
 };
 
@@ -62,7 +59,6 @@ function login() {
     return;
   }
 
-  // Validación básica (cédula = contraseña)
   if (USUARIOS[role]?.includes(cedula) && cedula === password) {
 
     const user = {
@@ -71,17 +67,20 @@ function login() {
       lab: "Plus Lab"
     };
 
-    // 🔑 CLAVE ÚNICA QUE EL DASHBOARD NECESITA
     localStorage.setItem("user", JSON.stringify(user));
 
-    // Redirección segura
-    window.location.replace("dashboard_laboratorio_clinico_login.html");
+    if (role === "admin") {
+      window.location.replace("./admin/dashboard_admin.html");
+    } else {
+      window.location.replace("./paciente/dashboard_paciente.html");
+    }
 
   } else {
-    alert("❌ Acceso denegado. Verifique sus datos");
+    alert("Acceso denegado");
   }
 }
 </script>
+
 
 </body>
 </html>
