@@ -1,16 +1,9 @@
-<?php
-session_start();
-if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'paciente'){
-    header("Location: ../login.html");
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/PLUS.png" type="image/x-icon">
 <title>Laboratorio | Paciente</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,84 +11,161 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'paciente'){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
-body{
-margin:0;
-font-family:system-ui;
-background:#f4f6f9;
-}
+/* Reset y base */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:system-ui, sans-serif;background:#f4f6f9;font-size:16px;color:#333;}
 
+/* Sidebar */
 .sidebar{
-width:250px;
-background:#0f172a;
-color:#fff;
-min-height:100vh;
-position:fixed;
+  width:250px;
+  background:#0f172a;
+  color:white;
+  min-height:100vh;
+  position:fixed;
+  display:flex;
+  flex-direction:column;
+  transition:width 0.3s;
+  z-index:1000;
 }
-
+.sidebar.collapsed{ width:70px; }
+.sidebar h5{
+  padding:1.25rem;
+  text-align:center;
+  border-bottom:1px solid #1e293b;
+  font-weight:700;
+  font-size:1.2rem;
+  letter-spacing:1px;
+}
 .sidebar a{
-display:block;
-padding:14px 20px;
-color:#cbd5e1;
-text-decoration:none;
-cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:0.875rem 1.25rem;
+  color:#cbd5e1;
+  text-decoration:none;
+  border-radius:8px;
+  transition:0.2s;
+  cursor:pointer;
 }
-
 .sidebar a:hover,
-.sidebar .active{
-background:#2563eb;
-color:white;
+.sidebar a.active{
+  background:#2563eb;
+  color:white;
+  transform:scale(1.03);
 }
 
+/* Topbar */
 .topbar{
-background:#1976d2;
-color:white;
-padding:15px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
+  background:#1976d2;
+  color:white;
+  padding:0.75rem 1.25rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:999;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:5px;
 }
 
+/* Contenido principal */
 .content{
-margin-left:250px;
-padding:25px;
+  margin-left:250px;
+  padding:1.5rem;
+  transition:margin-left 0.3s;
 }
+.content.collapsed{ margin-left:70px; }
 
-.section{
-display:none;
-}
-
-.section.active{
-display:block;
-}
-
-.card-stat{
-border-radius:15px;
-padding:20px;
-color:white;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-.bg1{background:#0d3b66}
-.bg2{background:#6c757d}
-.bg3{background:#0d6efd}
-.bg4{background:#d63384}
-
+/* Cards y Stat cards */
 .card-box{
-background:white;
-border-radius:15px;
-padding:20px;
-box-shadow:0 5px 15px rgba(0,0,0,.05);
+  background:white;
+  border-radius:15px;
+  padding:25px;
+  box-shadow:0 4px 15px rgba(0,0,0,.05);
+  margin-bottom:25px;
+  transition:transform 0.2s;
+}
+.card-box:hover{ transform:translateY(-3px); }
+
+.stat-card{
+  border-radius:15px;
+  padding:20px;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1);
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.stat-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
 
-@media(max-width:992px){
-.content{margin-left:0}
-.sidebar{position:absolute;z-index:1000}
+/* Colores */
+.bg1{background:linear-gradient(135deg,#0d3b66,#07407c);}
+.bg2{background:linear-gradient(135deg,#6c757d,#5a6268);}
+.bg3{background:linear-gradient(135deg,#0d6efd,#025ce2);}
+.bg4{background:linear-gradient(135deg,#d63384,#b52a6f);}
+.bg5{background:linear-gradient(135deg,#198754,#146c43);}
+.bg6{background:linear-gradient(135deg,#fd7e14,#e76f00);}
+
+/* Secciones */
+.section{ display:none; }
+.section.active{ display:block; }
+
+/* Grid de cards */
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1.5rem;
 }
+
+/* Responsive */
+@media (max-width:1024px){
+  .sidebar{ width:200px; }
+  .content{ margin-left:200px; }
+}
+@media (max-width:768px){
+  .sidebar{ width:60px; overflow-x:hidden; }
+  .sidebar:hover{ width:180px; }
+  .content{ margin-left:60px; padding:1rem; }
+}
+@media (max-width:480px){
+  .sidebar{ width:0; transition:width 0.3s; }
+  .sidebar.show{ width:180px; }
+  .content{ margin-left:0; padding:0.75rem; }
+  .topbar{ flex-direction:column; align-items:flex-start; gap:0.5rem; }
+}
+
+/* Sidebar responsive */
+@media (max-width:768px){
+  .sidebar{
+    width:0;
+    overflow-x:hidden;
+    position:fixed;
+    left:0;
+    top:0;
+    height:100%;
+    transition:width 0.3s;
+  }
+  .sidebar.show{
+    width:200px; /* ancho visible en móvil */
+  }
+  .content{
+    margin-left:0;
+    padding:1rem;
+    transition:margin-left 0.3s;
+  }
+}
+
+/* Evita que el sidebar desborde */
+body{
+  overflow-x:hidden;
+}
+
 </style>
 </head>
 
