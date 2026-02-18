@@ -1,24 +1,33 @@
 <?php
-require "../config/database.php";
-session_start();
+require '../config.php';
+session_start(); // ⚠️ ESTO ES OBLIGATORIO
 
-$data=json_decode(file_get_contents("php://input"),true);
+header('Content-Type: application/json');
 
-$stmt=$pdo->prepare("SELECT * FROM usuarios WHERE email=?");
-$stmt->execute([$data['email']]);
-$user=$stmt->fetch(PDO::FETCH_ASSOC);
+$input = json_decode(file_get_contents('php://input'), true);
 
-if($user && password_verify($data['password'],$user['password'])){
+$cedula = trim($input['cedula'] ?? '');
+$password = trim($input['password'] ?? '');
+$role = trim($input['role'] ?? '');
 
-$_SESSION['user']=[
-"id"=>$user['id'],
-"nombre"=>$user['nombre'],
-"role"=>$user['role'],
-"permissions"=>explode(",",$user['permissions'])
-];
+if (!$cedula || !$password || !$role) {
+    http_response_code(400);
+    echo json_encode(['error'=>'Campos incompletos']);
+    exit;
+}
 
-echo json_encode(["success"=>true]);
-}else{
-http_response_code(401);
-echo json_encode(["error"=>"Credenciales inválidas"]);
+$stmt = $pdo->prepare("SELECT * FROM usuarios WHERE cedula=? AND rol=?");
+$stmt->execute([$cedula, $role]);
+$user = $stmt->fetch();
+
+if ($user && password_verify($password, $user['password'])) {
+
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['nombre'] = $user['nombre'];
+    $_SESSION['role'] = $user['rol'];
+
+    echo json_encode(['success'=>true]);
+} else {
+    http_response_code(401);
+    echo json_encode(['error'=>'Acceso denegado']);
 }
