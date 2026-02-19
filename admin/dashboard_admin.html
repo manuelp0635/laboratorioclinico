@@ -354,124 +354,263 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
 
       <!-- CITAS -->
       <div id="citas" class="section mt-4">
-        <div class="card-box">
-          <h4>Lista de Citas</h4>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Paciente</th>
-                <th>Fecha</th>
-                <th>Estado</th>
-                <th>Resultado</th>
-                <th>Acción</th>
-              </tr>
-            </thead>
-            <tbody id="tablaCitas"></tbody>
-          </table>
+        <div class="card shadow-sm">
+          <!-- Header -->
+          <div
+            class="card-header bg-white d-flex justify-content-between align-items-center"
+          >
+            <h5 class="mb-0">Lista de Citas Reservadas</h5>
+            <button class="btn btn-primary btn-sm">
+              <i class="bi bi-plus-lg"></i> Agregar Nueva Prueba
+            </button>
+          </div>
+
+          <!-- Body -->
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover align-middle">
+                <thead class="table-primary text-center">
+                  <tr>
+                    <th>#</th>
+                    <th>Fecha de Creación</th>
+                    <th>Codigo</th>
+                    <th>Paciente</th>
+                    <th>Prueba</th>
+                    <th>Estado</th>
+                    <th>Accion</th>
+                  </tr>
+                </thead>
+
+                <tbody id="tablaCitas">
+                  <tr>
+                    <td class="text-center">1</td>
+                    <td>2025-06-10 10:30</td>
+                    <td>202506-0001</td>
+                    <td>Juan Pérez</td>
+                    <td>Ecografía</td>
+                    <td class="text-center">
+                      <span class="badge bg-success rounded-pill"
+                        >Finalizado</span
+                      >
+                    </td>
+                    <td class="text-center">
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-sm btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                        >
+                          Acción
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Ver</a></li>
+                          <li><a class="dropdown-item" href="#">Editar</a></li>
+                          <li>
+                            <a class="dropdown-item text-danger" href="#"
+                              >Eliminar</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- USUARIOS REGISTRADOS -->
       <div id="usuarios_registrados" class="section mt-4">
-        <div class="card-box">
-          <h4>Usuarios Registrados</h4>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Email</th>
-                <th>Rol</th>
-              </tr>
-            </thead>
-            <tbody id="tablaUsuariosRegistrados"></tbody>
-          </table>
+        <div class="card shadow-sm">
+          <!-- Header -->
+          <div
+            class="card-header bg-white d-flex justify-content-between align-items-center"
+          >
+            <h5 class="mb-0">Lista de Usuarios Registrados</h5>
+            <button class="btn btn-primary btn-sm">
+              <i class="bi bi-plus-lg"></i> Agregar Nuevo Usuario
+            </button>
+          </div>
+
+          <!-- Body -->
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover align-middle">
+                <thead class="table-primary text-center">
+                  <tr>
+                    <th>#</th>
+                    <th>Fecha de Registro</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th># Telefono</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+
+                <tbody id="tablaUsuariosRegistrados">
+                  <tr>
+                    <td class="text-center">1</td>
+                    <td>2025-06-10 09:15</td>
+                    <td>Juan Pérez</td>
+                    <td>juan@email.com</td>
+                    <td>3001234567</td>
+                    <td class="text-center">
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-sm btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                        >
+                          Acción
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Ver</a></li>
+                          <li><a class="dropdown-item" href="#">Editar</a></li>
+                          <li>
+                            <a class="dropdown-item text-danger" href="#"
+                              >Eliminar</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Bootstrap 5 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <!-- PRUEBAS -->
+      <div id="pruebas" class="section mt-4">
+        <div class="card shadow-sm">
+          <!-- Header -->
+          <div
+            class="card-header bg-white d-flex justify-content-between align-items-center"
+          >
+            <h5 class="mb-0">Lista de Pruebas</h5>
+            <button class="btn btn-primary btn-sm">
+              <i class="bi bi-plus-lg"></i> Agregar Nueva Prueba
+            </button>
+          </div>
 
-<!-- PRUEBAS -->
-<div id="pruebas" class="section mt-4">
-  <div class="card shadow-sm">
-    
-    <!-- Header -->
-    <div class="card-header bg-white d-flex justify-content-between align-items-center">
-      <h5 class="mb-0">Lista de Pruebas</h5>
-      <button class="btn btn-primary btn-sm">
-        <i class="bi bi-plus-lg"></i> Agregar Nueva Prueba
-      </button>
-    </div>
+          <!-- Body -->
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover align-middle">
+                <thead class="table-primary text-center">
+                  <tr>
+                    <th>#</th>
+                    <th>Fecha de Creación</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
 
-    <!-- Body -->
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-bordered table-hover align-middle">
-          
-          <thead class="table-primary text-center">
-            <tr>
-              <th>#</th>
-              <th>Fecha de Creación</th>
-              <th>Nombre</th>
-              <th>Precio</th>
-              <th>Estado</th>
-              <th>Acción</th>
-            </tr>
-          </thead>
-
-          <tbody id="tablaPruebas">
-            
-            <!-- Ejemplo de fila -->
-            <tr>
-              <td class="text-center">1</td>
-              <td>2022-01-11 10:23</td>
-              <td>Ecografía</td>
-              <td>$1,313.00</td>
-              <td class="text-center">
-                <span class="badge bg-primary rounded-pill">Activo</span>
-              </td>
-              <td class="text-center">
-                <div class="dropdown">
-                  <button class="btn btn-sm btn-secondary dropdown-toggle" 
-                          type="button" 
-                          data-bs-toggle="dropdown">
-                    Acción
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Editar</a></li>
-                    <li><a class="dropdown-item text-danger" href="#">Eliminar</a></li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
-
-          </tbody>
-
-        </table>
+                <tbody id="tablaPruebas">
+                  <!-- Ejemplo de fila -->
+                  <tr>
+                    <td class="text-center">1</td>
+                    <td>2022-01-11 10:23</td>
+                    <td>Ecografía</td>
+                    <td>$1,313.00</td>
+                    <td class="text-center">
+                      <span class="badge bg-primary rounded-pill">Activo</span>
+                    </td>
+                    <td class="text-center">
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-sm btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                        >
+                          Acción
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Editar</a></li>
+                          <li>
+                            <a class="dropdown-item text-danger" href="#"
+                              >Eliminar</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 
       <!-- USUARIOS -->
       <div id="usuarios" class="section mt-4">
-        <div class="card-box">
-          <h4>Lista de Usuarios</h4>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Rol</th>
-                <th>Permisos</th>
-              </tr>
-            </thead>
-            <tbody id="tablaUsuarios"></tbody>
-          </table>
+        <div class="card shadow-sm">
+          <!-- Header -->
+          <div
+            class="card-header bg-white d-flex justify-content-between align-items-center"
+          >
+            <h5 class="mb-0">Lista de Usuarios del Sistema</h5>
+            <button class="btn btn-primary btn-sm">
+              <i class="bi bi-plus-lg"></i> Crear Nuevo Usuario
+            </button>
+          </div>
+
+          <!-- Body -->
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover align-middle">
+                <thead class="table-primary text-center">
+                  <tr>
+                    <th>#</th>
+                    <th>Avatar</th>
+                    <th>Nombre</th>
+                    <th>Usuario</th>
+                    <th>Tipo de Usuario</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+
+                <tbody id="tablaPruebas">
+                  <!-- Ejemplo de fila -->
+                  <tr>
+                    <td class="text-center">1</td>
+                    <td>2022-01-11 10:23</td>
+                    <td>Ecografía</td>
+                    <td>$1,313.00</td>
+                    <td class="text-center">
+                      <span class="badge bg-primary rounded-pill">Activo</span>
+                    </td>
+                    <td class="text-center">
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-sm btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                        >
+                          Acción
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Editar</a></li>
+                          <li>
+                            <a class="dropdown-item text-danger" href="#"
+                              >Eliminar</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -485,20 +624,24 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
     </div>
 
     <!-- Modal General -->
-<div class="modal fade" id="modalForm" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 id="modalTitle"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    <div class="modal fade" id="modalForm" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id="modalTitle"></h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body" id="modalBody"></div>
+        </div>
       </div>
-      <div class="modal-body" id="modalBody"></div>
     </div>
-  </div>
-</div>
 
-
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
       /* Toggle sidebar móvil */
@@ -544,11 +687,13 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
       }
 
       /* Carga usuarios */
-    async function cargarUsuariosRegistrados(){
-  const res = await fetch("../api/admin/get_usuarios_registrados.php");
-  const data = await res.json();
+      async function cargarUsuariosRegistrados() {
+        const res = await fetch("../api/admin/get_usuarios_registrados.php");
+        const data = await res.json();
 
-  tablaUsuariosRegistrados.innerHTML = data.map(u=>`
+        tablaUsuariosRegistrados.innerHTML = data
+          .map(
+            (u) => `
   <tr>
     <td>${u.nombre}</td>
     <td>${u.email}</td>
@@ -558,57 +703,66 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
       <button class="btn btn-sm btn-danger" onclick="eliminarUsuario(${u.id})">Eliminar</button>
     </td>
   </tr>
-  `).join("");
-}
+  `,
+          )
+          .join("");
+      }
 
+      /* Carga Citas */
 
-/* Carga Citas */
+      async function cargarCitas() {
+        const res = await fetch("../api/admin/get_citas.php");
+        const data = await res.json();
 
-async function cargarCitas(){
-  const res = await fetch("../api/admin/get_citas.php");
-  const data = await res.json();
-
-  tablaCitas.innerHTML = data.map(c=>`
+        tablaCitas.innerHTML = data
+          .map(
+            (c) => `
   <tr>
     <td>${c.paciente}</td>
     <td>${c.fecha}</td>
     <td>${c.estado}</td>
     <td>
-      ${c.resultado 
-        ? `<a href="../uploads/${c.resultado}" target="_blank" class="btn btn-sm btn-success">Ver PDF</a>`
-        : `<input type="file" onchange="subirPDF(this,${c.id})">`}
+      ${
+        c.resultado
+          ? `<a href="../uploads/${c.resultado}" target="_blank" class="btn btn-sm btn-success">Ver PDF</a>`
+          : `<input type="file" onchange="subirPDF(this,${c.id})">`
+      }
     </td>
     <td>
       <button class="btn btn-sm btn-warning" onclick="editarCita(${c.id})">Editar</button>
       <button class="btn btn-sm btn-danger" onclick="eliminarCita(${c.id})">Eliminar</button>
     </td>
   </tr>
-  `).join("");
-}
+  `,
+          )
+          .join("");
+      }
 
-async function subirPDF(input,id){
-  const file = input.files[0];
-  if(!file) return;
+      async function subirPDF(input, id) {
+        const file = input.files[0];
+        if (!file) return;
 
-  const formData = new FormData();
-  formData.append("pdf",file);
-  formData.append("cita_id",id);
+        const formData = new FormData();
+        formData.append("pdf", file);
+        formData.append("cita_id", id);
 
-  await fetch("../api/admin/upload_resultado.php",{
-    method:"POST",
-    body:formData
-  });
+        await fetch("../api/admin/upload_resultado.php", {
+          method: "POST",
+          body: formData,
+        });
 
-  cargarCitas();
-}
+        cargarCitas();
+      }
 
-/* Crud pruebas */
+      /* Crud pruebas */
 
-async function cargarPruebas(){
-  const res = await fetch("../api/admin/get_pruebas.php");
-  const data = await res.json();
+      async function cargarPruebas() {
+        const res = await fetch("../api/admin/get_pruebas.php");
+        const data = await res.json();
 
-  tablaPruebas.innerHTML = data.map(p=>`
+        tablaPruebas.innerHTML = data
+          .map(
+            (p) => `
   <tr>
     <td>${p.nombre}</td>
     <td>${p.rango_min}</td>
@@ -618,77 +772,79 @@ async function cargarPruebas(){
       <button class="btn btn-sm btn-danger" onclick="eliminarPrueba(${p.id})">Eliminar</button>
     </td>
   </tr>
-  `).join("");
-}
+  `,
+          )
+          .join("");
+      }
 
-/* Crud lista de usuarios */
+      /* Crud lista de usuarios */
 
-async function cargarUsuarios(){
-  const res=await fetch("../api/admin/get_lista_usuarios.php");
-  const data=await res.json();
+      async function cargarUsuarios() {
+        const res = await fetch("../api/admin/get_lista_usuarios.php");
+        const data = await res.json();
 
-  tablaUsuarios.innerHTML=data.map(u=>`
+        tablaUsuarios.innerHTML = data
+          .map(
+            (u) => `
   <tr>
     <td>${u.nombre}</td>
     <td>
       <select onchange="cambiarRol(${u.id},this.value)">
-        <option value="admin" ${u.role=="admin"?"selected":""}>Admin</option>
-        <option value="patient" ${u.role=="patient"?"selected":""}>Paciente</option>
+        <option value="admin" ${u.role == "admin" ? "selected" : ""}>Admin</option>
+        <option value="patient" ${u.role == "patient" ? "selected" : ""}>Paciente</option>
       </select>
     </td>
     <td>${u.permissions}</td>
   </tr>
-  `).join("");
-}
+  `,
+          )
+          .join("");
+      }
 
-async function cambiarRol(id,role){
-  await fetch("../api/admin/update_role.php",{
-    method:"POST",
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({id,role})
-  });
-}
-
+      async function cambiarRol(id, role) {
+        await fetch("../api/admin/update_role.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id, role }),
+        });
+      }
     </script>
 
-<script>
-const tabla = document.getElementById("tablaPruebas");
+    <script>
+      const tabla = document.getElementById("tablaPruebas");
 
-function renderPruebas(data) {
-  tabla.innerHTML = "";
+      function renderPruebas(data) {
+        tabla.innerHTML = "";
 
-  data.forEach(examen => {
-    tabla.innerHTML += `
+        data.forEach((examen) => {
+          tabla.innerHTML += `
       <tr>
         <td>${examen.nombre}</td>
         <td>${examen.categoria}</td>
         <td>${examen.tiempoEntrega}</td>
       </tr>
     `;
-  });
-}
+        });
+      }
 
-renderPruebas(examenesLaboratorio);
-</script>
+      renderPruebas(examenesLaboratorio);
+    </script>
 
+    <script>
+      document.getElementById("totalPruebas").innerText =
+        examenesLaboratorio.length;
 
-<script>
-document.getElementById("totalPruebas").innerText =
-  examenesLaboratorio.length;
+      const categoriasUnicas = new Set(
+        examenesLaboratorio.map((e) => e.categoria),
+      );
 
-const categoriasUnicas = new Set(
-  examenesLaboratorio.map(e => e.categoria)
-);
+      document.getElementById("totalCategorias").innerText =
+        categoriasUnicas.size;
 
-document.getElementById("totalCategorias").innerText =
-  categoriasUnicas.size;
+      const acreditadas = examenesLaboratorio.filter((e) => e.acreditado);
 
-const acreditadas = examenesLaboratorio.filter(e => e.acreditado);
-
-document.getElementById("totalAcreditadas").innerText =
-  acreditadas.length;
-</script>
-
-
+      document.getElementById("totalAcreditadas").innerText =
+        acreditadas.length;
+    </script>
   </body>
 </html>
