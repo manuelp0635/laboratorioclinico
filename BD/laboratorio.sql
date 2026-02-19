@@ -236,6 +236,33 @@ INSERT INTO `users` (`id`, `firstname`, `middlename`, `lastname`, `username`, `p
 (1, 'Mauricio', NULL, 'Sevilla', 'configuroweb', '4b67deeb9aba04a5b54632ad19934f26', 'uploads/avatar-1.png?v=1642188026', NULL, 1, 1, '2021-01-20 14:02:37', '2022-01-14 14:20:26'),
 (6, 'Juan', NULL, 'Usuario', 'jusuario', '4b67deeb9aba04a5b54632ad19934f26', 'uploads/avatar-6.png?v=1642905046', NULL, 2, 1, '2022-01-08 16:04:17', '2022-01-22 21:30:46');
 
+
+-- --------------------------------------------------------
+-- Nueva tabla para autenticación moderna
+-- --------------------------------------------------------
+
+CREATE TABLE `usuarios` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `nombre` VARCHAR(150) NOT NULL,
+  `cedula` VARCHAR(20) NOT NULL UNIQUE,
+  `password` VARCHAR(255) NOT NULL,
+  `rol` ENUM('admin','paciente') NOT NULL,
+  `date_created` DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+-- Usuarios de acceso
+-- --------------------------------------------------------
+
+-- Contraseña para todos: 123456
+-- Hash generado con password_hash()
+
+INSERT INTO `usuarios` (`nombre`,`cedula`,`password`,`rol`) VALUES
+('Administrador Principal','123456789','$2y$10$wH8pZV8s5W0Yw2MZzL1X6eYg8yVq6x1OQXxH2kTqF7Zc1YJk9mK8a','admin'),
+('Pedro Esteves','1020304050','$2y$10$wH8pZV8s5W0Yw2MZzL1X6eYg8yVq6x1OQXxH2kTqF7Zc1YJk9mK8a','paciente'),
+('Valeria Gonzalez','1122334455','$2y$10$wH8pZV8s5W0Yw2MZzL1X6eYg8yVq6x1OQXxH2kTqF7Zc1YJk9mK8a','paciente');
+
+
 --
 -- Índices para tablas volcadas
 --
