@@ -6,561 +6,756 @@ if(!isset($_SESSION['user']) || $_SESSION['user']['rol'] !== 'paciente'){
 }
 ?>
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" href="/assets/images/PLUS.png" type="image/x-icon">
-<title>Laboratorio - Paciente</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/assets/images/PLUS.png"
+      type="image/x-icon"
+    />
+    <title>Laboratorio - Paciente</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-<style>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-/* =========================
+    <style>
+      /* =========================
    RESET
    ========================= */
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-body{
-  font-family:system-ui, sans-serif;
-  background:#f4f6f9;
-  font-size:16px;
-  color:#333;
-  overflow-x:hidden;
-  transition:0.3s ease;
-}
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f4f6f9;
+        font-size: 16px;
+        color: #333;
+        overflow-x: hidden;
+        transition: 0.3s ease;
+      }
 
-body.menu-open{
-  overflow:hidden;
-}
+      body.menu-open {
+        overflow: hidden;
+      }
 
-/* =========================
+      /* =========================
    SIDEBAR
    ========================= */
 
-.sidebar{
-  width:250px;
-  background:#0f172a;
-  color:white;
-  min-height:100vh;
-  position:fixed;
-  display:flex;
-  flex-direction:column;
-  transition:0.3s ease;
-  z-index:1000;
-}
+      .sidebar {
+        width: 250px;
+        background: #0f172a;
+        color: white;
+        min-height: 100vh;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        transition: 0.3s ease;
+        z-index: 1000;
+      }
 
-.sidebar h5{
-  padding:1.25rem;
-  text-align:center;
-  border-bottom:1px solid #1e293b;
-  font-weight:700;
-  letter-spacing:1px;
-}
+      .sidebar h5 {
+        padding: 1.25rem;
+        text-align: center;
+        border-bottom: 1px solid #1e293b;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
 
-.sidebar a{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:0.875rem 1.25rem;
-  color:#cbd5e1;
-  text-decoration:none;
-  border-radius:8px;
-  transition:0.2s ease;
-}
+      .sidebar a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0.875rem 1.25rem;
+        color: #cbd5e1;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: 0.2s ease;
+      }
 
-.sidebar a:hover,
-.sidebar a.active{
-  background:#2563eb;
-  color:white;
-  transform:translateX(4px);
-}
+      .sidebar a:hover,
+      .sidebar a.active {
+        background: #2563eb;
+        color: white;
+        transform: translateX(4px);
+      }
 
-/* =========================
+      /* =========================
    TOPBAR
    ========================= */
 
-.topbar{
-  background:#1976d2;
-  color:white;
-  padding:0.75rem 1.25rem;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:999;
-  box-shadow:0 2px 6px rgba(0,0,0,0.15);
-}
+      .topbar {
+        background: #1976d2;
+        color: white;
+        padding: 0.75rem 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      }
 
-/* =========================
+      /* =========================
    BOTÓN HAMBURGUESA
    ========================= */
 
-.menu-toggle{
-  width:40px;
-  height:40px;
-  display:none;
-  flex-direction:column;
-  justify-content:center;
-  gap:6px;
-  background:transparent;
-  border:none;
-  cursor:pointer;
-}
+      .menu-toggle {
+        width: 40px;
+        height: 40px;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+      }
 
-.menu-toggle span{
-  height:3px;
-  width:25px;
-  background:white;
-  border-radius:3px;
-  transition:0.3s ease;
-}
+      .menu-toggle span {
+        height: 3px;
+        width: 25px;
+        background: white;
+        border-radius: 3px;
+        transition: 0.3s ease;
+      }
 
-.menu-toggle.active span:nth-child(1){
-  transform:rotate(45deg) translate(5px,5px);
-}
-.menu-toggle.active span:nth-child(2){
-  opacity:0;
-}
-.menu-toggle.active span:nth-child(3){
-  transform:rotate(-45deg) translate(6px,-6px);
-}
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
 
-/* =========================
+      /* =========================
    OVERLAY
    ========================= */
 
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(2px);
-  opacity:0;
-  visibility:hidden;
-  transition:0.3s ease;
-  z-index:900;
-}
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(2px);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+        z-index: 900;
+      }
 
-.overlay.show{
-  opacity:1;
-  visibility:visible;
-}
+      .overlay.show {
+        opacity: 1;
+        visibility: visible;
+      }
 
-/* =========================
+      /* =========================
    CONTENT
    ========================= */
 
-.content{
-  margin-left:250px;
-  padding:1.5rem;
-  transition:0.3s ease;
-}
+      .content {
+        margin-left: 250px;
+        padding: 1.5rem;
+        transition: 0.3s ease;
+      }
 
-/* =========================
+      /* =========================
    CARDS
    ========================= */
 
-.card-box{
-  background:white;
-  border-radius:15px;
-  padding:25px;
-  box-shadow:0 4px 15px rgba(0,0,0,.05);
-  margin-bottom:25px;
-  transition:0.2s ease;
-}
+      .card-box {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 25px;
+        transition: 0.2s ease;
+      }
 
-.card-box:hover{
-  transform:translateY(-3px);
-}
+      .card-box:hover {
+        transform: translateY(-3px);
+      }
 
-.stat-card{
-  border-radius:15px;
-  padding:20px;
-  color:white;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 4px 15px rgba(0,0,0,0.1);
-  transition:0.2s ease;
-  margin-bottom:20px;
-}
+      .stat-card {
+        border-radius: 15px;
+        padding: 20px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: 0.2s ease;
+        margin-bottom: 20px;
+      }
 
-.stat-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 8px 20px rgba(0,0,0,0.15);
-}
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
 
-/* =========================
+      /* =========================
    COLORES
    ========================= */
 
-.bg1{background:linear-gradient(135deg,#0d3b66,#07407c);}
-.bg2{background:linear-gradient(135deg,#6c757d,#5a6268);}
-.bg3{background:linear-gradient(135deg,#0d6efd,#025ce2);}
-.bg4{background:linear-gradient(135deg,#198754,#146c43);}
-.bg5{background:linear-gradient(135deg,#d63384,#b52a6f);}
-.bg6{background:linear-gradient(135deg,#fd7e14,#e76f00);}
+      .bg1 {
+        background: linear-gradient(135deg, #0d3b66, #07407c);
+      }
+      .bg2 {
+        background: linear-gradient(135deg, #6c757d, #5a6268);
+      }
+      .bg3 {
+        background: linear-gradient(135deg, #0d6efd, #025ce2);
+      }
+      .bg4 {
+        background: linear-gradient(135deg, #198754, #146c43);
+      }
+      .bg5 {
+        background: linear-gradient(135deg, #d63384, #b52a6f);
+      }
+      .bg6 {
+        background: linear-gradient(135deg, #fd7e14, #e76f00);
+      }
 
-/* =========================
+      /* =========================
    GRID
    ========================= */
 
-.cards-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:1.5rem;
-}
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
 
-/* =========================
+      /* =========================
    SECCIONES
    ========================= */
 
-.section{display:none;}
-.section.active{display:block;}
+      .section {
+        display: none;
+      }
+      .section.active {
+        display: block;
+      }
 
-/* =========================
+      /* =========================
    RESPONSIVE
    ========================= */
 
-@media (max-width:1024px){
-  .sidebar{width:200px;}
-  .content{margin-left:200px;}
-}
+      @media (max-width: 1024px) {
+        .sidebar {
+          width: 200px;
+        }
+        .content {
+          margin-left: 200px;
+        }
+      }
 
-@media (max-width:768px){
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: flex;
+        }
 
-  .menu-toggle{
-    display:flex;
-  }
+        .sidebar {
+          width: 0;
+          overflow: hidden;
+        }
 
-  .sidebar{
-    width:0;
-    overflow:hidden;
-  }
+        .sidebar.show {
+          width: 240px;
+        }
 
-  .sidebar.show{
-    width:240px;
-  }
+        .content {
+          margin-left: 0;
+          padding: 1rem;
+        }
 
-  .content{
-    margin-left:0;
-    padding:1rem;
-  }
+        .stat-card {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
 
-  .stat-card{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:10px;
-  }
+        .cards-grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-  .cards-grid{
-    grid-template-columns:1fr;
-  }
-}
+      @media (max-width: 480px) {
+        body {
+          font-size: 14px;
+        }
 
-@media (max-width:480px){
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+        }
 
-  body{
-    font-size:14px;
-  }
+        .card-box {
+          padding: 16px;
+        }
 
-  .topbar{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:0.5rem;
-  }
+        .stat-card {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
 
-  .card-box{
-    padding:16px;
-  }
+  <body>
+    <div class="sidebar">
+      <h5>Plus Laboratorio</h5>
 
-  .stat-card{
-    padding:15px;
-  }
-}
+      <a class="active" onclick="showSection('dashboard', this)">
+        <i class="bi bi-speedometer2"></i> Dashboard
+      </a>
 
-</style>
-</head>
+      <a onclick="showSection('citas', this)">
+        <i class="bi bi-calendar-event"></i> Mis Citas
+      </a>
 
-<body>
+      <a onclick="showSection('resultados', this)">
+        <i class="bi bi-file-earmark-medical"></i> Resultados
+      </a>
 
-<div class="sidebar">
-<h5>Plus Laboratorio</h5>
+      <a
+        href="#"
+        onclick="
+          logout();
+          return false;
+        "
+      >
+        <i class="bi bi-box-arrow-right"></i> Salir
+      </a>
+    </div>
 
-<a class="active" onclick="showSection('dashboard',this)">
-<i class="bi bi-speedometer2"></i> Dashboard
-</a>
+    <div class="overlay" id="overlay"></div>
 
-<a onclick="showSection('citas',this)">
-<i class="bi bi-calendar-event"></i> Mis Citas
-</a>
+    <div class="content">
+      <div class="topbar">
+        <div>Plus Laboratorio Clínico Cartagena</div>
+        <div>
+          Bienvenido, <?php echo htmlspecialchars($_SESSION['user']['nombre']);
+          ?>
+        </div>
 
-<a onclick="showSection('resultados',this)">
-<i class="bi bi-file-earmark-medical"></i> Resultados
-</a>
+        <button class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
 
-<a href="#" onclick="logout(); return false;">
-<i class="bi bi-box-arrow-right"></i> Salir
-</a>
+      <!-- DASHBOARD -->
+      <div id="dashboard" class="section active">
+        <h2 class="mt-3">Mi Panel</h2>
+        <hr />
 
-</div>
+        <div class="row mt-4">
+          <div class="col-md-3">
+            <div class="stat-card bg1">
+              <div>
+                <h6>Citas Reservadas</h6>
+                <h4 id="reservadas">0</h4>
+              </div>
+              <i class="bi bi-calendar-event fs-1"></i>
+            </div>
+          </div>
 
-<div class="overlay" id="overlay"></div>
+          <div class="col-md-3">
+            <div class="stat-card bg2">
+              <div>
+                <h6>Pendientes</h6>
+                <h4 id="pendientes">0</h4>
+              </div>
+              <i class="bi bi-hourglass-split fs-1"></i>
+            </div>
+          </div>
 
+          <div class="col-md-3">
+            <div class="stat-card bg3">
+              <div>
+                <h6>Aprobadas</h6>
+                <h4 id="aprobadas">0</h4>
+              </div>
+              <i class="bi bi-hand-thumbs-up fs-1"></i>
+            </div>
+          </div>
 
-<div class="content">
+          <div class="col-md-3">
+            <div class="stat-card bg4">
+              <div>
+                <h6>Pruebas Terminadas</h6>
+                <h4 id="terminadas">0</h4>
+              </div>
+              <i class="bi bi-check-circle fs-1"></i>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div class="topbar">
-<div>Plus Laboratorio Clínico Cartagena</div>
-<div>Bienvenido, <?php echo htmlspecialchars($_SESSION['user']['nombre']); ?></div>
+      <!-- CITAS -->
+      <div id="citas" class="section mt-4">
+        <div class="card shadow-sm">
+          <!-- Header -->
+          <div
+            class="card-header bg-white d-flex justify-content-between align-items-center"
+          >
+            <h5 class="mb-0">Lista de Citas Reservadas</h5>
+            <button class="btn btn-primary btn-sm">
+              <i class="bi bi-plus-lg"></i> Agregar Nueva Prueba
+            </button>
+          </div>
 
-<button class="menu-toggle" id="menuToggle">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+          <!-- Body -->
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover align-middle">
+                <thead class="table-primary text-center">
+                  <tr>
+                    <th>#</th>
+                    <th>Fecha de Creación</th>
+                    <th>Codigo</th>
+                    <th>Paciente</th>
+                    <th>Examen</th>
+                    <th>Estado</th>
+                    <th>Accion</th>
+                  </tr>
+                </thead>
 
-</div>
+                <tbody id="tablaCitas">
+                  <tr>
+                    <td class="text-center">1</td>
+                    <td>2025-06-10 10:30</td>
+                    <td>202506-0001</td>
+                    <td>Juan Pérez</td>
+                    <td>Ecografía</td>
+                    <td class="text-center">
+                      <span class="badge bg-success rounded-pill"
+                        >Finalizado</span
+                      >
+                    </td>
+                    <td class="text-center">
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-sm btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                        >
+                          Acción
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Ver</a></li>
+                          <li><a class="dropdown-item" href="#">Editar</a></li>
+                          <li>
+                            <a class="dropdown-item text-danger" href="#"
+                              >Eliminar</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<!-- DASHBOARD -->
-<div id="dashboard" class="section active">
-<h2 class="mt-3">Mi Panel</h2>
-<hr>
+      <!-- RESULTADOS -->
+      <div id="resultados" class="section">
+        <div class="card-box" id="contenedorResultadosPDF">
+          <h4>Resultados de Pruebas</h4>
 
-<div class="row mt-4">
+          <div id="alertaCritico" class="alert alert-danger d-none mt-3">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            Se detectaron valores críticos. Consulte con su médico.
+          </div>
 
-<div class="col-md-3">
-<div class="stat-card bg1">
-<div><h6>Citas Reservadas</h6><h4 id="reservadas">0</h4></div>
-<i class="bi bi-calendar-event fs-1"></i>
-</div>
-</div>
+          <table class="table mt-3">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Codigo</th>
+                <th>Examen</th>
+                <th>Resultados</th>
+              </tr>
+            </thead>
+            <tbody id="tablaCitas">
+              <tr>
+                <td class="text-center">1</td>
+                <td>202201-0006</td>
+                <td>Tomografía Computarizada</td>
+                <td>resultado.pdf</td>
+                <td>view-resultados</td>
+                <button class="btn btn-danger mt-3" onclick="exportarPDF()">
+                  <i class="bi bi-file-earmark-pdf"></i> Descargar PDF
+                </button>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-<div class="col-md-3">
-<div class="stat-card bg2">
-<div><h6>Pendientes</h6><h4 id="pendientes">0</h4></div>
-<i class="bi bi-hourglass-split fs-1"></i>
-</div>
-</div>
+      <div id="citas" class="section mt-4">
+        <div class="card shadow-sm">
+          <!-- Header -->
+          <div
+            class="card-header bg-white d-flex justify-content-between align-items-center"
+          >
+            <h5 class="mb-0">Lista de Citas Reservadas</h5>
+            <button class="btn btn-primary btn-sm">
+              <i class="bi bi-plus-lg"></i> Agregar Nueva Prueba
+            </button>
+          </div>
 
-<div class="col-md-3">
-<div class="stat-card bg3">
-<div><h6>Aprobadas</h6><h4 id="aprobadas">0</h4></div>
-<i class="bi bi-hand-thumbs-up fs-1"></i>
-</div>
-</div>
+          <!-- Body -->
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover align-middle">
+                <thead class="table-primary text-center">
+                  <tr>
+                    <th>#</th>
+                    <th>Fecha de Creación</th>
+                    <th>Codigo</th>
+                    <th>Paciente</th>
+                    <th>Prueba</th>
+                    <th>Estado</th>
+                    <th>Accion</th>
+                  </tr>
+                </thead>
 
-<div class="col-md-3">
-<div class="stat-card bg4">
-<div><h6>Pruebas Terminadas</h6><h4 id="terminadas">0</h4></div>
-<i class="bi bi-check-circle fs-1"></i>
-</div>
-</div>
+                <tbody id="tablaCitas">
+                  <tr>
+                    <td class="text-center">1</td>
+                    <td>2025-06-10 10:30</td>
+                    <td>202506-0001</td>
+                    <td>Juan Pérez</td>
+                    <td>Ecografía</td>
+                    <td class="text-center">
+                      <span class="badge bg-success rounded-pill"
+                        >Finalizado</span
+                      >
+                    </td>
+                    <td class="text-center">
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-sm btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                        >
+                          Acción
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Ver</a></li>
+                          <li><a class="dropdown-item" href="#">Editar</a></li>
+                          <li>
+                            <a class="dropdown-item text-danger" href="#"
+                              >Eliminar</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-</div>
-</div>
+    <script>
+      /* Menu Type Hamburguesa */
+      const toggleBtn = document.getElementById("menuToggle");
+      const sidebar = document.querySelector(".sidebar");
+      const overlay = document.getElementById("overlay");
 
-<!-- CITAS -->
-<div id="citas" class="section">
-<div class="card-box">
-<h4>Mis Citas</h4>
-<table class="table mt-3">
-<thead>
-<tr><th>Fecha</th><th>Hora</th><th>Estado</th></tr>
-</thead>
-<tbody id="tablaCitas"></tbody>
-</table>
-</div>
-</div>
+      toggleBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("show");
+        overlay.classList.toggle("show");
+        toggleBtn.classList.toggle("active");
+        document.body.classList.toggle("menu-open");
+      });
 
-<!-- RESULTADOS -->
-<div id="resultados" class="section">
-<div class="card-box" id="contenedorResultadosPDF">
+      overlay.addEventListener("click", () => {
+        sidebar.classList.remove("show");
+        overlay.classList.remove("show");
+        toggleBtn.classList.remove("active");
+        document.body.classList.remove("menu-open");
+      });
 
-<h4>Resultados de Pruebas</h4>
+      /* Navegación */
+      function showSection(id, el) {
+        document
+          .querySelectorAll(".section")
+          .forEach((s) => s.classList.remove("active"));
+        document.getElementById(id).classList.add("active");
+        document
+          .querySelectorAll(".sidebar a")
+          .forEach((a) => a.classList.remove("active"));
+        el.classList.add("active");
+      }
 
-<div id="alertaCritico" class="alert alert-danger d-none mt-3">
-<i class="bi bi-exclamation-triangle-fill"></i>
-Se detectaron valores críticos. Consulte con su médico.
-</div>
+      /* Logout */
+      async function logout() {
+        await fetch("../api/logout.php", {
+          method: "POST",
+          credentials: "include",
+        });
+        window.location.href = "../login.html";
+      }
 
-<table class="table mt-3">
-<thead>
-<tr><th>Prueba</th><th>Fecha</th><th>Valor</th><th>Estado</th></tr>
-</thead>
-<tbody id="tablaResultados"></tbody>
-</table>
+      /* Dashboard */
+      async function cargarDashboard() {
+        const res = await fetch("../api/paciente_dashboard.php", {
+          credentials: "include",
+        });
+        if (!res.ok) return;
+        const data = await res.json();
+        reservadas.innerText = data.reservadas || 0;
+        pendientes.innerText = data.pendientes || 0;
+        aprobadas.innerText = data.aprobadas || 0;
+        terminadas.innerText = data.terminadas || 0;
+      }
 
-<button class="btn btn-danger mt-3" onclick="exportarPDF()">
-<i class="bi bi-file-earmark-pdf"></i> Descargar PDF
-</button>
-
-</div>
-</div>
-
-
-</div>
-
-<script>
-
-/* Menu Type Hamburguesa */
-const toggleBtn = document.getElementById('menuToggle');
-const sidebar = document.querySelector('.sidebar');
-const overlay = document.getElementById('overlay');
-
-toggleBtn.addEventListener('click', () => {
-  sidebar.classList.toggle('show');
-  overlay.classList.toggle('show');
-  toggleBtn.classList.toggle('active');
-  document.body.classList.toggle('menu-open');
-});
-
-overlay.addEventListener('click', () => {
-  sidebar.classList.remove('show');
-  overlay.classList.remove('show');
-  toggleBtn.classList.remove('active');
-  document.body.classList.remove('menu-open');
-});
-
-
-/* Navegación */
-function showSection(id,el){
-document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
-document.getElementById(id).classList.add("active");
-document.querySelectorAll(".sidebar a").forEach(a=>a.classList.remove("active"));
-el.classList.add("active");
-}
-
-/* Logout */
-async function logout(){
-await fetch("../api/logout.php",{method:"POST",credentials:"include"});
-window.location.href="../login.html";
-}
-
-/* Dashboard */
-async function cargarDashboard(){
-const res=await fetch("../api/paciente_dashboard.php",{credentials:"include"});
-if(!res.ok)return;
-const data=await res.json();
-reservadas.innerText=data.reservadas||0;
-pendientes.innerText=data.pendientes||0;
-aprobadas.innerText=data.aprobadas||0;
-terminadas.innerText=data.terminadas||0;
-}
-
-/* Citas */
-async function cargarCitas(){
-const res=await fetch("../api/get_citas_paciente.php",{credentials:"include"});
-if(!res.ok)return;
-const data=await res.json();
-tablaCitas.innerHTML=data.map(c=>`
+      /* Citas */
+      async function cargarCitas() {
+        const res = await fetch("../api/get_citas_paciente.php", {
+          credentials: "include",
+        });
+        if (!res.ok) return;
+        const data = await res.json();
+        tablaCitas.innerHTML = data
+          .map(
+            (c) => `
 <tr>
 <td>${c.fecha}</td>
 <td>${c.hora}</td>
 <td>${c.estado}</td>
 </tr>
-`).join("");
-}
+`,
+          )
+          .join("");
+      }
 
-/* Resultados */
-function evaluarEstado(prueba,valor){
-valor=parseFloat(valor);
-if(prueba.toLowerCase().includes("glucosa") && valor>140) return "Crítico";
-if(prueba.toLowerCase().includes("colesterol") && valor>240) return "Crítico";
-return "Normal";
-}
+      /* Resultados */
+      function evaluarEstado(prueba, valor) {
+        valor = parseFloat(valor);
+        if (prueba.toLowerCase().includes("glucosa") && valor > 140)
+          return "Crítico";
+        if (prueba.toLowerCase().includes("colesterol") && valor > 240)
+          return "Crítico";
+        return "Normal";
+      }
 
-async function cargarResultados(){
-const res=await fetch("../api/get_resultados.php",{credentials:"include"});
-if(!res.ok)return;
-const data=await res.json();
-tablaResultados.innerHTML=data.map(r=>{
-const estado=evaluarEstado(r.prueba,r.valor);
-return `
+      async function cargarResultados() {
+        const res = await fetch("../api/get_resultados.php", {
+          credentials: "include",
+        });
+        if (!res.ok) return;
+        const data = await res.json();
+        tablaResultados.innerHTML = data
+          .map((r) => {
+            const estado = evaluarEstado(r.prueba, r.valor);
+            return `
 <tr>
 <td>${r.prueba}</td>
 <td>${r.fecha}</td>
-<td style="${estado==='Crítico'?'color:red;font-weight:bold':''}">
+<td style="${estado === "Crítico" ? "color:red;font-weight:bold" : ""}">
 ${r.valor}
 </td>
 <td>
-<span class="badge ${estado==='Crítico'?'bg-danger':'bg-success'}">
+<span class="badge ${estado === "Crítico" ? "bg-danger" : "bg-success"}">
 ${estado}
 </span>
 </td>
 </tr>`;
-}).join("");
-}
+          })
+          .join("");
+      }
 
-document.addEventListener("DOMContentLoaded",()=>{
-cargarDashboard();
-cargarCitas();
-cargarResultados();
-});
+      document.addEventListener("DOMContentLoaded", () => {
+        cargarDashboard();
+        cargarCitas();
+        cargarResultados();
+      });
 
-/* Resultados PDF */
+      /* Resultados PDF */
 
-function exportarPDF(){
+      function exportarPDF() {
+        const element = document.getElementById("contenedorResultadosPDF");
 
-const element = document.getElementById("contenedorResultadosPDF");
+        const opt = {
+          margin: 0.5,
+          filename: "resultados_laboratorio.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+        };
 
-const opt = {
-margin:       0.5,
-filename:     'resultados_laboratorio.pdf',
-image:        { type: 'jpeg', quality: 0.98 },
-html2canvas:  { scale: 2 },
-jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-};
+        html2pdf().set(opt).from(element).save();
+      }
 
-html2pdf().set(opt).from(element).save();
-}
+      /* Cargar resultados */
 
-/* Cargar resultados */
+      async function cargarResultados() {
+        const res = await fetch("../api/get_resultados.php", {
+          credentials: "include",
+        });
+        if (!res.ok) return;
 
-async function cargarResultados(){
-const res=await fetch("../api/get_resultados.php",{credentials:"include"});
-if(!res.ok)return;
+        const data = await res.json();
+        let hayCritico = false;
 
-const data=await res.json();
-let hayCritico = false;
+        tablaResultados.innerHTML = data
+          .map((r) => {
+            const estado = evaluarEstado(r.prueba, r.valor);
+            if (estado === "Crítico") hayCritico = true;
 
-tablaResultados.innerHTML=data.map(r=>{
-const estado=evaluarEstado(r.prueba,r.valor);
-if(estado === "Crítico") hayCritico = true;
-
-return `
+            return `
 <tr>
 <td>${r.prueba}</td>
 <td>${r.fecha}</td>
-<td style="${estado==='Crítico'?'color:red;font-weight:bold':''}">
+<td style="${estado === "Crítico" ? "color:red;font-weight:bold" : ""}">
 ${r.valor}
 </td>
 <td>
-<span class="badge ${estado==='Crítico'?'bg-danger':'bg-success'}">
+<span class="badge ${estado === "Crítico" ? "bg-danger" : "bg-success"}">
 ${estado}
 </span>
 </td>
 </tr>`;
-}).join("");
+          })
+          .join("");
 
-if(hayCritico){
-alertaCritico.classList.remove("d-none");
-}else{
-alertaCritico.classList.add("d-none");
-}
-}
-
-</script>
-
-</body>
+        if (hayCritico) {
+          alertaCritico.classList.remove("d-none");
+        } else {
+          alertaCritico.classList.add("d-none");
+        }
+      }
+    </script>
+  </body>
 </html>
