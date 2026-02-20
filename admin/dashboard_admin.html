@@ -360,10 +360,75 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
             class="card-header bg-white d-flex justify-content-between align-items-center"
           >
             <h5 class="mb-0">Lista de Citas Reservadas</h5>
-            <button class="btn btn-primary btn-sm">
-              <i class="bi bi-plus-lg"></i> Agregar Nueva Prueba
+
+            <button
+              class="btn btn-primary btn-sm px-3 shadow-sm"
+              data-bs-toggle="modal"
+              data-bs-target="#modalNuevaCita"
+            >
+              <i class="bi bi-plus-lg me-1"></i> Nueva Cita
             </button>
           </div>
+
+          <div class="modal fade" id="modalNuevaCita" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content rounded-3 shadow">
+                <div class="modal-header">
+                  <h5 class="modal-title">Agregar Nueva Cita</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label class="form-label fw-semibold">Fecha y Hora</label>
+                    <input
+                      type="datetime-local"
+                      id="fechaCita"
+                      class="form-control"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label fw-semibold">Paciente</label>
+                    <input
+                      type="text"
+                      id="pacienteCita"
+                      class="form-control"
+                      placeholder="Nombre del paciente"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label fw-semibold">Prueba</label>
+                    <select id="pruebaCita" class="form-select">
+                      <option value="">Seleccione una prueba</option>
+                      <option>Prueba Psicotécnica</option>
+                      <option>Prueba Teórica</option>
+                      <option>Prueba Práctica</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button
+                    class="btn btn-outline-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Cancelar
+                  </button>
+                  <button class="btn btn-primary" id="btnGuardarCita">
+                    Guardar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <tbody id="tablaCitas"></tbody>
 
           <!-- Body -->
           <div class="card-body">
@@ -644,6 +709,116 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+      /* Agregar cita */
+
+      const btnGuardar = document.getElementById("btnGuardarCita");
+      const tablaCitas = document.getElementById("tablaCitas");
+
+      let contador = 1;
+
+      btnGuardar.addEventListener("click", function () {
+        const fecha = document.getElementById("fechaCita").value;
+        const paciente = document.getElementById("pacienteCita").value.trim();
+        const prueba = document.getElementById("pruebaCita").value;
+
+        if (!fecha || !paciente || !prueba) {
+          alert("Completa todos los campos.");
+          return;
+        }
+
+        const codigo = "CITA-" + Date.now().toString().slice(-6);
+
+        const fila = document.createElement("tr");
+
+        fila.innerHTML = `
+    <td>${contador++}</td>
+    <td>${fecha}</td>
+    <td>${codigo}</td>
+    <td>${paciente}</td>
+    <td>${prueba}</td>
+    <td><span class="badge bg-warning text-dark">Pendiente</span></td>
+    <td>
+      <button class="btn btn-sm btn-outline-danger btnEliminar">
+        <i class="bi bi-trash"></i>
+      </button>
+    </td>
+  `;
+
+        tablaCitas.appendChild(fila);
+
+        // Reset
+        document.getElementById("fechaCita").value = "";
+        document.getElementById("pacienteCita").value = "";
+        document.getElementById("pruebaCita").value = "";
+
+        bootstrap.Modal.getInstance(
+          document.getElementById("modalNuevaCita"),
+        ).hide();
+      });
+
+      /* Eliminar cita */
+
+      tablaCitas.addEventListener("click", function (e) {
+        if (e.target.closest(".btnEliminar")) {
+          e.target.closest("tr").remove();
+        }
+      });
+
+      /* Guardar cita */
+
+      document.getElementById("btnGuardarCita").addEventListener("click", async function () {
+
+  const fecha = document.getElementById("fechaCita").value;
+  const paciente = document.getElementById("pacienteCita").value.trim();
+  const prueba = document.getElementById("pruebaCita").value;
+
+  if (!fecha || !paciente || !prueba) {
+    alert("Completa todos los campos.");
+    return;
+  }
+
+  const res = await fetch("../api/admin/crear_cita.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ fecha, paciente, prueba })
+  });
+
+  const data = await res.json();
+
+  if (data.success) {
+    cargarCitas(); // recarga tabla admin
+    bootstrap.Modal.getInstance(
+      document.getElementById("modalNuevaCita")
+    ).hide();
+  } else {
+    alert("Error al guardar.");
+  }
+
+});
+
+async function cargarCitas() {
+  const res = await fetch("../api/admin/get_citas.php");
+  const data = await res.json();
+
+  const tabla = document.getElementById("tablaCitas");
+
+  tabla.innerHTML = data.map((c, index) => `
+    <tr>
+      <td>${index + 1}</td>
+      <td>${c.fecha}</td>
+      <td>${c.codigo}</td>
+      <td>${c.paciente}</td>
+      <td>${c.prueba}</td>
+      <td>
+        <span class="badge bg-${c.estado === 'Pendiente' ? 'warning' : 'success'}">
+          ${c.estado}
+        </span>
+      </td>
+      <td>...</td>
+    </tr>
+  `).join("");
+}
+
       /* Toggle sidebar móvil */
       const toggleBtn = document.getElementById("toggleSidebar");
       const sidebar = document.getElementById("sidebar");
@@ -845,6 +1020,70 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
 
       document.getElementById("totalAcreditadas").innerText =
         acreditadas.length;
+
+      /* Agregar nueva prueba */
+      /* =========================
+   AGREGAR NUEVA CITA A TABLA
+========================= */
+
+      const btnGuardar = document.getElementById("btnGuardarCita");
+      const tabla = document.getElementById("tablaCitas");
+
+      let contador = 1;
+
+      btnGuardar.addEventListener("click", function () {
+        const fecha = document.getElementById("fechaCita").value;
+        const pruebasSeleccionadas = [
+          ...document.getElementById("selectPruebas").selectedOptions,
+        ].map((opt) => opt.value);
+
+        if (!fecha || pruebasSeleccionadas.length === 0) {
+          alert("Completa todos los campos.");
+          return;
+        }
+
+        const fechaActual = new Date().toLocaleString();
+        const codigo = "PR-" + Date.now().toString().slice(-6);
+        const paciente = "Paciente Demo"; // luego puedes hacerlo dinámico
+        const examen = pruebasSeleccionadas.join(", ");
+        const estado = "Pendiente";
+
+        const nuevaFila = document.createElement("tr");
+
+        nuevaFila.innerHTML = `
+    <td>${contador++}</td>
+    <td>${fechaActual}</td>
+    <td>${codigo}</td>
+    <td>${paciente}</td>
+    <td>${examen}</td>
+    <td><span class="badge bg-warning text-dark">${estado}</span></td>
+    <td>
+      <button class="btn btn-sm btn-outline-danger btnEliminar">
+        <i class="bi bi-trash"></i>
+      </button>
+    </td>
+  `;
+
+        tabla.appendChild(nuevaFila);
+
+        // Resetear formulario
+        document.getElementById("fechaCita").value = "";
+        document.getElementById("selectPruebas").selectedIndex = -1;
+
+        // Cerrar modal
+        const modal = bootstrap.Modal.getInstance(
+          document.getElementById("modalNuevaCita"),
+        );
+        modal.hide();
+      });
+
+      /* Eliminar nueva prueba */
+
+      tabla.addEventListener("click", function (e) {
+        if (e.target.closest(".btnEliminar")) {
+          e.target.closest("tr").remove();
+        }
+      });
     </script>
   </body>
 </html>
