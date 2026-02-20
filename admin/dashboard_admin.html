@@ -6,6 +6,8 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
 }
 ?>
 
+
+
 <!doctype html>
 <html lang="es">
   <head>
@@ -494,55 +496,78 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
             class="card-header bg-white d-flex justify-content-between align-items-center"
           >
             <h5 class="mb-0">Lista de Usuarios Registrados</h5>
-            <button class="btn btn-primary btn-sm">
+            <button id="btnNuevoUsuario" class="btn btn-primary btn-sm">
               <i class="bi bi-plus-lg"></i> Agregar Nuevo Usuario
             </button>
+          </div>
+
+          <!-- Modal Nuevo Usuario -->
+          <div class="modal fade" id="modalUsuario" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Nuevo Usuario</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+
+                <div class="modal-body">
+                  <form id="formUsuario">
+                    <div class="mb-3">
+                      <label class="form-label">Nombre</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nombre"
+                        required
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Email</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        required
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Rol</label>
+                      <select class="form-select" id="rol" required>
+                        <option value="">Seleccionar</option>
+                        <option>Administrador</option>
+                        <option>Paciente</option>
+                      </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">
+                      Guardar Usuario
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Body -->
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered table-hover align-middle">
-                <thead class="table-primary text-center">
+              <table class="table" id="tablaUsuarios">
+                <thead>
                   <tr>
                     <th>#</th>
-                    <th>Fecha de Registro</th>
                     <th>Nombre</th>
                     <th>Email</th>
-                    <th># Telefono</th>
-                    <th>Acción</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
-
-                <tbody id="tablaUsuariosRegistrados">
-                  <tr>
-                    <td class="text-center">1</td>
-                    <td>2025-06-10 09:15</td>
-                    <td>Juan Pérez</td>
-                    <td>juan@email.com</td>
-                    <td>3001234567</td>
-                    <td class="text-center">
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-sm btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                        >
-                          Acción
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Ver</a></li>
-                          <li><a class="dropdown-item" href="#">Editar</a></li>
-                          <li>
-                            <a class="dropdown-item text-danger" href="#"
-                              >Eliminar</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
+                <tbody></tbody>
               </table>
             </div>
           </div>
@@ -557,57 +582,80 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
             class="card-header bg-white d-flex justify-content-between align-items-center"
           >
             <h5 class="mb-0">Lista de Pruebas</h5>
-            <button class="btn btn-primary btn-sm">
+            <button id="btnNuevaPrueba" class="btn btn-primary btn-sm">
               <i class="bi bi-plus-lg"></i> Agregar Nueva Prueba
             </button>
+          </div>
+
+          <!-- Modal Nueva Prueba -->
+          <div class="modal fade" id="modalPrueba" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Nueva Prueba</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+
+                <div class="modal-body">
+                  <form id="formPrueba">
+                    <div class="mb-3">
+                      <label class="form-label">Nombre de la Prueba</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nombrePrueba"
+                        required
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Tipo</label>
+                      <select class="form-select" id="tipoPrueba" required>
+                        <option value="">Seleccionar</option>
+                        <option>Laboratorio</option>
+                        <option>Diagnóstico</option>
+                        <option>Control</option>
+                      </select>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Estado</label>
+                      <select class="form-select" id="estadoPrueba" required>
+                        <option value="">Seleccionar</option>
+                        <option>Pendiente</option>
+                        <option>En Proceso</option>
+                        <option>Finalizada</option>
+                      </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">
+                      Guardar Prueba
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Body -->
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered table-hover align-middle">
-                <thead class="table-primary text-center">
+              <table class="table" id="tablaPruebas">
+                <thead>
                   <tr>
                     <th>#</th>
-                    <th>Fecha de Creación</th>
-                    <th>Nombre</th>
-                    <th>Precio</th>
+                    <th>Fecha Creación</th>
+                    <th>Nombre Prueba</th>
+                    <th>Tipo</th>
                     <th>Estado</th>
-                    <th>Acción</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
-
-                <tbody id="tablaPruebas">
-                  <!-- Ejemplo de fila -->
-                  <tr>
-                    <td class="text-center">1</td>
-                    <td>2022-01-11 10:23</td>
-                    <td>Ecografía</td>
-                    <td>$1,313.00</td>
-                    <td class="text-center">
-                      <span class="badge bg-primary rounded-pill">Activo</span>
-                    </td>
-                    <td class="text-center">
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-sm btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                        >
-                          Acción
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Editar</a></li>
-                          <li>
-                            <a class="dropdown-item text-danger" href="#"
-                              >Eliminar</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
+                <tbody></tbody>
               </table>
             </div>
           </div>
@@ -622,58 +670,94 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
             class="card-header bg-white d-flex justify-content-between align-items-center"
           >
             <h5 class="mb-0">Lista de Usuarios del Sistema</h5>
-            <button class="btn btn-primary btn-sm">
+            <button id="btnCrearUsuario" class="btn btn-primary btn-sm">
               <i class="bi bi-plus-lg"></i> Crear Nuevo Usuario
             </button>
+          </div>
+
+          <!-- Modal Crear Usuario -->
+          <div class="modal fade" id="modalCrearUsuario" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Crear Usuario</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+
+                <div class="modal-body">
+                  <form id="formCrearUsuario">
+                    <input type="hidden" id="usuarioEditando" />
+
+                    <div class="mb-3">
+                      <label class="form-label">Nombre</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nombreUsuario"
+                        required
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Email</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="emailUsuario"
+                        required
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Rol</label>
+                      <select class="form-select" id="rolUsuario" required>
+                        <option value="">Seleccionar</option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Paciente">Paciente</option>
+                      </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">
+                      Guardar Usuario
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Body -->
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered table-hover align-middle">
-                <thead class="table-primary text-center">
+              <table class="table" id="tablaAdmin">
+                <thead>
                   <tr>
                     <th>#</th>
-                    <th>Avatar</th>
                     <th>Nombre</th>
-                    <th>Usuario</th>
-                    <th>Tipo de Usuario</th>
-                    <th>Acción</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
-
-                <tbody id="tablaPruebas">
-                  <!-- Ejemplo de fila -->
-                  <tr>
-                    <td class="text-center">1</td>
-                    <td>2022-01-11 10:23</td>
-                    <td>Ecografía</td>
-                    <td>$1,313.00</td>
-                    <td class="text-center">
-                      <span class="badge bg-primary rounded-pill">Activo</span>
-                    </td>
-                    <td class="text-center">
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-sm btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                        >
-                          Acción
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Editar</a></li>
-                          <li>
-                            <a class="dropdown-item text-danger" href="#"
-                              >Eliminar</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
+                <tbody></tbody>
               </table>
+
+              <!--<table class="table" id="tablaPaciente">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>-->
             </div>
           </div>
         </div>
@@ -709,6 +793,69 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+      /* Enviar datos */
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const nombre = document.getElementById("nombreUsuario").value;
+        const cedula = document.getElementById("cedulaUsuario").value;
+        const password = document.getElementById("passwordUsuario").value;
+        const rol = document.getElementById("rolUsuario").value;
+
+        const response = await fetch("guardar_usuario.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nombre, cedula, password, rol }),
+        });
+
+        const result = await response.json();
+
+        if (result.status === "ok") {
+          alert("Usuario registrado correctamente");
+          location.reload();
+        } else {
+          alert(result.msg);
+        }
+      });
+
+      /* Listar usuario */
+
+      async function cargarUsuarios() {
+        const response = await fetch("listar_usuarios.php");
+        const data = await response.json();
+
+        usuarios = data;
+        renderUsuarios();
+      }
+
+      document.addEventListener("DOMContentLoaded", cargarUsuarios);
+
+      /* Funcionalidad */
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const nombre = document.getElementById("nombreUsuario").value;
+        const email = document.getElementById("emailUsuario").value;
+        const rol = document.getElementById("rolUsuario").value;
+
+        const response = await fetch("guardar_usuario.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ nombre, email, rol }),
+        });
+
+        const result = await response.json();
+
+        if (result.status === "ok") {
+          alert("Usuario guardado correctamente");
+          location.reload(); // o vuelve a renderizar tabla
+        } else {
+          alert("Error: " + result.message);
+        }
+      });
+
       /* Agregar cita */
 
       const btnGuardar = document.getElementById("btnGuardarCita");
@@ -766,43 +913,45 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
 
       /* Guardar cita */
 
-      document.getElementById("btnGuardarCita").addEventListener("click", async function () {
+      document
+        .getElementById("btnGuardarCita")
+        .addEventListener("click", async function () {
+          const fecha = document.getElementById("fechaCita").value;
+          const paciente = document.getElementById("pacienteCita").value.trim();
+          const prueba = document.getElementById("pruebaCita").value;
 
-  const fecha = document.getElementById("fechaCita").value;
-  const paciente = document.getElementById("pacienteCita").value.trim();
-  const prueba = document.getElementById("pruebaCita").value;
+          if (!fecha || !paciente || !prueba) {
+            alert("Completa todos los campos.");
+            return;
+          }
 
-  if (!fecha || !paciente || !prueba) {
-    alert("Completa todos los campos.");
-    return;
-  }
+          const res = await fetch("../api/admin/crear_cita.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ fecha, paciente, prueba }),
+          });
 
-  const res = await fetch("../api/admin/crear_cita.php", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ fecha, paciente, prueba })
-  });
+          const data = await res.json();
 
-  const data = await res.json();
+          if (data.success) {
+            cargarCitas(); // recarga tabla admin
+            bootstrap.Modal.getInstance(
+              document.getElementById("modalNuevaCita"),
+            ).hide();
+          } else {
+            alert("Error al guardar.");
+          }
+        });
 
-  if (data.success) {
-    cargarCitas(); // recarga tabla admin
-    bootstrap.Modal.getInstance(
-      document.getElementById("modalNuevaCita")
-    ).hide();
-  } else {
-    alert("Error al guardar.");
-  }
+      async function cargarCitas() {
+        const res = await fetch("../api/admin/get_citas.php");
+        const data = await res.json();
 
-});
+        const tabla = document.getElementById("tablaCitas");
 
-async function cargarCitas() {
-  const res = await fetch("../api/admin/get_citas.php");
-  const data = await res.json();
-
-  const tabla = document.getElementById("tablaCitas");
-
-  tabla.innerHTML = data.map((c, index) => `
+        tabla.innerHTML = data
+          .map(
+            (c, index) => `
     <tr>
       <td>${index + 1}</td>
       <td>${c.fecha}</td>
@@ -810,14 +959,16 @@ async function cargarCitas() {
       <td>${c.paciente}</td>
       <td>${c.prueba}</td>
       <td>
-        <span class="badge bg-${c.estado === 'Pendiente' ? 'warning' : 'success'}">
+        <span class="badge bg-${c.estado === "Pendiente" ? "warning" : "success"}">
           ${c.estado}
         </span>
       </td>
       <td>...</td>
     </tr>
-  `).join("");
-}
+  `,
+          )
+          .join("");
+      }
 
       /* Toggle sidebar móvil */
       const toggleBtn = document.getElementById("toggleSidebar");
@@ -1083,6 +1234,221 @@ async function cargarCitas() {
         if (e.target.closest(".btnEliminar")) {
           e.target.closest("tr").remove();
         }
+      });
+    </script>
+
+    <!-- Agregar usuario -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const btnNuevoUsuario = document.getElementById("btnNuevoUsuario");
+        const modalUsuario = new bootstrap.Modal(
+          document.getElementById("modalUsuario"),
+        );
+        const formUsuario = document.getElementById("formUsuario");
+        const tabla = document.querySelector("#tablaUsuarios tbody");
+
+        let contador = 0;
+
+        // Abrir modal
+        btnNuevoUsuario.addEventListener("click", () => {
+          formUsuario.reset();
+          modalUsuario.show();
+        });
+
+        // Guardar usuario
+        formUsuario.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const nombre = document.getElementById("nombre").value;
+          const email = document.getElementById("email").value;
+          const rol = document.getElementById("rol").value;
+
+          contador++;
+
+          const fila = document.createElement("tr");
+          fila.innerHTML = `
+      <td>${contador}</td>
+      <td>${nombre}</td>
+      <td>${email}</td>
+      <td>${rol}</td>
+      <td>
+        <button class="btn btn-danger btn-sm eliminar">Eliminar</button>
+      </td>
+    `;
+
+          tabla.appendChild(fila);
+          modalUsuario.hide();
+        });
+
+        // Eliminar usuario
+        tabla.addEventListener("click", function (e) {
+          if (e.target.classList.contains("eliminar")) {
+            e.target.closest("tr").remove();
+          }
+        });
+      });
+    </script>
+
+    <!-- Agregar pruebas -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const btnNuevaPrueba = document.getElementById("btnNuevaPrueba");
+        const modalPrueba = new bootstrap.Modal(
+          document.getElementById("modalPrueba"),
+        );
+        const formPrueba = document.getElementById("formPrueba");
+        const tablaPruebas = document.querySelector("#tablaPruebas tbody");
+
+        let contadorPruebas = 0;
+
+        // Abrir modal
+        btnNuevaPrueba.addEventListener("click", () => {
+          formPrueba.reset();
+          modalPrueba.show();
+        });
+
+        // Guardar prueba
+        formPrueba.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const nombre = document.getElementById("nombrePrueba").value;
+          const tipo = document.getElementById("tipoPrueba").value;
+          const estado = document.getElementById("estadoPrueba").value;
+          const fecha = new Date().toLocaleDateString();
+
+          contadorPruebas++;
+
+          const fila = document.createElement("tr");
+          fila.innerHTML = `
+      <td>${contadorPruebas}</td>
+      <td>${fecha}</td>
+      <td>${nombre}</td>
+      <td>${tipo}</td>
+      <td>
+        <span class="badge bg-${estado === "Finalizada" ? "success" : estado === "En Proceso" ? "warning text-dark" : "secondary"}">
+          ${estado}
+        </span>
+      </td>
+      <td>
+        <button class="btn btn-danger btn-sm eliminarPrueba">Eliminar</button>
+      </td>
+    `;
+
+          tablaPruebas.appendChild(fila);
+          modalPrueba.hide();
+        });
+
+        // Eliminar prueba
+        tablaPruebas.addEventListener("click", function (e) {
+          if (e.target.classList.contains("eliminarPrueba")) {
+            e.target.closest("tr").remove();
+          }
+        });
+      });
+    </script>
+
+    <!-- Crear - Editar - Eliminar - Usuarios del sistema -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const btnCrear = document.getElementById("btnCrearUsuario");
+        const modal = new bootstrap.Modal(
+          document.getElementById("modalCrearUsuario"),
+        );
+        const form = document.getElementById("formCrearUsuario");
+
+        const tablaAdmin = document.querySelector("#tablaAdmin tbody");
+        const tablaPaciente = document.querySelector("#tablaPaciente tbody");
+
+        let contador = 0;
+        let usuarios = [];
+
+        // Abrir modal
+        btnCrear.addEventListener("click", () => {
+          form.reset();
+          document.getElementById("usuarioEditando").value = "";
+          modal.show();
+        });
+
+        // Guardar usuario
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const idEditando = document.getElementById("usuarioEditando").value;
+          const nombre = document.getElementById("nombreUsuario").value.trim();
+          const email = document.getElementById("emailUsuario").value.trim();
+          const rol = document.getElementById("rolUsuario").value;
+
+          if (!nombre || !email || !rol) return;
+
+          if (idEditando) {
+            // Editar
+            usuarios = usuarios.map((u) =>
+              u.id == idEditando ? { ...u, nombre, email, rol } : u,
+            );
+          } else {
+            contador++;
+            usuarios.push({
+              id: contador,
+              nombre,
+              email,
+              rol,
+            });
+          }
+
+          renderUsuarios();
+          modal.hide();
+        });
+
+        function renderUsuarios() {
+          tablaAdmin.innerHTML = "";
+          tablaPaciente.innerHTML = "";
+
+          usuarios.forEach((u, index) => {
+            const fila = `
+        <tr>
+          <td>${index + 1}</td>
+          <td>${u.nombre}</td>
+          <td>${u.email}</td>
+          <td>${u.rol}</td>
+          <td>
+            <button class="btn btn-warning btn-sm editar" data-id="${u.id}">Editar</button>
+            <button class="btn btn-danger btn-sm eliminar" data-id="${u.id}">Eliminar</button>
+          </td>
+        </tr>
+      `;
+
+            if (u.rol === "Administrador") {
+              tablaAdmin.innerHTML += fila;
+            }
+
+            if (u.rol === "Paciente") {
+              tablaPaciente.innerHTML += fila;
+            }
+          });
+        }
+
+        // Delegación eventos
+        document.addEventListener("click", function (e) {
+          // Eliminar
+          if (e.target.classList.contains("eliminar")) {
+            const id = e.target.dataset.id;
+            usuarios = usuarios.filter((u) => u.id != id);
+            renderUsuarios();
+          }
+
+          // Editar
+          if (e.target.classList.contains("editar")) {
+            const id = e.target.dataset.id;
+            const usuario = usuarios.find((u) => u.id == id);
+
+            document.getElementById("usuarioEditando").value = usuario.id;
+            document.getElementById("nombreUsuario").value = usuario.nombre;
+            document.getElementById("emailUsuario").value = usuario.email;
+            document.getElementById("rolUsuario").value = usuario.rol;
+
+            modal.show();
+          }
+        });
       });
     </script>
   </body>
