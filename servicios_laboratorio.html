@@ -45,6 +45,36 @@
     <link rel="stylesheet" href="css/styles.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/examenes.css">
+  
+
+    <style>
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+}
+</style>
   </head>
   <body>
     <!-- =========================
@@ -256,7 +286,7 @@
         <!-- Redes sociales -->
         <div id="chat-social">
           <a
-            href="https://wa.me/573113212221?text=Hola%2C%20quisiera%20más%20información"
+            href="https://wa.me/57311 3212221?text=Hola%2C%20quisiera%20más%20información"
             target="_blank"
             aria-label="WhatsApp"
           >
@@ -282,160 +312,99 @@
 
     <!-- Asesor virtual final -->
 
-<!-- ================= CATÁLOGO DE EXÁMENES ================= -->
-<section class="section-header container">
-  <h2>Catálogo de Exámenes Médicos</h2>
-  <p>
-    Los exámenes de laboratorio permiten evaluar el estado de salud,
-    detectar enfermedades y monitorear tratamientos médicos.
-  </p>
-</section>
+  <!-- ================= CATÁLOGO DE EXÁMENES ================= -->
+    <section class="section-header container">
+      <h2>Catálogo de Exámenes Médicos</h2>
+      <p>
+        Los exámenes de laboratorio permiten evaluar el estado de salud,
+        detectar enfermedades y monitorear tratamientos médicos.
+      </p>
+    </section>
 
-<ul id="category-list">
-  <li data-category="Perfil Tiroideo" class="active">Perfil Tiroideo <b>$60.000</b></li>
-  <li data-category="Paquete Tumoral">Paquete Tumoral <b>$75.000</b></li>
-  <li data-category="Paquete Diabetes">Paquete Diabetes <b>$140.000</b></li>
-  <li data-category="Perfil Hepatico">Perfil Hepatico <b>$90.000</b></li>
-  <li data-category="Genética">Genética <b>$2'450.000</b></li>
-  <li data-category="Salud Ocupacional">Salud Ocupacional <b>$50.000</b></li>
-  <li data-category="Paquete Rutinario">Paquete Rutinario <b>$70.000</b></li>
-  <li data-category="Salud de la Mujer">Salud de la Mujer <b>$550.000</b></li>
-  <li data-category="Salud del Hombre">Salud del Hombre <b>$160.000</b></li>
-  <li data-category="Examenes de Laboratorio">Examenes de Laboratorio <b>$180.000</b></li>
-  <li data-category="Salud sexual">Salud Sexual <b>$350.000</b></li>
-  <li data-category="Prueba de Fertilidad">Prueba de Fertilidad <b>$800.000 Hombres</b> | <b>$600.000 Mujeres</b></li>
-</ul>
+    <ul id="category-list">
+      <li data-category="Perfil Tiroideo" class="active">
+        Perfil Tiroideo <b>$60.000</b>
+      </li>
+      <li data-category="Paquete Tumoral">Paquete Tumoral <b>$75.000</b></li>
+      <li data-category="Paquete Diabetes">Paquete Diabetes <b>$140.000</b></li>
+      <li data-category="Perfil Hepatico">Perfil Hepatico <b>$90.000</b></li>
+      <li data-category="Genética">Genética <b>$2'450.000</b></li>
+      <li data-category="Salud Ocupacional">
+        Salud Ocupacional <b>$50.000</b>
+      </li>
+      <li data-category="Paquete Rutinario">
+        Paquete Rutinario <b>$70.000</b>
+      </li>
+      <li data-category="Salud de la Mujer">
+        Salud de la Mujer <b>$550.000</b>
+      </li>
+      <li data-category="Salud del Hombre">Salud del Hombre <b>$160.000</b></li>
+      <li data-category="Examenes de Laboratorio">
+        Examenes de Laboratorio <b>$180.000</b>
+      </li>
+      <li data-category="Salud sexual">Salud Sexual <b>$350.000</b></li>
+      <li data-category="Prueba de Fertilidad">
+        Prueba de Fertilidad <b>$800.000 Hombres</b> | <b>$600.000 Mujeres</b>
+      </li>
+    </ul>
 
-<section class="buscador">
-  <input id="buscadorExamen" type="text" placeholder="Buscar examen por nombre, código o categoría...">
-</section>
+    <section class="buscador">
+      <input
+        id="buscadorExamen"
+        type="text"
+        placeholder="Buscar examen por nombre, código o categoría..."
+      />
+    </section>
 
-<section id="resultadosExamenes" class="resultados"></section>
+    <section id="resultadosExamenes" class="resultados"></section>
 
-<!-- ===========================
+    <!-- ===========================
      CONTADOR + BUSCADOR + VISTA
 =========================== -->
-<div class="header-exams">
+    <div class="header-exams">
+      <!-- CONTADOR DE RESULTADOS -->
+      <div>
+        <!--<span id="exam-count">201</span> RESULTADOS-->
+      </div>
 
-  <!-- CONTADOR DE RESULTADOS -->
-  <div >
-    <!--<span id="exam-count">201</span> RESULTADOS-->
-  </div>
+      <section class="catalogo-section">
+        <!-- HEADER SUPERIOR -->
+        <div class="catalogo-header">
+          <div class="vista-toggle">
+            <button id="vista-list" class="vista-btn active">Lista</button>
+            <button id="vista-grid" class="vista-btn">Cuadrícula</button>
+          </div>
 
-  <section class="catalogo-section">
+          <input type="text" id="buscar-examen" placeholder="Buscar pruebas" />
+        </div>
 
-  <!-- HEADER SUPERIOR -->
-  <div class="catalogo-header">
-    <div class="vista-toggle">
-      <button id="vista-list" class="vista-btn active">Lista</button>
-      <button id="vista-grid" class="vista-btn">Cuadrícula</button>
+        <div id="catalogo-examenes" class="list-view"></div>
+      </section>
     </div>
 
-    <input
-      type="text"
-      id="buscar-examen"
-      placeholder="Buscar pruebas"
-    />
-  </div>
+    <div id="pagination"></div>
 
-  <!-- CATÁLOGO -->
-  <div id="catalogo-examenes" class="grid-view"></div>
+    <!-- CONTENEDOR EXÁMENES -->
+    <div id="examenes" class="grid-container"></div>
 
-</section>
+    <!-- BARRA INFERIOR COMPARAR -->
+    <div id="bottomCompare" class="bottom-compare">
+      <div id="compareInfo">Selecciona hasta 2 exámenes</div>
+      <button id="compareBtn">Comparar</button>
+    </div>
 
-</div>
-
-<div id="pagination"></div>
-
-<!-- CONTENEDOR DINÁMICO PARA RENDERIZAR EXÁMENES -->
-<div id="examenes" class="grid-container"></div>
-
-<div id="exam-list" class="grid-container"></div>
-
-<!-- ======= BARRA INFERIOR COMPARAR ======= -->
-<div id="bottom-compare" style="
-  display:none;
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:#0b5ed7;
-  color:#fff;
-  padding:12px 20px;
-  justify-content:space-between;
-  align-items:center;
-  z-index:1000;
-">
-  <div id="bottom-compare-info">
-    Selecciona 2 exámenes para comparar
-  </div>
-
-  <button id="compare-btn" style="padding:8px 16px; cursor:pointer;">
-    Comparar
-  </button>
-</div>
-
-<!-- ======= MODAL COMPARAR ======= -->
- <div id="compare-modal" style="
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  justify-content:center;
-  align-items:center;
-  z-index:2000;
-">
-  <div style="
-    background:#fff;
-    padding:20px;
-    width:90%;
-    max-width:600px;
-    border-radius:8px;
-    position:relative;
-  ">
-    <span id="modal-close" style="
-      position:absolute;
-      top:10px;
-      right:15px;
-      cursor:pointer;
-      font-size:18px;
-    ">✖</span>
-
-    <h3>Comparación de exámenes</h3>
-    <div id="modal-body"></div>
-  </div>
-</div>
-
-<div id="compare-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); justify-content:center; align-items:center; z-index:2000;">
-  <div style="background:#fff; padding:20px; width:90%; max-width:600px; border-radius:8px; position:relative;">
-    <span class="close" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:18px;">✖</span>
-    <h3>Comparación de exámenes</h3>
-
-    <table border="1" width="100%" cellpadding="8" cellspacing="0">
-      <thead>
-        <tr>
-          <th>Examen</th>
-          <th>Descripción</th>
-        </tr>
-      </thead>
-      <tbody id="compare-table"></tbody>
-    </table>
-  </div>
-</div>
-
-<div id="compare-modal" class="modal">
-  <div class="modal-content">
-    <span id="modal-close">&times;</span>
-    <div id="modal-body" class="compare-grid"></div>
-  </div>
-</div>
+    <div id="modal-examen" class="modal">
+      <div class="modal-content">
+        <span class="cerrar-modal">&times;</span>
+        <div id="modal-body"></div>
+      </div>
+    </div>
 
 <!-- ======= MODAL DETALLE ======= -->
-<div id="detail-modal" class="modal">
+<div id="modal-examen" class="modal">
   <div class="modal-content">
-    <span id="detail-close" class="close">×</span>
-    <div id="detail-body"></div>
-    <button id="detail-whatsapp">Solicitar por WhatsApp</button>
+    <span class="cerrar-modal">&times;</span>
+    <div id="modal-body"></div>
   </div>
 </div>
 
@@ -2880,6 +2849,98 @@ const exams = [
 },
 ];
 
+const examClinicalInfo = {
+
+  /* ================= PERFIL TIROIDEO ================= */
+  1: {
+    prep: "No requiere ayuno. Informar si está tomando levotiroxina.",
+    sintomas: "Fatiga, nerviosismo, pérdida o aumento de peso.",
+    utilidad: "Evalúa alteraciones tiroideas como hipertiroidismo."
+  },
+  2: {
+    prep: "No requiere ayuno.",
+    sintomas: "Síntomas de descontrol tiroideo.",
+    utilidad: "Mide la fracción activa real de T3."
+  },
+  3: {
+    prep: "No requiere ayuno.",
+    sintomas: "Somnolencia, intolerancia al frío.",
+    utilidad: "Apoya diagnóstico de hipotiroidismo."
+  },
+  4: {
+    prep: "No requiere ayuno.",
+    sintomas: "Cambios metabólicos inexplicables.",
+    utilidad: "Indicador clave del funcionamiento tiroideo."
+  },
+  6: {
+    prep: "No requiere ayuno.",
+    sintomas: "Irregularidades hormonales.",
+    utilidad: "Prueba principal para evaluar tiroides."
+  },
+  7: {
+    prep: "No requiere ayuno.",
+    sintomas: "Sospecha de enfermedad autoinmune.",
+    utilidad: "Diagnóstico de tiroiditis de Hashimoto."
+  },
+
+  /* ================= PAQUETE DIABETES ================= */
+  18: {
+    prep: "Ayuno obligatorio 8–12 horas.",
+    sintomas: "Sed excesiva, visión borrosa, orina frecuente.",
+    utilidad: "Prueba inicial para detectar diabetes."
+  },
+  20: {
+    prep: "No requiere ayuno.",
+    sintomas: "Control en pacientes diabéticos.",
+    utilidad: "Promedio de glucosa de últimos 3 meses."
+  },
+  21: {
+    prep: "Ayuno recomendado.",
+    sintomas: "Resistencia a la insulina.",
+    utilidad: "Evalúa producción pancreática."
+  },
+  22: {
+    prep: "Recolección adecuada de muestra de orina.",
+    sintomas: "Pacientes diabéticos con evolución prolongada.",
+    utilidad: "Detecta daño renal temprano."
+  },
+
+  /* ================= SALUD SEXUAL ================= */
+  40: {
+    prep: "No tener relaciones 48h antes.",
+    sintomas: "Ardor al orinar, flujo anormal.",
+    utilidad: "Detecta infecciones de transmisión sexual."
+  },
+  41: {
+    prep: "Evitar antibióticos previos.",
+    sintomas: "Flujo vaginal o molestias urinarias.",
+    utilidad: "Diagnóstico de infecciones vaginales."
+  },
+  76: {
+    prep: "No requiere ayuno.",
+    sintomas: "Úlceras o sospecha de sífilis.",
+    utilidad: "Confirmación serológica de sífilis."
+  },
+
+  /* ================= PERFIL HEPATICO ================= */
+  69: {
+    prep: "Ayuno recomendado 8 horas.",
+    sintomas: "Dolor abdominal derecho, ictericia.",
+    utilidad: "Detecta inflamación o daño hepático."
+  },
+  72: {
+    prep: "Ayuno recomendado.",
+    sintomas: "Consumo frecuente de alcohol.",
+    utilidad: "Indicador sensible de daño hepático."
+  }
+
+};
+
+const extra = examClinicalInfo[examen.id] || {
+  prep: "Consultar indicaciones específicas al momento de agendar.",
+  sintomas: "Según criterio médico.",
+  utilidad: examen.details
+};
 /* ===================== VARIABLES ===================== */
 let currentCategory = "all";
 let selected = new Set();
@@ -2937,19 +2998,128 @@ function renderCards() {
 
 /* ===================== DETALLE ===================== */
 function openDetail(id) {
-  const e = exams.find(x => x.id === id);
+
+  const e = exams.find((x) => x.id === id);
+  if (!e) return;
+
+  const extraCategory = categoryInfo[e.category] || "";
+  const advanced = advancedInfo[e.category] || {};
+
+  const symptomsHTML = generateList(
+    "Síntomas relacionados",
+    advanced.symptoms
+  );
+
+  const recommendationsHTML = generateList(
+    "Recomendaciones previas",
+    advanced.recommendations
+  );
+
+  const message = encodeURIComponent(
+    `Hola, quiero agendar el examen: ${e.name}`
+  );
+
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
 
   detailBody.innerHTML = `
     <h3>${e.name}</h3>
     <p>${e.desc}</p>
-    <p><strong>Precio:</strong> ${e.price}</p>
+
+    <hr>
+
     <p><strong>Muestra:</strong> ${e.sample}</p>
-    <p><strong>Tiempo:</strong> ${e.time}</p>
+    <p><strong>Tiempo de entrega:</strong> ${e.time}</p>
+
+    <hr>
+
+    <h4>Descripción clínica</h4>
     <p>${e.details}</p>
+
+    <hr>
+
+    ${symptomsHTML}
+    ${recommendationsHTML}
+
+    <hr>
+
+    <h4>Información médica</h4>
+    ${extraCategory}
+
+    <br>
+
+    <a href="${whatsappLink}" target="_blank" class="whatsapp-btn">
+      Agendar por WhatsApp
+    </a>
   `;
 
   document.getElementById("detail-modal").style.display = "flex";
 }
+
+/* ===================== INFO AVANZADA POR CATEGORÍA ===================== */
+
+const advancedInfo = {
+
+  "Perfil Tiroideo": {
+    symptoms: [
+      "Fatiga constante",
+      "Aumento o pérdida de peso sin causa",
+      "Ansiedad o depresión",
+      "Caída de cabello",
+      "Palpitaciones"
+    ],
+    recommendations: [
+      "No requiere ayuno",
+      "Evitar suplementos de biotina 48h antes",
+      "Informar si toma levotiroxina"
+    ]
+  },
+
+  "Paquete Diabetes": {
+    symptoms: [
+      "Sed excesiva",
+      "Orina frecuente",
+      "Visión borrosa",
+      "Cansancio extremo"
+    ],
+    recommendations: [
+      "Ayuno de 8 a 12 horas",
+      "No consumir bebidas azucaradas antes del examen",
+      "No suspender medicamentos sin indicación médica"
+    ]
+  },
+
+  "Salud sexual": {
+    symptoms: [
+      "Ardor al orinar",
+      "Flujo anormal",
+      "Dolor pélvico",
+      "Lesiones o secreciones"
+    ],
+    recommendations: [
+      "No tener relaciones 24h antes",
+      "No usar óvulos o cremas vaginales 48h antes",
+      "No orinar 2 horas antes (según examen)"
+    ]
+  }
+
+};
+
+/* =================== GENERAR LISTAS AUTOMATICAS =============== */
+
+function generateList(title, items) {
+  if (!items || items.length === 0) return "";
+
+  return `
+    <h4>${title}</h4>
+    <ul>
+      ${items.map(item => `<li>${item}</li>`).join("")}
+    </ul>
+  `;
+}
+
+/* ================== CTA DINAMICO ================= */
+
+const whatsappNumber = "573113212221";
 
 /* ===================== COMPARACIÓN ===================== */
 function openCompare() {
@@ -3139,7 +3309,7 @@ document.querySelectorAll('.btn-detail').forEach(btn => {
     whatsappBtn.onclick = () => {
       const msg = `Hola, deseo información sobre el examen ${card.dataset.name}`;
       window.open(
-        `https://wa.me/57XXXXXXXXXX?text=${encodeURIComponent(msg)}`,
+        `https://wa.me/57311 3212221?text=${encodeURIComponent(msg)}`,
         '_blank'
       );
     };
@@ -3160,264 +3330,6 @@ window.addEventListener('click', e => {
   if (e.target === detailModal) detailModal.classList.remove('active');
 });
 </script>
-
-<!-- Script funciones Ver Detalles & Comparar -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-
-  const compareBar = document.getElementById('bottom-compare');
-  const compareInfo = document.getElementById('bottom-compare-info');
-  const compareBtn = document.getElementById('compare-btn');
-
-  const compareModal = document.getElementById('compare-modal');
-  const modalBody = document.getElementById('modal-body');
-  const modalClose = document.getElementById('modal-close');
-  const modalCloseBtn = document.getElementById('close-modal');
-
-  const detailModal = document.getElementById('detail-modal');
-  const detailBody = document.getElementById('detail-body');
-  const detailClose = document.getElementById('detail-close');
-  const whatsappBtn = document.getElementById('detail-whatsapp');
-
-  /** 👉 AHORA SOLO GUARDAMOS IDS **/
-  let selectedExamIds = [];
-
-  /* ===============================
-     SELECCIONAR EXÁMENES
-  ================================ */
-  document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
-    checkbox.addEventListener('change', () => {
-      const card = checkbox.closest('.exam-card');
-      const examId = card.dataset.id;
-
-      if (checkbox.checked) {
-        if (!selectedExamIds.includes(examId)) {
-          selectedExamIds.push(examId);
-        }
-      } else {
-        selectedExamIds = selectedExamIds.filter(id => id !== examId);
-      }
-
-      updateCompareBar();
-    });
-  });
-
-  /* ===============================
-     ACTUALIZAR BOTTOM BAR
-  ================================ */
-  function updateCompareBar() {
-    if (selectedExamIds.length > 0) {
-      compareBar.style.display = 'flex';
-      compareInfo.textContent = `${selectedExamIds.length} examen(es) seleccionados`;
-    } else {
-      compareBar.style.display = 'none';
-    }
-
-    compareBtn.disabled = selectedExamIds.length < 2;
-  }
-
-  /* ===============================
-     MODAL COMPARAR
-  ================================ */
-  compareBtn.addEventListener('click', () => {
-    modalBody.innerHTML = '';
-
-    selectedExamIds.forEach(id => {
-      const card = document.querySelector(`.exam-card[data-id="${id}"]`);
-
-      if (!card) return;
-
-      const item = document.createElement('div');
-      item.classList.add('compare-item');
-
-      item.innerHTML = `
-        <img src="${card.dataset.img}" alt="${card.dataset.name}">
-        <h4>${card.dataset.name}</h4>
-        <p><strong>Tipo:</strong> ${card.dataset.type}</p>
-        <p>${card.dataset.desc}</p>
-      `;
-
-      modalBody.appendChild(item);
-    });
-
-    compareModal.style.display = 'flex';
-  });
-
-  modalClose.onclick = modalCloseBtn.onclick = () => {
-    compareModal.style.display = 'none';
-  };
-
-  /* ===============================
-     MODAL DETALLE
-  ================================ */
-  document.querySelectorAll('.btn-detail').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const card = btn.closest('.exam-card');
-
-      detailBody.innerHTML = `
-        <div class="detail-wrapper">
-          <img src="${card.dataset.img}" class="detail-img">
-          <div class="detail-info">
-            <h3>${card.dataset.name}</h3>
-            <p><strong>Tipo:</strong> ${card.dataset.type}</p>
-            <p>${card.dataset.desc}</p>
-          </div>
-        </div>
-      `;
-
-      whatsappBtn.onclick = () => {
-        const msg = `Hola, deseo información sobre el examen ${card.dataset.name}`;
-        window.open(
-          `https://wa.me/573113212221?text=${encodeURIComponent(msg)}`,
-          '_blank'
-        );
-      };
-
-      detailModal.style.display = 'flex';
-    });
-  });
-
-  detailClose.onclick = () => {
-    detailModal.style.display = 'none';
-  };
-
-  window.addEventListener('click', e => {
-    if (e.target === compareModal) compareModal.style.display = 'none';
-    if (e.target === detailModal) detailModal.style.display = 'none';
-  });
-
-});
-
-/* Funciones extras */
-function openDetail(examId) {
-  const exam = exams.find(e => e.id === examId);
-  if (!exam) return;
-
-  document.getElementById("detail-body").innerHTML = `
-    <img 
-      src="${exam.img}" 
-      alt="${exam.name}" 
-      class="detail-img"
-    >
-
-    <h2>${exam.name}</h2>
-
-    <p class="detail-category">
-      ${exam.category}
-    </p>
-
-    <p>${exam.desc}</p>
-
-    <ul class="detail-info">
-      <li><strong>Muestra:</strong> ${exam.sample}</li>
-      <li><strong>Tiempo:</strong> ${exam.time}</li>
-      <li><strong>Precio:</strong> ${exam.price}</li>
-    </ul>
-
-    <p>${exam.details}</p>
-  `;
-
-  document.getElementById("detail-whatsapp").onclick = () => {
-    const msg = encodeURIComponent(
-      `Hola, deseo información sobre el examen: ${exam.name}`
-    );
-    window.open(
-      `https://wa.me/573113212221?text=${msg}`,
-      "_blank"
-    );
-  };
-
-  document.getElementById("detail-modal").style.display = "flex";
-}
-
-document.getElementById("detail-close").onclick = () => {
-  document.getElementById("detail-modal").style.display = "none";
-};
-
-window.addEventListener("click", e => {
-  const modal = document.getElementById("detail-modal");
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-});
-
-/* Comparar examenes */
-let selectedExamIds = [];
-
-/* ===============================
-   CHECKBOX COMPARAR (DELEGADO)
-================================ */
-document.addEventListener("change", e => {
-  if (!e.target.classList.contains("compare-checkbox")) return;
-
-  const examId = Number(e.target.dataset.id);
-  if (!examId) return;
-
-  if (e.target.checked) {
-    if (selectedExamIds.length >= 2) {
-      e.target.checked = false;
-      alert("Solo puedes comparar 2 exámenes");
-      return;
-    }
-    selectedExamIds.push(examId);
-  } else {
-    selectedExamIds = selectedExamIds.filter(id => id !== examId);
-  }
-
-  updateCompareBar();
-});
-
-/* ===============================
-   BARRA INFERIOR
-================================ */
-function updateCompareBar() {
-  const bar = document.getElementById("bottom-compare");
-  const info = document.getElementById("bottom-compare-info");
-  const btn = document.getElementById("compare-btn");
-
-  if (selectedExamIds.length > 0) {
-    bar.style.display = "flex";
-    info.textContent = `${selectedExamIds.length} examen(es) seleccionados`;
-  } else {
-    bar.style.display = "none";
-  }
-
-  // 🔥 AQUÍ ESTABA EL PROBLEMA
-  btn.disabled = selectedExamIds.length !== 2;
-}
-
-/* ===============================
-   CLICK BOTÓN COMPARAR
-================================ */
-document.getElementById("compare-btn").addEventListener("click", () => {
-  if (selectedExamIds.length !== 2) return;
-
-  const body = document.getElementById("modal-body");
-  body.innerHTML = "";
-
-  selectedExamIds.forEach(id => {
-    const exam = exams.find(e => e.id === id);
-    if (!exam) return;
-
-    body.innerHTML += `
-      <div class="compare-item">
-        <img src="${exam.img}" alt="${exam.name}">
-        <h3>${exam.name}</h3>
-        <p><strong>${exam.category}</strong></p>
-        <p>${exam.desc}</p>
-        <ul>
-          <li><strong>Muestra:</strong> ${exam.sample}</li>
-          <li><strong>Tiempo:</strong> ${exam.time}</li>
-          <li><strong>Precio:</strong> ${exam.price}</li>
-        </ul>
-      </div>
-    `;
-  });
-
-  document.getElementById("compare-modal").style.display = "flex";
-});
-</script>
-<!-- Fin Script funcionalidades Comparar - Ver detalles-->
 
 <!-- Incio funcionalidades extras -->
 <script>
@@ -3466,160 +3378,251 @@ exams.forEach(exam => {
 });
 </script>
 
-<!-- Comparar examenes -->
-<script>
-  const modalDetalle = document.getElementById("modal-detalle");
-  const modalBody = document.getElementById("modal-body");
-  const modalComparar = document.getElementById("modal-comparar");
-  const compararBody = document.getElementById("comparar-body");
+<!-- Codigo referencia -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (typeof exams === "undefined") return;
 
-  let compararSeleccion = [];
+        const catalogo = document.getElementById("catalogo-examenes");
+        const buscarInput = document.getElementById("buscar-examen");
+        const btnLista = document.getElementById("vista-list");
+        const btnGrid = document.getElementById("vista-grid");
+        const categorias = document.querySelectorAll("#category-list li");
 
-  function renderExams() {
-    catalogo.innerHTML = "";
+        const modal = document.getElementById("modal-examen");
+        const modalBody = document.getElementById("modal-body");
+        const cerrarModal = document.querySelector(".cerrar-modal");
 
-    const filtrados = exams.filter(ex =>
-      normalizar(ex.category) === normalizar(categoriaActiva) &&
-      (
-        normalizar(ex.name).includes(normalizar(filtroTexto)) ||
-        normalizar(ex.desc).includes(normalizar(filtroTexto))
-      )
-    );
+        let categoriaActiva = "";
+        let filtroTexto = "";
+        let seleccionados = [];
 
-    if (!filtrados.length) {
-      catalogo.innerHTML = "<p>No hay exámenes disponibles.</p>";
-      return;
-    }
+        const normalizar = (txt) =>
+          (txt || "")
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .trim();
 
-    filtrados.forEach(exam => {
-      const card = document.createElement("div");
-      card.className = "examen-card";
+        /* =========================
+     INFO CLÍNICA BASE
+  ========================== */
 
-      card.innerHTML = `
-        <img src="${exam.img}" class="examen-img">
+        const examClinicalInfo = {
+          Glucosa: {
+            prep: "Ayuno obligatorio de 8–12 horas.",
+            sintomas: "Sed excesiva, visión borrosa, orina frecuente.",
+            utilidad: "Diagnóstico inicial de diabetes.",
+          },
+          "Glicosilada (HbA1c)": {
+            prep: "No requiere ayuno.",
+            sintomas: "Seguimiento de pacientes diabéticos.",
+            utilidad: "Promedio de glucosa últimos 3 meses.",
+          },
+        };
 
-        <div>
+        /* =========================
+     RENDER
+  ========================== */
+
+        function renderExams() {
+          catalogo.innerHTML = "";
+
+          const filtrados = exams.filter((ex) => {
+            // SOLO mostrar si pertenece exactamente al paquete activo
+            if (!categoriaActiva) return false;
+
+            const perteneceAlPaquete =
+              normalizar(ex.category) === normalizar(categoriaActiva);
+
+            const coincideTexto =
+              normalizar(ex.name).includes(normalizar(filtroTexto)) ||
+              normalizar(ex.desc).includes(normalizar(filtroTexto));
+
+            return perteneceAlPaquete && coincideTexto;
+          });
+
+          /*if (!filtrados.length) {
+            catalogo.innerHTML = "<p>No hay exámenes disponibles.</p>";
+            return;
+          }*/
+
+          filtrados.forEach((exam) => {
+            const seleccionado = seleccionados.includes(String(exam.id))
+              ? "seleccionado"
+              : "";
+
+            const card = document.createElement("div");
+            card.className = "examen-card";
+
+            card.innerHTML = `
+        <img src="${exam.img}" alt="${exam.name}" class="examen-img">
+
+        <div class="examen-body">
           <h4>${exam.name}</h4>
           <p>${exam.desc}</p>
-          <small><b>Muestra:</b> ${exam.sample}</small><br>
-          <small><b>Entrega:</b> ${exam.time}</small>
 
-          <div class="examen-actions">
-            <button class="ver-detalle" data-id="${exam.id}">Ver detalles</button>
-            <button class="comparar-examen" data-id="${exam.id}">Comparar</button>
+          <small><b>Muestra:</b> ${exam.sample || "-"}</small><br>
+          <small><b>Entrega:</b> ${exam.time || "-"}</small>
+
+          <div class="acciones">
+            <button class="ver-detalle" data-id="${exam.id}">
+              Ver detalles
+            </button>
+
+            <button class="comparar-examen ${seleccionado}" data-id="${exam.id}">
+              Comparar
+            </button>
           </div>
         </div>
       `;
 
-      catalogo.appendChild(card);
-    });
-
-    activarEventos();
-  }
-
-  function activarEventos() {
-    document.querySelectorAll(".ver-detalle").forEach(btn => {
-      btn.onclick = () => {
-        const ex = exams.find(e => e.id == btn.dataset.id);
-        modalBody.innerHTML = `
-          <h3>${ex.name}</h3>
-          <p>${ex.desc}</p>
-          <ul>
-            <li><b>Muestra:</b> ${ex.sample}</li>
-            <li><b>Entrega:</b> ${ex.time}</li>
-            <li><b>Categoría:</b> ${ex.category}</li>
-          </ul>
-        `;
-        modalDetalle.style.display = "flex";
-      };
-    });
-
-    document.querySelectorAll(".comparar-examen").forEach(btn => {
-      btn.onclick = () => {
-        const ex = exams.find(e => e.id == btn.dataset.id);
-
-        if (compararSeleccion.find(e => e.id === ex.id)) return;
-
-        if (compararSeleccion.length >= 2) {
-          alert("Solo puedes comparar 2 exámenes");
-          return;
+            catalogo.appendChild(card);
+          });
         }
 
-        compararSeleccion.push(ex);
+        /* =========================
+     EVENTOS CATALOGO
+  ========================== */
 
-        if (compararSeleccion.length === 2) {
-          mostrarComparacion();
+        catalogo.addEventListener("click", (e) => {
+          const boton = e.target.closest("button");
+          if (!boton) return;
+
+          const id = boton.dataset.id;
+          if (!id) return;
+
+          const examen = exams.find((ex) => ex.id == id);
+          if (!examen) return;
+
+          /* ===== VER DETALLE ===== */
+          if (boton.classList.contains("ver-detalle")) {
+            modalBody.innerHTML = `
+      <h2>${examen.name}</h2>
+      <p>${examen.desc}</p>
+      <p><strong>Muestra:</strong> ${examen.sample || "-"}</p>
+      <p><strong>Entrega:</strong> ${examen.time || "-"}</p>
+      <p><strong>Precio:</strong> ${examen.price || "Consultar"}</p>
+    `;
+
+            modal.style.display = "flex";
+          }
+
+          /* ===== COMPARAR ===== */
+          if (boton.classList.contains("comparar-examen")) {
+            const idStr = String(id);
+
+            if (seleccionados.includes(idStr)) {
+              seleccionados = seleccionados.filter((x) => x !== idStr);
+            } else {
+              if (seleccionados.length >= 2) {
+                alert("Solo puedes comparar máximo 2 exámenes.");
+                return;
+              }
+
+              seleccionados.push(idStr);
+            }
+
+            renderExams();
+          }
+        });
+
+        /* =========================
+     MODAL
+  ========================== */
+
+        if (cerrarModal) {
+          cerrarModal.addEventListener("click", () => {
+            modal.style.display = "none";
+          });
         }
-      };
-    });
-  }
 
-  function mostrarComparacion() {
-    compararBody.innerHTML = compararSeleccion.map(ex => `
-      <div>
-        <h4>${ex.name}</h4>
-        <p>${ex.desc}</p>
-        <ul>
-          <li><b>Muestra:</b> ${ex.sample}</li>
-          <li><b>Entrega:</b> ${ex.time}</li>
-          <li><b>Categoría:</b> ${ex.category}</li>
-        </ul>
-      </div>
-    `).join("");
+        window.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.style.display = "none";
+          }
+        });
 
-    modalComparar.style.display = "flex";
-    compararSeleccion = [];
-  }
+        /* =========================
+     FILTROS
+  ========================== */
 
-  document.querySelector(".close-modal").onclick = () =>
-    modalDetalle.style.display = "none";
+        categorias.forEach((li) => {
+          li.addEventListener("click", () => {
+            categorias.forEach((c) => c.classList.remove("active"));
+            li.classList.add("active");
 
-  document.querySelector(".close-comparar").onclick = () =>
-    modalComparar.style.display = "none";
+            categoriaActiva = li.dataset.category || "";
+            filtroTexto = "";
+            buscarInput.value = "";
 
-  window.onclick = e => {
-    if (e.target === modalDetalle) modalDetalle.style.display = "none";
-    if (e.target === modalComparar) modalComparar.style.display = "none";
-  };
-</script>
+            renderExams();
+          });
+        });
 
-<!-- SCRIPT QUE GENERA AUTOMÁTICAMENTE LOS .exam-card-->
+        const filtrados = exams.filter((ex) => {
+          // SOLO mostrar si pertenece exactamente al paquete activo
+          if (!categoriaActiva) return false;
+
+          const perteneceAlPaquete =
+            normalizar(ex.category) === normalizar(categoriaActiva);
+
+          const coincideTexto =
+            normalizar(ex.name).includes(normalizar(filtroTexto)) ||
+            normalizar(ex.desc).includes(normalizar(filtroTexto));
+
+          return perteneceAlPaquete && coincideTexto;
+        });
+
+        buscarInput.addEventListener("input", (e) => {
+          filtroTexto = e.target.value;
+          renderExams();
+        });
+
+        btnLista?.addEventListener("click", () => {
+          catalogo.className = "list-view";
+          btnLista.classList.add("active");
+          btnGrid.classList.remove("active");
+        });
+
+        btnGrid?.addEventListener("click", () => {
+          catalogo.className = "grid-view";
+          btnGrid.classList.add("active");
+          btnLista.classList.remove("active");
+        });
+
+        renderExams();
+      });
+    </script>
+    <!-- Codigo referencia -->
+
+<!-- Script BÚSQUEDA ACTIVA REAL -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("exams-container");
-  if (!container) return;
+  const inputBuscar = document.getElementById("buscar-examen");
+  const catalogo = document.getElementById("catalogo-examenes");
 
-  container.innerHTML = exams.map(exam => `
-    <div class="exam-card"
-      data-id="${exam.id}"
-      data-name="${exam.name}"
-      data-type="${exam.category}"
-      data-desc="${exam.desc}"
-      data-img="${exam.img}"
-      data-price="${exam.price}"
-      data-sample="${exam.sample}"
-      data-time="${exam.time}"
-      data-details="${exam.details}"
-    >
-      <div class="exam-header">
-        <input type="checkbox" class="compare-checkbox">
-        <span class="compare-label">Comparar</span>
-      </div>
+  // Guardamos la BD original
+  const examsDB = [...exams];
 
-      <img src="${exam.img}" alt="${exam.name}" class="exam-img">
+  // Escuchar escritura en tiempo real
+  inputBuscar.addEventListener("input", () => {
+    const texto = inputBuscar.value.toLowerCase().trim();
 
-      <h3 class="exam-title">${exam.name}</h3>
-      <p class="exam-category">${exam.category}</p>
+    // Si está vacío → mostrar todo
+    if (texto === "") {
+      renderExams(examsDB);
+      return;
+    }
 
-      <p class="exam-desc">${exam.desc}</p>
+    // Filtrado real
+    const resultados = examsDB.filter(exam =>
+      exam.name.toLowerCase().includes(texto) ||
+      exam.desc.toLowerCase().includes(texto) ||
+      exam.sample.toLowerCase().includes(texto)
+    );
 
-      <div class="exam-footer">
-        <button class="btn-detail">Ver detalles</button>
-        <span class="exam-price">${exam.price}</span>
-      </div>
-    </div>
-  `).join("");
-});
+    renderExams(resultados);
+  });
 </script>
 
 <script>
@@ -3682,177 +3685,6 @@ document
 );
 
 renderExams(activeCategory.dataset.category);
-</script>
-
-<!-- Script Cuadricula | Lista -->
-<script>
-  const catalogo = document.getElementById("catalogo-examenes");
-  const buscarInput = document.getElementById("buscar-examen");
-  const btnLista = document.getElementById("vista-list");
-  const btnGrid = document.getElementById("vista-grid");
-  const categorias = document.querySelectorAll("#category-list li");
-
-  let categoriaActiva = document.querySelector("#category-list li.active")
-    ?.dataset.category || "";
-
-  let filtroTexto = "";
-
-  const normalizar = txt =>
-    txt.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
-
-  /* Renderizar exámenes */
-  function renderExams() {
-    catalogo.innerHTML = "";
-
-    const filtrados = exams.filter(ex =>
-      normalizar(ex.category) === normalizar(categoriaActiva) &&
-      (
-        normalizar(ex.name).includes(normalizar(filtroTexto)) ||
-        normalizar(ex.desc).includes(normalizar(filtroTexto))
-      )
-    );
-
-    if (filtrados.length === 0) {
-      catalogo.innerHTML = "<p>No hay exámenes disponibles.</p>";
-      return;
-    }
-
-    filtrados.forEach(exam => {
-      const card = document.createElement("div");
-      card.className = "examen-card";
-      card.innerHTML = `
-        <h4>${exam.name}</h4>
-        <p>${exam.desc}</p>
-        <small><b>Muestra:</b> ${exam.sample}</small><br>
-        <small><b>Entrega:</b> ${exam.time}</small>
-      `;
-      catalogo.appendChild(card);
-    });
-  }
-
-  /* Click en categoría */
-  categorias.forEach(li => {
-    li.addEventListener("click", () => {
-      categorias.forEach(c => c.classList.remove("active"));
-      li.classList.add("active");
-
-      categoriaActiva = li.dataset.category;
-      filtroTexto = "";
-      buscarInput.value = "";
-
-      renderExams();
-    });
-  });
-
-  /* Buscador */
-  buscarInput.addEventListener("input", e => {
-    filtroTexto = e.target.value;
-    renderExams();
-  });
-
-  /* Vista lista */
-  btnLista.onclick = () => {
-    catalogo.className = "list-view";
-    btnLista.classList.add("active");
-    btnGrid.classList.remove("active");
-  };
-
-  /* Vista cuadrícula */
-  btnGrid.onclick = () => {
-    catalogo.className = "grid-view";
-    btnGrid.classList.add("active");
-    btnLista.classList.remove("active");
-  };
-
-  /* Render inicial */
-  renderExams();
-
-  function renderExams() {
-  catalogo.innerHTML = "";
-
-  const filtrados = exams.filter(ex =>
-    normalizar(ex.category) === normalizar(categoriaActiva) &&
-    (
-      normalizar(ex.name).includes(normalizar(filtroTexto)) ||
-      normalizar(ex.desc).includes(normalizar(filtroTexto))
-    )
-  );
-
-  if (!filtrados.length) {
-    catalogo.innerHTML = "<p>No hay exámenes disponibles.</p>";
-    return;
-  }
-
-  filtrados.forEach(exam => {
-    const card = document.createElement("div");
-    card.className = "examen-card";
-
-    card.innerHTML = `
-      <img src="${exam.img}" alt="${exam.name}" class="examen-img">
-
-      <div class="examen-body">
-        <h4>${exam.name}</h4>
-        <p>${exam.desc}</p>
-
-        <small><b>Muestra:</b> ${exam.sample}</small><br>
-        <small><b>Entrega:</b> ${exam.time}</small>
-
-        <button class="ver-detalle" data-id="${exam.id}">
-          Ver detalles
-        </button>
-      </div>
-    `;
-
-    catalogo.appendChild(card);
-  });
-
-  activarEventosDetalle();
-}
-
-function activarEventosDetalle() {
-  document.querySelectorAll(".ver-detalle").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const id = btn.dataset.id;
-      const examen = exams.find(e => e.id == id);
-
-      alert(
-        `Examen: ${examen.name}\n` +
-        `Descripción: ${examen.desc}\n` +
-        `Muestra: ${examen.sample}\n` +
-        `Entrega: ${examen.time}`
-      );
-    });
-  });
-}
-</script>
-
-<!-- Script BÚSQUEDA ACTIVA REAL -->
-<script>
-  const inputBuscar = document.getElementById("buscar-examen");
-  const catalogo = document.getElementById("catalogo-examenes");
-
-  // Guardamos la BD original
-  const examsDB = [...exams];
-
-  // Escuchar escritura en tiempo real
-  inputBuscar.addEventListener("input", () => {
-    const texto = inputBuscar.value.toLowerCase().trim();
-
-    // Si está vacío → mostrar todo
-    if (texto === "") {
-      renderExams(examsDB);
-      return;
-    }
-
-    // Filtrado real
-    const resultados = examsDB.filter(exam =>
-      exam.name.toLowerCase().includes(texto) ||
-      exam.desc.toLowerCase().includes(texto) ||
-      exam.sample.toLowerCase().includes(texto)
-    );
-
-    renderExams(resultados);
-  });
 </script>
 
   </body>
