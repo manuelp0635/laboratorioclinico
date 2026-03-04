@@ -1936,1044 +1936,984 @@ Documento confidencial.
 </script>
 
   <!-- Script BD -->
-   <script>
-/* ===================== BASE DE DATOS ===================== */
-const exams = [
-  /* Perfil Tiroideo */
- {
-  id: 1,
-  name: "T3",
-  desc: "Mide la hormona triyodotironina total para valorar la actividad de la glándula tiroides.",
-  category: "Perfil Tiroideo",
-  img: "./assets/images/Examenes/Perfil Tiroideo/T3.png",
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Útil para identificar hipertiroidismo, hipotiroidismo y alteraciones metabólicas."
-},
-{
-  id: 2,
-  name: "T3 libre",
-  desc: "Determina la fracción activa de la hormona T3 que circula libre en la sangre.",
-  category: "Perfil Tiroideo",
-  img: "./assets/images/Examenes/Perfil Tiroideo/T3 libre.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Permite evaluar con mayor precisión el funcionamiento real de la tiroides."
-},
-{
-  id: 3,
-  name: "T4",
-  desc: "Mide la cantidad total de tiroxina producida por la glándula tiroides.",
-  category: "Perfil Tiroideo",
-  img: "./assets/images/Examenes/Perfil Tiroideo/T4.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Apoya el diagnóstico de hipotiroidismo, hipertiroidismo y control de tratamientos."
-},
-{
-  id: 4,
-  name: "T4 Libre",
-  desc: "Evalúa la fracción activa de la hormona T4 no unida a proteínas.",
-  category: "Perfil Tiroideo",
-  img: "./assets/images/Examenes/Perfil Tiroideo/T4 Libre.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Es uno de los indicadores más importantes para valorar la función tiroidea."
-},
-{
-  id: 6,
-  name: "Tiroestimulante (TSH)",
-  desc: "Hormona que regula la producción de T3 y T4 por la glándula tiroides.",
-  category: "Perfil Tiroideo",
-  img: "./assets/images/Examenes/Perfil Tiroideo/Hormona & Tiroestimulante (TSH).png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Examen principal para detectar hipotiroidismo e hipertiroidismo."
-},
-{
-  id: 7,
-  name: "Anti-TPO",
-  desc: "Detecta anticuerpos contra la tiroides relacionados con enfermedades autoinmunes.",
-  category: "Perfil Tiroideo",
-  img: "./assets/images/Examenes/Perfil Tiroideo/Anti-TPO.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Fundamental para diagnosticar tiroiditis autoinmune como Hashimoto."
-},
+    <script>
+      /* ===================== BASE DE DATOS ===================== */
+      const exams = [
+        /* Perfil Tiroideo */
+        {
+          id: 1,
+          name: "T3",
+          desc: "Es un examen de sangre que mide la cantidad de triyodotironina, una hormona producida por la gladula tiroides.",
+          category: "Perfil Tiroideo",
+          img: "./assets/images/Examenes/Perfil Tiroideo/T3.png",
+          /*price: "$25.000",*/
+          sample: "🩸 Sangre venosa",
+          time: "24 - 48 horas",
+          details:
+            "Evalua como esta funcionando la tiroides y ayuda a detectar",
+        },
+        {
+          id: 2,
+          name: "T3 libre",
+          desc: "Examen de laboratorio clínico que mide la fracción libre y activa de la hormona T3 en sangre.",
+          category: "Perfil Tiroideo",
+          img: "./assets/images/Examenes/Perfil Tiroideo/T3 libre.png",
+          /*price: "$25.000",*/
+          sample: "🩸 Sangre venosa",
+          time: "24 - 48 horas",
+          details:
+            "Permite evaluar con mayor precisión el funcionamiento real de la tiroides.",
+        },
+        {
+          id: 3,
+          name: "T4",
+          desc: "Mide la cantidad total de tiroxina producida por la glándula tiroides.",
+          category: "Perfil Tiroideo",
+          img: "./assets/images/Examenes/Perfil Tiroideo/T4.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Apoya el diagnóstico de hipotiroidismo, hipertiroidismo y control de tratamientos.",
+        },
+        {
+          id: 4,
+          name: "T4 Libre",
+          desc: "Evalúa la fracción activa de la hormona T4 no unida a proteínas.",
+          category: "Perfil Tiroideo",
+          img: "./assets/images/Examenes/Perfil Tiroideo/T4 Libre.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Es uno de los indicadores más importantes para valorar la función tiroidea.",
+        },
+        {
+          id: 6,
+          name: "Tiroestimulante (TSH)",
+          desc: "Hormona que regula la producción de T3 y T4 por la glándula tiroides.",
+          category: "Perfil Tiroideo",
+          img: "./assets/images/Examenes/Perfil Tiroideo/Hormona & Tiroestimulante (TSH).png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Examen principal para detectar hipotiroidismo e hipertiroidismo.",
+        },
+        {
+          id: 7,
+          name: "Anti-TPO",
+          desc: "Detecta anticuerpos contra la tiroides relacionados con enfermedades autoinmunes.",
+          category: "Perfil Tiroideo",
+          img: "./assets/images/Examenes/Perfil Tiroideo/Anti-TPO.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Fundamental para diagnosticar tiroiditis autoinmune como Hashimoto.",
+        },
 
-/* Paquete Tumoral */
- {
-  id: 8,
-  name: "CA-125 (Ovario)",
-  desc: "Marcador tumoral utilizado principalmente en la evaluación de cáncer de ovario.",
-  category: "Paquete Tumoral",
-  img: "./assets/images/Examenes/Paquete Tumoral/Ovario.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "48 horas",
-  details: "Útil para diagnóstico y seguimiento de cáncer de ovario."
-},
-{
-  id: 9,
-  name: "CA-15.3 (Mama)",
-  desc: "Marcador tumoral asociado al cáncer de mama.",
-  category: "Paquete Tumoral",
-  img: "./assets/images/Examenes/Paquete Tumoral/Mamas.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "48 horas",
-  details: "Se usa para seguimiento del tratamiento en cáncer de mama."
-},
-{
-  id: 10,
-  name: "CA 19-9 (Páncreas)",
-  desc: "Marcador tumoral relacionado principalmente con cáncer de páncreas.",
-  category: "Paquete Tumoral",
-  img: "./assets/images/Examenes/Paquete Tumoral/Pancreas.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "48 horas",
-  details: "Apoya el diagnóstico y control de tumores pancreáticos."
-},
-{
-  id: 11,
-  name: "CA-72.4 (Estómago)",
-  desc: "Marcador tumoral utilizado en cáncer gástrico.",
-  category: "Paquete Tumoral",
-  img: "./assets/images/Examenes/Paquete Tumoral/Estomago.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "48 horas",
-  details: "Útil en seguimiento de cáncer de estómago."
-},
-{
-  id: 13,
-  name: "CEA (Colon y Pulmón)",
-  desc: "Antígeno carcinoembrionario usado en tumores digestivos y pulmonares.",
-  category: "Paquete Tumoral",
-  img: "./assets/images/Examenes/Paquete Tumoral/Colon y Pulmon.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "48 horas",
-  details: "Marcador para control de cáncer de colon y pulmón."
-},
-{
-  id: 14,
-  name: "PSA y PSA libre (Próstata)",
-  desc: "Marcador específico para evaluación de próstata.",
-  category: "Paquete Tumoral",
-  img: "./assets/images/Examenes/Paquete Tumoral/PSA y PSA Libre.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "48 horas",
-  details: "Útil para detección temprana de cáncer de próstata."
-},
-{
-  id: 15,
-  name: "AFP (Testículos e Hígado)",
-  desc: "Alfafetoproteína usada en tumores hepáticos y testiculares.",
-  category: "Paquete Tumoral",
-  img: "./assets/images/Examenes/Paquete Tumoral/Higado y Testiculos.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "48 horas",
-  details: "Apoya el diagnóstico de cáncer de hígado y testículo."
-},
-{
-  id: 16,
-  name: "HCG (Testículos y Mola)",
-  desc: "Hormona utilizada como marcador tumoral germinal.",
-  category: "Paquete Tumoral",
-  img: "./assets/images/Examenes/Paquete Tumoral/Testiculos y Mola.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "48 horas",
-  details: "Útil en tumores testiculares y enfermedad trofoblástica."
-},
-{
-  id: 17,
-  name: "Tiroglobulina (Tiroides)",
-  desc: "Marcador para seguimiento de cáncer de tiroides.",
-  category: "Paquete Tumoral",
-  img: "./assets/images/Examenes/Paquete Tumoral/Tiroglobulina.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "48 horas",
-  details: "Se utiliza tras cirugía de tiroides para control oncológico."
-},
+        /* Paquete Tumoral */
+        {
+          id: 8,
+          name: "CA-125 (Ovario)",
+          desc: "Marcador tumoral utilizado principalmente en la evaluación de cáncer de ovario.",
+          category: "Paquete Tumoral",
+          img: "./assets/images/Examenes/Paquete Tumoral/Ovario.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "48 horas",
+          details: "Útil para diagnóstico y seguimiento de cáncer de ovario.",
+        },
+        {
+          id: 9,
+          name: "CA-15.3 (Mama)",
+          desc: "Marcador tumoral asociado al cáncer de mama.",
+          category: "Paquete Tumoral",
+          img: "./assets/images/Examenes/Paquete Tumoral/Mamas.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "48 horas",
+          details: "Se usa para seguimiento del tratamiento en cáncer de mama.",
+        },
+        {
+          id: 10,
+          name: "CA 19-9 (Páncreas)",
+          desc: "Marcador tumoral relacionado principalmente con cáncer de páncreas.",
+          category: "Paquete Tumoral",
+          img: "./assets/images/Examenes/Paquete Tumoral/Pancreas.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "48 horas",
+          details: "Apoya el diagnóstico y control de tumores pancreáticos.",
+        },
+        {
+          id: 11,
+          name: "CA-72.4 (Estómago)",
+          desc: "Marcador tumoral utilizado en cáncer gástrico.",
+          category: "Paquete Tumoral",
+          img: "./assets/images/Examenes/Paquete Tumoral/Estomago.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "48 horas",
+          details: "Útil en seguimiento de cáncer de estómago.",
+        },
+        {
+          id: 13,
+          name: "CEA (Colon y Pulmón)",
+          desc: "Antígeno carcinoembrionario usado en tumores digestivos y pulmonares.",
+          category: "Paquete Tumoral",
+          img: "./assets/images/Examenes/Paquete Tumoral/Colon y Pulmon.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "48 horas",
+          details: "Marcador para control de cáncer de colon y pulmón.",
+        },
+        {
+          id: 14,
+          name: "PSA y PSA libre (Próstata)",
+          desc: "Marcador específico para evaluación de próstata.",
+          category: "Paquete Tumoral",
+          img: "./assets/images/Examenes/Paquete Tumoral/PSA y PSA Libre.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "48 horas",
+          details: "Útil para detección temprana de cáncer de próstata.",
+        },
+        {
+          id: 15,
+          name: "AFP (Testículos e Hígado)",
+          desc: "Alfafetoproteína usada en tumores hepáticos y testiculares.",
+          category: "Paquete Tumoral",
+          img: "./assets/images/Examenes/Paquete Tumoral/Higado y Testiculos.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "48 horas",
+          details: "Apoya el diagnóstico de cáncer de hígado y testículo.",
+        },
+        {
+          id: 16,
+          name: "HCG (Testículos y Mola)",
+          desc: "Hormona utilizada como marcador tumoral germinal.",
+          category: "Paquete Tumoral",
+          img: "./assets/images/Examenes/Paquete Tumoral/Testiculos y Mola.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "48 horas",
+          details: "Útil en tumores testiculares y enfermedad trofoblástica.",
+        },
+        {
+          id: 17,
+          name: "Tiroglobulina (Tiroides)",
+          desc: "Marcador para seguimiento de cáncer de tiroides.",
+          category: "Paquete Tumoral",
+          img: "./assets/images/Examenes/Paquete Tumoral/Tiroglobulina.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "48 horas",
+          details:
+            "Se utiliza tras cirugía de tiroides para control oncológico.",
+        },
 
-/* Paquete Diabetes */
-  {
-  id: 18,
-  name: "Glucosa",
-  desc: "Mide la cantidad de glucosa presente en la sangre en ayunas.",
-  category: "Paquete Diabetes",
-  img: "./assets/images/Examenes/Paquete Diabetes/Glucosa.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Prueba inicial para detección y control de diabetes."
-},
-{
-  id: 19,
-  name: "Hemoglobina",
-  desc: "Evalúa la concentración de hemoglobina para detectar anemia o alteraciones sanguíneas.",
-  category: "Paquete Diabetes",
-  img: "./assets/images/Examenes/Paquete Diabetes/Hemoglobina.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Complementa la valoración integral del paciente diabético."
-},
-{
-  id: 20,
-  name: "Glicosilada (HbA1c)",
-  desc: "Refleja el promedio de glucosa en sangre durante los últimos 3 meses.",
-  category: "Paquete Diabetes",
-  img: "./assets/images/Examenes/Paquete Diabetes/Glicosilada.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Examen clave para seguimiento y control de diabetes."
-},
-{
-  id: 21,
-  name: "Insulina",
-  desc: "Mide el nivel de insulina producido por el páncreas.",
-  category: "Paquete Diabetes",
-  img: "./assets/images/Examenes/Paquete Diabetes/Insulina.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Permite evaluar resistencia a la insulina."
-},
-{
-  id: 22,
-  name: "Microalbuminuria",
-  desc: "Detecta pequeñas cantidades de albúmina en la orina.",
-  category: "Paquete Diabetes",
-  img: "./assets/images/Examenes/Paquete Diabetes/Microalbuminuria.png",
-  /*price: "$25.000",*/
-  sample: "Orina",
-  time: "24 horas",
-  details: "Identifica daño renal temprano por diabetes."
-},
-  /* Examenes de Laboratorio */
-  {
-  id: 23,
-  name: "Perfil Hemático",
-  desc: "Conjunto de pruebas que evalúan los componentes celulares de la sangre.",
-  category: "Examenes de Laboratorio",
-  img: "./assets/images/Examenes/Examenes de Laboratorio/Perfil Hematico.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Permite detectar anemia, infecciones y alteraciones sanguíneas."
-},
-{
-  id: 24,
-  name: "Hemograma",
-  desc: "Analiza glóbulos rojos, blancos y plaquetas.",
-  category: "Examenes de Laboratorio",
-  img: "./assets/images/Examenes/Examenes de Laboratorio/Hemograma.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Útil para diagnosticar anemias, infecciones y trastornos de coagulación."
-},
-{
-  id: 25,
-  name: "Hierro",
-  desc: "Mide la cantidad de hierro circulante en la sangre.",
-  category: "Examenes de Laboratorio",
-  img: "./assets/images/Examenes/Examenes de Laboratorio/Hierro.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Ayuda a identificar deficiencia o sobrecarga de hierro."
-},
-{
-  id: 26,
-  name: "Ferritina",
-  desc: "Evalúa las reservas de hierro almacenadas en el cuerpo.",
-  category: "Examenes de Laboratorio",
-  img: "./assets/images/Examenes/Examenes de Laboratorio/Ferritina.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Examen clave para confirmar anemia ferropénica."
-},
-{
-  id: 27,
-  name: "Transferina",
-  desc: "Proteína encargada de transportar el hierro en la sangre.",
-  category: "Examenes de Laboratorio",
-  img: "./assets/images/Examenes/Examenes de Laboratorio/Transferina.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Complementa el estudio de anemias y metabolismo del hierro."
-},
+        /* Paquete Diabetes */
+        {
+          id: 18,
+          name: "Glucosa",
+          desc: "Mide la cantidad de glucosa presente en la sangre en ayunas.",
+          category: "Paquete Diabetes",
+          img: "./assets/images/Examenes/Paquete Diabetes/Glucosa.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Prueba inicial para detección y control de diabetes.",
+        },
+        {
+          id: 19,
+          name: "Hemoglobina",
+          desc: "Evalúa la concentración de hemoglobina para detectar anemia o alteraciones sanguíneas.",
+          category: "Paquete Diabetes",
+          img: "./assets/images/Examenes/Paquete Diabetes/Hemoglobina.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Complementa la valoración integral del paciente diabético.",
+        },
+        {
+          id: 20,
+          name: "Glicosilada (HbA1c)",
+          desc: "Refleja el promedio de glucosa en sangre durante los últimos 3 meses.",
+          category: "Paquete Diabetes",
+          img: "./assets/images/Examenes/Paquete Diabetes/Glicosilada.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Examen clave para seguimiento y control de diabetes.",
+        },
+        {
+          id: 21,
+          name: "Insulina",
+          desc: "Mide el nivel de insulina producido por el páncreas.",
+          category: "Paquete Diabetes",
+          img: "./assets/images/Examenes/Paquete Diabetes/Insulina.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Permite evaluar resistencia a la insulina.",
+        },
+        {
+          id: 22,
+          name: "Microalbuminuria",
+          desc: "Detecta pequeñas cantidades de albúmina en la orina.",
+          category: "Paquete Diabetes",
+          img: "./assets/images/Examenes/Paquete Diabetes/Microalbuminuria.png",
+          /*price: "$25.000",*/
+          sample: "Orina",
+          time: "24 horas",
+          details: "Identifica daño renal temprano por diabetes.",
+        },
+        /* Examenes de Laboratorio */
+        {
+          id: 23,
+          name: "Perfil Hemático",
+          desc: "Conjunto de pruebas que evalúan los componentes celulares de la sangre.",
+          category: "Examenes de Laboratorio",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/Perfil Hematico.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Permite detectar anemia, infecciones y alteraciones sanguíneas.",
+        },
+        {
+          id: 24,
+          name: "Hemograma",
+          desc: "Analiza glóbulos rojos, blancos y plaquetas.",
+          category: "Examenes de Laboratorio",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/Hemograma.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Útil para diagnosticar anemias, infecciones y trastornos de coagulación.",
+        },
+        {
+          id: 25,
+          name: "Hierro",
+          desc: "Mide la cantidad de hierro circulante en la sangre.",
+          category: "Examenes de Laboratorio",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/Hierro.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Ayuda a identificar deficiencia o sobrecarga de hierro.",
+        },
+        {
+          id: 26,
+          name: "Ferritina",
+          desc: "Evalúa las reservas de hierro almacenadas en el cuerpo.",
+          category: "Examenes de Laboratorio",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/Ferritina.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Examen clave para confirmar anemia ferropénica.",
+        },
+        {
+          id: 27,
+          name: "Transferina",
+          desc: "Proteína encargada de transportar el hierro en la sangre.",
+          category: "Examenes de Laboratorio",
+          img: "./assets/images/Examenes/Examenes de Laboratorio/Transferina.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Complementa el estudio de anemias y metabolismo del hierro.",
+        },
 
-  /* Salud de la mujer */
-{
-  id: 29,
-  name: "Citología en capa fina",
-  desc: "Método más preciso para evaluar células del cuello uterino.",
-  category: "Salud de la mujer",
-  img: "./assets/images/Examenes/Salud de la Mujer/Citologia en capa fina.png",
-  /*price: "$25.000",*/
-  sample: "Secreción cervical",
-  time: "24 horas",
-  details: "Mejora la calidad del diagnóstico citológico."
-},
-{
-  id: 30,
-  name: "Frotis vaginal",
-  desc: "Estudio microscópico de secreción vaginal.",
-  category: "Salud de la mujer",
-  img: "./assets/images/Examenes/Salud de la Mujer/Frotis vaginal.png",
-  /*price: "$25.000",*/
-  sample: "Secreción vaginal",
-  time: "24 horas",
-  details: "Detecta infecciones como hongos o bacterias."
-},
-{
-  id: 31,
-  name: "VPH",
-  desc: "Prueba para detectar el Virus del Papiloma Humano.",
-  category: "Salud de la mujer",
-  img: "./assets/images/Examenes/Salud de la Mujer/VPH.png",
-  /*price: "$25.000",*/
-  sample: "Secreción cervical",
-  time: "24 horas",
-  details: "Identifica tipos de VPH de alto riesgo."
-},
-{
-  id: 32,
-  name: "FSH",
-  desc: "Hormona que regula el ciclo menstrual y la ovulación.",
-  category: "Salud de la mujer",
-  img: "./assets/images/Examenes/Salud de la Mujer/FSH.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Evalúa fertilidad y función ovárica."
-},
-{
-  id: 33,
-  name: "LH",
-  desc: "Hormona luteinizante relacionada con la ovulación.",
-  category: "Salud de la mujer",
-  img: "./assets/images/Examenes/Salud de la Mujer/LI-H.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Útil en estudios de fertilidad."
-},
-{
-  id: 34,
-  name: "Prolactina",
-  desc: "Hormona relacionada con producción de leche materna.",
-  category: "Salud de la mujer",
-  img: "./assets/images/Examenes/Salud de la Mujer/Prolactina.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Su aumento puede alterar el ciclo menstrual."
-},
-{
-  id: 35,
-  name: "Estradiol",
-  desc: "Principal hormona femenina producida por los ovarios.",
-  category: "Salud de la mujer",
-  img: "./assets/images/Examenes/Salud de la Mujer/Estradiol.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Evalúa función ovárica y menopausia."
-},
-{
-  id: 36,
-  name: "Progesterona",
-  desc: "Hormona clave en el ciclo menstrual y embarazo.",
-  category: "Salud de la mujer",
-  img: "./assets/images/Examenes/Salud de la Mujer/",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Confirma ovulación y apoyo a la gestación."
-},
+        /* Salud de la mujer */
+        {
+          id: 29,
+          name: "Citología en capa fina",
+          desc: "Método más preciso para evaluar células del cuello uterino.",
+          category: "Salud de la mujer",
+          img: "./assets/images/Examenes/Salud de la Mujer/Citologia en capa fina.png",
+          /*price: "$25.000",*/
+          sample: "Secreción cervical",
+          time: "24 horas",
+          details: "Mejora la calidad del diagnóstico citológico.",
+        },
+        {
+          id: 30,
+          name: "Frotis vaginal",
+          desc: "Estudio microscópico de secreción vaginal.",
+          category: "Salud de la mujer",
+          img: "./assets/images/Examenes/Salud de la Mujer/Frotis vaginal.png",
+          /*price: "$25.000",*/
+          sample: "Secreción vaginal",
+          time: "24 horas",
+          details: "Detecta infecciones como hongos o bacterias.",
+        },
+        {
+          id: 31,
+          name: "VPH",
+          desc: "Prueba para detectar el Virus del Papiloma Humano.",
+          category: "Salud de la mujer",
+          img: "./assets/images/Examenes/Salud de la Mujer/VPH.png",
+          /*price: "$25.000",*/
+          sample: "Secreción cervical",
+          time: "24 horas",
+          details: "Identifica tipos de VPH de alto riesgo.",
+        },
+        {
+          id: 32,
+          name: "FSH",
+          desc: "Hormona que regula el ciclo menstrual y la ovulación.",
+          category: "Salud de la mujer",
+          img: "./assets/images/Examenes/Salud de la Mujer/FSH.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Evalúa fertilidad y función ovárica.",
+        },
+        {
+          id: 33,
+          name: "LH",
+          desc: "Hormona luteinizante relacionada con la ovulación.",
+          category: "Salud de la mujer",
+          img: "./assets/images/Examenes/Salud de la Mujer/LI-H.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Útil en estudios de fertilidad.",
+        },
+        {
+          id: 34,
+          name: "Prolactina",
+          desc: "Hormona relacionada con producción de leche materna.",
+          category: "Salud de la mujer",
+          img: "./assets/images/Examenes/Salud de la Mujer/Prolactina.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Su aumento puede alterar el ciclo menstrual.",
+        },
+        {
+          id: 35,
+          name: "Estradiol",
+          desc: "Principal hormona femenina producida por los ovarios.",
+          category: "Salud de la mujer",
+          img: "./assets/images/Examenes/Salud de la Mujer/Estradiol.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Evalúa función ovárica y menopausia.",
+        },
+        {
+          id: 36,
+          name: "Progesterona",
+          desc: "Hormona clave en el ciclo menstrual y embarazo.",
+          category: "Salud de la mujer",
+          img: "./assets/images/Examenes/Salud de la Mujer/",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Confirma ovulación y apoyo a la gestación.",
+        },
 
-  /* Salud del Hombre */
+        /* Salud del Hombre */
 
-  {
-  id: 37,
-  name: "Testosterona",
-  desc: "Mide el nivel de testosterona, principal hormona masculina.",
-  category: "Salud del Hombre",
-  img: "./assets/images/Examenes/Salud del Hombre/Testosterona.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Útil para evaluar disminución del deseo sexual, fertilidad y fatiga."
-},
-{
-  id: 38,
-  name: "PSA",
-  desc: "Antígeno prostático específico para evaluar la próstata.",
-  category: "Salud del Hombre",
-  img: "./assets/images/Examenes/Salud del Hombre/PSA.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Ayuda en la detección temprana de alteraciones prostáticas."
-},
-{
-  id: 39,
-  name: "Chequeo médico del hombre",
-  desc: "Perfil integral para evaluar el estado general de salud masculina.",
-  category: "Salud del Hombre",
-  img: "./assets/images/Examenes/Salud del Hombre/Chequeo medico del hombre.png",
-  /*price: "$25.000",*/
-  sample: "Sangre y orina",
-  time: "24 horas",
-  details: "Incluye pruebas metabólicas, hormonales y prostáticas."
-},
+        {
+          id: 37,
+          name: "Testosterona",
+          desc: "Mide el nivel de testosterona, principal hormona masculina.",
+          category: "Salud del Hombre",
+          img: "./assets/images/Examenes/Salud del Hombre/Testosterona.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Útil para evaluar disminución del deseo sexual, fertilidad y fatiga.",
+        },
+        {
+          id: 38,
+          name: "PSA",
+          desc: "Antígeno prostático específico para evaluar la próstata.",
+          category: "Salud del Hombre",
+          img: "./assets/images/Examenes/Salud del Hombre/PSA.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Ayuda en la detección temprana de alteraciones prostáticas.",
+        },
+        {
+          id: 39,
+          name: "Chequeo médico del hombre",
+          desc: "Perfil integral para evaluar el estado general de salud masculina.",
+          category: "Salud del Hombre",
+          img: "./assets/images/Examenes/Salud del Hombre/Chequeo medico del hombre.png",
+          /*price: "$25.000",*/
+          sample: "Sangre y orina",
+          time: "24 horas",
+          details: "Incluye pruebas metabólicas, hormonales y prostáticas.",
+        },
 
-    /* Salud Sexual */
+        /* Salud Sexual */
 
-  {
-  id: 40,
-  name: "Panel Pcr 13 patógenos Clamidya",
-  desc: "Urocultivo para detección de infecciones del tracto urinario en hombres.",
-  category: "Salud sexual",
-  img: "./assets/images/Examenes/Salud Sexual/Clamidia.png",
-  /*price: "$25.000",*/
-  sample: "Orina",
-  time: "24 horas",
-  details: "Identifica bacterias asociadas a uretritis."
-},
-{
-  id: 41,
-  name: "Trichomonas vaginales",
-  desc: "Urocultivo para detección de infecciones urinarias en mujeres.",
-  category: "Salud sexual",
-  img: "./assets/images/Examenes/Salud Sexual/Trichomonas vaginales.png",
-  /*price: "$25.000",*/
-  sample: "Orina",
-  time: "24 horas",
-  details: "Apoya el diagnóstico de infecciones urinarias."
-},
-{
-  id: 42,
-  name: "Ureplasm  parvun",
-  desc: "Prueba para detectar infección por Chlamydia trachomatis.",
-  category: "Salud sexual",
-  img: "./assets/images/Examenes/Salud Sexual/Ureplasm  parvun.png",
-  /*price: "$25.000",*/
-  sample: "Secreción genital u orina",
-  time: "24 horas",
-  details: "Infección de transmisión sexual frecuente y tratable."
-},
-{
-  id: 43,
-  name: "Mycoplasma genitalium",
-  desc: "Detecta la bacteria Neisseria gonorrhoeae.",
-  category: "Salud sexual",
-  img: "./assets/images/Examenes/Salud Sexual/Mycoplasma genitalium.png",
-  /*price: "$25.000",*/
-  sample: "Secreción genital u orina",
-  time: "24 horas",
-  details: "Causa uretritis y flujo genital."
-},
-{
-  id: 44,
-  name: "Mycoplasma hominis",
-  desc: "Prueba para identificar virus herpes simple tipo 1 y 2.",
-  category: "Salud sexual",
-  img: "./assets/images/Examenes/Salud Sexual/Mycoplasma hominis.png",
-  /*price: "$25.000",*/
-  sample: "Sangre o muestra de lesión",
-  time: "24 horas",
-  details: "Útil ante presencia de úlceras genitales."
-},
-{
-  id: 45,
-  name: "Ureaplasma Urealyticom",
-  desc: "Detecta el parásito Trichomonas vaginalis.",
-  category: "Salud sexual",
-  img: "./assets/images/Examenes/Salud Sexual/Ureaplasma Urealyticom.png",
-  /*price: "$25.000",*/
-  sample: "Secreción vaginal o uretral",
-  time: "24 horas",
-  details: "Causa flujo, ardor e irritación genital."
-},
-{
-  id: 46,
-  name: "Haemophylus ducreyi",
-  desc: "Identifica la bacteria asociada a vaginosis bacteriana.",
-  category: "Salud sexual",
-  img: "./assets/images/Examenes/Salud Sexual/Haemophylus ducreyi.png",
-  /*price: "$25.000",*/
-  sample: "Secreción vaginal",
-  time: "24 horas",
-  details: "Frecuente causa de mal olor vaginal."
-},
-{
-  id: 47,
-  name: "Gardenela Vaginal",
-  desc: "Prueba serológica para detectar Treponema pallidum.",
-  category: "Salud sexual",
-  img: "./assets/images/Examenes/Salud Sexual/Gardenela Vaginal.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Enfermedad de transmisión sexual tratable."
-},
-{
-  id: 75,
-  name: "Candida albicans",
-  desc: "Prueba serológica para detectar Treponema pallidum.",
-  category: "Salud sexual",
-  img: "./assets/images/Examenes/Salud Sexual/Candida albicans.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Enfermedad de transmisión sexual tratable."
-},
-{
-  id: 76,
-  name: "Treponema plidum",
-  desc: "Prueba serológica para detectar Treponema pallidum.",
-  category: "Salud sexual",
-  img: "./assets/images/Examenes/Salud Sexual/Treponema plidum.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Enfermedad de transmisión sexual tratable."
-},
-{
-  id: 77,
-  name: "Herpes simple I",
-  desc: "Prueba serológica para detectar Treponema pallidum.",
-  category: "Salud sexual",
-  img: "./assets/images/Examenes/Salud Sexual/Herpes simple I.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Enfermedad de transmisión sexual tratable."
-},
-{
-  id: 78,
-  name: "Herpes simple II",
-  desc: "Prueba serológica para detectar Treponema pallidum.",
-  category: "Salud sexual",
-  img: "./assets/images/Examenes/Salud Sexual/Herpes simple II.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Enfermedad de transmisión sexual tratable."
-},
-{
-  id: 79,
-  name: "Neiseria gonorrea",
-  desc: "Prueba serológica para detectar Treponema pallidum.",
-  category: "Salud sexual",
-  img: "./assets/images/Examenes/Salud Sexual/Gonorrea.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Enfermedad de transmisión sexual tratable."
-},
+        {
+          id: 40,
+          name: "Panel Pcr 13 patógenos Clamidya",
+          desc: "Urocultivo para detección de infecciones del tracto urinario en hombres.",
+          category: "Salud sexual",
+          img: "./assets/images/Examenes/Salud Sexual/Clamidia.png",
+          /*price: "$25.000",*/
+          sample: "Orina",
+          time: "24 horas",
+          details: "Identifica bacterias asociadas a uretritis.",
+        },
+        {
+          id: 41,
+          name: "Trichomonas vaginales",
+          desc: "Urocultivo para detección de infecciones urinarias en mujeres.",
+          category: "Salud sexual",
+          img: "./assets/images/Examenes/Salud Sexual/Trichomonas vaginales.png",
+          /*price: "$25.000",*/
+          sample: "Orina",
+          time: "24 horas",
+          details: "Apoya el diagnóstico de infecciones urinarias.",
+        },
+        {
+          id: 42,
+          name: "Ureplasm  parvun",
+          desc: "Prueba para detectar infección por Chlamydia trachomatis.",
+          category: "Salud sexual",
+          img: "./assets/images/Examenes/Salud Sexual/Ureplasm  parvun.png",
+          /*price: "$25.000",*/
+          sample: "Secreción genital u orina",
+          time: "24 horas",
+          details: "Infección de transmisión sexual frecuente y tratable.",
+        },
+        {
+          id: 43,
+          name: "Mycoplasma genitalium",
+          desc: "Detecta la bacteria Neisseria gonorrhoeae.",
+          category: "Salud sexual",
+          img: "./assets/images/Examenes/Salud Sexual/Mycoplasma genitalium.png",
+          /*price: "$25.000",*/
+          sample: "Secreción genital u orina",
+          time: "24 horas",
+          details: "Causa uretritis y flujo genital.",
+        },
+        {
+          id: 44,
+          name: "Mycoplasma hominis",
+          desc: "Prueba para identificar virus herpes simple tipo 1 y 2.",
+          category: "Salud sexual",
+          img: "./assets/images/Examenes/Salud Sexual/Mycoplasma hominis.png",
+          /*price: "$25.000",*/
+          sample: "Sangre o muestra de lesión",
+          time: "24 horas",
+          details: "Útil ante presencia de úlceras genitales.",
+        },
+        {
+          id: 45,
+          name: "Ureaplasma Urealyticom",
+          desc: "Detecta el parásito Trichomonas vaginalis.",
+          category: "Salud sexual",
+          img: "./assets/images/Examenes/Salud Sexual/Ureaplasma Urealyticom.png",
+          /*price: "$25.000",*/
+          sample: "Secreción vaginal o uretral",
+          time: "24 horas",
+          details: "Causa flujo, ardor e irritación genital.",
+        },
+        {
+          id: 46,
+          name: "Haemophylus ducreyi",
+          desc: "Identifica la bacteria asociada a vaginosis bacteriana.",
+          category: "Salud sexual",
+          img: "./assets/images/Examenes/Salud Sexual/Haemophylus ducreyi.png",
+          /*price: "$25.000",*/
+          sample: "Secreción vaginal",
+          time: "24 horas",
+          details: "Frecuente causa de mal olor vaginal.",
+        },
+        {
+          id: 47,
+          name: "Gardenela Vaginal",
+          desc: "Prueba serológica para detectar Treponema pallidum.",
+          category: "Salud sexual",
+          img: "./assets/images/Examenes/Salud Sexual/Gardenela Vaginal.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Enfermedad de transmisión sexual tratable.",
+        },
+        {
+          id: 75,
+          name: "Candida albicans",
+          desc: "Prueba serológica para detectar Treponema pallidum.",
+          category: "Salud sexual",
+          img: "./assets/images/Examenes/Salud Sexual/Candida albicans.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Enfermedad de transmisión sexual tratable.",
+        },
+        {
+          id: 76,
+          name: "Treponema plidum",
+          desc: "Prueba serológica para detectar Treponema pallidum.",
+          category: "Salud sexual",
+          img: "./assets/images/Examenes/Salud Sexual/Treponema plidum.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Enfermedad de transmisión sexual tratable.",
+        },
+        {
+          id: 77,
+          name: "Herpes simple I",
+          desc: "Prueba serológica para detectar Treponema pallidum.",
+          category: "Salud sexual",
+          img: "./assets/images/Examenes/Salud Sexual/Herpes simple I.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Enfermedad de transmisión sexual tratable.",
+        },
+        {
+          id: 78,
+          name: "Herpes simple II",
+          desc: "Prueba serológica para detectar Treponema pallidum.",
+          category: "Salud sexual",
+          img: "./assets/images/Examenes/Salud Sexual/Herpes simple II.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Enfermedad de transmisión sexual tratable.",
+        },
+        {
+          id: 79,
+          name: "Neiseria gonorrea",
+          desc: "Prueba serológica para detectar Treponema pallidum.",
+          category: "Salud sexual",
+          img: "./assets/images/Examenes/Salud Sexual/Gonorrea.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Enfermedad de transmisión sexual tratable.",
+        },
 
-  /* Genetica */
+        /* Genetica */
 
- {
-  id: 48,
-  name: "Pruebas de paternidad",
-  desc: "Análisis de ADN para determinar relación biológica entre padre e hijo.",
-  category: "Genética",
-  img: "./assets/images/Examenes/Genetica/paternidad.png",
-  /*price: "$25.000",*/
-  sample: "Sangre o hisopado bucal",
-  time: "24 horas",
-  details: "Comparación de marcadores genéticos con alta precisión."
-},
-{
-  id: 49,
-  name: "Cariotipo de bandeo [G, R y C]",
-  desc: "Estudio cromosómico para detectar alteraciones numéricas o estructurales.",
-  category: "Genética",
-  img: "./assets/images/Examenes/Genetica/careotipo de bandeo.png",
- /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Útil en infertilidad, abortos recurrentes y síndromes genéticos."
-},
-{
-  id: 50,
-  name: "PCR en tiempo real",
-  desc: "Técnica molecular para detectar material genético específico.",
-  category: "Genética",
-  img: "./assets/images/Examenes/Genetica/PCR en tiempo real.png",
-  /*price: "$25.000",*/
-  sample: "Sangre, hisopado u otras muestras",
-  time: "24 horas",
-  details: "Permite diagnóstico de infecciones y estudios genéticos."
-},
+        {
+          id: 48,
+          name: "Pruebas de paternidad",
+          desc: "Análisis de ADN para determinar relación biológica entre padre e hijo.",
+          category: "Genética",
+          img: "./assets/images/Examenes/Genetica/paternidad.png",
+          /*price: "$25.000",*/
+          sample: "Sangre o hisopado bucal",
+          time: "24 horas",
+          details: "Comparación de marcadores genéticos con alta precisión.",
+        },
+        {
+          id: 49,
+          name: "Cariotipo de bandeo [G, R y C]",
+          desc: "Estudio cromosómico para detectar alteraciones numéricas o estructurales.",
+          category: "Genética",
+          img: "./assets/images/Examenes/Genetica/careotipo de bandeo.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Útil en infertilidad, abortos recurrentes y síndromes genéticos.",
+        },
+        {
+          id: 50,
+          name: "PCR en tiempo real",
+          desc: "Técnica molecular para detectar material genético específico.",
+          category: "Genética",
+          img: "./assets/images/Examenes/Genetica/PCR en tiempo real.png",
+          /*price: "$25.000",*/
+          sample: "Sangre, hisopado u otras muestras",
+          time: "24 horas",
+          details: "Permite diagnóstico de infecciones y estudios genéticos.",
+        },
 
-  /* Salud Ocupacional */
+        /* Salud Ocupacional */
 
- {
-  id: 51,
-  name: "Examen de ingreso",
-  desc: "Valoración médica para determinar aptitud antes de iniciar labores.",
-  category: "Salud Ocupacional",
-  img: "./assets/images/Examenes/Salud Ocupacional/Examen de ingreso.png",
-  /*price: "$25.000",*/
-  sample: "Según protocolo",
-  time: "24 horas",
-  details: "Incluye evaluación clínica acorde al cargo."
-},
-{
-  id: 52,
-  name: "Examen preingreso",
-  desc: "Evaluación del estado de salud previo a contratación.",
-  category: "Salud Ocupacional",
-  img: "./assets/images/Examenes/Salud Ocupacional/Examen preingreso.png",
-  /*price: "$25.000",*/
-  sample: "Según protocolo",
-  time: "24 horas",
-  details: "Determina condiciones para el desempeño laboral."
-},
-{
-  id: 53,
-  name: "Examen periódico",
-  desc: "Control de salud para trabajadores activos.",
-  category: "Salud Ocupacional",
-  img: "./assets/images/Examenes/Salud Ocupacional/Examen periodico.png",
-  /*price: "$25.000",*/
-  sample: "Según protocolo",
-  time: "24 horas",
-  details: "Monitorea efectos del trabajo en la salud."
-},
-{
-  id: 54,
-  name: "Examen de retiro",
-  desc: "Valoración al finalizar la relación laboral.",
-  category: "Salud Ocupacional",
-  img: "./assets/images/Examenes/Salud Ocupacional/Examen de retiro.png",
-  /*price: "$25.000",*/
-  sample: "Según protocolo",
-  time: "24 horas",
-  details: "Establece condiciones de salud al egreso."
-},
-{
-  id: 55,
-  name: "Examen post incapacidad y seguimientos",
-  desc: "Evaluación para reintegro laboral tras incapacidad.",
-  category: "Salud Ocupacional",
-  img: "./assets/images/Examenes/Salud Ocupacional/Examen post incapacidad.png",
-  /*price: "$25.000",*/
-  sample: "Según protocolo",
-  time: "24 horas",
-  details: "Define recomendaciones y restricciones."
-},
-{
-  id: 56,
-  name: "Toma de muestras",
-  desc: "Servicio de recolección de muestras biológicas.",
-  category: "Salud Ocupacional",
-  img: "./assets/images/Examenes/Salud Ocupacional/Toma de muestras.png",
-  /*price: "$25.000",*/
-  sample: "Sangre, orina u otras",
-  time: "24 horas",
-  details: "Proceso técnico para análisis de laboratorio."
-},
-{
-  id: 57,
-  name: "Manipulación de alimentos",
-  desc: "Certificación médica para personal manipulador.",
-  category: "Salud Ocupacional",
-  img: "./assets/images/Examenes/Salud Ocupacional/Manipulacion de alimentos.png",
-  /*price: "$25.000",*/
-  sample: "Según protocolo",
-  time: "24 horas",
-  details: "Cumple normativa sanitaria vigente."
-},
-{
-  id: 73,
-  name: "Curso trabajo en altura para mayores de 40 años",
-  desc: "Certificación médica para personal manipulador.",
-  category: "Salud Ocupacional",
-  img: "./assets/images/Examenes/Salud Ocupacional/Curso trabajo mayores 40 años.png",
-  /*price: "$25.000",*/
-  sample: "Según protocolo",
-  time: "24 horas",
-  details: "Cumple normativa sanitaria vigente."
-},
-{
-  id: 74,
-  name: "Curso trabajo en altura para menores de 40 años",
-  desc: "Certificación médica para personal manipulador.",
-  category: "Salud Ocupacional",
-  img: "./assets/images/Examenes/Salud Ocupacional/Curso trabajo menores 40 años.png",
-  /*price: "$25.000",*/
-  sample: "Según protocolo",
-  time: "24 horas",
-  details: "Cumple normativa sanitaria vigente."
-},
-  
-  /* Prueba de fertilidad */
+        {
+          id: 51,
+          name: "Examen de ingreso",
+          desc: "Valoración médica para determinar aptitud antes de iniciar labores.",
+          category: "Salud Ocupacional",
+          img: "./assets/images/Examenes/Salud Ocupacional/Examen de ingreso.png",
+          /*price: "$25.000",*/
+          sample: "Según protocolo",
+          time: "24 horas",
+          details: "Incluye evaluación clínica acorde al cargo.",
+        },
+        {
+          id: 52,
+          name: "Examen preingreso",
+          desc: "Evaluación del estado de salud previo a contratación.",
+          category: "Salud Ocupacional",
+          img: "./assets/images/Examenes/Salud Ocupacional/Examen preingreso.png",
+          /*price: "$25.000",*/
+          sample: "Según protocolo",
+          time: "24 horas",
+          details: "Determina condiciones para el desempeño laboral.",
+        },
+        {
+          id: 53,
+          name: "Examen periódico",
+          desc: "Control de salud para trabajadores activos.",
+          category: "Salud Ocupacional",
+          img: "./assets/images/Examenes/Salud Ocupacional/Examen periodico.png",
+          /*price: "$25.000",*/
+          sample: "Según protocolo",
+          time: "24 horas",
+          details: "Monitorea efectos del trabajo en la salud.",
+        },
+        {
+          id: 54,
+          name: "Examen de retiro",
+          desc: "Valoración al finalizar la relación laboral.",
+          category: "Salud Ocupacional",
+          img: "./assets/images/Examenes/Salud Ocupacional/Examen de retiro.png",
+          /*price: "$25.000",*/
+          sample: "Según protocolo",
+          time: "24 horas",
+          details: "Establece condiciones de salud al egreso.",
+        },
+        {
+          id: 55,
+          name: "Examen post incapacidad y seguimientos",
+          desc: "Evaluación para reintegro laboral tras incapacidad.",
+          category: "Salud Ocupacional",
+          img: "./assets/images/Examenes/Salud Ocupacional/Examen post incapacidad.png",
+          /*price: "$25.000",*/
+          sample: "Según protocolo",
+          time: "24 horas",
+          details: "Define recomendaciones y restricciones.",
+        },
+        {
+          id: 56,
+          name: "Toma de muestras",
+          desc: "Servicio de recolección de muestras biológicas.",
+          category: "Salud Ocupacional",
+          img: "./assets/images/Examenes/Salud Ocupacional/Toma de muestras.png",
+          /*price: "$25.000",*/
+          sample: "Sangre, orina u otras",
+          time: "24 horas",
+          details: "Proceso técnico para análisis de laboratorio.",
+        },
+        {
+          id: 57,
+          name: "Manipulación de alimentos",
+          desc: "Certificación médica para personal manipulador.",
+          category: "Salud Ocupacional",
+          img: "./assets/images/Examenes/Salud Ocupacional/Manipulacion de alimentos.png",
+          /*price: "$25.000",*/
+          sample: "Según protocolo",
+          time: "24 horas",
+          details: "Cumple normativa sanitaria vigente.",
+        },
+        {
+          id: 73,
+          name: "Curso trabajo en altura para mayores de 40 años",
+          desc: "Certificación médica para personal manipulador.",
+          category: "Salud Ocupacional",
+          img: "./assets/images/Examenes/Salud Ocupacional/Curso trabajo mayores 40 años.png",
+          /*price: "$25.000",*/
+          sample: "Según protocolo",
+          time: "24 horas",
+          details: "Cumple normativa sanitaria vigente.",
+        },
+        {
+          id: 74,
+          name: "Curso trabajo en altura para menores de 40 años",
+          desc: "Certificación médica para personal manipulador.",
+          category: "Salud Ocupacional",
+          img: "./assets/images/Examenes/Salud Ocupacional/Curso trabajo menores 40 años.png",
+          /*price: "$25.000",*/
+          sample: "Según protocolo",
+          time: "24 horas",
+          details: "Cumple normativa sanitaria vigente.",
+        },
 
-   {
-  id: 58,
-  name: "Espermograma basico <b>Hombre</b>",
-  desc: "Mide los niveles de estradiol, una de las principales hormonas femeninas responsables del desarrollo ovárico y la ovulación.",
-  category: "Prueba de Fertilidad",
-  img: "./assets/images/Examenes/Prueba de Fertilidad/Espermograma hombre.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Permite evaluar la función ovárica y determinar el momento adecuado del ciclo menstrual."
-},
-{
-  id: 59,
-  name: "Testosterona <b>Hombre</b>",
-  desc: "Evalúa los niveles de prolactina, hormona relacionada con la producción de leche y la regulación del ciclo menstrual.",
-  category: "Prueba de Fertilidad",
-  img: "./assets/images/Examenes/Prueba de Fertilidad/Testosterona hombre.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Niveles elevados pueden afectar la ovulación y dificultar la fertilidad."
-},
-{
-  id: 60,
-  name: "Careotipo [G,Q] <b>Hombre</b>",
-  desc: "Mide la hormona progesterona para confirmar si ocurrió la ovulación y evaluar la fase lútea del ciclo.",
-  category: "Prueba de Fertilidad",
-  img: "./assets/images/Examenes/Prueba de Fertilidad/Careotipo G, Q hombre.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Es clave para determinar la capacidad del útero para mantener un embarazo."
-},
-{
-  id: 61,
-  name: "FSH <b>Hombre</b>",
-  desc: "Determina la reserva ovárica midiendo la cantidad de óvulos disponibles en los ovarios.",
-  category: "Prueba de Fertilidad",
-  img: "./assets/images/Examenes/Prueba de Fertilidad/FSH hombre.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Ayuda a predecir la respuesta a tratamientos de fertilidad."
-},
-{
-  id: 62,
-  name: "LH <b>Hombre</b>",
-  desc: "Analiza la calidad del semen evaluando cantidad, movilidad y forma de los espermatozoides.",
-  category: "Prueba de Fertilidad",
-  img: "./assets/images/Examenes/Prueba de Fertilidad/LH hombre.png",
-  /*price: "$25.000",*/
-  sample: "Semen",
-  time: "24 horas",
-  details: "Permite detectar posibles causas de infertilidad masculina."
-},
-{
-  id: 63,
-  name: "LH <b>Mujer</b>",
-  desc: "Mide la hormona responsable de desencadenar la ovulación en la mujer.",
-  category: "Prueba de Fertilidad",
-  img: "./assets/images/Examenes/Prueba de Fertilidad/LH mujer.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Se utiliza para identificar el momento fértil del ciclo."
-},
-{
-  id: 64,
-  name: "FSH <b>Mujer</b>",
-  desc: "Evalúa la hormona encargada de estimular el crecimiento de los folículos ováricos.",
-  category: "Prueba de Fertilidad",
-  img: "./assets/images/Examenes/Prueba de Fertilidad/FSH mujer.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Es fundamental para valorar la reserva ovárica y la función reproductiva."
-},
-{
-  id: 80,
-  name: "Hormona Antimulleriana <b>Mujer</b>",
-  desc: "Evalúa la hormona encargada de estimular el crecimiento de los folículos ováricos.",
-  category: "Prueba de Fertilidad",
-  img: "./assets/images/Examenes/Prueba de Fertilidad/Hormona antimulleriana mujer.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Es fundamental para valorar la reserva ovárica y la función reproductiva."
-},
-{
-  id: 81,
-  name: "Progesterona <b>Mujer</b>",
-  desc: "Evalúa la hormona encargada de estimular el crecimiento de los folículos ováricos.",
-  category: "Prueba de Fertilidad",
-  img: "./assets/images/Examenes/Prueba de Fertilidad/Progesterona mujer.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Es fundamental para valorar la reserva ovárica y la función reproductiva."
-},
-{
-  id: 82,
-  name: "Prolactina <b>Mujer</b>",
-  desc: "Evalúa la hormona encargada de estimular el crecimiento de los folículos ováricos.",
-  category: "Prueba de Fertilidad",
-  img: "./assets/images/Examenes/Prueba de Fertilidad/Prolactina mujer.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Es fundamental para valorar la reserva ovárica y la función reproductiva."
-},
-{
-  id: 83,
-  name: "Estradiol <b>Mujer</b>",
-  desc: "Evalúa la hormona encargada de estimular el crecimiento de los folículos ováricos.",
-  category: "Prueba de Fertilidad",
-  img: "./assets/images/Examenes/Prueba de Fertilidad/Estradiol mujer.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Es fundamental para valorar la reserva ovárica y la función reproductiva."
-},
+        /* Prueba de fertilidad */
 
-  /* Paquete Rutinario */
+        {
+          id: 58,
+          name: "Espermograma basico <b>Hombre</b>",
+          desc: "Mide los niveles de estradiol, una de las principales hormonas femeninas responsables del desarrollo ovárico y la ovulación.",
+          category: "Prueba de Fertilidad",
+          img: "./assets/images/Examenes/Prueba de Fertilidad/Espermograma hombre.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Permite evaluar la función ovárica y determinar el momento adecuado del ciclo menstrual.",
+        },
+        {
+          id: 59,
+          name: "Testosterona <b>Hombre</b>",
+          desc: "Evalúa los niveles de prolactina, hormona relacionada con la producción de leche y la regulación del ciclo menstrual.",
+          category: "Prueba de Fertilidad",
+          img: "./assets/images/Examenes/Prueba de Fertilidad/Testosterona hombre.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Niveles elevados pueden afectar la ovulación y dificultar la fertilidad.",
+        },
+        {
+          id: 60,
+          name: "Careotipo [G,Q] <b>Hombre</b>",
+          desc: "Mide la hormona progesterona para confirmar si ocurrió la ovulación y evaluar la fase lútea del ciclo.",
+          category: "Prueba de Fertilidad",
+          img: "./assets/images/Examenes/Prueba de Fertilidad/Careotipo G, Q hombre.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Es clave para determinar la capacidad del útero para mantener un embarazo.",
+        },
+        {
+          id: 61,
+          name: "FSH <b>Hombre</b>",
+          desc: "Determina la reserva ovárica midiendo la cantidad de óvulos disponibles en los ovarios.",
+          category: "Prueba de Fertilidad",
+          img: "./assets/images/Examenes/Prueba de Fertilidad/FSH hombre.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Ayuda a predecir la respuesta a tratamientos de fertilidad.",
+        },
+        {
+          id: 62,
+          name: "LH <b>Hombre</b>",
+          desc: "Analiza la calidad del semen evaluando cantidad, movilidad y forma de los espermatozoides.",
+          category: "Prueba de Fertilidad",
+          img: "./assets/images/Examenes/Prueba de Fertilidad/LH hombre.png",
+          /*price: "$25.000",*/
+          sample: "Semen",
+          time: "24 horas",
+          details:
+            "Permite detectar posibles causas de infertilidad masculina.",
+        },
+        {
+          id: 63,
+          name: "LH <b>Mujer</b>",
+          desc: "Mide la hormona responsable de desencadenar la ovulación en la mujer.",
+          category: "Prueba de Fertilidad",
+          img: "./assets/images/Examenes/Prueba de Fertilidad/LH mujer.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details: "Se utiliza para identificar el momento fértil del ciclo.",
+        },
+        {
+          id: 64,
+          name: "FSH <b>Mujer</b>",
+          desc: "Evalúa la hormona encargada de estimular el crecimiento de los folículos ováricos.",
+          category: "Prueba de Fertilidad",
+          img: "./assets/images/Examenes/Prueba de Fertilidad/FSH mujer.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Es fundamental para valorar la reserva ovárica y la función reproductiva.",
+        },
+        {
+          id: 80,
+          name: "Hormona Antimulleriana <b>Mujer</b>",
+          desc: "Evalúa la hormona encargada de estimular el crecimiento de los folículos ováricos.",
+          category: "Prueba de Fertilidad",
+          img: "./assets/images/Examenes/Prueba de Fertilidad/Hormona antimulleriana mujer.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Es fundamental para valorar la reserva ovárica y la función reproductiva.",
+        },
+        {
+          id: 81,
+          name: "Progesterona <b>Mujer</b>",
+          desc: "Evalúa la hormona encargada de estimular el crecimiento de los folículos ováricos.",
+          category: "Prueba de Fertilidad",
+          img: "./assets/images/Examenes/Prueba de Fertilidad/Progesterona mujer.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Es fundamental para valorar la reserva ovárica y la función reproductiva.",
+        },
+        {
+          id: 82,
+          name: "Prolactina <b>Mujer</b>",
+          desc: "Evalúa la hormona encargada de estimular el crecimiento de los folículos ováricos.",
+          category: "Prueba de Fertilidad",
+          img: "./assets/images/Examenes/Prueba de Fertilidad/Prolactina mujer.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Es fundamental para valorar la reserva ovárica y la función reproductiva.",
+        },
+        {
+          id: 83,
+          name: "Estradiol <b>Mujer</b>",
+          desc: "Evalúa la hormona encargada de estimular el crecimiento de los folículos ováricos.",
+          category: "Prueba de Fertilidad",
+          img: "./assets/images/Examenes/Prueba de Fertilidad/Estradiol mujer.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Es fundamental para valorar la reserva ovárica y la función reproductiva.",
+        },
 
- {
-  id: 65,
-  name: "Glicemia",
-  desc: "Mide la cantidad de glucosa presente en la sangre para evaluar el metabolismo de los azúcares.",
-  category: "Paquete Rutinario",
-  img: "./assets/images/Examenes/Paquete Rutinario/Glicemia.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Se utiliza para el diagnóstico y control de diabetes o prediabetes."
-},
-{
-  id: 66,
-  name: "Colesterol",
-  desc: "Evalúa el nivel total de colesterol en sangre, relacionado con la salud cardiovascular.",
-  category: "Paquete Rutinario",
-  img: "./assets/images/Examenes/Paquete Rutinario/Colesterol.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Permite identificar riesgo de enfermedades del corazón y arterias."
-},
-{
-  id: 67,
-  name: "Triglicéridos",
-  desc: "Mide la cantidad de grasas circulantes en la sangre provenientes de la alimentación.",
-  category: "Paquete Rutinario",
-  img: "./assets/images/Examenes/Paquete Rutinario/Trigliceridos.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Valores altos se asocian con riesgo cardiovascular y síndrome metabólico."
-},
-{
-  id: 68,
-  name: "Hemograma (Cuadro Hemático)",
-  desc: "Analiza las células de la sangre como glóbulos rojos, blancos y plaquetas.",
-  category: "Paquete Rutinario",
-  img: "./assets/images/Examenes/Paquete Rutinario/Hemograma.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Permite detectar anemia, infecciones y alteraciones hematológicas."
-},
+        /* Paquete Rutinario */
 
-   /* Perfil Hepatico */
+        {
+          id: 65,
+          name: "Glicemia",
+          desc: "Mide la cantidad de glucosa presente en la sangre para evaluar el metabolismo de los azúcares.",
+          category: "Paquete Rutinario",
+          img: "./assets/images/Examenes/Paquete Rutinario/Glicemia.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Se utiliza para el diagnóstico y control de diabetes o prediabetes.",
+        },
+        {
+          id: 66,
+          name: "Colesterol",
+          desc: "Evalúa el nivel total de colesterol en sangre, relacionado con la salud cardiovascular.",
+          category: "Paquete Rutinario",
+          img: "./assets/images/Examenes/Paquete Rutinario/Colesterol.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Permite identificar riesgo de enfermedades del corazón y arterias.",
+        },
+        {
+          id: 67,
+          name: "Triglicéridos",
+          desc: "Mide la cantidad de grasas circulantes en la sangre provenientes de la alimentación.",
+          category: "Paquete Rutinario",
+          img: "./assets/images/Examenes/Paquete Rutinario/Trigliceridos.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Valores altos se asocian con riesgo cardiovascular y síndrome metabólico.",
+        },
+        {
+          id: 68,
+          name: "Hemograma (Cuadro Hemático)",
+          desc: "Analiza las células de la sangre como glóbulos rojos, blancos y plaquetas.",
+          category: "Paquete Rutinario",
+          img: "./assets/images/Examenes/Paquete Rutinario/Hemograma.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Permite detectar anemia, infecciones y alteraciones hematológicas.",
+        },
 
-  {
-  id: 69,
-  name: "Transaminasas [ALT, AST]",
-  desc: "Evalúa las enzimas ALT y AST para detectar inflamación o daño en el hígado.",
-  category: "Perfil Hepatico",
-  img: "./assets/images/Examenes/Perfil Hepatico/Transaminasas.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Útil para diagnosticar hepatitis, hígado graso, daño por alcohol o medicamentos y enfermedades hepáticas."
-},
-{
-  id: 70,
-  name: "Bilirrubina",
-  desc: "Mide el nivel de bilirrubina para evaluar la función del hígado y las vías biliares.",
-  category: "Perfil Hepatico",
-  img: "./assets/images/Examenes/Perfil Hepatico/Bilirrubina.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Permite detectar ictericia, obstrucción biliar, cálculos en vesícula o alteraciones hepáticas."
-},
-{
-  id: 71,
-  name: "Fosfatasa Alcalina",
-  desc: "Enzima relacionada con el hígado, vías biliares y sistema óseo.",
-  category: "Perfil Hepatico",
-  img: "./assets/images/Examenes/Perfil Hepatico/Fosfata alcalina.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Se eleva en obstrucción biliar, enfermedades del hígado y alteraciones óseas."
-},
-{
-  id: 72,
-  name: "GGT",
-  desc: "Enzima sensible para detectar daño hepático y de vías biliares.",
-  category: "Perfil Hepatico",
-  img: "./assets/images/Examenes/Perfil Hepatico/GGT.png",
-  /*price: "$25.000",*/
-  sample: "Sangre",
-  time: "24 horas",
-  details: "Indicador de afectación por alcohol, medicamentos, hígado graso u obstrucción biliar."
-},
-];
+        /* Perfil Hepatico */
 
-const examClinicalInfo = {
+        {
+          id: 69,
+          name: "Transaminasas [ALT, AST]",
+          desc: "Evalúa las enzimas ALT y AST para detectar inflamación o daño en el hígado.",
+          category: "Perfil Hepatico",
+          img: "./assets/images/Examenes/Perfil Hepatico/Transaminasas.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Útil para diagnosticar hepatitis, hígado graso, daño por alcohol o medicamentos y enfermedades hepáticas.",
+        },
+        {
+          id: 70,
+          name: "Bilirrubina",
+          desc: "Mide el nivel de bilirrubina para evaluar la función del hígado y las vías biliares.",
+          category: "Perfil Hepatico",
+          img: "./assets/images/Examenes/Perfil Hepatico/Bilirrubina.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Permite detectar ictericia, obstrucción biliar, cálculos en vesícula o alteraciones hepáticas.",
+        },
+        {
+          id: 71,
+          name: "Fosfatasa Alcalina",
+          desc: "Enzima relacionada con el hígado, vías biliares y sistema óseo.",
+          category: "Perfil Hepatico",
+          img: "./assets/images/Examenes/Perfil Hepatico/Fosfata alcalina.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Se eleva en obstrucción biliar, enfermedades del hígado y alteraciones óseas.",
+        },
+        {
+          id: 72,
+          name: "GGT",
+          desc: "Enzima sensible para detectar daño hepático y de vías biliares.",
+          category: "Perfil Hepatico",
+          img: "./assets/images/Examenes/Perfil Hepatico/GGT.png",
+          /*price: "$25.000",*/
+          sample: "Sangre",
+          time: "24 horas",
+          details:
+            "Indicador de afectación por alcohol, medicamentos, hígado graso u obstrucción biliar.",
+        },
+      ];
 
-  /* ================= PERFIL TIROIDEO ================= */
-  1: {
-    prep: "No requiere ayuno. Informar si está tomando levotiroxina.",
-    sintomas: "Fatiga, nerviosismo, pérdida o aumento de peso.",
-    utilidad: "Evalúa alteraciones tiroideas como hipertiroidismo."
-  },
-  2: {
-    prep: "No requiere ayuno.",
-    sintomas: "Síntomas de descontrol tiroideo.",
-    utilidad: "Mide la fracción activa real de T3."
-  },
-  3: {
-    prep: "No requiere ayuno.",
-    sintomas: "Somnolencia, intolerancia al frío.",
-    utilidad: "Apoya diagnóstico de hipotiroidismo."
-  },
-  4: {
-    prep: "No requiere ayuno.",
-    sintomas: "Cambios metabólicos inexplicables.",
-    utilidad: "Indicador clave del funcionamiento tiroideo."
-  },
-  6: {
-    prep: "No requiere ayuno.",
-    sintomas: "Irregularidades hormonales.",
-    utilidad: "Prueba principal para evaluar tiroides."
-  },
-  7: {
-    prep: "No requiere ayuno.",
-    sintomas: "Sospecha de enfermedad autoinmune.",
-    utilidad: "Diagnóstico de tiroiditis de Hashimoto."
-  },
+      /* ===================== VARIABLES ===================== */
+      let currentCategory = "all";
+      let selected = new Set();
 
-  /* ================= PAQUETE DIABETES ================= */
-  18: {
-    prep: "Ayuno obligatorio 8–12 horas.",
-    sintomas: "Sed excesiva, visión borrosa, orina frecuente.",
-    utilidad: "Prueba inicial para detectar diabetes."
-  },
-  20: {
-    prep: "No requiere ayuno.",
-    sintomas: "Control en pacientes diabéticos.",
-    utilidad: "Promedio de glucosa de últimos 3 meses."
-  },
-  21: {
-    prep: "Ayuno recomendado.",
-    sintomas: "Resistencia a la insulina.",
-    utilidad: "Evalúa producción pancreática."
-  },
-  22: {
-    prep: "Recolección adecuada de muestra de orina.",
-    sintomas: "Pacientes diabéticos con evolución prolongada.",
-    utilidad: "Detecta daño renal temprano."
-  },
+      const examListEl = document.getElementById("exam-list");
+      const searchInput = document.getElementById("search-input");
 
-  /* ================= SALUD SEXUAL ================= */
-  40: {
-    prep: "No tener relaciones 48h antes.",
-    sintomas: "Ardor al orinar, flujo anormal.",
-    utilidad: "Detecta infecciones de transmisión sexual."
-  },
-  41: {
-    prep: "Evitar antibióticos previos.",
-    sintomas: "Flujo vaginal o molestias urinarias.",
-    utilidad: "Diagnóstico de infecciones vaginales."
-  },
-  76: {
-    prep: "No requiere ayuno.",
-    sintomas: "Úlceras o sospecha de sífilis.",
-    utilidad: "Confirmación serológica de sífilis."
-  },
+      /* ===================== FILTRADO ===================== */
+      function filterExams() {
+        const q = searchInput.value.toLowerCase();
 
-  /* ================= PERFIL HEPATICO ================= */
-  69: {
-    prep: "Ayuno recomendado 8 horas.",
-    sintomas: "Dolor abdominal derecho, ictericia.",
-    utilidad: "Detecta inflamación o daño hepático."
-  },
-  72: {
-    prep: "Ayuno recomendado.",
-    sintomas: "Consumo frecuente de alcohol.",
-    utilidad: "Indicador sensible de daño hepático."
-  }
+        return exams.filter((e) => {
+          const matchCategory =
+            currentCategory === "all" ||
+            e.category.toLowerCase() === currentCategory.toLowerCase();
 
-};
+          const matchSearch =
+            e.name.toLowerCase().includes(q) ||
+            e.desc.toLowerCase().includes(q);
 
-const extra = examClinicalInfo[examen.id] || {
-  prep: "Consultar indicaciones específicas al momento de agendar.",
-  sintomas: "Según criterio médico.",
-  utilidad: examen.details
-};
-/* ===================== VARIABLES ===================== */
-let currentCategory = "all";
-let selected = new Set();
+          return matchCategory && matchSearch;
+        });
+      }
 
-const examListEl = document.getElementById("exam-list");
-const searchInput = document.getElementById("search-input");
+      /* ===================== RENDER ===================== */
+      function renderCards() {
+        examListEl.innerHTML = "";
 
-/* ===================== FILTRADO ===================== */
-function filterExams() {
-  const q = searchInput.value.toLowerCase();
+        filterExams().forEach((exam) => {
+          const card = document.createElement("div");
+          card.className = "exam-card";
 
-  return exams.filter(e => {
-    const matchCategory =
-      currentCategory === "all" ||
-      e.category.toLowerCase() === currentCategory.toLowerCase();
-
-    const matchSearch =
-      e.name.toLowerCase().includes(q) ||
-      e.desc.toLowerCase().includes(q);
-
-    return matchCategory && matchSearch;
-  });
-}
-
-/* ===================== RENDER ===================== */
-function renderCards() {
-  examListEl.innerHTML = "";
-
-  filterExams().forEach(exam => {
-    const card = document.createElement("div");
-    card.className = "exam-card";
-
-    card.innerHTML = `
+          card.innerHTML = `
       <img src="${exam.img}" alt="${exam.name}">
       <h4>${exam.name}</h4>
       <p>${exam.desc}</p>
@@ -2988,40 +2928,22 @@ function renderCards() {
       </button>
     `;
 
-    examListEl.appendChild(card);
-  });
+          examListEl.appendChild(card);
+        });
 
-  document.querySelectorAll(".compare").forEach(cb => {
-    cb.checked = selected.has(+cb.dataset.id);
-  });
-}
+        document.querySelectorAll(".compare").forEach((cb) => {
+          cb.checked = selected.has(+cb.dataset.id);
+        });
+      }
 
-/* ===================== DETALLE ===================== */
-function openDetail(id) {
+      /* ===================== DETALLE ===================== */
+      function openDetail(id) {
+        const e = exams.find((x) => x.id === id);
+        if (!e) return;
 
-  const e = exams.find((x) => x.id === id);
-  if (!e) return;
+        const extraInfo = categoryInfo[e.category] || "";
 
-  const extraCategory = categoryInfo[e.category] || "";
-  const advanced = advancedInfo[e.category] || {};
-
-  const symptomsHTML = generateList(
-    "Síntomas relacionados",
-    advanced.symptoms
-  );
-
-  const recommendationsHTML = generateList(
-    "Recomendaciones previas",
-    advanced.recommendations
-  );
-
-  const message = encodeURIComponent(
-    `Hola, quiero agendar el examen: ${e.name}`
-  );
-
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
-
-  detailBody.innerHTML = `
+        detailBody.innerHTML = `
     <h3>${e.name}</h3>
     <p>${e.desc}</p>
 
@@ -3030,185 +2952,102 @@ function openDetail(id) {
     <p><strong>Muestra:</strong> ${e.sample}</p>
     <p><strong>Tiempo de entrega:</strong> ${e.time}</p>
 
-    <hr>
-
-    <h4>Descripción clínica</h4>
-    <p>${e.details}</p>
+    <p><strong>Descripción clínica:</strong><br>${e.details}</p>
 
     <hr>
 
-    ${symptomsHTML}
-    ${recommendationsHTML}
-
-    <hr>
-
-    <h4>Información médica</h4>
-    ${extraCategory}
-
-    <br>
-
-    <a href="${whatsappLink}" target="_blank" class="whatsapp-btn">
-      Agendar por WhatsApp
-    </a>
+    <h4>Información Importante</h4>
+    ${extraInfo}
   `;
 
-  document.getElementById("detail-modal").style.display = "flex";
-}
+        document.getElementById("detail-modal").style.display = "flex";
+      }
+      /* ===================== COMPARACIÓN ===================== */
+      function openCompare() {
+        const sel = [...selected].map((id) => exams.find((e) => e.id === id));
 
-/* ===================== INFO AVANZADA POR CATEGORÍA ===================== */
+        if (sel.length !== 2) {
+          alert("Selecciona exactamente 2 exámenes");
+          return;
+        }
 
-const advancedInfo = {
-
-  "Perfil Tiroideo": {
-    symptoms: [
-      "Fatiga constante",
-      "Aumento o pérdida de peso sin causa",
-      "Ansiedad o depresión",
-      "Caída de cabello",
-      "Palpitaciones"
-    ],
-    recommendations: [
-      "No requiere ayuno",
-      "Evitar suplementos de biotina 48h antes",
-      "Informar si toma levotiroxina"
-    ]
-  },
-
-  "Paquete Diabetes": {
-    symptoms: [
-      "Sed excesiva",
-      "Orina frecuente",
-      "Visión borrosa",
-      "Cansancio extremo"
-    ],
-    recommendations: [
-      "Ayuno de 8 a 12 horas",
-      "No consumir bebidas azucaradas antes del examen",
-      "No suspender medicamentos sin indicación médica"
-    ]
-  },
-
-  "Salud sexual": {
-    symptoms: [
-      "Ardor al orinar",
-      "Flujo anormal",
-      "Dolor pélvico",
-      "Lesiones o secreciones"
-    ],
-    recommendations: [
-      "No tener relaciones 24h antes",
-      "No usar óvulos o cremas vaginales 48h antes",
-      "No orinar 2 horas antes (según examen)"
-    ]
-  }
-
-};
-
-/* =================== GENERAR LISTAS AUTOMATICAS =============== */
-
-function generateList(title, items) {
-  if (!items || items.length === 0) return "";
-
-  return `
-    <h4>${title}</h4>
-    <ul>
-      ${items.map(item => `<li>${item}</li>`).join("")}
-    </ul>
-  `;
-}
-
-/* ================== CTA DINAMICO ================= */
-
-const whatsappNumber = "573113212221";
-
-/* ===================== COMPARACIÓN ===================== */
-function openCompare() {
-  const sel = [...selected].map(id =>
-    exams.find(e => e.id === id)
-  );
-
-  if (sel.length !== 2) {
-    alert("Selecciona exactamente 2 exámenes");
-    return;
-  }
-
-  modalBody.innerHTML = sel.map(e => `
+        modalBody.innerHTML = sel
+          .map(
+            (e) => `
     <div>
       <h4>${e.name}</h4>
       <p>${e.desc}</p>
       <p>${e.price}</p>
     </div>
-  `).join("");
+  `,
+          )
+          .join("");
 
-  document.getElementById("compare-modal").style.display = "flex";
-}
+        document.getElementById("compare-modal").style.display = "flex";
+      }
 
-/* ===================== EVENTOS ===================== */
+      /* ===================== EVENTOS ===================== */
 
-// Categorías
-document.querySelectorAll("#category-list li").forEach(li => {
-  li.addEventListener("click", () => {
-    document.querySelectorAll("#category-list li")
-      .forEach(x => x.classList.remove("active"));
+      // Categorías
+      document.querySelectorAll("#category-list li").forEach((li) => {
+        li.addEventListener("click", () => {
+          document
+            .querySelectorAll("#category-list li")
+            .forEach((x) => x.classList.remove("active"));
 
-    li.classList.add("active");
-    currentCategory = li.dataset.category;
+          li.classList.add("active");
+          currentCategory = li.dataset.category;
 
-    renderCards();
-  });
-});
+          renderCards();
+        });
+      });
 
-// Buscar
-searchInput.addEventListener("input", renderCards);
+      // Buscar
+      searchInput.addEventListener("input", renderCards);
 
-// Selección comparar
-document.body.addEventListener("change", e => {
-  if (e.target.classList.contains("compare")) {
-    const id = +e.target.dataset.id;
+      // Selección comparar
+      document.body.addEventListener("change", (e) => {
+        if (e.target.classList.contains("compare")) {
+          const id = +e.target.dataset.id;
 
-    e.target.checked
-      ? selected.add(id)
-      : selected.delete(id);
+          e.target.checked ? selected.add(id) : selected.delete(id);
 
-    document.getElementById("bottom-compare").style.display =
-      selected.size ? "flex" : "none";
-  }
-});
+          document.getElementById("bottom-compare").style.display =
+            selected.size ? "flex" : "none";
+        }
+      });
 
-// Abrir detalle
-document.body.addEventListener("click", e => {
-  if (e.target.classList.contains("btn-detail")) {
-    openDetail(+e.target.dataset.id);
-  }
-});
+      // Abrir detalle
+      document.body.addEventListener("click", (e) => {
+        if (e.target.classList.contains("btn-detail")) {
+          openDetail(+e.target.dataset.id);
+        }
+      });
 
-// Comparar
-document.getElementById("compare-btn")
-  .addEventListener("click", openCompare);
+      // WhatsApp
+      document
+        .getElementById("detail-whatsapp")
+        .addEventListener("click", () => {
+          window.open(
+            "https://wa.me/573113212221?text=Hola, deseo información del examen",
+            "_blank",
+          );
+        });
 
-// WhatsApp
-document.getElementById("detail-whatsapp")
-  .addEventListener("click", () => {
-    window.open(
-      "https://wa.me/573113212221?text=Hola, deseo información del examen",
-      "_blank"
-    );
-  });
+      // Cerrar modales
+      document.getElementById("detail-close").onclick = () =>
+        (detailModal.style.display = "none");
 
-// Cerrar modales
-document.getElementById("detail-close").onclick =
-  () => detailModal.style.display = "none";
+      document.getElementById("modal-close").onclick = () =>
+        (compareModal.style.display = "none");
 
-document.getElementById("modal-close").onclick =
-  () => compareModal.style.display = "none";
+      document.getElementById("close-modal").onclick = () =>
+        (compareModal.style.display = "none");
 
-document.getElementById("close-modal").onclick =
-  () => compareModal.style.display = "none";
-
-/* ===================== INICIO ===================== */
-renderCards();
-</script>
-
+      /* ===================== INICIO ===================== */
+      renderCards();
+    </script>
+    
 <!-- Script funcionalidades -->
  <script>
 /* ===============================
