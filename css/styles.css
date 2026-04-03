@@ -36,6 +36,64 @@ body > *:first-child {
   padding-top: 0;
 }
 
+/* =============================
+  MODAL CATEGORIA EXAMENES
+  ========================= */
+
+  .modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.bottom-compare {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0b5ed7;
+  color: #fff;
+  padding: 12px 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===========================
+Lisa / Cuadricula 
+============================= */
+
+.list-view .examen-card {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
 /* ==============================
    NAVBAR FIJO
 ================================= */
@@ -2625,6 +2683,17 @@ textarea.form-control {
 }
 
 /* =========================
+   VARIABLES (branding PLUS)
+========================= */
+:root {
+  --plus-primary: #5B57A6;   /* morado */
+  --plus-secondary: #1FA4C9; /* azul */
+  --plus-light: #f2f4f7;
+  --plus-border: #dcdfe6;
+  --plus-text: #333;
+}
+
+/* =========================
    CATEGORY LIST BASE
 ========================= */
 #category-list {
@@ -2639,35 +2708,57 @@ textarea.form-control {
 }
 
 /* =========================
-   CATEGORY ITEM
+   CATEGORY ITEM (CUADRADO)
 ========================= */
 #category-list li {
   padding: 10px 16px;
-  border-radius: 999px;
-  background-color: #f2f4f7;
-  color: #333;
+  border-radius: 6px; /* 🔥 adiós óvalo */
+  background-color: #fff;
+  color: var(--plus-text);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.25s ease;
-  border: 1px solid transparent;
+  border: 1px solid var(--plus-border);
+  position: relative;
+  overflow: hidden;
 }
 
 /* Hover */
 #category-list li:hover {
-  background-color: #e3e7ee;
+  border-color: var(--plus-secondary);
+  color: var(--plus-secondary);
+  transform: translateY(-1px);
 }
 
-/* Active */
+/* Active (PROTAGONISTA) */
 #category-list li.active {
-  background-color: #0d6efd;
+  background: linear-gradient(135deg, var(--plus-primary), var(--plus-secondary));
   color: #fff;
-  border-color: #0d6efd;
+  border: none;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Barra inferior estilo "tab premium" */
+#category-list li.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  opacity: 0.4;
+}
+
+/* Precio más visible */
+#category-list li b {
+  font-weight: 600;
 }
 
 /* =========================
-   MOBILE FIRST (<= 768px)
+   MOBILE (scroll horizontal)
 ========================= */
 @media (max-width: 768px) {
   #category-list {
@@ -2675,11 +2766,11 @@ textarea.form-control {
     overflow-x: auto;
     justify-content: flex-start;
     padding-bottom: 10px;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
   }
 
   #category-list::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
+    display: none;
   }
 
   #category-list li {
@@ -2690,7 +2781,7 @@ textarea.form-control {
 }
 
 /* =========================
-   SMALL MOBILE (<= 480px)
+   SMALL MOBILE
 ========================= */
 @media (max-width: 480px) {
   #category-list {
@@ -2704,13 +2795,9 @@ textarea.form-control {
 }
 
 /* =========================
-   LARGE SCREENS (>= 1024px)
+   DESKTOP
 ========================= */
 @media (min-width: 1024px) {
-  #category-list {
-    justify-content: center;
-  }
-
   #category-list li {
     font-size: 14.5px;
     padding: 10px 18px;
