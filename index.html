@@ -281,7 +281,7 @@
               </li>
 
               <!-- Portal Pacientes -->
-              <!--<li class="nav-item dropdown">
+              <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
                   href="#"
@@ -289,15 +289,15 @@
                   role="button"
                   data-bs-toggle="dropdown"
                 >
-                  Portal Resultados
+                  Portal Administrador
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="login.html"
-                      >Mis Resultados</a
+                    <a class="dropdown-item" href="admin/admin.html"
+                      >Acceso admin</a
                     >
                   </li>
-                </ul>-->
+                </ul>
               </li>
             </ul>
           </div>
@@ -397,7 +397,7 @@
     <section class="porque-section">
       <br />
       <div class="porque-content">
-        <h2>🔬 ¿Por qué Plus Laboratorio Clínico?</h2>
+        <h2>🔬 ¿Por qué Plus Laboratorio Clínico Cartagena?</h2>
         <p>
           Elegirnos, significa confiar tu salud en manos expertas: <br /><br />
           ✅ <strong>Calidad y precisión</strong> en cada examen. <br />
@@ -635,13 +635,16 @@
       <li data-category="Salud de la Mujer">
         Paquete Salud de la Mujer <b>$550.000</b>
       </li>
-      <li data-category="Salud del Hombre">Paquete Salud del Hombre <b>$160.000</b></li>
+      <li data-category="Salud del Hombre">
+        Paquete Salud del Hombre <b>$160.000</b>
+      </li>
       <li data-category="Examenes de Laboratorio">
         Paquete Examenes de Laboratorio <b>$180.000</b>
       </li>
       <li data-category="Salud sexual">Paquete Salud Sexual <b>$350.000</b></li>
       <li data-category="Prueba de Fertilidad">
-        Paquete Prueba de Fertilidad <b>$800.000 Hombres</b> | <b>$600.000 Mujeres</b>
+        Paquete Prueba de Fertilidad <b>$800.000 Hombres</b> |
+        <b>$600.000 Mujeres</b>
       </li>
     </ul>
 
@@ -781,9 +784,8 @@
 
     <!-- Script BD -->
     <script>
-
-              /* ===================== BASE DE DATOS ===================== */
-     const exams = [
+      /* ===================== BASE DE DATOS ===================== */
+      const exams = [
         /* Perfil Tiroideo */
         {
           id: 1,
@@ -914,8 +916,8 @@
           time: "24 - 72 horas habiles",
           details: "Marcador para control de cáncer de colon y pulmón.",
         },
-        { /* Pendiente */
-          id: 14,
+        {
+          /* Pendiente */ id: 14,
           name: "PSA y PSA libre (Próstata)",
           desc: "Examen de sangre que mide los niveles de PSA total y PSA libre (Antígeno Prostático Específico), La medicion del PSA total y PSA libre permite al médico evaluar con mayor precisión el riesgo de cáncer de próstata. <br><br> ¡Para que sirve? <br>  <b> Detectar alteraciones en la próstata, Apoyar el diagnóstico de cáncer de próstata, Evaluar hiperplasia prostática benigna (agrandamiento de la próstata), Monitorear tratamientos prostáticos o oncológicos. </b> <br><br> ¿Como se realiza? <b> El procedimiento dura aproximadamente 3 a 5 minutos </b> <br><br> <b> Generalmente no requiere ayuno </b> <br><br> Recomendaciones <b> Evitar relaciones sexuales o eyaculación 48 horas antes del examen, No realizar ejercicio intenso o ciclismo 24 a 48 horas antes, No realizar el examen inmediatamente después de examen prostático o biopsia. </b>",
           category: "Paquete Tumoral",
@@ -1020,7 +1022,7 @@
         {
           id: 23,
           name: "Perfil Hemático",
-          desc: "Examen de sangre que evalúa los principales componentes de la sangre, Es uno de los exámenes más solicitados en medicina general. <br><br> ¡Para que sirve? <br> <b> Detectar anemia, Identificar infecciones, Evaluar trastornos hematológicos, Detectar problemas de coagulación, Monitorear enfermedades crónicas, Evaluar el estado general de salud. </b> <br><br> ¿Como se realiza? <b> ⏱ La toma dura aproximadamente 3 a 5 minutos </b> <br><br> <b> Generalmente no requiere ayuno <b> <br><br> <b> Se recomienda <b> Informar si esta tomando medicamentos anticoagulantes, Tiene antecedentes de anemia o transtornos sanguíneos, Presenta infecciones recientes.", 
+          desc: "Examen de sangre que evalúa los principales componentes de la sangre, Es uno de los exámenes más solicitados en medicina general. <br><br> ¡Para que sirve? <br> <b> Detectar anemia, Identificar infecciones, Evaluar trastornos hematológicos, Detectar problemas de coagulación, Monitorear enfermedades crónicas, Evaluar el estado general de salud. </b> <br><br> ¿Como se realiza? <b> ⏱ La toma dura aproximadamente 3 a 5 minutos </b> <br><br> <b> Generalmente no requiere ayuno <b> <br><br> <b> Se recomienda <b> Informar si esta tomando medicamentos anticoagulantes, Tiene antecedentes de anemia o transtornos sanguíneos, Presenta infecciones recientes.",
           category: "Examenes de Laboratorio",
           img: "./assets/images/Examenes/Examenes de Laboratorio/Perfil Hematico.png",
           /*price: "$25.000",*/
@@ -1213,7 +1215,8 @@
           category: "Salud sexual",
           img: "./assets/images/Examenes/Salud Sexual/Clamidia.png",
           /*price: "$25.000",*/
-          sample: "👩 Mujeres Hisopado vaginal o cervical - 👨 Hombres Hisopado uretral o muestra de orina",
+          sample:
+            "👩 Mujeres Hisopado vaginal o cervical - 👨 Hombres Hisopado uretral o muestra de orina",
           time: "48 - 72 horas hábiles",
           details: "Identifica bacterias asociadas a uretritis.",
         },
@@ -1224,7 +1227,8 @@
           category: "Salud sexual",
           img: "./assets/images/Examenes/Salud Sexual/Trichomonas vaginales.png",
           /*price: "$25.000",*/
-          sample: "👩 Mujeres Secreción vaginal (hisopado vaginal) - 👨 Hombres Secreción uretral o muestra de orina",
+          sample:
+            "👩 Mujeres Secreción vaginal (hisopado vaginal) - 👨 Hombres Secreción uretral o muestra de orina",
           time: "24 - 48 horas hábiles",
           details: "Apoya el diagnóstico de infecciones urinarias.",
         },
@@ -1235,7 +1239,8 @@
           category: "Salud sexual",
           img: "./assets/images/Examenes/Salud Sexual/Ureplasm  parvun.png",
           /*price: "$25.000",*/
-          sample: "👩 Mujeres Hisopado vaginal o cervical -👨 Hombres Hisopado uretral o muestra de orina",
+          sample:
+            "👩 Mujeres Hisopado vaginal o cervical -👨 Hombres Hisopado uretral o muestra de orina",
           time: "48 - 72 horas hábiles",
           details: "Infección de transmisión sexual frecuente y tratable.",
         },
@@ -1246,7 +1251,8 @@
           category: "Salud sexual",
           img: "./assets/images/Examenes/Salud Sexual/Mycoplasma genitalium.png",
           /*price: "$25.000",*/
-          sample: "👩 Mujeres Hisopado vaginal o cervical -👨 Hombres Hisopado uretral o muestra de orina",
+          sample:
+            "👩 Mujeres Hisopado vaginal o cervical -👨 Hombres Hisopado uretral o muestra de orina",
           time: "48 - 72 horas hábiles",
           details: "Causa uretritis y flujo genital.",
         },
@@ -1257,7 +1263,8 @@
           category: "Salud sexual",
           img: "./assets/images/Examenes/Salud Sexual/Mycoplasma hominis.png",
           /*price: "$25.000",*/
-          sample: "👩 Mujeres Hisopado vaginal o cervical -👨 Hombres Hisopado uretral o muestra de orina",
+          sample:
+            "👩 Mujeres Hisopado vaginal o cervical -👨 Hombres Hisopado uretral o muestra de orina",
           time: "48 - 72 horas hábiles",
           details: "Útil ante presencia de úlceras genitales.",
         },
@@ -1268,7 +1275,8 @@
           category: "Salud sexual",
           img: "./assets/images/Examenes/Salud Sexual/Ureaplasma Urealyticom.png",
           /*price: "$25.000",*/
-          sample: "👩 Mujeres Hisopado vaginal o cervical -👨 Hombres Hisopado uretral o muestra de orina",
+          sample:
+            "👩 Mujeres Hisopado vaginal o cervical -👨 Hombres Hisopado uretral o muestra de orina",
           time: "48 - 72 horas hábiles",
           details: "Causa flujo, ardor e irritación genital.",
         },
@@ -1279,7 +1287,8 @@
           category: "Salud sexual",
           img: "./assets/images/Examenes/Salud Sexual/Haemophylus ducreyi.png",
           /*price: "$25.000",*/
-          sample: "Hisopado de la lesión o úlcera genital - Secreción de la lesión",
+          sample:
+            "Hisopado de la lesión o úlcera genital - Secreción de la lesión",
           time: "48 - 72 horas hábiles",
           details: "Frecuente causa de mal olor vaginal.",
         },
@@ -1301,7 +1310,8 @@
           category: "Salud sexual",
           img: "./assets/images/Examenes/Salud Sexual/Candida albicans.png",
           /*price: "$25.000",*/
-          sample: "👩 Mujeres Secreción vaginal (hisopado vaginal) -👨 Hombres Secreción genital",
+          sample:
+            "👩 Mujeres Secreción vaginal (hisopado vaginal) -👨 Hombres Secreción genital",
           time: "24 - 48 horas hábiles",
           details: "Enfermedad de transmisión sexual tratable.",
         },
@@ -1323,7 +1333,8 @@
           category: "Salud sexual",
           img: "./assets/images/Examenes/Salud Sexual/Herpes simple I.png",
           /*price: "$25.000",*/
-          sample: "🩸 Sangre venosa (para detectar anticuerpos) - 🧫 Secreción de la lesión (hisopado de ampolla o llaga)",
+          sample:
+            "🩸 Sangre venosa (para detectar anticuerpos) - 🧫 Secreción de la lesión (hisopado de ampolla o llaga)",
           time: "24 - 48 horas hábiles",
           details: "Enfermedad de transmisión sexual tratable.",
         },
@@ -1334,7 +1345,8 @@
           category: "Salud sexual",
           img: "./assets/images/Examenes/Salud Sexual/Herpes simple II.png",
           /*price: "$25.000",*/
-          sample: "🩸 Sangre venosa (detección de anticuerpos) - 🧫 Secreción de la lesión genital (hisopado de ampolla o llaga)",
+          sample:
+            "🩸 Sangre venosa (detección de anticuerpos) - 🧫 Secreción de la lesión genital (hisopado de ampolla o llaga)",
           time: "24 - 48 horas hábiles",
           details: "Enfermedad de transmisión sexual tratable.",
         },
@@ -1345,7 +1357,8 @@
           category: "Salud sexual",
           img: "./assets/images/Examenes/Salud Sexual/Gonorrea.png",
           /*price: "$25.000",*/
-          sample: "Mujeres Hisopado vaginal o cervical - Hombres Hisopado uretral o muestra de orina",
+          sample:
+            "Mujeres Hisopado vaginal o cervical - Hombres Hisopado uretral o muestra de orina",
           time: "24 - 48 horas hábiles",
           details: "Enfermedad de transmisión sexual tratable.",
         },
@@ -1382,7 +1395,8 @@
           category: "Genética",
           img: "./assets/images/Examenes/Genetica/PCR en tiempo real.png",
           /*price: "$25.000",*/
-          sample: "Hisopado nasal o nasofaríngeo - Hisopado nasal o nasofaríngeo - Hisopado vaginal o uretral - Sangre venosa - Secreciones o fluidos corporales",
+          sample:
+            "Hisopado nasal o nasofaríngeo - Hisopado nasal o nasofaríngeo - Hisopado vaginal o uretral - Sangre venosa - Secreciones o fluidos corporales",
           time: "24 - 48 horas hábiles",
           details: "Permite diagnóstico de infecciones y estudios genéticos.",
         },
@@ -1451,7 +1465,8 @@
           category: "Salud Ocupacional",
           img: "./assets/images/Examenes/Salud Ocupacional/Toma de muestras.png",
           /*price: "$25.000",*/
-          sample: "🩸 Sangre venosa - 🚻 Orina -🧫 Secreciones vaginales o uretrales - 🧬 Hisopados nasales o faríngeos - 🧪 Muestras para estudios microbiológicos o moleculares",
+          sample:
+            "🩸 Sangre venosa - 🚻 Orina -🧫 Secreciones vaginales o uretrales - 🧬 Hisopados nasales o faríngeos - 🧪 Muestras para estudios microbiológicos o moleculares",
           time: "24 - 72 horas hábiles",
           details: "Proceso técnico para análisis de laboratorio.",
         },
@@ -1462,7 +1477,8 @@
           category: "Salud Ocupacional",
           img: "./assets/images/Examenes/Salud Ocupacional/Manipulacion de alimentos.png",
           /*price: "$25.000",*/
-          sample: "🚻 Muestra de heces -🩸 Sangre venosa (en algunos casos) - 🧫 Hisopado de garganta o nasal",
+          sample:
+            "🚻 Muestra de heces -🩸 Sangre venosa (en algunos casos) - 🧫 Hisopado de garganta o nasal",
           time: "24 - 48 horas hábiles",
           details: "Cumple normativa sanitaria vigente.",
         },
@@ -1744,7 +1760,7 @@
             "Indicador de afectación por alcohol, medicamentos, hígado graso u obstrucción biliar.",
         },
       ];
- 
+
       /* ===================== VARIABLES ===================== */
       let currentCategory = "all";
       let selected = new Set();
@@ -1926,7 +1942,7 @@
           <h5
             class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5"
           >
-           para la realización de cada exámen.
+            previas a la realizacion de los exámenes.
           </h5>
         </div>
         <div class="embla mt-4">
@@ -1983,7 +1999,8 @@
           <!--, Acreditaciones y Afiliaciones-->
         </h2>
         <p style="font-size: 1rem; color: #555; margin-bottom: 40px">
-        <!---->
+          Contamos con el respaldo de entidades reconocidas que garantizan la
+          calidad y confiabilidad de nuestros servicios.
         </p>
 
         <!-- Cards -->
@@ -2055,7 +2072,7 @@
         <div class="promociones-container">
           <!-- Promociones de la semana -->
           <div class="promociones-mes">
-            <h3>🎉 Promoción semanal </h3>
+            <h3>🎉 Promoción de la semana</h3>
             <div class="promo-carrusel">
               <div class="promo-slides">
                 <img
@@ -3093,6 +3110,32 @@
       });
     </script>
     <!-- Codigo referencia -->
+
+    <script>
+      Number(p.precio);
+
+      function doGet() {
+        return ContentService.createTextOutput("API activa");
+      }
+
+      function doPost(e) {
+        const sheet = SpreadsheetApp.openById(
+          "1K_BAHPwpYkSLX3H6pFfDNbD7hUXal9B3bYBUiIHnFZU",
+        ).getSheetByName("Hoja1");
+        const data = JSON.parse(e.postData.contents);
+
+        const rows = sheet.getDataRange().getValues();
+
+        for (let i = 1; i < rows.length; i++) {
+          if (rows[i][0] == data.nombre) {
+            sheet.getRange(i + 1, 2).setValue(data.precio);
+            return ContentService.createTextOutput("Actualizado");
+          }
+        }
+
+        return ContentService.createTextOutput("No encontrado");
+      }
+    </script>
 
     <!-- Script buscador exámenes -->
 
@@ -4402,6 +4445,15 @@ Documento confidencial.
       const activeCategory = document.querySelector("#category-list li.active");
 
       renderExams(activeCategory.dataset.category);
+
+      const items = document.querySelectorAll("#category-list li");
+
+      items.forEach((item) => {
+        item.addEventListener("click", () => {
+          items.forEach((i) => i.classList.remove("active"));
+          item.classList.add("active");
+        });
+      });
     </script>
   </body>
 </html>
