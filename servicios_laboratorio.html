@@ -3543,6 +3543,15 @@ document
 );
 
 renderExams(activeCategory.dataset.category);
+
+const items = document.querySelectorAll('#category-list li');
+
+items.forEach(item => {
+  item.addEventListener('click', () => {
+    items.forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+  });
+});
 </script>
 
   </body>
