@@ -306,7 +306,7 @@
     </section>
     <!-- FIN NAVBAR -->
 
-    <!-- Asesor virtual -->
+      <!-- Asesor virtual -->
     <!-- ================================
  ASESOR VIRTUAL TABOPLUS
 ================================ -->
@@ -687,6 +687,19 @@
     <!-- CONTENEDOR EXÁMENES -->
     <div id="examenes" class="grid-container"></div>
 
+    <!-- BARRA INFERIOR COMPARAR 
+    <div id="bottomCompare" class="bottom-compare">
+      <div id="compareInfo">Selecciona hasta 2 exámenes</div>
+      <button id="compareBtn">Comparar</button>
+    </div>-->
+
+    <div id="modal-examen" class="modal">
+      <div class="modal-content">
+        <span class="cerrar-modal">&times;</span>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
     <!-- MODAL DETALLE -->
     <div id="examModal" class="modal">
       <div class="modal-content">
@@ -706,6 +719,15 @@
 
         <h4>Preparación</h4>
         <p id="modalPrep"></p>
+      </div>
+    </div>
+
+    <!-- MODAL COMPARACIÓN -->
+    <div id="compareModal" class="modal">
+      <div class="modal-content">
+        <span class="close" data-close="compareModal">&times;</span>
+        <h3>Comparación de exámenes</h3>
+        <div id="compareContent"></div>
       </div>
     </div>
 
@@ -1863,18 +1885,6 @@
       // Buscar
       searchInput.addEventListener("input", renderCards);
 
-      // Selección comparar
-      document.body.addEventListener("change", (e) => {
-        if (e.target.classList.contains("compare")) {
-          const id = +e.target.dataset.id;
-
-          e.target.checked ? selected.add(id) : selected.delete(id);
-
-          document.getElementById("bottom-compare").style.display =
-            selected.size ? "flex" : "none";
-        }
-      });
-
       // Abrir detalle
       document.body.addEventListener("click", (e) => {
         if (e.target.classList.contains("btn-detail")) {
@@ -1905,7 +1915,7 @@
       /* ===================== INICIO ===================== */
       renderCards();
     </script>
-    
+
     <!-- FIN SECCION TESTIMONIOS -->
 
     <!-- Inicio carrusel de videos -->
@@ -2963,9 +2973,6 @@
               Ver detalles
             </button>
 
-            <button class="comparar-examen ${seleccionado}" data-id="${exam.id}">
-              Comparar
-            </button>
           </div>
         </div>
       `;
